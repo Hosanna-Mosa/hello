@@ -1,0 +1,32 @@
+{
+  "cli": {
+    "version": ">= 20.5.1",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "node": "24.11.1"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "node": "24.11.1"
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      },
+      "node": "24.11.1"
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}

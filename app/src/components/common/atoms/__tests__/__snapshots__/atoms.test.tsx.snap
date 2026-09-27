@@ -1,0 +1,2847 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`atoms — dark theme Avatar fallback 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Maya's avatar"
+    accessibilityRole="image"
+    accessible={true}
+    style={
+      [
+        {
+          "borderRadius": 999,
+          "height": 120,
+          "width": 120,
+        },
+        {
+          "alignItems": "center",
+          "backgroundColor": "#3A2419",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#FF8560",
+          },
+          {
+            "fontSize": 48,
+            "lineHeight": 60,
+          },
+        ]
+      }
+    >
+      M
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Avatar with source 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_ExpoImage
+    accessibilityLabel="Maya's avatar"
+    backgroundColor={4279242252}
+    borderRadius={999}
+    cachePolicy="memory-disk"
+    containerViewRef={"[React.ref]"}
+    contentFit="cover"
+    contentPosition={
+      {
+        "left": "50%",
+        "top": "50%",
+      }
+    }
+    height={44}
+    nativeViewRef={"[React.ref]"}
+    onError={[Function]}
+    onLoad={[Function]}
+    onLoadStart={[Function]}
+    onProgress={[Function]}
+    placeholder={[]}
+    sfEffect={null}
+    source={
+      [
+        {
+          "uri": "avatar-01",
+        },
+      ]
+    }
+    style={
+      {
+        "backgroundColor": "#100E0C",
+        "borderRadius": 999,
+        "height": 44,
+        "width": 44,
+      }
+    }
+    symbolSize={null}
+    symbolWeight={null}
+    transition={null}
+    width={44}
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Badge 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="12 unread"
+    accessible={true}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FF8560",
+        "borderRadius": 999,
+        "height": 20,
+        "justifyContent": "center",
+        "minWidth": 20,
+        "paddingHorizontal": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      12
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Badge dot 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="1 unread"
+    style={
+      {
+        "backgroundColor": "#FF8560",
+        "borderRadius": 999,
+        "height": 8,
+        "width": 8,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Badge overflow 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="143 unread"
+    accessible={true}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#FF8560",
+        "borderRadius": 999,
+        "height": 20,
+        "justifyContent": "center",
+        "minWidth": 20,
+        "paddingHorizontal": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      99+
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme BareInput 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    placeholder="Message"
+    placeholderTextColor="#747777"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#F5F2ED",
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Body 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#F5F2ED",
+        },
+        undefined,
+      ]
+    }
+  >
+    Weekends are for long walks.
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Body strong 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-SemiBold",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#F5F2ED",
+        },
+        undefined,
+      ]
+    }
+  >
+    Weekends are for long walks.
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Box 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Caption 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 12,
+          "lineHeight": 16,
+        },
+        {
+          "color": "#A3A5A5",
+        },
+        undefined,
+      ]
+    }
+  >
+    2 km away
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Chip selected 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Hiking"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": true,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={8}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#FF8560",
+        "borderColor": "#FF8560",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Chip static 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#100E0C",
+        "borderColor": "#322D29",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Chip unselected 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Hiking"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={8}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#100E0C",
+        "borderColor": "#322D29",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Divider 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "backgroundColor": "#2A2522",
+        "height": 0.5,
+        "marginLeft": 0,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Divider inset 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "backgroundColor": "#2A2522",
+        "height": 0.5,
+        "marginLeft": 72,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Heading 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Bold",
+          "fontSize": 32,
+          "letterSpacing": -0.5,
+          "lineHeight": 40,
+        },
+        {
+          "color": "#F5F2ED",
+        },
+        undefined,
+      ]
+    }
+  >
+    Find your people
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Icon 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_SymbolModule
+    accessibilityElementsHidden={true}
+    animated={false}
+    colors={[]}
+    importantForAccessibility="no"
+    name="house"
+    size={24}
+    style={
+      {
+        "height": 24,
+        "width": 24,
+      }
+    }
+    tint={4294308589}
+    tintColor="#F5F2ED"
+    type="monochrome"
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Input 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Your name"
+    placeholderTextColor="#747777"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "backgroundColor": "#100E0C",
+          "borderColor": "#322D29",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "color": "#F5F2ED",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Input invalid 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Your name"
+    placeholderTextColor="#747777"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "backgroundColor": "#100E0C",
+          "borderColor": "#FF6B6B",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "color": "#F5F2ED",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme KeyboardAware 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      {
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View />
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Label 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Medium",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#F5F2ED",
+        },
+        undefined,
+      ]
+    }
+  >
+    Interests
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme List 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      [
+        "Hiking",
+        "Board games",
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F5F2ED",
+              },
+              undefined,
+            ]
+          }
+        >
+          Hiking
+        </Text>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F5F2ED",
+              },
+              undefined,
+            ]
+          }
+        >
+          Board games
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Picture 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_ExpoImage
+    containerViewRef={"[React.ref]"}
+    contentFit="cover"
+    contentPosition={
+      {
+        "left": "50%",
+        "top": "50%",
+      }
+    }
+    nativeViewRef={"[React.ref]"}
+    onError={[Function]}
+    onLoad={[Function]}
+    onLoadStart={[Function]}
+    onProgress={[Function]}
+    placeholder={[]}
+    sfEffect={null}
+    source={
+      [
+        {
+          "uri": "avatar-01",
+        },
+      ]
+    }
+    style={{}}
+    symbolSize={null}
+    symbolWeight={null}
+    transition={null}
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme SafeArea 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNCSafeAreaView
+    edges={
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "additive",
+      }
+    }
+  >
+    <View />
+  </RNCSafeAreaView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Scroller 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View />
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme SectionedList 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      [
+        {
+          "data": [
+            "Hiking",
+          ],
+          "title": "Outdoors",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={
+      [
+        0,
+      ]
+    }
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F5F2ED",
+              },
+              undefined,
+            ]
+          }
+        >
+          Hiking
+        </Text>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      />
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Sheet hidden 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`atoms — dark theme Sheet visible 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Modal
+    transparent={true}
+    visible={true}
+  >
+    <View />
+  </Modal>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Spinner 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#FF8560"
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Stamp like 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "alignSelf": "flex-start",
+        "borderColor": "#45C4B5",
+        "borderRadius": 8,
+        "borderWidth": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "transform": [
+          {
+            "rotate": "-15deg",
+          },
+        ],
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Bold",
+            "fontSize": 24,
+            "letterSpacing": -0.3,
+            "lineHeight": 32,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          {
+            "color": "#45C4B5",
+          },
+        ]
+      }
+    >
+      LIKE
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Stamp nope 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "alignSelf": "flex-start",
+        "borderColor": "#FF6B6B",
+        "borderRadius": 8,
+        "borderWidth": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "transform": [
+          {
+            "rotate": "15deg",
+          },
+        ],
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Bold",
+            "fontSize": 24,
+            "letterSpacing": -0.3,
+            "lineHeight": 32,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          {
+            "color": "#FF6B6B",
+          },
+        ]
+      }
+    >
+      NOPE
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Tappable 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          undefined,
+        ]
+      }
+    >
+      Continue
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — dark theme Touchable 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          undefined,
+        ]
+      }
+    >
+      Continue
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Avatar fallback 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Maya's avatar"
+    accessibilityRole="image"
+    accessible={true}
+    style={
+      [
+        {
+          "borderRadius": 999,
+          "height": 120,
+          "width": 120,
+        },
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FCE9E2",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#F2724B",
+          },
+          {
+            "fontSize": 48,
+            "lineHeight": 60,
+          },
+        ]
+      }
+    >
+      M
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Avatar with source 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_ExpoImage
+    accessibilityLabel="Maya's avatar"
+    backgroundColor={4294045162}
+    borderRadius={999}
+    cachePolicy="memory-disk"
+    containerViewRef={"[React.ref]"}
+    contentFit="cover"
+    contentPosition={
+      {
+        "left": "50%",
+        "top": "50%",
+      }
+    }
+    height={44}
+    nativeViewRef={"[React.ref]"}
+    onError={[Function]}
+    onLoad={[Function]}
+    onLoadStart={[Function]}
+    onProgress={[Function]}
+    placeholder={[]}
+    sfEffect={null}
+    source={
+      [
+        {
+          "uri": "avatar-01",
+        },
+      ]
+    }
+    style={
+      {
+        "backgroundColor": "#F1EDEA",
+        "borderRadius": 999,
+        "height": 44,
+        "width": 44,
+      }
+    }
+    symbolSize={null}
+    symbolWeight={null}
+    transition={null}
+    width={44}
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Badge 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="12 unread"
+    accessible={true}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#F2724B",
+        "borderRadius": 999,
+        "height": 20,
+        "justifyContent": "center",
+        "minWidth": 20,
+        "paddingHorizontal": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#FFFFFF",
+          },
+          undefined,
+        ]
+      }
+    >
+      12
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Badge dot 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="1 unread"
+    style={
+      {
+        "backgroundColor": "#F2724B",
+        "borderRadius": 999,
+        "height": 8,
+        "width": 8,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Badge overflow 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="143 unread"
+    accessible={true}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#F2724B",
+        "borderRadius": 999,
+        "height": 20,
+        "justifyContent": "center",
+        "minWidth": 20,
+        "paddingHorizontal": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#FFFFFF",
+          },
+          undefined,
+        ]
+      }
+    >
+      99+
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme BareInput 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    placeholder="Message"
+    placeholderTextColor="#9A9C9C"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#1A1815",
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Body 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#1A1815",
+        },
+        undefined,
+      ]
+    }
+  >
+    Weekends are for long walks.
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Body strong 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-SemiBold",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "color": "#1A1815",
+        },
+        undefined,
+      ]
+    }
+  >
+    Weekends are for long walks.
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Box 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Caption 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 12,
+          "lineHeight": 16,
+        },
+        {
+          "color": "#686B6B",
+        },
+        undefined,
+      ]
+    }
+  >
+    2 km away
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Chip selected 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Hiking"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": true,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={8}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#F2724B",
+        "borderColor": "#F2724B",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#FFFFFF",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Chip static 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#F1EDEA",
+        "borderColor": "#E6E2DD",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Chip unselected 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Hiking"
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": false,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    hitSlop={8}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignSelf": "flex-start",
+        "backgroundColor": "#F1EDEA",
+        "borderColor": "#E6E2DD",
+        "borderRadius": 999,
+        "borderWidth": 1,
+        "opacity": 1,
+        "paddingHorizontal": 12,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      numberOfLines={1}
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      Hiking
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Divider 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "backgroundColor": "#E6E2DD",
+        "height": 0.5,
+        "marginLeft": 0,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Divider inset 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "backgroundColor": "#E6E2DD",
+        "height": 0.5,
+        "marginLeft": 72,
+      }
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Heading 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Bold",
+          "fontSize": 32,
+          "letterSpacing": -0.5,
+          "lineHeight": 40,
+        },
+        {
+          "color": "#1A1815",
+        },
+        undefined,
+      ]
+    }
+  >
+    Find your people
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Icon 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_SymbolModule
+    accessibilityElementsHidden={true}
+    animated={false}
+    colors={[]}
+    importantForAccessibility="no"
+    name="house"
+    size={24}
+    style={
+      {
+        "height": 24,
+        "width": 24,
+      }
+    }
+    tint={4279900181}
+    tintColor="#1A1815"
+    type="monochrome"
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Input 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Your name"
+    placeholderTextColor="#9A9C9C"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "backgroundColor": "#F1EDEA",
+          "borderColor": "#E6E2DD",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "color": "#1A1815",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Input invalid 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <TextInput
+    onBlur={[Function]}
+    onFocus={[Function]}
+    placeholder="Your name"
+    placeholderTextColor="#9A9C9C"
+    style={
+      [
+        {
+          "fontFamily": "Inter-Regular",
+          "fontSize": 15,
+          "lineHeight": 22,
+        },
+        {
+          "backgroundColor": "#F1EDEA",
+          "borderColor": "#EF4444",
+          "borderRadius": 8,
+          "borderWidth": 1,
+          "color": "#1A1815",
+          "minHeight": 44,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        },
+        undefined,
+      ]
+    }
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme KeyboardAware 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    onLayout={[Function]}
+    style={
+      {
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View />
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Label 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        {
+          "fontFamily": "Inter-Medium",
+          "fontSize": 13,
+          "lineHeight": 18,
+        },
+        {
+          "color": "#1A1815",
+        },
+        undefined,
+      ]
+    }
+  >
+    Interests
+  </Text>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme List 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      [
+        "Hiking",
+        "Board games",
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#1A1815",
+              },
+              undefined,
+            ]
+          }
+        >
+          Hiking
+        </Text>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#1A1815",
+              },
+              undefined,
+            ]
+          }
+        >
+          Board games
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Picture 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ViewManagerAdapter_ExpoImage
+    containerViewRef={"[React.ref]"}
+    contentFit="cover"
+    contentPosition={
+      {
+        "left": "50%",
+        "top": "50%",
+      }
+    }
+    nativeViewRef={"[React.ref]"}
+    onError={[Function]}
+    onLoad={[Function]}
+    onLoadStart={[Function]}
+    onProgress={[Function]}
+    placeholder={[]}
+    sfEffect={null}
+    source={
+      [
+        {
+          "uri": "avatar-01",
+        },
+      ]
+    }
+    style={{}}
+    symbolSize={null}
+    symbolWeight={null}
+    transition={null}
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme SafeArea 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNCSafeAreaView
+    edges={
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "additive",
+      }
+    }
+  >
+    <View />
+  </RNCSafeAreaView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Scroller 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View />
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme SectionedList 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RCTScrollView
+    data={
+      [
+        {
+          "data": [
+            "Hiking",
+          ],
+          "title": "Outdoors",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={
+      [
+        0,
+      ]
+    }
+  >
+    <View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#1A1815",
+              },
+              undefined,
+            ]
+          }
+        >
+          Hiking
+        </Text>
+      </View>
+      <View
+        onFocusCapture={[Function]}
+        onLayout={[Function]}
+        style={null}
+      />
+    </View>
+  </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Sheet hidden 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`atoms — light theme Sheet visible 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Modal
+    transparent={true}
+    visible={true}
+  >
+    <View />
+  </Modal>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Spinner 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#F2724B"
+  />
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Stamp like 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "alignSelf": "flex-start",
+        "borderColor": "#2FA89B",
+        "borderRadius": 8,
+        "borderWidth": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "transform": [
+          {
+            "rotate": "-15deg",
+          },
+        ],
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Bold",
+            "fontSize": 24,
+            "letterSpacing": -0.3,
+            "lineHeight": 32,
+          },
+          {
+            "color": "#1A1815",
+          },
+          {
+            "color": "#2FA89B",
+          },
+        ]
+      }
+    >
+      LIKE
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Stamp nope 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityElementsHidden={true}
+    importantForAccessibility="no"
+    style={
+      {
+        "alignSelf": "flex-start",
+        "borderColor": "#EF4444",
+        "borderRadius": 8,
+        "borderWidth": 4,
+        "paddingHorizontal": 12,
+        "paddingVertical": 4,
+        "transform": [
+          {
+            "rotate": "15deg",
+          },
+        ],
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Bold",
+            "fontSize": 24,
+            "letterSpacing": -0.3,
+            "lineHeight": 32,
+          },
+          {
+            "color": "#1A1815",
+          },
+          {
+            "color": "#EF4444",
+          },
+        ]
+      }
+    >
+      NOPE
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Tappable 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      Continue
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Touchable 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityRole="button"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Medium",
+            "fontSize": 13,
+            "lineHeight": 18,
+          },
+          {
+            "color": "#1A1815",
+          },
+          undefined,
+        ]
+      }
+    >
+      Continue
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;

@@ -32,6 +32,10 @@ yarn-error.*
 
 # local env files
 .env*.local
+# Secrets. `.env*.local` alone would have committed backend/.env.
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
