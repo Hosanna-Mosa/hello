@@ -26,9 +26,9 @@ import MatchScreen from "@/app/(tabs)/match";
 import LikeNoteScreen from "@/app/like-note/[id]";
 import MatchedScreen from "@/app/matched/[id]";
 
-import { DeckActions } from "@/components/deck/DeckActions";
-import { DeckSkeleton } from "@/components/deck/DeckSkeleton";
-import { SwipeCard } from "@/components/deck/SwipeCard";
+import { DeckActions } from "@/components/match/molecules/DeckActions";
+import { DeckSkeleton } from "@/components/match/molecules/DeckSkeleton";
+import { SwipeCard, type SwipeCardPerson } from "@/components/match/organisms/SwipeCard";
 
 import {
   redactCountdown,
@@ -41,7 +41,7 @@ import { configureClient, resetClient } from "@/services/client";
 import { likesService } from "@/services/likes.service";
 import { useDeckStore } from "@/stores/deck.store";
 
-const PERSON = {
+const PERSON: SwipeCardPerson = {
   id: "user-01",
   name: "Karthik",
   age: 29,

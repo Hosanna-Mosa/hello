@@ -11,7 +11,7 @@
 import { calculateAge } from "@/components/common/utils/calculateAge";
 import { MOCK_DISTANCES, SEEDED_USERS } from "@/mocks/profiles";
 
-import { ApiError, request } from "./client";
+import { ApiError, request, http, isMockMode } from "./client";
 import { safetyService } from "./safety.service";
 import type { Gender, Paginated, PublicProfile, User } from "./types";
 
@@ -82,11 +82,39 @@ function applyFilters(
   });
 }
 
+
+/**
+ * `ProfileFilters` -> query string.
+ *
+ * Arrays go as comma-separated values; the server accepts either that or a
+ * repeated param. Undefined and empty are omitted entirely rather than sent as
+ * blanks, because `?genders=` reads as "an empty gender filter" rather than
+ * "no gender filter".
+ */
+function toQueryString(filters: ProfileFilters, cursor?: string): string {
+  const q = new URLSearchParams();
+
+  if (filters.maxDistanceMetres !== undefined) q.set("maxDistanceMetres", String(filters.maxDistanceMetres));
+  if (filters.minAge !== undefined) q.set("minAge", String(filters.minAge));
+  if (filters.maxAge !== undefined) q.set("maxAge", String(filters.maxAge));
+  if (filters.activeRecently) q.set("activeRecently", "true");
+  if (filters.interestIds?.length) q.set("interestIds", filters.interestIds.join(","));
+  if (filters.genders?.length) q.set("genders", filters.genders.join(","));
+  if (cursor) q.set("cursor", cursor);
+
+  const s = q.toString();
+  return s ? `?${s}` : "";
+}
+
 export const profilesService = {
   async listNearby(
     filters: ProfileFilters = {},
     cursor?: string,
   ): Promise<Paginated<PublicProfile>> {
+    if (!isMockMode()) {
+      return http<Paginated<PublicProfile>>("GET", `/profiles${toQueryString(filters, cursor)}`);
+    }
+
     return request(() => {
       const blocked = safetyService.blockedIdsSync();
       const now = Date.now();
@@ -107,6 +135,11 @@ export const profilesService = {
 
   /** The live count under the distance slider. */
   async countMatching(filters: ProfileFilters = {}): Promise<number> {
+    if (!isMockMode()) {
+      const res = await http<{ count: number }>("GET", `/profiles/count${toQueryString(filters)}`);
+      return res.count;
+    }
+
     return request(() => {
       const blocked = safetyService.blockedIdsSync();
       return applyFilters(
@@ -118,6 +151,8 @@ export const profilesService = {
   },
 
   async getProfile(id: string): Promise<PublicProfile> {
+    if (!isMockMode()) return http<PublicProfile>("GET", `/profiles/${encodeURIComponent(id)}`);
+
     return request(() => {
       const user = SEEDED_USERS.find((u) => u.id === id);
       if (!user) throw new ApiError("notFound");
@@ -127,6 +162,14 @@ export const profilesService = {
 
   /** People by name only (PLAN Phase 5) — not bios, not interests. */
   async searchByName(query: string): Promise<PublicProfile[]> {
+    if (!isMockMode()) {
+      const q = query.trim();
+      // The server treats an empty q as no results; short-circuit so an empty
+      // search box does not make a round trip on every keystroke.
+      if (!q) return [];
+      return http<PublicProfile[]>("GET", `/profiles/search?q=${encodeURIComponent(q)}`);
+    }
+
     return request(() => {
       const needle = query.trim().toLowerCase();
       if (!needle) return [];

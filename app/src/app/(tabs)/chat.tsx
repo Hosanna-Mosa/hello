@@ -7,19 +7,20 @@ import {
   EmptyState,
   ErrorState,
   List,
-  SegmentedControl,
   TabScreenShell,
   Tappable,
   Icon,
   useTheme,
 } from "@/components/common";
 import { useFocusLoad } from "@/components/common/hooks/useFocusLoad";
-import { AdRow } from "@/components/ads/AdRow";
-import { NewMatchesCarousel, type NewMatch } from "@/components/chat/NewMatchesCarousel";
-import { RequestRow } from "@/components/chat/RequestRow";
-import { ThreadRow } from "@/components/chat/ThreadRow";
-import { ThreadSkeleton } from "@/components/chat/ThreadSkeleton";
+import { SegmentedControl } from "@/components/chat/molecules/SegmentedControl";
+import { AdRow } from "@/components/common/molecules/AdRow";
+import { NewMatchesCarousel, type NewMatch } from "@/components/chat/organisms/NewMatchesCarousel";
+import { RequestRow } from "@/components/chat/organisms/RequestRow";
+import { ThreadRow } from "@/components/chat/organisms/ThreadRow";
+import { ThreadSkeleton } from "@/components/common/molecules/ThreadSkeleton";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import type { ThreadPreview } from "@/services/chat.service";
 import { profilesService } from "@/services/profiles.service";
 import type { PublicProfile } from "@/services/types";
@@ -128,6 +129,7 @@ export default function ChatScreen() {
   const newMatches: NewMatch[] = previews.filter(isNewMatch).map((preview) => ({
     threadId: preview.thread.id,
     name: people[preview.partnerId]?.name ?? "",
+    source: avatarSource(people[preview.partnerId]?.avatarId),
   }));
 
   const conversations = previews.filter((preview) => !isNewMatch(preview));
@@ -176,6 +178,7 @@ export default function ChatScreen() {
             {index === AD_AFTER_ROW ? <AdRow /> : null}
             <ThreadRow
               name={people[item.partnerId]?.name ?? ""}
+              source={avatarSource(people[item.partnerId]?.avatarId)}
               snippet={item.lastMessage?.body ?? ""}
               lastMessageAt={new Date(item.thread.lastMessageAt).getTime()}
               unreadCount={item.thread.unreadCount}
@@ -210,6 +213,7 @@ export default function ChatScreen() {
         renderItem={({ item }) => (
           <RequestRow
             name={people[item.fromUserId]?.name ?? ""}
+            source={avatarSource(people[item.fromUserId]?.avatarId)}
             age={people[item.fromUserId]?.age ?? 0}
             note={item.note}
             createdAt={new Date(item.createdAt).getTime()}

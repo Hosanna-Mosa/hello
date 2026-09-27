@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+# Secrets. The root .gitignore only covered `.env*.local`, which would have
+# committed this project's `.env` on the first run.
+.env
+.env.*
+!.env.example
+# `.env.*` would have swallowed this one too. It is a TEMPLATE — no values, only
+# the names and the reasons — and it is the whole deploy procedure, so it has to
+# be in the repo rather than in someone's memory.
+!.env.production.example
+
+# The test-partner script's saved session
+.partner.json

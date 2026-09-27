@@ -44,11 +44,11 @@ import NotificationsScreen from "@/app/notifications";
 import SearchScreen from "@/app/search";
 import UserProfileScreen from "@/app/user/[id]";
 
-import { EmptyNearby } from "@/components/home/EmptyNearby";
-import { HomeHeader } from "@/components/home/HomeHeader";
-import { LocationChip } from "@/components/home/LocationChip";
-import { LocationDenied } from "@/components/home/LocationDenied";
-import { NearbySkeleton } from "@/components/home/NearbySkeleton";
+import { EmptyNearby } from "@/components/home/organisms/EmptyNearby";
+import { HomeHeader } from "@/components/home/organisms/HomeHeader";
+import { LocationChip } from "@/components/home/molecules/LocationChip";
+import { LocationDenied } from "@/components/home/organisms/LocationDenied";
+import { NearbySkeleton } from "@/components/common/molecules/NearbySkeleton";
 
 import { renderAtom, renderAtomAsync, THEMES } from "@/components/common/atoms/__tests__/renderAtom";
 import { billingService } from "@/services/billing.service";

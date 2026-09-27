@@ -9,13 +9,14 @@ import {
   List,
   ListRow,
   ScreenShell,
-  SearchBar,
   SectionHeader,
   Spinner,
   useDebouncedValue,
   useTheme,
 } from "@/components/common";
+import { SearchBar } from "@/components/search/molecules/SearchBar";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { profilesService } from "@/services/profiles.service";
 import type { PublicProfile } from "@/services/types";
 
@@ -119,7 +120,7 @@ export default function SearchScreen() {
           renderItem={({ item }) => (
             <ListRow
               title={`${item.name}, ${item.age}`}
-              leading={<Avatar name={item.name} />}
+              leading={<Avatar source={avatarSource(item.avatarId)} name={item.name} />}
               trailing={<DistanceLabel metres={item.distanceMetres} />}
               onPress={() => {
                 remember(item.name);

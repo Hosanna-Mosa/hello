@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { profilesService } from "@/services/profiles.service";
 import { useSettingsStore } from "@/stores/settings.store";
 
@@ -73,7 +74,7 @@ export default function BlockedSettingsScreen() {
           return (
             <ListRow
               title={name}
-              leading={<Avatar name={name} size="md" />}
+              leading={<Avatar source={avatarSource(item.profile?.avatarId)} name={name} size="md" />}
               trailing={
                 <Button
                   label={copy.settings.unblock}

@@ -38,21 +38,21 @@ import ChatScreen from "@/app/(tabs)/chat";
 import IncomingCallScreen from "@/app/incoming-call/[id]";
 import ThreadScreen from "@/app/thread/[id]";
 
-import { CallControls } from "@/components/calls/CallControls";
-import { IncomingCallActions } from "@/components/calls/IncomingCallActions";
-import { formatCallDuration } from "@/components/calls/useCallTimer";
-import { ChatBubble } from "@/components/chat/ChatBubble";
-import { ChatComposer } from "@/components/chat/ChatComposer";
-import { DaySeparator } from "@/components/chat/DaySeparator";
-import { NewMatchesCarousel } from "@/components/chat/NewMatchesCarousel";
-import { ReactionPicker } from "@/components/chat/ReactionPicker";
-import { RequestRow } from "@/components/chat/RequestRow";
-import { SystemMessage } from "@/components/chat/SystemMessage";
-import { ThreadMenu } from "@/components/chat/ThreadMenu";
-import { ThreadRow } from "@/components/chat/ThreadRow";
-import { ThreadSkeleton } from "@/components/chat/ThreadSkeleton";
-import { TypingIndicator } from "@/components/chat/TypingIndicator";
-import { CallShell, SegmentedControl } from "@/components/common";
+import { CallControls } from "@/components/call/molecules/CallControls";
+import { IncomingCallActions } from "@/components/incoming-call/molecules/IncomingCallActions";
+import { formatCallDuration } from "@/components/call/hooks/useCallTimer";
+import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
+import { ChatComposer } from "@/components/thread/molecules/ChatComposer";
+import { DaySeparator } from "@/components/thread/molecules/DaySeparator";
+import { NewMatchesCarousel } from "@/components/chat/organisms/NewMatchesCarousel";
+import { ReactionPicker } from "@/components/thread/molecules/ReactionPicker";
+import { RequestRow } from "@/components/chat/organisms/RequestRow";
+import { SystemMessage } from "@/components/thread/molecules/SystemMessage";
+import { ThreadMenu } from "@/components/thread/organisms/ThreadMenu";
+import { ThreadRow } from "@/components/chat/organisms/ThreadRow";
+import { ThreadSkeleton } from "@/components/common/molecules/ThreadSkeleton";
+import { CallShell } from "@/components/common";
+import { SegmentedControl } from "@/components/chat/molecules/SegmentedControl";
 
 import {
   redactClockTimes,
@@ -61,7 +61,7 @@ import {
   THEMES,
 } from "@/components/common/atoms/__tests__/renderAtom";
 import { copy } from "@/copy";
-import { SEEDED_THREADS } from "@/mocks/threads";
+import { SEEDED_MESSAGES, SEEDED_THREADS } from "@/mocks/threads";
 import { callsService } from "@/services/calls.service";
 import { chatService } from "@/services/chat.service";
 import { billingService } from "@/services/billing.service";
@@ -91,7 +91,6 @@ beforeEach(() => {
     requests: [],
     messages: {},
     drafts: {},
-    typing: {},
     loading: false,
     error: null,
   });
@@ -143,6 +142,66 @@ describe.each(THEMES)("Phase 7 — thread — %s theme", (theme) => {
     expect(
       redactClockTimes(await renderAtomAsync(<ThreadScreen />, theme)),
     ).toMatchSnapshot();
+  });
+});
+
+/** Every string in a rendered tree, flattened — enough to ask "is this on screen?". */
+function textOf(tree: unknown): string {
+  if (typeof tree === "string") return tree;
+  if (Array.isArray(tree)) return tree.map(textOf).join(" ");
+  if (tree && typeof tree === "object") {
+    return Object.values(tree as Record<string, unknown>).map(textOf).join(" ");
+  }
+  return "";
+}
+
+describe("reopening a conversation", () => {
+  /**
+   * The store keeps messages per thread, and the socket keeps appending to
+   * them while you are somewhere else. So coming back to a conversation you
+   * have already read should show it AT ONCE — the data is already in hand,
+   * and a skeleton over it is a loading state for work that is not needed.
+   *
+   * Asserted on the SYNCHRONOUS first frame on purpose: `renderAtomAsync`
+   * flushes the fetches, which would make a screen that reloads from scratch
+   * indistinguishable from one that painted from cache.
+   */
+  /** The newest seeded message in the default test thread. */
+  const LAST_SEEDED =
+    SEEDED_MESSAGES.filter((m) => m.threadId === "thread-1").at(-1)?.body ?? "";
+
+  it("shows a skeleton on a first visit, when nothing is cached", () => {
+    expect(LAST_SEEDED).not.toBe("");
+    expect(useChatStore.getState().messages["thread-1"]).toBeUndefined();
+
+    // The synchronous first frame, before any fetch has settled.
+    expect(textOf(renderAtom(<ThreadScreen />, "light"))).not.toContain(LAST_SEEDED);
+  });
+
+  it("paints the cached messages on the first frame of a reopen", async () => {
+    await renderAtomAsync(<ThreadScreen />, "light");
+
+    const cached = useChatStore.getState().messages["thread-1"] ?? [];
+    expect(cached.length).toBeGreaterThan(0);
+    const last = cached[cached.length - 1].body;
+
+    // Reopening: the very first frame, before any fetch has settled.
+    expect(textOf(renderAtom(<ThreadScreen />, "light"))).toContain(last);
+  });
+
+  it("keeps the conversation on screen when a refresh fails", async () => {
+    await renderAtomAsync(<ThreadScreen />, "light");
+    const cached = useChatStore.getState().messages["thread-1"] ?? [];
+    const last = cached[cached.length - 1].body;
+
+    // Every call now fails — the reopen's refresh included.
+    configureClient({ failureMode: "network", failureRate: 1 });
+    const tree = textOf(await renderAtomAsync(<ThreadScreen />, "light"));
+    configureClient({ failureMode: null });
+
+    // The messages are still true, and they are what the reader came back for.
+    expect(tree).toContain(last);
+    expect(tree).not.toContain("Something went wrong");
   });
 });
 
@@ -296,8 +355,6 @@ describe.each(THEMES)("Phase 7 — components — %s theme", (theme) => {
         theme,
       ),
     ).toMatchSnapshot());
-
-  it("TypingIndicator", () => expect(renderAtom(<TypingIndicator />, theme)).toMatchSnapshot());
 
   it("ChatComposer — empty", () =>
     expect(

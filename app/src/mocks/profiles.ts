@@ -15,7 +15,7 @@
 
 import type { IsoDate, IsoDateTime, User } from "@/services/types";
 
-import { AVATARS } from "./avatars";
+import { AVATAR_IDS } from "./avatarIds";
 import { INTERESTS } from "./interests";
 
 /** mulberry32 — small, fast, and identical on every platform. */
@@ -137,7 +137,7 @@ function build(): { users: User[]; distances: Map<string, number> } {
       birthday: isoDate(birthday),
       gender,
       showGender: random() > 0.2,
-      avatarId: AVATARS[index % AVATARS.length].id,
+      avatarId: AVATAR_IDS[index % AVATAR_IDS.length],
       bio: BIOS[index],
       interestIds,
       location: {

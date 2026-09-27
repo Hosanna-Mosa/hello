@@ -11,20 +11,20 @@
  */
 
 export type ReplyScript = {
-  /** Milliseconds to "type" before the message lands. */
-  typingMs: number;
+  /** How long the reply waits before landing. */
+  replyAfterMs: number;
   body: string;
 };
 
 export const REPLY_SCRIPTS: ReplyScript[] = [
-  { typingMs: 1800, body: "Ha, fair enough." },
-  { typingMs: 2400, body: "That works for me — what time were you thinking?" },
-  { typingMs: 2000, body: "Honestly I was hoping you'd say that." },
-  { typingMs: 2600, body: "Let me check and come back to you this evening." },
-  { typingMs: 1600, body: "Good shout. I hadn't thought of that." },
-  { typingMs: 2800, body: "I'm around most of the weekend if that helps." },
-  { typingMs: 2200, body: "Sounds good. I'll bring snacks." },
-  { typingMs: 1900, body: "Deal." },
+  { replyAfterMs: 1800, body: "Ha, fair enough." },
+  { replyAfterMs: 2400, body: "That works for me — what time were you thinking?" },
+  { replyAfterMs: 2000, body: "Honestly I was hoping you'd say that." },
+  { replyAfterMs: 2600, body: "Let me check and come back to you this evening." },
+  { replyAfterMs: 1600, body: "Good shout. I hadn't thought of that." },
+  { replyAfterMs: 2800, body: "I'm around most of the weekend if that helps." },
+  { replyAfterMs: 2200, body: "Sounds good. I'll bring snacks." },
+  { replyAfterMs: 1900, body: "Deal." },
 ];
 
 /** Deterministic: the same thread and turn always produce the same reply. */

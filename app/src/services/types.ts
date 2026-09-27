@@ -80,8 +80,24 @@ export type Interest = {
 
 export type Avatar = {
   id: string;
+  /**
+   * The palette-ish handle the id has always carried — "Sunrise", "Meadow".
+   *
+   * Never rendered and never read aloud. It exists so fixtures, logs and test
+   * names can refer to an avatar by something more memorable than `avatar-14`.
+   * Optional because the server does not send it: it is a client-side nicety,
+   * not part of the record.
+   */
+  name?: string;
+  /**
+   * What the picture shows — "Wearing a hijab, medium skin".
+   *
+   * This is what reaches `accessibilityLabel`, so it has to describe the
+   * person. A screen-reader user choosing between thirty avatars learns
+   * nothing from hearing "Sunrise".
+   */
   label: string;
-  /** Local asset module. Undefined until real artwork lands (A7, R2). */
+  /** Local asset module. Undefined only where artwork has not been bundled. */
   asset?: number;
 };
 
@@ -133,6 +149,23 @@ export type Thread = {
   unreadCount: number;
   /** Mutes notifications without unmatching. */
   muted: boolean;
+  /**
+   * The newest message, denormalised onto the thread.
+   *
+   * The conversation list renders a snippet per row, and fetching that per row
+   * is the N+1 this field exists to prevent — one request for the whole list
+   * rather than one per conversation.
+   *
+   * `null` is MEANINGFUL, not missing data: it is a match where nobody has
+   * said anything yet, which the Chat tab shows in "New matches" rather than
+   * as a conversation. Optional because the mock builds previews from its own
+   * message list and has no need to denormalise anything.
+   *
+   * `reactions` is always empty here — the row shows a body and a time, and
+   * copying reactions onto every thread write to render neither would be
+   * denormalisation for its own sake. Read the thread for the real ones.
+   */
+  lastMessage?: Message | null;
 };
 
 export type MessageStatus = "sending" | "sent" | "delivered" | "read" | "failed";
@@ -210,6 +243,19 @@ export type Block = {
   blockerId: string;
   blockedUserId: string;
   createdAt: IsoDateTime;
+  /**
+   * Who the block is about.
+   *
+   * The blocked list has to show a name, and a blocked user is excluded from
+   * `GET /profiles/:id` BY DEFINITION — so the one screen that must look them
+   * up cannot. Embedding the summary is what makes that screen possible while
+   * keeping the exclusion absolute.
+   *
+   * `distanceMetres` is always 0 here: where someone you blocked is standing
+   * is not this screen's business. Optional because the mock resolves the
+   * profile locally instead.
+   */
+  user?: PublicProfile | null;
 };
 
 /**
@@ -262,7 +308,19 @@ export type AppNotification = {
 
 export type Session = {
   userId: string;
+  /**
+   * The ACCESS token — short-lived (15 minutes). Sent as
+   * `Authorization: Bearer <token>` on every request but `POST /auth/*`.
+   */
   token: string;
+  /**
+   * Exchanged at `POST /auth/refresh` for a new access token, and rotated every
+   * time it is used. Long-lived (30 days), so it is the one value that must be
+   * stored in the device keychain rather than in memory.
+   */
+  refreshToken: string;
+  /** Seconds until `token` expires, so the client can refresh before a 401. */
+  expiresIn: number;
   /**
    * The number this session was opened with, in `+91 98765 43210` form.
    *

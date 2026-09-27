@@ -12,8 +12,8 @@ import {
   useEntitlements,
   useTheme,
 } from "@/components/common";
-import { BenefitList } from "@/components/premium/BenefitList";
-import { PlanCard } from "@/components/premium/PlanCard";
+import { BenefitList } from "@/components/common/molecules/BenefitList";
+import { PlanCard } from "@/components/paywall/molecules/PlanCard";
 import { copy } from "@/copy";
 import { useEntitlementsStore } from "@/stores/entitlements.store";
 

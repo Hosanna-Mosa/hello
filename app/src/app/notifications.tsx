@@ -4,23 +4,22 @@ import { useEffect, useState } from "react";
 import { Linking } from "react-native";
 
 import {
-  Avatar,
   Box,
   Caption,
   Icon,
   Label,
   Tappable,
   EmptyState,
-  ListRow,
   ScreenShell,
   SectionedList,
   SectionHeader,
   Spinner,
-  formatRelativeTime,
   useAsyncStatus,
   useTheme,
 } from "@/components/common";
+import { NotificationRow } from "@/components/notifications/organisms/NotificationRow";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { notificationsService } from "@/services/notifications.service";
 import { userById } from "@/mocks/profiles";
 import type { AppNotification } from "@/services/types";
@@ -123,11 +122,12 @@ export default function NotificationsScreen() {
           renderItem={({ item }) => {
             const actor = item.actorId ? userById(item.actorId) : undefined;
             return (
-              <ListRow
-                title={actor?.name ?? "Someone"}
-                subtitle={item.body}
-                leading={<Avatar name={actor?.name} />}
-                trailing={<Caption>{formatRelativeTime(new Date(item.createdAt).getTime())}</Caption>}
+              <NotificationRow
+                actorName={actor?.name}
+                actorAvatar={avatarSource(actor?.avatarId)}
+                fallbackName={copy.notifications.unknownActor}
+                body={item.body}
+                timestamp={new Date(item.createdAt).getTime()}
                 onPress={
                   // Deep links use the real scheme, where route groups like
                   // `(tabs)` do not appear — so these are plain paths.

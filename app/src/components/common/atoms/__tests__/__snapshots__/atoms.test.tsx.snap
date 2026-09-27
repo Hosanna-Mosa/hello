@@ -1127,6 +1127,41 @@ exports[`atoms — dark theme SectionedList 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`atoms — dark theme Sheet hidden 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`atoms — dark theme Sheet visible 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Modal
+    transparent={true}
+    visible={true}
+  >
+    <View />
+  </Modal>
+</RNCSafeAreaProvider>
+`;
+
 exports[`atoms — dark theme Spinner 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -2512,6 +2547,41 @@ exports[`atoms — light theme SectionedList 1`] = `
       />
     </View>
   </RCTScrollView>
+</RNCSafeAreaProvider>
+`;
+
+exports[`atoms — light theme Sheet hidden 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`atoms — light theme Sheet visible 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <Modal
+    transparent={true}
+    visible={true}
+  >
+    <View />
+  </Modal>
 </RNCSafeAreaProvider>
 `;
 

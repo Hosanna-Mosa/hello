@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Button, WizardShell } from "@/components/common";
 import { MINIMUM_INTERESTS } from "@/components/common/utils/profileCompleteness";
-import { InterestPicker } from "@/components/interests/InterestPicker";
+import { InterestPicker } from "@/components/common/organisms/InterestPicker";
 import { copy } from "@/copy";
 import { meService } from "@/services/me.service";
 

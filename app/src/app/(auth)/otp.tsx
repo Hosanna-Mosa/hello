@@ -14,7 +14,7 @@ import {
   Tappable,
   useTheme,
 } from "@/components/common";
-import { OTP_LENGTH, OtpInput } from "@/components/otp/OtpInput";
+import { OTP_LENGTH, OtpInput } from "@/components/otp/organisms/OtpInput";
 import { copy } from "@/copy";
 import { useSessionStore } from "@/stores/session.store";
 

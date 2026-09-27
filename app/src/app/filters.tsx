@@ -13,7 +13,7 @@ import {
   useEntitlements,
   useTheme,
 } from "@/components/common";
-import { FilterRow } from "@/components/filters/FilterRow";
+import { FilterRow } from "@/components/filters/molecules/FilterRow";
 import { copy } from "@/copy";
 import { interestById } from "@/mocks/interests";
 import { profilesService } from "@/services/profiles.service";

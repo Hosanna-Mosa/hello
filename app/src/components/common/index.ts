@@ -4,6 +4,15 @@
  * Screens import from here, never from a component's own folder. That keeps
  * every import in `src/app/**` one line long and makes a move inside
  * `components/common/` invisible to the routes.
+ *
+ * INVARIANT: nothing exported from this barrel may import `expo-router`.
+ * Re-exporting a navigation-aware module here pulls expo-router's untransformed
+ * `standard-navigation` dependency into every suite that touches the kit, and
+ * the pure atom tests fail at parse time with "Cannot use import statement
+ * outside a module" — a long way from the actual cause. Two members are
+ * deliberately absent for this reason and are imported by path instead:
+ * `hooks/useFocusLoad` (PLAN parking #58) and the `AdSlot` / `AdBanner` /
+ * `AdCard` / `AdRow` family, whose slot reads the current route.
  */
 
 // --- primitive wrappers: one thin layer over React Native ---
@@ -18,6 +27,7 @@ export { Label, type LabelProps } from "./atoms/Label";
 export { List, type ListHandle, type ListProps } from "./atoms/List";
 export { Picture, type PictureProps } from "./atoms/Picture";
 export { SafeArea, type SafeAreaProps } from "./atoms/SafeArea";
+export { Sheet, type SheetProps } from "./atoms/Sheet";
 export { Scroller, type ScrollerProps } from "./atoms/Scroller";
 export { SectionedList, type SectionedListProps } from "./atoms/SectionedList";
 export { Spinner, type SpinnerProps } from "./atoms/Spinner";
@@ -26,7 +36,7 @@ export { Toggle, type ToggleProps } from "./atoms/Toggle";
 export { Touchable, type TouchableProps } from "./atoms/Touchable";
 
 // --- app atoms ---
-export { Avatar, type AvatarProps, type AvatarSize } from "./atoms/Avatar";
+export { Avatar, type AvatarProps, type AvatarSize, type AvatarSource } from "./atoms/Avatar";
 export { Badge, type BadgeProps } from "./atoms/Badge";
 export { Chip, type ChipProps } from "./atoms/Chip";
 export { Divider, type DividerProps } from "./atoms/Divider";
@@ -34,36 +44,28 @@ export { Icon, type IconName, type IconProps } from "./atoms/Icon";
 export { Stamp, type StampKind, type StampProps } from "./atoms/Stamp";
 
 // --- molecules ---
+export { BenefitList } from "./molecules/BenefitList";
 export { Button, type ButtonProps, type ButtonVariant } from "./molecules/Button";
 export { Card, type CardProps } from "./molecules/Card";
-export { CountBadge, type CountBadgeProps } from "./molecules/CountBadge";
 export { DistanceLabel, type DistanceLabelProps } from "./molecules/DistanceLabel";
 export { EmptyState, type EmptyStateProps } from "./molecules/EmptyState";
 export { ErrorState, type ErrorStateProps } from "./molecules/ErrorState";
-export { Field, type FieldProps } from "./molecules/Field";
-export { InterestChips, type Interest, type InterestChipsProps } from "./molecules/InterestChips";
+export { InterestText, type InterestTextProps } from "./molecules/InterestText";
 export { ListRow, type ListRowProps } from "./molecules/ListRow";
+export { NearbySkeleton, type NearbySkeletonProps } from "./molecules/NearbySkeleton";
 export { RangeSlider, type RangeSliderProps } from "./molecules/RangeSlider";
-export { SearchBar, type SearchBarProps } from "./molecules/SearchBar";
 export { SectionHeader, type SectionHeaderProps } from "./molecules/SectionHeader";
-export {
-  SegmentedControl,
-  type Segment,
-  type SegmentedControlProps,
-} from "./molecules/SegmentedControl";
+export { SelectableRow, type SelectableRowProps } from "./molecules/SelectableRow";
 export { SettingsRow, type SettingsRowProps } from "./molecules/SettingsRow";
 export { Skeleton, type SkeletonProps } from "./molecules/Skeleton";
+export { ThreadSkeleton, type ThreadSkeletonProps } from "./molecules/ThreadSkeleton";
 export { ToggleRow, type ToggleRowProps } from "./molecules/ToggleRow";
 export { WizardProgress, type WizardProgressProps } from "./molecules/WizardProgress";
 
 // --- organisms ---
 export { AvatarPicker, type AvatarOption, type AvatarPickerProps } from "./organisms/AvatarPicker";
 export { ConfirmDialog, type ConfirmDialogProps } from "./organisms/ConfirmDialog";
-export {
-  ProfileCard,
-  type ProfileCardPerson,
-  type ProfileCardProps,
-} from "./organisms/ProfileCard";
+export { InterestPicker, type InterestPickerProps } from "./organisms/InterestPicker";
 
 // --- templates ---
 export { CallShell, type CallShellProps } from "./templates/CallShell";
@@ -78,6 +80,7 @@ export { WizardShell, type WizardShellProps } from "./templates/WizardShell";
 export { useAsyncStatus, type AsyncStatus, type AsyncStatusInput } from "./hooks/useAsyncStatus";
 export { useCountdown, formatCountdown } from "./hooks/useCountdown";
 export { useDebouncedValue } from "./hooks/useDebouncedValue";
+export { useBottomInset } from "./hooks/useBottomInset";
 export { useKeyboardInset } from "./hooks/useKeyboardInset";
 export {
   useEntitlements,

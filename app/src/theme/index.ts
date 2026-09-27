@@ -180,8 +180,18 @@ export type TypeRole =
  * silently renders regular on iOS and a faux-bold on Android. Naming the file is
  * the only reliable way.
  */
-export type TypeStyle = Pick<TextStyle, "fontSize" | "lineHeight" | "letterSpacing"> & {
+export type TypeStyle = Pick<TextStyle, "letterSpacing"> & {
   fontFamily: string;
+  /**
+   * Required, not optional as `TextStyle` has them.
+   *
+   * Every role in the scale sets both, and layout that RESERVES space for text
+   * — a fixed-height card that must not go ragged — adds `lineHeight` up. That
+   * arithmetic should read from the scale rather than restate it as a magic
+   * number, which is only possible if the value is known to exist.
+   */
+  fontSize: number;
+  lineHeight: number;
 };
 
 

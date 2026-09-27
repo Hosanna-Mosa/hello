@@ -24,6 +24,22 @@ export type SheetShellProps = {
   footer?: ReactNode;
   /** iOS draws its own grabber; set false when the OS already shows one. */
   showGrabber?: boolean;
+  /**
+   * Let the sheet be as tall as what is in it.
+   *
+   * Pairs with `sheetAllowedDetents: "fitToContents"` and is required for it
+   * to do anything: the default shell is `flex: 1` around a scroller, so it
+   * always measures as "whatever height you gave me" and the sheet has
+   * nothing to shrink to. A single numeric detent will not do instead —
+   * react-native-screens sets `isFitToContents` on the behaviour either way,
+   * but a `flex: 1` child still fills whatever it is offered.
+   *
+   * Drops the scroller with it, since a scroller has no natural height
+   * either. Safe only where content is bounded — this product has no
+   * photographs, a 300-character bio cap and at most ten interests. Do not
+   * set it on a sheet whose content can run long.
+   */
+  fitToContents?: boolean;
 };
 
 export function SheetShell({
@@ -33,11 +49,17 @@ export function SheetShell({
   onActionPress,
   footer,
   showGrabber = true,
+  fitToContents = false,
 }: SheetShellProps) {
   const theme = useTheme();
 
   return (
-    <Box style={{ flex: 1, backgroundColor: theme.color.surfaceElevated }}>
+    <Box
+      style={{
+        ...(fitToContents ? {} : { flex: 1 }),
+        backgroundColor: theme.color.surfaceElevated,
+      }}
+    >
       {showGrabber ? (
         <Box style={{ alignItems: "center", paddingTop: theme.spacing.sm }}>
           <Box
@@ -78,15 +100,27 @@ export function SheetShell({
         </Box>
       ) : null}
 
-      <Scroller
-        contentContainerStyle={{
-          paddingHorizontal: theme.spacing.xl,
-          paddingBottom: theme.spacing.xl,
-          gap: theme.spacing.lg,
-        }}
-      >
-        {children}
-      </Scroller>
+      {fitToContents ? (
+        <Box
+          style={{
+            paddingHorizontal: theme.spacing.xl,
+            paddingBottom: theme.spacing.xl,
+            gap: theme.spacing.lg,
+          }}
+        >
+          {children}
+        </Box>
+      ) : (
+        <Scroller
+          contentContainerStyle={{
+            paddingHorizontal: theme.spacing.xl,
+            paddingBottom: theme.spacing.xl,
+            gap: theme.spacing.lg,
+          }}
+        >
+          {children}
+        </Scroller>
+      )}
 
       {footer ? (
         <Box style={{ padding: theme.spacing.xl, gap: theme.spacing.sm }}>{footer}</Box>

@@ -11,13 +11,16 @@ import {
   SafeArea,
   useTheme,
 } from "@/components/common";
-import { Confetti } from "@/components/deck/Confetti";
-import { NotificationPrimer } from "@/components/notifications/NotificationPrimer";
+import { Confetti } from "@/components/matched/molecules/Confetti";
+import { NotificationPrimer } from "@/components/matched/organisms/NotificationPrimer";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { matchesService } from "@/services/matches.service";
+import { meService } from "@/services/me.service";
+import { profilesService } from "@/services/profiles.service";
+import { currentUserIdOrMe } from "@/services/client";
 import { useDeckStore } from "@/stores/deck.store";
 import { useSettingsStore } from "@/stores/settings.store";
-import { userById } from "@/mocks/profiles";
 
 /**
  * "It's a Connect!"
@@ -46,8 +49,11 @@ export default function MatchedScreen() {
    * make this screen blank on a deep link or after a reload — the param is the
    * only thing that survives both. The store is the fast path.
    */
+  /** The mock's literal `"me"` is not the signed-in id against the real API. */
+  const viewerId = currentUserIdOrMe();
+
   const [partnerId, setPartnerId] = useState<string | undefined>(
-    lastMatch?.userIds.find((userId) => userId !== "me"),
+    lastMatch?.userIds.find((userId) => userId !== viewerId),
   );
 
   /*
@@ -59,17 +65,72 @@ export default function MatchedScreen() {
     void loadPreferences();
   }, [loadPreferences]);
 
+
   useEffect(() => {
     if (partnerId || !id) return;
     void matchesService.getMatchForThread(id).then((match) => {
-      setPartnerId(match?.userIds.find((userId) => userId !== "me"));
+      setPartnerId(match?.userIds.find((userId) => userId !== viewerId));
     });
-  }, [id, partnerId]);
+  }, [id, partnerId, viewerId]);
 
-  const partner = partnerId ? userById(partnerId) : undefined;
-  // Undefined rather than a placeholder: "You and them both liked each other"
-  // is not a sentence, and the copy has a proper fallback for the unknown case.
-  const name = partner?.name;
+  /**
+   * Undefined rather than a placeholder: "You and them both liked each other"
+   * is not a sentence, and the copy has a proper fallback for the unknown case.
+   *
+   * Read through the service, not the mock's `userById` — that lookup only ever
+   * knew the 40 seeded people, so against the real API a genuine new match had
+   * no name here at all.
+   */
+  const [name, setName] = useState<string | undefined>(undefined);
+  const [avatar, setAvatar] = useState<number | undefined>(undefined);
+  /**
+   * Your own avatar, for the left-hand side of the pair.
+   *
+   * It was the literal "You" on a tinted circle — which was the only thing
+   * available before the artwork existed, and is now the one face on this
+   * screen that the user has actually chosen.
+   */
+  const [myAvatar, setMyAvatar] = useState<number | undefined>(undefined);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void meService
+      .getMe()
+      .then((me) => {
+        if (!cancelled) setMyAvatar(avatarSource(me.avatarId));
+      })
+      .catch(() => {
+        // The initial fallback is a perfectly good "you" — this screen
+        // dismisses itself, so there is nothing to retry into.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!partnerId) return;
+    let cancelled = false;
+
+    void profilesService
+      .getProfile(partnerId)
+      .then((profile) => {
+        if (!cancelled) {
+          setName(profile.name);
+          setAvatar(avatarSource(profile.avatarId));
+        }
+      })
+      .catch(() => {
+        // The fallback copy is the failure state — there is nothing to retry
+        // on a celebration screen that dismisses itself.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [partnerId]);
 
   function close() {
     clearLastMatch();
@@ -90,7 +151,7 @@ export default function MatchedScreen() {
           }}
         >
           <Box style={{ flexDirection: "row", alignItems: "center" }}>
-            <Avatar name="You" size="xl" />
+            <Avatar source={myAvatar} name="You" size="xl" />
 
             {/* The heart badge sits between the two, overlapping both. */}
             <Box
@@ -109,7 +170,7 @@ export default function MatchedScreen() {
               <Icon name={{ ios: "heart.fill", android: "favorite" }} size={30} color="accent" />
             </Box>
 
-            <Avatar name={name} size="xl" />
+            <Avatar source={avatar} name={name} size="xl" />
           </Box>
 
           <Heading

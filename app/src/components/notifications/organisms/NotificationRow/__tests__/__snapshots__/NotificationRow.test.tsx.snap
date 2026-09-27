@@ -1,0 +1,645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotificationRow — dark theme falls back when there is no actor 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Someone. Your match expired"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 12,
+        "minHeight": 64,
+        "opacity": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Avatar"
+      accessibilityRole="image"
+      accessible={true}
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "height": 44,
+            "width": 44,
+          },
+          {
+            "alignItems": "center",
+            "backgroundColor": "#3A2419",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#FF8560",
+            },
+            {
+              "fontSize": 17.6,
+              "lineHeight": 22,
+            },
+          ]
+        }
+      >
+        ?
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "gap": 2,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-SemiBold",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#F5F2ED",
+            },
+            undefined,
+          ]
+        }
+      >
+        Someone
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#A3A5A5",
+            },
+            undefined,
+          ]
+        }
+      >
+        Your match expired
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#A3A5A5",
+          },
+          undefined,
+        ]
+      }
+    >
+      1h
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`NotificationRow — dark theme with an actor 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Maya. liked you"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 12,
+        "minHeight": 64,
+        "opacity": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Maya's avatar"
+      accessibilityRole="image"
+      accessible={true}
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "height": 44,
+            "width": 44,
+          },
+          {
+            "alignItems": "center",
+            "backgroundColor": "#3A2419",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#FF8560",
+            },
+            {
+              "fontSize": 17.6,
+              "lineHeight": 22,
+            },
+          ]
+        }
+      >
+        M
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "gap": 2,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-SemiBold",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#F5F2ED",
+            },
+            undefined,
+          ]
+        }
+      >
+        Maya
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#A3A5A5",
+            },
+            undefined,
+          ]
+        }
+      >
+        liked you
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#A3A5A5",
+          },
+          undefined,
+        ]
+      }
+    >
+      1h
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`NotificationRow — light theme falls back when there is no actor 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Someone. Your match expired"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 12,
+        "minHeight": 64,
+        "opacity": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Avatar"
+      accessibilityRole="image"
+      accessible={true}
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "height": 44,
+            "width": 44,
+          },
+          {
+            "alignItems": "center",
+            "backgroundColor": "#FCE9E2",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#F2724B",
+            },
+            {
+              "fontSize": 17.6,
+              "lineHeight": 22,
+            },
+          ]
+        }
+      >
+        ?
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "gap": 2,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-SemiBold",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#1A1815",
+            },
+            undefined,
+          ]
+        }
+      >
+        Someone
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#686B6B",
+            },
+            undefined,
+          ]
+        }
+      >
+        Your match expired
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#686B6B",
+          },
+          undefined,
+        ]
+      }
+    >
+      1h
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`NotificationRow — light theme with an actor 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    accessibilityLabel="Maya. liked you"
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": true,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 12,
+        "minHeight": 64,
+        "opacity": 1,
+        "paddingHorizontal": 24,
+        "paddingVertical": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Maya's avatar"
+      accessibilityRole="image"
+      accessible={true}
+      style={
+        [
+          {
+            "borderRadius": 999,
+            "height": 44,
+            "width": 44,
+          },
+          {
+            "alignItems": "center",
+            "backgroundColor": "#FCE9E2",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#F2724B",
+            },
+            {
+              "fontSize": 17.6,
+              "lineHeight": 22,
+            },
+          ]
+        }
+      >
+        M
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flex": 1,
+          "gap": 2,
+        }
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-SemiBold",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#1A1815",
+            },
+            undefined,
+          ]
+        }
+      >
+        Maya
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#686B6B",
+            },
+            undefined,
+          ]
+        }
+      >
+        liked you
+      </Text>
+    </View>
+    <Text
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 12,
+            "lineHeight": 16,
+          },
+          {
+            "color": "#686B6B",
+          },
+          undefined,
+        ]
+      }
+    >
+      1h
+    </Text>
+  </View>
+</RNCSafeAreaProvider>
+`;

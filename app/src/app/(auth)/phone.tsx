@@ -14,7 +14,7 @@ import {
   Tappable,
   useTheme,
 } from "@/components/common";
-import { CountryPicker, DEFAULT_COUNTRY, type Country } from "@/components/phone/CountryPicker";
+import { CountryPicker, DEFAULT_COUNTRY, type Country } from "@/components/phone/organisms/CountryPicker";
 import { copy } from "@/copy";
 import { authService } from "@/services/auth.service";
 

@@ -287,3 +287,36 @@ describe("auth", () => {
     expect(completed.onboardingComplete).toBe(true);
   });
 });
+
+describe("the match gate on a profile", () => {
+  /**
+   * Messaging is match-gated (PLAN §1), and the profile sheet's message action
+   * is driven entirely by this lookup. If it ever answers for a stranger, the
+   * app grows a way to message someone you have not matched with — which is
+   * the one thing the product rule forbids.
+   */
+  it("finds the active match with a matched person", async () => {
+    // `user-01` is the first seeded conversation partner.
+    const match = await matchesService.getMatchWithUser("user-01");
+
+    expect(match).not.toBeNull();
+    expect(match?.userIds).toContain("user-01");
+    expect(match?.threadId).toBeTruthy();
+  });
+
+  it("returns null for someone you have not matched with", async () => {
+    // `user-30` is in the seed but has no match, like most people.
+    expect(await matchesService.getMatchWithUser("user-30")).toBeNull();
+  });
+
+  it("returns null once the match has ended", async () => {
+    const before = await matchesService.getMatchWithUser("user-01");
+    expect(before).not.toBeNull();
+
+    await matchesService.unmatch(before!.id);
+
+    // The match row is kept so the pair cannot recur — but it must no longer
+    // offer a way to message.
+    expect(await matchesService.getMatchWithUser("user-01")).toBeNull();
+  });
+});

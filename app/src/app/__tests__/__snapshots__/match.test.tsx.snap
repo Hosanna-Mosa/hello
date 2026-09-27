@@ -137,46 +137,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Bea's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -244,273 +245,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                 >
                   Bea, 41
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Hip hop
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#33280F",
-                        "borderColor": "#33280F",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#EFC377",
-                          },
-                        ]
-                      }
-                    >
-                      History
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Hip hop · Batch cooking · History · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -583,46 +335,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Hugo's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -690,273 +443,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                 >
                   Hugo, 33
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Drawing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Jazz
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#3A2419",
-                        "borderColor": "#3A2419",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#FFAE90",
-                          },
-                        ]
-                      }
-                    >
-                      Karaoke
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Drawing · Jazz · Karaoke · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -1068,46 +572,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Talia's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -1175,273 +680,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — deck with cards 
                 >
                   Talia, 39
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Dancing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#33280F",
-                        "borderColor": "#33280F",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#EFC377",
-                          },
-                        ]
-                      }
-                    >
-                      Board games
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#3A2419",
-                        "borderColor": "#3A2419",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#FFAE90",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#331A26",
-                        "borderColor": "#331A26",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#F09ABA",
-                          },
-                        ]
-                      }
-                    >
-                      Comedy nights
-                    </Text>
-                  </View>
-                </View>
+                  Dancing · Board games · Batch cooking · Comedy nights
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -2598,46 +1854,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Bea's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -2705,273 +1962,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                 >
                   Bea, 41
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Hip hop
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#33280F",
-                        "borderColor": "#33280F",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#EFC377",
-                          },
-                        ]
-                      }
-                    >
-                      History
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Hip hop · Batch cooking · History · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -3044,46 +2052,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Hugo's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -3151,273 +2160,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                 >
                   Hugo, 33
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Drawing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Jazz
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#3A2419",
-                        "borderColor": "#3A2419",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#FFAE90",
-                          },
-                        ]
-                      }
-                    >
-                      Karaoke
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#241E3B",
-                        "borderColor": "#241E3B",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#B5A6F0",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Drawing · Jazz · Karaoke · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -3529,46 +2289,47 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Talia's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -3636,273 +2397,24 @@ exports[`Phase 6 — match deck — dark theme (tabs)/match — out of cards 1`]
                 >
                   Talia, 39
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#A3A5A5",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#12302D",
-                        "borderColor": "#12302D",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#7FD9CB",
-                          },
-                        ]
-                      }
-                    >
-                      Dancing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#33280F",
-                        "borderColor": "#33280F",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#EFC377",
-                          },
-                        ]
-                      }
-                    >
-                      Board games
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#3A2419",
-                        "borderColor": "#3A2419",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#FFAE90",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#331A26",
-                        "borderColor": "#331A26",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#F5F2ED",
-                          },
-                          {
-                            "color": "#F09ABA",
-                          },
-                        ]
-                      }
-                    >
-                      Comedy nights
-                    </Text>
-                  </View>
-                </View>
+                  Dancing · Board games · Batch cooking · Comedy nights
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -5187,273 +3699,24 @@ exports[`Phase 6 — match deck — dark theme SwipeCard 1`] = `
       >
         Karthik, 29
       </Text>
-      <View
+      <Text
+        numberOfLines={2}
         style={
-          {
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "gap": 8,
-            "overflow": "hidden",
-          }
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#A3A5A5",
+            },
+            undefined,
+          ]
         }
       >
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#3A2419",
-              "borderColor": "#3A2419",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F5F2ED",
-                },
-                {
-                  "color": "#FFAE90",
-                },
-              ]
-            }
-          >
-            Travel
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#241E3B",
-              "borderColor": "#241E3B",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F5F2ED",
-                },
-                {
-                  "color": "#B5A6F0",
-                },
-              ]
-            }
-          >
-            Coffee
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#3A2419",
-              "borderColor": "#3A2419",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F5F2ED",
-                },
-                {
-                  "color": "#FFAE90",
-                },
-              ]
-            }
-          >
-            Photography
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#33280F",
-              "borderColor": "#33280F",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F5F2ED",
-                },
-                {
-                  "color": "#EFC377",
-                },
-              ]
-            }
-          >
-            Hiking
-          </Text>
-        </View>
-      </View>
+        Travel · Coffee · Photography · Hiking
+      </Text>
       <Text
         numberOfLines={3}
         style={
@@ -5565,46 +3828,47 @@ exports[`Phase 6 — match deck — dark theme like-note/[id] 1`] = `
             }
           }
         >
-          <View
+          <ViewManagerAdapter_ExpoImage
             accessibilityLabel="Maya's avatar"
-            accessibilityRole="image"
-            accessible={true}
-            style={
+            backgroundColor={4279242252}
+            borderRadius={999}
+            cachePolicy="memory-disk"
+            containerViewRef={"[React.ref]"}
+            contentFit="cover"
+            contentPosition={
+              {
+                "left": "50%",
+                "top": "50%",
+              }
+            }
+            height={64}
+            nativeViewRef={"[React.ref]"}
+            onError={[Function]}
+            onLoad={[Function]}
+            onLoadStart={[Function]}
+            onProgress={[Function]}
+            placeholder={[]}
+            sfEffect={null}
+            source={
               [
                 {
-                  "borderRadius": 999,
-                  "height": 64,
-                  "width": 64,
-                },
-                {
-                  "alignItems": "center",
-                  "backgroundColor": "#3A2419",
-                  "justifyContent": "center",
+                  "testUri": "../../../assets/avatars/avatar-01.png",
                 },
               ]
             }
-          >
-            <Text
-              style={
-                [
-                  {
-                    "fontFamily": "Inter-Medium",
-                    "fontSize": 13,
-                    "lineHeight": 18,
-                  },
-                  {
-                    "color": "#FF8560",
-                  },
-                  {
-                    "fontSize": 25.6,
-                    "lineHeight": 32,
-                  },
-                ]
+            style={
+              {
+                "backgroundColor": "#100E0C",
+                "borderRadius": 999,
+                "height": 64,
+                "width": 64,
               }
-            >
-              M
-            </Text>
-          </View>
+            }
+            symbolSize={null}
+            symbolWeight={null}
+            transition={null}
+            width={64}
+          />
           <Text
             style={
               [
@@ -6997,46 +5261,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Bea's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -7104,273 +5369,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                 >
                   Bea, 41
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Hip hop
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDF0DC",
-                        "borderColor": "#FDF0DC",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8A5B12",
-                          },
-                        ]
-                      }
-                    >
-                      History
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Hip hop · Batch cooking · History · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -7443,46 +5459,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Hugo's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -7550,273 +5567,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                 >
                   Hugo, 33
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Drawing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Jazz
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDE8E2",
-                        "borderColor": "#FDE8E2",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#A8412A",
-                          },
-                        ]
-                      }
-                    >
-                      Karaoke
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Drawing · Jazz · Karaoke · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -7928,46 +5696,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Talia's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -8035,273 +5804,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — deck with cards
                 >
                   Talia, 39
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Dancing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDF0DC",
-                        "borderColor": "#FDF0DC",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8A5B12",
-                          },
-                        ]
-                      }
-                    >
-                      Board games
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDE8E2",
-                        "borderColor": "#FDE8E2",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#A8412A",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FBE7EF",
-                        "borderColor": "#FBE7EF",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8F2B52",
-                          },
-                        ]
-                      }
-                    >
-                      Comedy nights
-                    </Text>
-                  </View>
-                </View>
+                  Dancing · Board games · Batch cooking · Comedy nights
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -9458,46 +6978,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Bea's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -9565,273 +7086,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                 >
                   Bea, 41
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Hip hop
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDF0DC",
-                        "borderColor": "#FDF0DC",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8A5B12",
-                          },
-                        ]
-                      }
-                    >
-                      History
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Hip hop · Batch cooking · History · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -9904,46 +7176,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Hugo's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -10011,273 +7284,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                 >
                   Hugo, 33
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Drawing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Jazz
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDE8E2",
-                        "borderColor": "#FDE8E2",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#A8412A",
-                          },
-                        ]
-                      }
-                    >
-                      Karaoke
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#EDE8FA",
-                        "borderColor": "#EDE8FA",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#4B3A8F",
-                          },
-                        ]
-                      }
-                    >
-                      Astronomy
-                    </Text>
-                  </View>
-                </View>
+                  Drawing · Jazz · Karaoke · Astronomy
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -10389,46 +7413,47 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                   }
                 }
               >
-                <View
+                <ViewManagerAdapter_ExpoImage
                   accessibilityLabel="Talia's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={120}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 120,
-                        "width": 120,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 48,
-                          "lineHeight": 60,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 120,
+                      "width": 120,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={120}
+                />
                 <View
                   style={
                     {
@@ -10496,273 +7521,24 @@ exports[`Phase 6 — match deck — light theme (tabs)/match — out of cards 1`
                 >
                   Talia, 39
                 </Text>
-                <View
+                <Text
+                  numberOfLines={2}
                   style={
-                    {
-                      "flexDirection": "row",
-                      "flexWrap": "wrap",
-                      "gap": 8,
-                      "overflow": "hidden",
-                    }
+                    [
+                      {
+                        "fontFamily": "Inter-Regular",
+                        "fontSize": 15,
+                        "lineHeight": 22,
+                      },
+                      {
+                        "color": "#686B6B",
+                      },
+                      undefined,
+                    ]
                   }
                 >
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#E3F4F1",
-                        "borderColor": "#E3F4F1",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#18645A",
-                          },
-                        ]
-                      }
-                    >
-                      Dancing
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDF0DC",
-                        "borderColor": "#FDF0DC",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8A5B12",
-                          },
-                        ]
-                      }
-                    >
-                      Board games
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FDE8E2",
-                        "borderColor": "#FDE8E2",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#A8412A",
-                          },
-                        ]
-                      }
-                    >
-                      Batch cooking
-                    </Text>
-                  </View>
-                  <View
-                    accessibilityState={
-                      {
-                        "busy": undefined,
-                        "checked": undefined,
-                        "disabled": true,
-                        "expanded": undefined,
-                        "selected": undefined,
-                      }
-                    }
-                    accessibilityValue={
-                      {
-                        "max": undefined,
-                        "min": undefined,
-                        "now": undefined,
-                        "text": undefined,
-                      }
-                    }
-                    accessible={true}
-                    collapsable={false}
-                    focusable={true}
-                    onBlur={[Function]}
-                    onClick={[Function]}
-                    onFocus={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      {
-                        "alignSelf": "flex-start",
-                        "backgroundColor": "#FBE7EF",
-                        "borderColor": "#FBE7EF",
-                        "borderRadius": 999,
-                        "borderWidth": 1,
-                        "opacity": 1,
-                        "paddingHorizontal": 12,
-                        "paddingVertical": 8,
-                      }
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        [
-                          {
-                            "fontFamily": "Inter-Medium",
-                            "fontSize": 13,
-                            "lineHeight": 18,
-                          },
-                          {
-                            "color": "#1A1815",
-                          },
-                          {
-                            "color": "#8F2B52",
-                          },
-                        ]
-                      }
-                    >
-                      Comedy nights
-                    </Text>
-                  </View>
-                </View>
+                  Dancing · Board games · Batch cooking · Comedy nights
+                </Text>
                 <Text
                   numberOfLines={3}
                   style={
@@ -12047,273 +8823,24 @@ exports[`Phase 6 — match deck — light theme SwipeCard 1`] = `
       >
         Karthik, 29
       </Text>
-      <View
+      <Text
+        numberOfLines={2}
         style={
-          {
-            "flexDirection": "row",
-            "flexWrap": "wrap",
-            "gap": 8,
-            "overflow": "hidden",
-          }
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#686B6B",
+            },
+            undefined,
+          ]
         }
       >
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#FDE8E2",
-              "borderColor": "#FDE8E2",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#1A1815",
-                },
-                {
-                  "color": "#A8412A",
-                },
-              ]
-            }
-          >
-            Travel
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#EDE8FA",
-              "borderColor": "#EDE8FA",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#1A1815",
-                },
-                {
-                  "color": "#4B3A8F",
-                },
-              ]
-            }
-          >
-            Coffee
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#FDE8E2",
-              "borderColor": "#FDE8E2",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#1A1815",
-                },
-                {
-                  "color": "#A8412A",
-                },
-              ]
-            }
-          >
-            Photography
-          </Text>
-        </View>
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": true,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignSelf": "flex-start",
-              "backgroundColor": "#FDF0DC",
-              "borderColor": "#FDF0DC",
-              "borderRadius": 999,
-              "borderWidth": 1,
-              "opacity": 1,
-              "paddingHorizontal": 12,
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            numberOfLines={1}
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#1A1815",
-                },
-                {
-                  "color": "#8A5B12",
-                },
-              ]
-            }
-          >
-            Hiking
-          </Text>
-        </View>
-      </View>
+        Travel · Coffee · Photography · Hiking
+      </Text>
       <Text
         numberOfLines={3}
         style={
@@ -12425,46 +8952,47 @@ exports[`Phase 6 — match deck — light theme like-note/[id] 1`] = `
             }
           }
         >
-          <View
+          <ViewManagerAdapter_ExpoImage
             accessibilityLabel="Maya's avatar"
-            accessibilityRole="image"
-            accessible={true}
-            style={
+            backgroundColor={4294045162}
+            borderRadius={999}
+            cachePolicy="memory-disk"
+            containerViewRef={"[React.ref]"}
+            contentFit="cover"
+            contentPosition={
+              {
+                "left": "50%",
+                "top": "50%",
+              }
+            }
+            height={64}
+            nativeViewRef={"[React.ref]"}
+            onError={[Function]}
+            onLoad={[Function]}
+            onLoadStart={[Function]}
+            onProgress={[Function]}
+            placeholder={[]}
+            sfEffect={null}
+            source={
               [
                 {
-                  "borderRadius": 999,
-                  "height": 64,
-                  "width": 64,
-                },
-                {
-                  "alignItems": "center",
-                  "backgroundColor": "#FCE9E2",
-                  "justifyContent": "center",
+                  "testUri": "../../../assets/avatars/avatar-01.png",
                 },
               ]
             }
-          >
-            <Text
-              style={
-                [
-                  {
-                    "fontFamily": "Inter-Medium",
-                    "fontSize": 13,
-                    "lineHeight": 18,
-                  },
-                  {
-                    "color": "#F2724B",
-                  },
-                  {
-                    "fontSize": 25.6,
-                    "lineHeight": 32,
-                  },
-                ]
+            style={
+              {
+                "backgroundColor": "#F1EDEA",
+                "borderRadius": 999,
+                "height": 64,
+                "width": 64,
               }
-            >
-              M
-            </Text>
-          </View>
+            }
+            symbolSize={null}
+            symbolWeight={null}
+            transition={null}
+            width={64}
+          />
           <Text
             style={
               [

@@ -15,11 +15,20 @@ import { useTheme } from "@/components/common/hooks/useTheme";
 
 export type AvatarSize = "sm" | "md" | "lg" | "xl";
 
+/**
+ * What `Avatar` will draw.
+ *
+ * `number` is in the union because that is what `require()` of a bundled PNG
+ * evaluates to — expo-image accepts it, but its own `ImageSource` type does
+ * not name it, and every preset avatar in this product is exactly that.
+ */
+export type AvatarSource = ImageSource | number;
+
 const SIZES: Record<AvatarSize, number> = { sm: 32, md: 44, lg: 64, xl: 120 };
 
 export type AvatarProps = {
   /** A preset avatar asset. Omit to render the initial fallback. */
-  source?: ImageSource;
+  source?: AvatarSource;
   /** Used for the fallback initial and the accessibility label. */
   name?: string;
   /** Defaults to `md` (44pt — also the minimum touch target). */

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { Box, Button, Caption, useTheme, WizardShell } from "@/components/common";
 import { calculateAge, isOldEnough } from "@/components/common/utils/calculateAge";
-import { DateWheel } from "@/components/birthday/DateWheel";
+import { DateWheel } from "@/components/birthday/organisms/DateWheel";
 import { copy } from "@/copy";
 import { meService } from "@/services/me.service";
 

@@ -25,6 +25,7 @@ import {
   List,
   Picture,
   SafeArea,
+  Sheet,
   Scroller,
   SectionedList,
   Spinner,
@@ -96,6 +97,12 @@ describe.each(THEMES)("atoms — %s theme", (theme) => {
 
   it("KeyboardAware", () =>
     expect(renderAtom(<KeyboardAware><Box /></KeyboardAware>, theme)).toMatchSnapshot());
+
+  it("Sheet visible", () =>
+    expect(renderAtom(<Sheet visible><Box /></Sheet>, theme)).toMatchSnapshot());
+
+  it("Sheet hidden", () =>
+    expect(renderAtom(<Sheet visible={false}><Box /></Sheet>, theme)).toMatchSnapshot());
 
   it("Spinner", () => expect(renderAtom(<Spinner />, theme)).toMatchSnapshot());
 

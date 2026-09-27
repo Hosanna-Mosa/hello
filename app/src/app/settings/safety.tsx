@@ -10,7 +10,7 @@ import {
   SectionHeader,
   useTheme,
 } from "@/components/common";
-import { SafetyCard } from "@/components/safety/SafetyCard";
+import { SafetyCard } from "@/components/settings/safety/molecules/SafetyCard";
 import { copy } from "@/copy";
 
 /**

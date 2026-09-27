@@ -17,7 +17,7 @@ import {
   useEntitlements,
   useTheme,
 } from "@/components/common";
-import { BenefitList } from "@/components/premium/BenefitList";
+import { BenefitList } from "@/components/common/molecules/BenefitList";
 import { copy } from "@/copy";
 import { useEntitlementsStore } from "@/stores/entitlements.store";
 

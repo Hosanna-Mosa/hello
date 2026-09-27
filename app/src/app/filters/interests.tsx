@@ -1,7 +1,7 @@
 import { router } from "expo-router";
 
 import { Box, Button, Caption, ScreenShell, useTheme } from "@/components/common";
-import { InterestPicker } from "@/components/interests/InterestPicker";
+import { InterestPicker } from "@/components/common/organisms/InterestPicker";
 import { copy } from "@/copy";
 import { useFiltersStore } from "@/stores/filters.store";
 

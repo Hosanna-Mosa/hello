@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar — dark theme empty 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#100E0C",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "gap": 8,
+        "minHeight": 44,
+        "paddingHorizontal": 12,
+      }
+    }
+  >
+    <ViewManagerAdapter_SymbolModule
+      accessibilityElementsHidden={true}
+      animated={false}
+      colors={[]}
+      importantForAccessibility="no"
+      name="magnifyingglass"
+      size={18}
+      style={
+        {
+          "height": 18,
+          "width": 18,
+        }
+      }
+      tint={4285822839}
+      tintColor="#747777"
+      type="monochrome"
+    />
+    <TextInput
+      accessibilityLabel="Search"
+      autoCorrect={false}
+      autoFocus={false}
+      onChangeText={[Function]}
+      placeholder="Search"
+      placeholderTextColor="#747777"
+      returnKeyType="search"
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 15,
+            "lineHeight": 22,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          {
+            "flex": 1,
+            "paddingVertical": 8,
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`SearchBar — dark theme with text 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#100E0C",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "gap": 8,
+        "minHeight": 44,
+        "paddingHorizontal": 12,
+      }
+    }
+  >
+    <ViewManagerAdapter_SymbolModule
+      accessibilityElementsHidden={true}
+      animated={false}
+      colors={[]}
+      importantForAccessibility="no"
+      name="magnifyingglass"
+      size={18}
+      style={
+        {
+          "height": 18,
+          "width": 18,
+        }
+      }
+      tint={4285822839}
+      tintColor="#747777"
+      type="monochrome"
+    />
+    <TextInput
+      accessibilityLabel="Search"
+      autoCorrect={false}
+      autoFocus={false}
+      onChangeText={[Function]}
+      placeholder="Search"
+      placeholderTextColor="#747777"
+      returnKeyType="search"
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 15,
+            "lineHeight": 22,
+          },
+          {
+            "color": "#F5F2ED",
+          },
+          {
+            "flex": 1,
+            "paddingVertical": 8,
+          },
+        ]
+      }
+      value="maya"
+    />
+    <View
+      accessibilityLabel="Clear search"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="xmark.circle.fill"
+        size={18}
+        style={
+          {
+            "height": 18,
+            "width": 18,
+          }
+        }
+        tint={4285822839}
+        tintColor="#747777"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`SearchBar — light theme empty 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#F1EDEA",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "gap": 8,
+        "minHeight": 44,
+        "paddingHorizontal": 12,
+      }
+    }
+  >
+    <ViewManagerAdapter_SymbolModule
+      accessibilityElementsHidden={true}
+      animated={false}
+      colors={[]}
+      importantForAccessibility="no"
+      name="magnifyingglass"
+      size={18}
+      style={
+        {
+          "height": 18,
+          "width": 18,
+        }
+      }
+      tint={4288322716}
+      tintColor="#9A9C9C"
+      type="monochrome"
+    />
+    <TextInput
+      accessibilityLabel="Search"
+      autoCorrect={false}
+      autoFocus={false}
+      onChangeText={[Function]}
+      placeholder="Search"
+      placeholderTextColor="#9A9C9C"
+      returnKeyType="search"
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 15,
+            "lineHeight": 22,
+          },
+          {
+            "color": "#1A1815",
+          },
+          {
+            "flex": 1,
+            "paddingVertical": 8,
+          },
+        ]
+      }
+      value=""
+    />
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`SearchBar — light theme with text 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#F1EDEA",
+        "borderRadius": 8,
+        "flexDirection": "row",
+        "gap": 8,
+        "minHeight": 44,
+        "paddingHorizontal": 12,
+      }
+    }
+  >
+    <ViewManagerAdapter_SymbolModule
+      accessibilityElementsHidden={true}
+      animated={false}
+      colors={[]}
+      importantForAccessibility="no"
+      name="magnifyingglass"
+      size={18}
+      style={
+        {
+          "height": 18,
+          "width": 18,
+        }
+      }
+      tint={4288322716}
+      tintColor="#9A9C9C"
+      type="monochrome"
+    />
+    <TextInput
+      accessibilityLabel="Search"
+      autoCorrect={false}
+      autoFocus={false}
+      onChangeText={[Function]}
+      placeholder="Search"
+      placeholderTextColor="#9A9C9C"
+      returnKeyType="search"
+      style={
+        [
+          {
+            "fontFamily": "Inter-Regular",
+            "fontSize": 15,
+            "lineHeight": 22,
+          },
+          {
+            "color": "#1A1815",
+          },
+          {
+            "flex": 1,
+            "paddingVertical": 8,
+          },
+        ]
+      }
+      value="maya"
+    />
+    <View
+      accessibilityLabel="Clear search"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="xmark.circle.fill"
+        size={18}
+        style={
+          {
+            "height": 18,
+            "width": 18,
+          }
+        }
+        tint={4288322716}
+        tintColor="#9A9C9C"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;

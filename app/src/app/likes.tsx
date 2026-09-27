@@ -2,23 +2,20 @@ import { router } from "expo-router";
 import { useEffect, useState } from "react";
 
 import {
-  Avatar,
   Body,
   Box,
   Button,
-  Caption,
   EmptyState,
-  Icon,
-  Label,
   List,
   ScreenShell,
-  Tappable,
   useAsyncStatus,
   useEntitlements,
   useTheme,
 } from "@/components/common";
-import { NearbySkeleton } from "@/components/home/NearbySkeleton";
+import { NearbySkeleton } from "@/components/common/molecules/NearbySkeleton";
+import { LikeTile } from "@/components/likes/molecules/LikeTile";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { likesService } from "@/services/likes.service";
 import { profilesService } from "@/services/profiles.service";
 import type { Like, PublicProfile } from "@/services/types";
@@ -120,64 +117,20 @@ export default function LikesScreen() {
         columnWrapperStyle={{ gap: theme.spacing.md }}
         contentContainerStyle={{ padding: theme.spacing.xl, gap: theme.spacing.md }}
         renderItem={({ item }) => (
-          <Tappable
+          <LikeTile
+            name={item.profile.name}
+            source={avatarSource(item.profile.avatarId)}
+            age={item.profile.age}
+            locked={!isPremium}
+            hasNote={Boolean(item.like.note)}
+            lockedLabel={copy.premium.seeWhoLikesYou}
+            noteLabel={copy.premium.sentNote}
             onPress={() =>
               isPremium
                 ? router.push({ pathname: "/user/[id]", params: { id: item.profile.id } })
                 : router.push("/paywall")
             }
-            accessibilityRole="button"
-            accessibilityLabel={
-              isPremium
-                ? `${item.profile.name}, ${item.profile.age}`
-                : copy.premium.seeWhoLikesYou
-            }
-            style={{
-              flex: 1,
-              alignItems: "center",
-              gap: theme.spacing.sm,
-              paddingVertical: theme.spacing.lg,
-              borderRadius: theme.radius.lg,
-              backgroundColor: theme.color.surface,
-              borderWidth: 1,
-              borderColor: theme.color.border,
-            }}
-          >
-            {isPremium ? (
-              <Avatar name={item.profile.name} size="lg" />
-            ) : (
-              <Box
-                style={{
-                  width: 64,
-                  height: 64,
-                  borderRadius: theme.radius.pill,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  backgroundColor: theme.color.surfaceSunken,
-                }}
-              >
-                <Icon name={{ ios: "lock.fill", android: "lock" }} size={24} color="textTertiary" />
-              </Box>
-            )}
-
-            {isPremium ? (
-              <Label>{`${item.profile.name}, ${item.profile.age}`}</Label>
-            ) : (
-              // A grey bar the width of a name, not the name itself.
-              <Box
-                style={{
-                  width: 84,
-                  height: 12,
-                  borderRadius: theme.radius.xs,
-                  backgroundColor: theme.color.surfaceSunken,
-                }}
-              />
-            )}
-
-            {item.like.note && isPremium ? (
-              <Caption numberOfLines={1}>Sent a note</Caption>
-            ) : null}
-          </Tappable>
+          />
         )}
       />
     </ScreenShell>

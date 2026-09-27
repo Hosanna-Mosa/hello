@@ -5,7 +5,7 @@
  * own birthday and exact location, and never your own distance from yourself.
  */
 
-import { ApiError, request } from "./client";
+import { ApiError, http, isMockMode, request } from "./client";
 import { CURRENT_USER } from "@/mocks/profiles";
 import { calculateAge, isOldEnough } from "@/components/common/utils/calculateAge";
 import type { User } from "./types";
@@ -21,10 +21,19 @@ export type MeUpdate = Partial<
 
 export const meService = {
   async getMe(): Promise<User> {
+    if (!isMockMode()) return http<User>("GET", "/me");
+
     return request(() => ({ ...me }));
   },
 
   async updateMe(patch: MeUpdate): Promise<User> {
+    if (!isMockMode()) {
+      // The 18+ gate is enforced server-side too — the contract is explicit
+      // that neither check replaces the other.
+      me = await http<User>("PATCH", "/me", patch);
+      return { ...me };
+    }
+
     return request(() => {
       // The 18+ gate is enforced here as well as on the screen. A client-side
       // check alone is a suggestion; this is the one the data layer honours.

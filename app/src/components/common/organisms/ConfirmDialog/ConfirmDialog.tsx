@@ -11,11 +11,10 @@
  * button and a backdrop tap both resolve to.
  */
 
-import { Modal } from "react-native";
-
 import { Body } from "@/components/common/atoms/Body";
 import { Box } from "@/components/common/atoms/Box";
 import { Heading } from "@/components/common/atoms/Heading";
+import { Sheet } from "@/components/common/atoms/Sheet";
 import { Tappable } from "@/components/common/atoms/Tappable";
 import { useTheme } from "@/components/common/hooks/useTheme";
 import { Button } from "@/components/common/molecules/Button";
@@ -45,9 +44,8 @@ export function ConfirmDialog({
   const theme = useTheme();
 
   return (
-    <Modal
+    <Sheet
       visible={visible}
-      transparent
       animationType="fade"
       // Android hardware back must cancel, never confirm.
       onRequestClose={onCancel}
@@ -90,6 +88,6 @@ export function ConfirmDialog({
           </Box>
         </Tappable>
       </Tappable>
-    </Modal>
+    </Sheet>
   );
 }

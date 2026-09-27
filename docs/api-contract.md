@@ -47,7 +47,7 @@ Non-2xx responses carry:
 | `code` | HTTP | Meaning |
 |---|---|---|
 | `validation` | 400 | Bad input. `message` is safe to show the user |
-| `unauthorized` | 401 | Missing or expired token — client signs out |
+| `unauthorized` | 401 | Missing or expired token. The client attempts `POST /auth/refresh` **once** and replays the request; it signs out only if the refresh itself fails |
 | `notFound` | 404 | Unknown id |
 | `rateLimited` | 429 | Too many requests |
 | `quotaExceeded` | 429 | Daily like limit spent. Drives the out-of-likes screen |
@@ -65,6 +65,16 @@ Cursor-based. Opaque cursor, returned as `nextCursor`, passed back as `?cursor=`
 { "items": [], "nextCursor": "eyJvIjoxMn0" }
 ```
 
+The cursor is **signed and opaque**. It is not an offset, and the client must
+never construct, parse or mutate one.
+
+- It encodes a **position in a total order** (a keyset), not a row number, so a
+  profile inserted between two page fetches can neither be skipped nor repeated.
+- It is bound to the caller. A cursor lifted from one account and replayed on
+  another is rejected with `validation`.
+- It may expire. A cursor whose underlying snapshot has aged out resumes from
+  the nearest equivalent position rather than failing.
+
 ---
 
 ## Auth
@@ -74,11 +84,29 @@ Phone + OTP only. No password, no email, no social sign-in.
 | Method | Path | Body | Returns |
 |---|---|---|---|
 | `POST` | `/auth/code` | `{ countryCode, phoneNumber }` | `{ resendAfterSec }` |
-| `POST` | `/auth/verify` | `{ countryCode, phoneNumber, code }` | `Session` |
+| `POST` | `/auth/verify` | `{ countryCode, phoneNumber, code, timezone? }` | `Session` |
+| `POST` | `/auth/refresh` | `{ refreshToken }` | `{ token, refreshToken, expiresIn }` |
 | `POST` | `/auth/onboarding/complete` | — | `Session` |
 | `POST` | `/auth/signout` | — | `204` |
 
-`Session` = `{ userId, token, phone, onboardingComplete, createdAt }`.
+`Session` = `{ userId, token, refreshToken, expiresIn, phone, onboardingComplete, createdAt }`.
+
+### Tokens
+
+`token` is a **short-lived access token** (15 minutes). `refreshToken` lasts 30
+days and is the only way to mint a new one.
+
+- The refresh token **rotates on every use** — the old one dies the moment a new
+  one is issued.
+- Presenting an **already-used** refresh token is treated as theft: the entire
+  session family is revoked and that device must sign in again. A legitimate
+  client never does this.
+- `POST /auth/signout` revokes the refresh token immediately. The access token
+  is additionally denylisted, so signing out takes effect at once rather than up
+  to 15 minutes later.
+- `timezone` is an IANA name (`Europe/London`) captured from the device. The
+  server needs it to compute the user's local midnight for the daily like quota.
+  See **Billing**.
 
 `phone` is the number the session was opened with, formatted `+91 98765 43210`.
 Settings → Account displays it, and it is the only identifier this product
@@ -94,12 +122,74 @@ has — there is no email, password or social login anywhere.
 | `PATCH` | `/me` | partial `User` | `User` |
 | `DELETE` | `/me` | `{ reason? }` | `204` |
 
+
 Patchable: `name`, `birthday`, `gender`, `showGender`, `avatarId`, `bio`,
-`interestIds`, `location`.
+`interestIds`, `location`, `timezone`.
 
 `gender` is a tagged union — `{ kind: "selfDescribed", label }` carries free
-text; every other kind carries no payload. `showGender: false` means the server
-must omit gender from that user's `PublicProfile` for everyone else.
+text; every other kind carries no payload.
+
+**`showGender: false` COERCES, it does not omit.** That user's `PublicProfile`
+reports `gender: { kind: "preferNotToSay" }` to everyone else. Two reasons:
+`PublicProfile.gender` is required in `types.ts`, and an omitted field is itself
+a signal — "this person is hiding something" — whereas a coerced one is
+indistinguishable from a genuine preference, which is the actual privacy goal.
+
+### Deletion and retention
+
+`DELETE /me` is a **soft delete with a 30-day grace period**.
+
+- Immediately: the account is hidden everywhere — discovery, search, likes,
+  matches, chat. To everyone else the user is gone.
+- Within 30 days: **signing in again restores the account intact** — same
+  number, same profile. That is the only restore path, and it needs no token,
+  which is just as well because deletion revokes every session. There is
+  deliberately no `POST /me/restore`: nobody could hold a valid token to call
+  it, and an endpoint nobody can reach reads as a working feature.
+- The account stops working **immediately**, including any access token already
+  issued. Deletion revokes the refresh tokens, and the account's own state is
+  checked on every request — a still-valid signature is not enough.
+- After 30 days: a background job erases the record, anonymises authored
+  messages, and deletes threads, likes and notifications.
+- Deletion changes `status` and **nothing else**. It does not touch
+  `preferences.discoverable`: hiding the account is `status != "active"`, which
+  every discovery query already filters on. Flipping the preference as well
+  would overwrite a choice the user may have made themselves, and restoring
+  could not tell the two apart — the account would come back permanently
+  invisible.
+- **Reports are retained**, with their evidence snapshot, past the erasure of
+  either party. A moderation record that vanishes when the reported account is
+  deleted is worse than no record.
+- Erasure is a job, never a TTL index: a TTL would drop the user document
+  without running the cascade, orphaning threads, likes and report evidence.
+
+---
+
+## Reference data
+
+Small, static, and read before a profile exists — so these three are
+unauthenticated and returned whole rather than paginated. A cursor over 60 rows
+is ceremony.
+
+| Method | Path | Returns |
+|---|---|---|
+| `GET` | `/interests` | `Interest[]` |
+| `GET` | `/avatars` | `Avatar[]` |
+| `GET` | `/plans` | `Plan[]` |
+
+Retired rows are excluded. A profile that still references one keeps working —
+the id resolves — but nobody can pick it again.
+
+**Interest ids are minted once and stored, never derived from the label at
+request time.** The app currently slugifies the label on read, which makes the
+id a function of the display text: renaming a tag silently orphans every profile
+that referenced it. It also mangles accents — "Board game cafés" became
+`board-game-caf-s`. The server's id is `board-game-cafes`, with the old form
+kept in `aliases` so existing references still resolve.
+
+`Avatar` carries no URL and never will. It is an id into a fixed preset set that
+the client resolves to a bundled asset; the moment it carries a URL, "no photos
+anywhere" has quietly become false.
 
 ---
 
@@ -107,7 +197,7 @@ must omit gender from that user's `PublicProfile` for everyone else.
 
 | Method | Path | Query | Returns |
 |---|---|---|---|
-| `GET` | `/profiles` | `maxDistanceMetres`, `minAge`, `maxAge`, `interestIds[]`, `activeRecently`, `cursor` | `Paginated<PublicProfile>` |
+| `GET` | `/profiles` | `maxDistanceMetres`, `minAge`, `maxAge`, `interestIds[]`, `activeRecently`, `genders[]`, `cursor` | `Paginated<PublicProfile>` |
 | `GET` | `/profiles/count` | same, no cursor | `{ count }` |
 | `GET` | `/profiles/:id` | — | `PublicProfile` |
 | `GET` | `/profiles/search` | `q` | `PublicProfile[]` |
@@ -149,7 +239,7 @@ must omit gender from that user's `PublicProfile` for everyone else.
 | `DELETE` | `/matches/:id` | — | `204` |
 | `GET` | `/threads` | — | `Thread[]` |
 | `GET` | `/threads/:id/messages` | `?cursor=` | `Paginated<Message>` |
-| `POST` | `/threads/:id/messages` | `{ body }` | `Message` |
+| `POST` | `/threads/:id/messages` | `{ body, clientMessageId? }` | `Message` |
 | `POST` | `/messages/:id/reactions` | `{ emoji }` | `Message` |
 | `POST` | `/threads/:id/read` | — | `204` |
 | `PATCH` | `/threads/:id` | `{ muted }` | `Thread` |
@@ -161,6 +251,17 @@ must omit gender from that user's `PublicProfile` for everyone else.
   user — currently only call records.
 - Reactions are one emoji per user per message; posting the same emoji twice
   removes it.
+- **Messages page newest-first**, 30 per page. A chat opens at the bottom, so
+  descending order makes the first page the one the reader actually needs.
+- `clientMessageId` makes sending **idempotent**. A mobile client that retries a
+  request it never saw the response to gets the original message back rather
+  than posting twice. Sending without one is allowed but not retry-safe.
+- **`Message.status` is derived per viewer, never stored.** The server keeps a
+  delivered and a read cursor per participant; `sent` / `delivered` / `read` are
+  computed against the *other* participant's cursors when serializing your own
+  outbound message. `sending` and `failed` are client-only states and are never
+  returned by the server. This is why marking a 200-message thread read is one
+  write rather than 200.
 
 ---
 
@@ -196,6 +297,20 @@ Restore before this can ship.
 at the user's local midnight — `likesResetAt` is the authority, and the client
 counts down to it.
 
+**Premium sends `likesRemaining: -1`, not `Infinity`.** `JSON.stringify(Infinity)`
+is `null`, so infinity cannot survive the wire; `-1` is the unlimited sentinel.
+`likesLimit` carries the ceiling (`15`, or `-1` when unlimited) so the client can
+render "12 of 15" without hardcoding the number.
+
+Local midnight is computed from `User.timezone` with real zone rules, not a
+fixed UTC offset — an offset is wrong twice a year in any country that observes
+daylight saving. The reset boundary is stored server-side when the day's quota
+is first spent, so changing timezone mid-day cannot grant a second allowance.
+
+Spending a like is **atomic with recording it**: a like rejected for quota is
+never written. The check and the decrement are a single operation, and every
+later failure refunds it, so a re-like costs nothing.
+
 ---
 
 ## Notifications & safety
@@ -206,7 +321,7 @@ counts down to it.
 | `POST` | `/notifications/read` | — | `204` |
 | `POST` | `/blocks` | `{ userId }` | `Block` |
 | `DELETE` | `/blocks/:userId` | — | `204` |
-| `GET` | `/blocks` | — | `Block[]` |
+| `GET` | `/blocks` | — | `Block[]`, each with an embedded `user` summary |
 | `POST` | `/reports` | `{ reportedUserId, reason, details?, alsoBlock }` | `Report` |
 
 `reason` is one of `romanticAdvance`, `harassment`, `inappropriateContent`,
@@ -218,6 +333,25 @@ as a genuine violation rather than a preference mismatch.
 
 Blocking is symmetric and immediate: neither party sees the other in discovery,
 search, likes or chat afterwards.
+
+It is also a **teardown, not a filter**. `POST /blocks` ends any active match,
+deletes the thread and its messages, and removes the likes and pending requests
+in both directions — then emits `thread:ended` to both parties, so a phone with
+the conversation open closes it rather than sitting on a thread that no longer
+exists. `POST /reports` with `alsoBlock` does all of the same.
+
+`GET /blocks` embeds a `user` profile summary on each row. A blocked user is
+excluded from `GET /profiles/:id` by definition, so without it the one screen
+that must name them could not. Its `distanceMetres` is always `0`.
+
+Unblocking undoes **only your own** block. If the other person also blocked
+you, theirs stands and you remain hidden from each other.
+
+A report's evidence is a **snapshot** taken before any block runs — the name,
+bio and the last 20 messages — because the block deletes the conversation and
+erasure removes the profile. Nothing about a report is ever returned to the
+reporter beyond the receipt of their own filing, and nothing is ever sent to
+the person reported.
 
 ---
 
@@ -252,11 +386,30 @@ The primer fires once, after the first match (A4).
 
 ---
 
+## Real-time
+
+**Decided: Socket.IO**, not polling. Typing indicators and a ringing incoming
+call are already built in the UI, and neither survives a poll interval.
+
+The REST shapes above do not change. Sockets carry the same objects; they only
+remove the wait. Every socket handler calls the same service layer as its REST
+equivalent, so the two can never disagree about a rule.
+
+- The access token is sent in the connection handshake, **never in the query
+  string**, which lands in proxy logs.
+- Durable events (a new message, a new match, a new request) are addressed to
+  the user, so they arrive on every device that user has signed in on.
+- Ephemeral signals (typing) are addressed to the thread and expire by
+  themselves, so a dropped connection cannot leave someone "typing…" forever.
+- **There is no decline event, and there never will be.** A18 says a declined
+  request must not be inferable by the sender; that is enforced by the absence
+  of a channel, not by client discipline.
+
 ## Still open
 
-- Push notification delivery (token registration, payload shape). The client
-  primes the OS permission after the first match (A4); the transport is undecided.
-- Real-time transport for chat — polling vs WebSocket. The mock layer is
-  request/response, so either can be added without changing these shapes.
+- Push notification payload shape. `expo-notifications` is approved and device
+  token registration is `POST /me/devices`, but the payload is not yet pinned
+  down. Note that sockets only deliver while the app is open — push is what
+  covers a closed app, so the two are complementary, not alternatives.
 - Media, if photos are ever introduced. They are explicitly out of scope, and
   R8 notes this is an untested product hypothesis.

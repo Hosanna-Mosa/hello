@@ -12,7 +12,7 @@ import {
   Label,
   ScreenShell,
   Scroller,
-  Tappable,
+  SelectableRow,
   ToggleRow,
   useTheme,
 } from "@/components/common";
@@ -88,39 +88,14 @@ export default function ReportScreen() {
         <Caption>{copy.safety.reportHint}</Caption>
 
         <Box style={{ gap: theme.spacing.sm }}>
-          {REPORT_REASONS.map((option) => {
-            const selected = option.reason === reason;
-
-            return (
-              <Tappable
-                key={option.reason}
-                onPress={() => setReason(option.reason)}
-                accessibilityRole="radio"
-                accessibilityState={{ selected }}
-                accessibilityLabel={option.label}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: theme.spacing.md,
-                  padding: theme.spacing.lg,
-                  minHeight: 56,
-                  borderRadius: theme.radius.md,
-                  borderWidth: 1,
-                  borderColor: selected ? theme.color.accent : theme.color.border,
-                  backgroundColor: selected ? theme.color.accentMuted : theme.color.surface,
-                }}
-              >
-                <Body style={{ flex: 1 }}>{option.label}</Body>
-                {selected ? (
-                  <Icon
-                    name={{ ios: "checkmark.circle.fill", android: "check_circle" }}
-                    size={20}
-                    color="accent"
-                  />
-                ) : null}
-              </Tappable>
-            );
-          })}
+          {REPORT_REASONS.map((option) => (
+            <SelectableRow
+              key={option.reason}
+              label={option.label}
+              selected={option.reason === reason}
+              onPress={() => setReason(option.reason)}
+            />
+          ))}
         </Box>
       </>
     );

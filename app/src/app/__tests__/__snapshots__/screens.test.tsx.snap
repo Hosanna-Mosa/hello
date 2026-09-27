@@ -2024,7 +2024,7 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
               }
             >
               <View
-                accessibilityLabel="Sunrise"
+                accessibilityLabel="Short brown hair, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2066,49 +2066,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Sunrise's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short brown hair, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-01.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Meadow"
+                accessibilityLabel="Afro, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2150,49 +2151,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Meadow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Afro, deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-02.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Harbour"
+                accessibilityLabel="Long blonde hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2234,49 +2236,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Harbour's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long blonde hair, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-03.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Ember"
+                accessibilityLabel="Locs, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2318,49 +2321,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Ember's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Locs, deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-04.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    E
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Juniper"
+                accessibilityLabel="Top knot, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2402,49 +2406,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Juniper's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Top knot, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    J
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Cobalt"
+                accessibilityLabel="Short dark hair and glasses, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2486,49 +2491,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Cobalt's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short dark hair and glasses, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-06.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    C
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Saffron"
+                accessibilityLabel="Two braids, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2570,49 +2576,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Saffron's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Two braids, medium-deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Thicket"
+                accessibilityLabel="Wavy auburn hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2654,49 +2661,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Thicket's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wavy auburn hair, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-08.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Lantern"
+                accessibilityLabel="Wearing a hijab, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2738,49 +2746,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Lantern's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a hijab, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-09.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    L
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Quarry"
+                accessibilityLabel="Buzzed hair and a beard, very deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2822,49 +2831,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Quarry's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Buzzed hair and a beard, very deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    Q
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Marigold"
+                accessibilityLabel="Blonde bob, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2906,49 +2916,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Marigold's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blonde bob, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-11.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Drift"
+                accessibilityLabel="Short grey hair, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -2990,49 +3001,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Drift's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short grey hair, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-12.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    D
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Pebble"
+                accessibilityLabel="Afro puffs, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3074,49 +3086,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Pebble's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Afro puffs, deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-13.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    P
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Aurora"
+                accessibilityLabel="Pink pixie cut, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3158,49 +3171,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Aurora's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Pink pixie cut, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-14.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    A
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Bramble"
+                accessibilityLabel="Curly dark brown hair, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3242,49 +3256,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Bramble's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Curly dark brown hair, medium-deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-15.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Cinder"
+                accessibilityLabel="Bald with a moustache, very deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3326,49 +3341,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Cinder's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Bald with a moustache, very deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-16.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    C
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Fathom"
+                accessibilityLabel="Blue undercut, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3410,49 +3426,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Fathom's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blue undercut, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-17.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    F
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Gale"
+                accessibilityLabel="Wearing a beanie, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3494,49 +3511,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Gale's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a beanie, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-18.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    G
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Hollow"
+                accessibilityLabel="Long grey hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3578,49 +3596,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Hollow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long grey hair, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-19.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Kestrel"
+                accessibilityLabel="Wearing a cap, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3662,49 +3681,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Kestrel's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a cap, medium-deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-20.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    K
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Lumen"
+                accessibilityLabel="Long auburn hair and glasses, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3746,49 +3766,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Lumen's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long auburn hair and glasses, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-21.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    L
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Mosaic"
+                accessibilityLabel="Wearing a turban, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3830,49 +3851,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Mosaic's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a turban, deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-22.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Nimbus"
+                accessibilityLabel="Blonde ponytail, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3914,49 +3936,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Nimbus's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blonde ponytail, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-23.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    N
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Orchard"
+                accessibilityLabel="Bowl cut, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -3998,49 +4021,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Orchard's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Bowl cut, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-24.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    O
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Pennant"
+                accessibilityLabel="Short crest of hair, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4082,49 +4106,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Pennant's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short crest of hair, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-25.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    P
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Ripple"
+                accessibilityLabel="Long locs, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4166,49 +4191,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Ripple's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long locs, medium-deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-26.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    R
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Solstice"
+                accessibilityLabel="Side-swept blonde hair with freckles, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4250,49 +4276,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Solstice's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Side-swept blonde hair with freckles, light skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-27.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Tundra"
+                accessibilityLabel="Short grey hair and glasses, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4334,49 +4361,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Tundra's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short grey hair and glasses, medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-28.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Willow"
+                accessibilityLabel="Long braids, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4418,49 +4446,50 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Willow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long braids, deep skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-29.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    W
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Zenith"
+                accessibilityLabel="Short dark hair and a beard, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -4502,46 +4531,47 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Zenith's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short dark hair and a beard, light-medium skin's avatar"
+                  backgroundColor={4279242252}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#3A2419",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-30.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#FF8560",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#100E0C",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    Z
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
             </View>
           </View>
@@ -10448,8 +10478,9 @@ exports[`auth + onboarding screens — dark theme (onboarding)/gender — step 3
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -10524,8 +10555,9 @@ exports[`auth + onboarding screens — dark theme (onboarding)/gender — step 3
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -10600,8 +10632,9 @@ exports[`auth + onboarding screens — dark theme (onboarding)/gender — step 3
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -10676,8 +10709,9 @@ exports[`auth + onboarding screens — dark theme (onboarding)/gender — step 3
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -10752,8 +10786,9 @@ exports[`auth + onboarding screens — dark theme (onboarding)/gender — step 3
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -18817,7 +18852,7 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
               }
             >
               <View
-                accessibilityLabel="Sunrise"
+                accessibilityLabel="Short brown hair, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -18859,49 +18894,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Sunrise's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short brown hair, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-01.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Meadow"
+                accessibilityLabel="Afro, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -18943,49 +18979,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Meadow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Afro, deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-02.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Harbour"
+                accessibilityLabel="Long blonde hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19027,49 +19064,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Harbour's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long blonde hair, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-03.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Ember"
+                accessibilityLabel="Locs, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19111,49 +19149,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Ember's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Locs, deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-04.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    E
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Juniper"
+                accessibilityLabel="Top knot, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19195,49 +19234,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Juniper's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Top knot, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-05.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    J
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Cobalt"
+                accessibilityLabel="Short dark hair and glasses, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19279,49 +19319,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Cobalt's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short dark hair and glasses, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-06.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    C
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Saffron"
+                accessibilityLabel="Two braids, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19363,49 +19404,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Saffron's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Two braids, medium-deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-07.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Thicket"
+                accessibilityLabel="Wavy auburn hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19447,49 +19489,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Thicket's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wavy auburn hair, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-08.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Lantern"
+                accessibilityLabel="Wearing a hijab, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19531,49 +19574,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Lantern's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a hijab, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-09.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    L
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Quarry"
+                accessibilityLabel="Buzzed hair and a beard, very deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19615,49 +19659,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Quarry's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Buzzed hair and a beard, very deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-10.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    Q
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Marigold"
+                accessibilityLabel="Blonde bob, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19699,49 +19744,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Marigold's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blonde bob, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-11.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Drift"
+                accessibilityLabel="Short grey hair, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19783,49 +19829,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Drift's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short grey hair, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-12.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    D
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Pebble"
+                accessibilityLabel="Afro puffs, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19867,49 +19914,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Pebble's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Afro puffs, deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-13.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    P
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Aurora"
+                accessibilityLabel="Pink pixie cut, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -19951,49 +19999,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Aurora's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Pink pixie cut, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-14.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    A
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Bramble"
+                accessibilityLabel="Curly dark brown hair, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20035,49 +20084,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Bramble's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Curly dark brown hair, medium-deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-15.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    B
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Cinder"
+                accessibilityLabel="Bald with a moustache, very deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20119,49 +20169,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Cinder's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Bald with a moustache, very deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-16.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    C
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Fathom"
+                accessibilityLabel="Blue undercut, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20203,49 +20254,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Fathom's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blue undercut, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-17.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    F
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Gale"
+                accessibilityLabel="Wearing a beanie, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20287,49 +20339,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Gale's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a beanie, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-18.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    G
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Hollow"
+                accessibilityLabel="Long grey hair, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20371,49 +20424,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Hollow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long grey hair, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-19.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    H
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Kestrel"
+                accessibilityLabel="Wearing a cap, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20455,49 +20509,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Kestrel's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a cap, medium-deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-20.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    K
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Lumen"
+                accessibilityLabel="Long auburn hair and glasses, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20539,49 +20594,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Lumen's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long auburn hair and glasses, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-21.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    L
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Mosaic"
+                accessibilityLabel="Wearing a turban, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20623,49 +20679,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Mosaic's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Wearing a turban, deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-22.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    M
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Nimbus"
+                accessibilityLabel="Blonde ponytail, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20707,49 +20764,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Nimbus's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Blonde ponytail, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-23.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    N
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Orchard"
+                accessibilityLabel="Bowl cut, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20791,49 +20849,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Orchard's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Bowl cut, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-24.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    O
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Pennant"
+                accessibilityLabel="Short crest of hair, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20875,49 +20934,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Pennant's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short crest of hair, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-25.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    P
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Ripple"
+                accessibilityLabel="Long locs, medium-deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -20959,49 +21019,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Ripple's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long locs, medium-deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-26.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    R
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Solstice"
+                accessibilityLabel="Side-swept blonde hair with freckles, light skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -21043,49 +21104,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Solstice's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Side-swept blonde hair with freckles, light skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-27.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    S
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Tundra"
+                accessibilityLabel="Short grey hair and glasses, medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -21127,49 +21189,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Tundra's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short grey hair and glasses, medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-28.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    T
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Willow"
+                accessibilityLabel="Long braids, deep skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -21211,49 +21274,50 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Willow's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Long braids, deep skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-29.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    W
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
               <View
-                accessibilityLabel="Zenith"
+                accessibilityLabel="Short dark hair and a beard, light-medium skin"
                 accessibilityRole="radio"
                 accessibilityState={
                   {
@@ -21295,46 +21359,47 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   }
                 }
               >
-                <View
-                  accessibilityLabel="Zenith's avatar"
-                  accessibilityRole="image"
-                  accessible={true}
-                  style={
+                <ViewManagerAdapter_ExpoImage
+                  accessibilityLabel="Short dark hair and a beard, light-medium skin's avatar"
+                  backgroundColor={4294045162}
+                  borderRadius={999}
+                  cachePolicy="memory-disk"
+                  containerViewRef={"[React.ref]"}
+                  contentFit="cover"
+                  contentPosition={
+                    {
+                      "left": "50%",
+                      "top": "50%",
+                    }
+                  }
+                  height={64}
+                  nativeViewRef={"[React.ref]"}
+                  onError={[Function]}
+                  onLoad={[Function]}
+                  onLoadStart={[Function]}
+                  onProgress={[Function]}
+                  placeholder={[]}
+                  sfEffect={null}
+                  source={
                     [
                       {
-                        "borderRadius": 999,
-                        "height": 64,
-                        "width": 64,
-                      },
-                      {
-                        "alignItems": "center",
-                        "backgroundColor": "#FCE9E2",
-                        "justifyContent": "center",
+                        "testUri": "../../../assets/avatars/avatar-30.png",
                       },
                     ]
                   }
-                >
-                  <Text
-                    style={
-                      [
-                        {
-                          "fontFamily": "Inter-Medium",
-                          "fontSize": 13,
-                          "lineHeight": 18,
-                        },
-                        {
-                          "color": "#F2724B",
-                        },
-                        {
-                          "fontSize": 25.6,
-                          "lineHeight": 32,
-                        },
-                      ]
+                  style={
+                    {
+                      "backgroundColor": "#F1EDEA",
+                      "borderRadius": 999,
+                      "height": 64,
+                      "width": 64,
                     }
-                  >
-                    Z
-                  </Text>
-                </View>
+                  }
+                  symbolSize={null}
+                  symbolWeight={null}
+                  transition={null}
+                  width={64}
+                />
               </View>
             </View>
           </View>
@@ -27241,8 +27306,9 @@ exports[`auth + onboarding screens — light theme (onboarding)/gender — step 
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -27317,8 +27383,9 @@ exports[`auth + onboarding screens — light theme (onboarding)/gender — step 
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -27393,8 +27460,9 @@ exports[`auth + onboarding screens — light theme (onboarding)/gender — step 
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -27469,8 +27537,9 @@ exports[`auth + onboarding screens — light theme (onboarding)/gender — step 
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >
@@ -27545,8 +27614,9 @@ exports[`auth + onboarding screens — light theme (onboarding)/gender — step 
                     "borderRadius": 12,
                     "borderWidth": 1,
                     "flexDirection": "row",
+                    "gap": 12,
                     "minHeight": 56,
-                    "paddingHorizontal": 16,
+                    "padding": 16,
                   }
                 }
               >

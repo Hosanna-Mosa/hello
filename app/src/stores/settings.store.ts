@@ -54,8 +54,15 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
    */
   loadBlocked: async (resolve) => {
     const blocks = await safetyService.listBlocked();
+
     const people = await Promise.all(
       blocks.map(async (block) => {
+        // The server embeds the summary, precisely because a blocked user is
+        // excluded from `GET /profiles/:id` — resolving them individually
+        // would be a round trip guaranteed to 404. The mock has no such
+        // exclusion and resolves locally, which is what `resolve` is for.
+        if (block.user) return { block, profile: block.user };
+
         try {
           return { block, profile: await resolve(block.blockedUserId) };
         } catch {
@@ -64,6 +71,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
         }
       }),
     );
+
     set({ blocked: people });
   },
 

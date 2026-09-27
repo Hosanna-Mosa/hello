@@ -426,46 +426,47 @@ exports[`Phase 7 — calls — dark theme call/[id] — connected 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4279242252}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#3A2419",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#FF8560",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#100E0C",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -847,46 +848,47 @@ exports[`Phase 7 — calls — dark theme call/[id] — ringing 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4279242252}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#3A2419",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#FF8560",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#100E0C",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -1268,46 +1270,47 @@ exports[`Phase 7 — calls — dark theme incoming-call/[id] 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4279242252}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#3A2419",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#FF8560",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#100E0C",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -1980,46 +1983,47 @@ exports[`Phase 7 — calls — light theme call/[id] — connected 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4294045162}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#FCE9E2",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F2724B",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#F1EDEA",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -2401,46 +2405,47 @@ exports[`Phase 7 — calls — light theme call/[id] — ringing 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4294045162}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#FCE9E2",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F2724B",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#F1EDEA",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -2822,46 +2827,47 @@ exports[`Phase 7 — calls — light theme incoming-call/[id] 1`] = `
           }
         }
       >
-        <View
+        <ViewManagerAdapter_ExpoImage
           accessibilityLabel="Maya's avatar"
-          accessibilityRole="image"
-          accessible={true}
-          style={
+          backgroundColor={4294045162}
+          borderRadius={999}
+          cachePolicy="memory-disk"
+          containerViewRef={"[React.ref]"}
+          contentFit="cover"
+          contentPosition={
+            {
+              "left": "50%",
+              "top": "50%",
+            }
+          }
+          height={120}
+          nativeViewRef={"[React.ref]"}
+          onError={[Function]}
+          onLoad={[Function]}
+          onLoadStart={[Function]}
+          onProgress={[Function]}
+          placeholder={[]}
+          sfEffect={null}
+          source={
             [
               {
-                "borderRadius": 999,
-                "height": 120,
-                "width": 120,
-              },
-              {
-                "alignItems": "center",
-                "backgroundColor": "#FCE9E2",
-                "justifyContent": "center",
+                "testUri": "../../../assets/avatars/avatar-01.png",
               },
             ]
           }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#F2724B",
-                },
-                {
-                  "fontSize": 48,
-                  "lineHeight": 60,
-                },
-              ]
+          style={
+            {
+              "backgroundColor": "#F1EDEA",
+              "borderRadius": 999,
+              "height": 120,
+              "width": 120,
             }
-          >
-            M
-          </Text>
-        </View>
+          }
+          symbolSize={null}
+          symbolWeight={null}
+          transition={null}
+          width={120}
+        />
         <Text
           style={
             [
@@ -3687,8 +3693,9 @@ exports[`Phase 7 — components — dark theme ChatComposer — empty 1`] = `
         "borderTopWidth": 1,
         "flexDirection": "row",
         "gap": 8,
+        "paddingBottom": 46,
         "paddingHorizontal": 16,
-        "paddingVertical": 12,
+        "paddingTop": 12,
       }
     }
   >
@@ -3823,8 +3830,9 @@ exports[`Phase 7 — components — dark theme ChatComposer — with a draft 1`]
         "borderTopWidth": 1,
         "flexDirection": "row",
         "gap": 8,
+        "paddingBottom": 46,
         "paddingHorizontal": 16,
-        "paddingVertical": 12,
+        "paddingTop": 12,
       }
     }
   >
@@ -7057,186 +7065,6 @@ exports[`Phase 7 — components — dark theme ThreadSkeleton 1`] = `
 </RNCSafeAreaProvider>
 `;
 
-exports[`Phase 7 — components — dark theme TypingIndicator 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
-  }
->
-  <View
-    accessibilityLabel="Typing…"
-    accessibilityLiveRegion="polite"
-    accessibilityRole="text"
-    style={
-      {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "backgroundColor": "#1E1B18",
-        "borderBottomLeftRadius": 4,
-        "borderColor": "#322D29",
-        "borderRadius": 16,
-        "borderWidth": 1,
-        "flexDirection": "row",
-        "gap": 4,
-        "paddingHorizontal": 12,
-        "paddingVertical": 12,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#747777",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-  </View>
-</RNCSafeAreaProvider>
-`;
-
 exports[`Phase 7 — components — light theme CallControls — connected 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -7816,8 +7644,9 @@ exports[`Phase 7 — components — light theme ChatComposer — empty 1`] = `
         "borderTopWidth": 1,
         "flexDirection": "row",
         "gap": 8,
+        "paddingBottom": 46,
         "paddingHorizontal": 16,
-        "paddingVertical": 12,
+        "paddingTop": 12,
       }
     }
   >
@@ -7952,8 +7781,9 @@ exports[`Phase 7 — components — light theme ChatComposer — with a draft 1`
         "borderTopWidth": 1,
         "flexDirection": "row",
         "gap": 8,
+        "paddingBottom": 46,
         "paddingHorizontal": 16,
-        "paddingVertical": 12,
+        "paddingTop": 12,
       }
     }
   >
@@ -11186,186 +11016,6 @@ exports[`Phase 7 — components — light theme ThreadSkeleton 1`] = `
 </RNCSafeAreaProvider>
 `;
 
-exports[`Phase 7 — components — light theme TypingIndicator 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
-  }
->
-  <View
-    accessibilityLabel="Typing…"
-    accessibilityLiveRegion="polite"
-    accessibilityRole="text"
-    style={
-      {
-        "alignItems": "center",
-        "alignSelf": "flex-start",
-        "backgroundColor": "#FFFFFF",
-        "borderBottomLeftRadius": 4,
-        "borderColor": "#E6E2DD",
-        "borderRadius": 16,
-        "borderWidth": 1,
-        "flexDirection": "row",
-        "gap": 4,
-        "paddingHorizontal": 12,
-        "paddingVertical": 12,
-      }
-    }
-  >
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-    <View
-      collapsable={false}
-      jestAnimatedProps={
-        {
-          "value": {},
-        }
-      }
-      jestAnimatedStyle={
-        {
-          "value": {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        }
-      }
-      jestInlineStyle={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-        ]
-      }
-      style={
-        [
-          {
-            "backgroundColor": "#9A9C9C",
-            "borderRadius": 999,
-            "height": 7,
-            "width": 7,
-          },
-          {
-            "opacity": 0.3,
-            "transform": [
-              {
-                "translateY": 2.0999999999999996,
-              },
-            ],
-          },
-        ]
-      }
-    />
-  </View>
-</RNCSafeAreaProvider>
-`;
-
 exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages segment 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -12015,46 +11665,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                         }
                       }
                     >
-                      <View
+                      <ViewManagerAdapter_ExpoImage
                         accessibilityLabel="Yuki's avatar"
-                        accessibilityRole="image"
-                        accessible={true}
-                        style={
+                        backgroundColor={4279242252}
+                        borderRadius={999}
+                        cachePolicy="memory-disk"
+                        containerViewRef={"[React.ref]"}
+                        contentFit="cover"
+                        contentPosition={
+                          {
+                            "left": "50%",
+                            "top": "50%",
+                          }
+                        }
+                        height={64}
+                        nativeViewRef={"[React.ref]"}
+                        onError={[Function]}
+                        onLoad={[Function]}
+                        onLoadStart={[Function]}
+                        onProgress={[Function]}
+                        placeholder={[]}
+                        sfEffect={null}
+                        source={
                           [
                             {
-                              "borderRadius": 999,
-                              "height": 64,
-                              "width": 64,
-                            },
-                            {
-                              "alignItems": "center",
-                              "backgroundColor": "#3A2419",
-                              "justifyContent": "center",
+                              "testUri": "../../../assets/avatars/avatar-15.png",
                             },
                           ]
                         }
-                      >
-                        <Text
-                          style={
-                            [
-                              {
-                                "fontFamily": "Inter-Medium",
-                                "fontSize": 13,
-                                "lineHeight": 18,
-                              },
-                              {
-                                "color": "#FF8560",
-                              },
-                              {
-                                "fontSize": 25.6,
-                                "lineHeight": 32,
-                              },
-                            ]
+                        style={
+                          {
+                            "backgroundColor": "#100E0C",
+                            "borderRadius": 999,
+                            "height": 64,
+                            "width": 64,
                           }
-                        >
-                          Y
-                        </Text>
-                      </View>
+                        }
+                        symbolSize={null}
+                        symbolWeight={null}
+                        transition={null}
+                        width={64}
+                      />
                     </View>
                     <Text
                       numberOfLines={1}
@@ -12128,46 +11779,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Maya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-01.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  M
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -12312,46 +11964,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Daniel's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-02.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  D
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -12484,46 +12137,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Priya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-03.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  P
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -12801,46 +12455,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Tom's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-04.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  T
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -12973,46 +12628,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Aisha's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-05.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  A
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -13145,46 +12801,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Leo's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-06.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  L
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -13317,46 +12974,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Nina's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-07.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  N
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -13489,46 +13147,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — Messages s
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Omar's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-08.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  O
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -14566,46 +14225,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                         }
                       }
                     >
-                      <View
+                      <ViewManagerAdapter_ExpoImage
                         accessibilityLabel="Yuki's avatar"
-                        accessibilityRole="image"
-                        accessible={true}
-                        style={
+                        backgroundColor={4279242252}
+                        borderRadius={999}
+                        cachePolicy="memory-disk"
+                        containerViewRef={"[React.ref]"}
+                        contentFit="cover"
+                        contentPosition={
+                          {
+                            "left": "50%",
+                            "top": "50%",
+                          }
+                        }
+                        height={64}
+                        nativeViewRef={"[React.ref]"}
+                        onError={[Function]}
+                        onLoad={[Function]}
+                        onLoadStart={[Function]}
+                        onProgress={[Function]}
+                        placeholder={[]}
+                        sfEffect={null}
+                        source={
                           [
                             {
-                              "borderRadius": 999,
-                              "height": 64,
-                              "width": 64,
-                            },
-                            {
-                              "alignItems": "center",
-                              "backgroundColor": "#3A2419",
-                              "justifyContent": "center",
+                              "testUri": "../../../assets/avatars/avatar-15.png",
                             },
                           ]
                         }
-                      >
-                        <Text
-                          style={
-                            [
-                              {
-                                "fontFamily": "Inter-Medium",
-                                "fontSize": 13,
-                                "lineHeight": 18,
-                              },
-                              {
-                                "color": "#FF8560",
-                              },
-                              {
-                                "fontSize": 25.6,
-                                "lineHeight": 32,
-                              },
-                            ]
+                        style={
+                          {
+                            "backgroundColor": "#100E0C",
+                            "borderRadius": 999,
+                            "height": 64,
+                            "width": 64,
                           }
-                        >
-                          Y
-                        </Text>
-                      </View>
+                        }
+                        symbolSize={null}
+                        symbolWeight={null}
+                        transition={null}
+                        width={64}
+                      />
                     </View>
                     <Text
                       numberOfLines={1}
@@ -14679,46 +14339,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Maya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-01.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  M
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -14863,46 +14524,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Daniel's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-02.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  D
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -15035,46 +14697,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Priya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-03.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  P
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -15352,46 +15015,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Tom's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-04.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  T
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -15524,46 +15188,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Aisha's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-05.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  A
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -15696,46 +15361,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Leo's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-06.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  L
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -15868,46 +15534,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Nina's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-07.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  N
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -16040,46 +15707,47 @@ exports[`Phase 7 — conversation list — dark theme (tabs)/chat — no pending
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Omar's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4279242252}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#3A2419",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-08.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#FF8560",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#100E0C",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  O
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -16819,46 +16487,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                         }
                       }
                     >
-                      <View
+                      <ViewManagerAdapter_ExpoImage
                         accessibilityLabel="Yuki's avatar"
-                        accessibilityRole="image"
-                        accessible={true}
-                        style={
+                        backgroundColor={4294045162}
+                        borderRadius={999}
+                        cachePolicy="memory-disk"
+                        containerViewRef={"[React.ref]"}
+                        contentFit="cover"
+                        contentPosition={
+                          {
+                            "left": "50%",
+                            "top": "50%",
+                          }
+                        }
+                        height={64}
+                        nativeViewRef={"[React.ref]"}
+                        onError={[Function]}
+                        onLoad={[Function]}
+                        onLoadStart={[Function]}
+                        onProgress={[Function]}
+                        placeholder={[]}
+                        sfEffect={null}
+                        source={
                           [
                             {
-                              "borderRadius": 999,
-                              "height": 64,
-                              "width": 64,
-                            },
-                            {
-                              "alignItems": "center",
-                              "backgroundColor": "#FCE9E2",
-                              "justifyContent": "center",
+                              "testUri": "../../../assets/avatars/avatar-15.png",
                             },
                           ]
                         }
-                      >
-                        <Text
-                          style={
-                            [
-                              {
-                                "fontFamily": "Inter-Medium",
-                                "fontSize": 13,
-                                "lineHeight": 18,
-                              },
-                              {
-                                "color": "#F2724B",
-                              },
-                              {
-                                "fontSize": 25.6,
-                                "lineHeight": 32,
-                              },
-                            ]
+                        style={
+                          {
+                            "backgroundColor": "#F1EDEA",
+                            "borderRadius": 999,
+                            "height": 64,
+                            "width": 64,
                           }
-                        >
-                          Y
-                        </Text>
-                      </View>
+                        }
+                        symbolSize={null}
+                        symbolWeight={null}
+                        transition={null}
+                        width={64}
+                      />
                     </View>
                     <Text
                       numberOfLines={1}
@@ -16932,46 +16601,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Maya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-01.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  M
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -17116,46 +16786,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Daniel's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-02.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  D
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -17288,46 +16959,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Priya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-03.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  P
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -17605,46 +17277,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Tom's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-04.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  T
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -17777,46 +17450,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Aisha's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-05.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  A
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -17949,46 +17623,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Leo's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-06.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  L
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -18121,46 +17796,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Nina's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-07.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  N
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -18293,46 +17969,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — Messages 
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Omar's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-08.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  O
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -19370,46 +19047,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                         }
                       }
                     >
-                      <View
+                      <ViewManagerAdapter_ExpoImage
                         accessibilityLabel="Yuki's avatar"
-                        accessibilityRole="image"
-                        accessible={true}
-                        style={
+                        backgroundColor={4294045162}
+                        borderRadius={999}
+                        cachePolicy="memory-disk"
+                        containerViewRef={"[React.ref]"}
+                        contentFit="cover"
+                        contentPosition={
+                          {
+                            "left": "50%",
+                            "top": "50%",
+                          }
+                        }
+                        height={64}
+                        nativeViewRef={"[React.ref]"}
+                        onError={[Function]}
+                        onLoad={[Function]}
+                        onLoadStart={[Function]}
+                        onProgress={[Function]}
+                        placeholder={[]}
+                        sfEffect={null}
+                        source={
                           [
                             {
-                              "borderRadius": 999,
-                              "height": 64,
-                              "width": 64,
-                            },
-                            {
-                              "alignItems": "center",
-                              "backgroundColor": "#FCE9E2",
-                              "justifyContent": "center",
+                              "testUri": "../../../assets/avatars/avatar-15.png",
                             },
                           ]
                         }
-                      >
-                        <Text
-                          style={
-                            [
-                              {
-                                "fontFamily": "Inter-Medium",
-                                "fontSize": 13,
-                                "lineHeight": 18,
-                              },
-                              {
-                                "color": "#F2724B",
-                              },
-                              {
-                                "fontSize": 25.6,
-                                "lineHeight": 32,
-                              },
-                            ]
+                        style={
+                          {
+                            "backgroundColor": "#F1EDEA",
+                            "borderRadius": 999,
+                            "height": 64,
+                            "width": 64,
                           }
-                        >
-                          Y
-                        </Text>
-                      </View>
+                        }
+                        symbolSize={null}
+                        symbolWeight={null}
+                        transition={null}
+                        width={64}
+                      />
                     </View>
                     <Text
                       numberOfLines={1}
@@ -19483,46 +19161,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Maya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-01.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  M
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -19667,46 +19346,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Daniel's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-02.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  D
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -19839,46 +19519,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Priya's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-03.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  P
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -20156,46 +19837,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Tom's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-04.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  T
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -20328,46 +20010,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Aisha's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-05.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  A
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -20500,46 +20183,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Leo's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-06.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  L
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -20672,46 +20356,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Nina's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-07.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  N
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -20844,46 +20529,47 @@ exports[`Phase 7 — conversation list — light theme (tabs)/chat — no pendin
                 }
               }
             >
-              <View
+              <ViewManagerAdapter_ExpoImage
                 accessibilityLabel="Omar's avatar"
-                accessibilityRole="image"
-                accessible={true}
-                style={
+                backgroundColor={4294045162}
+                borderRadius={999}
+                cachePolicy="memory-disk"
+                containerViewRef={"[React.ref]"}
+                contentFit="cover"
+                contentPosition={
+                  {
+                    "left": "50%",
+                    "top": "50%",
+                  }
+                }
+                height={44}
+                nativeViewRef={"[React.ref]"}
+                onError={[Function]}
+                onLoad={[Function]}
+                onLoadStart={[Function]}
+                onProgress={[Function]}
+                placeholder={[]}
+                sfEffect={null}
+                source={
                   [
                     {
-                      "borderRadius": 999,
-                      "height": 44,
-                      "width": 44,
-                    },
-                    {
-                      "alignItems": "center",
-                      "backgroundColor": "#FCE9E2",
-                      "justifyContent": "center",
+                      "testUri": "../../../assets/avatars/avatar-08.png",
                     },
                   ]
                 }
-              >
-                <Text
-                  style={
-                    [
-                      {
-                        "fontFamily": "Inter-Medium",
-                        "fontSize": 13,
-                        "lineHeight": 18,
-                      },
-                      {
-                        "color": "#F2724B",
-                      },
-                      {
-                        "fontSize": 17.6,
-                        "lineHeight": 22,
-                      },
-                    ]
+                style={
+                  {
+                    "backgroundColor": "#F1EDEA",
+                    "borderRadius": 999,
+                    "height": 44,
+                    "width": 44,
                   }
-                >
-                  O
-                </Text>
-              </View>
+                }
+                symbolSize={null}
+                symbolWeight={null}
+                transition={null}
+                width={44}
+              />
               <View
                 style={
                   {
@@ -21043,48 +20729,55 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                     {
                       "children": [
                         {
-                          "children": [
-                            {
-                              "children": [
-                                "M",
-                              ],
-                              "props": {
-                                "style": [
-                                  {
-                                    "fontFamily": "Inter-Medium",
-                                    "fontSize": 13,
-                                    "lineHeight": 18,
-                                  },
-                                  {
-                                    "color": "#FF8560",
-                                  },
-                                  {
-                                    "fontSize": 12.8,
-                                    "lineHeight": 16,
-                                  },
-                                ],
-                              },
-                              "type": "Text",
-                            },
-                          ],
+                          "children": null,
                           "props": {
                             "accessibilityLabel": "Maya's avatar",
-                            "accessibilityRole": "image",
-                            "accessible": true,
-                            "style": [
+                            "backgroundColor": 4279242252,
+                            "borderBottomColor": undefined,
+                            "borderColor": undefined,
+                            "borderEndColor": undefined,
+                            "borderLeftColor": undefined,
+                            "borderRadius": 999,
+                            "borderRightColor": undefined,
+                            "borderStartColor": undefined,
+                            "borderTopColor": undefined,
+                            "cachePolicy": "memory-disk",
+                            "containerViewRef": {
+                              "current": null,
+                            },
+                            "contentFit": "cover",
+                            "contentPosition": {
+                              "left": "50%",
+                              "top": "50%",
+                            },
+                            "height": 32,
+                            "nativeViewRef": {
+                              "current": null,
+                            },
+                            "onError": [Function],
+                            "onLoad": [Function],
+                            "onLoadStart": [Function],
+                            "onProgress": [Function],
+                            "placeholder": [],
+                            "sfEffect": null,
+                            "source": [
                               {
-                                "borderRadius": 999,
-                                "height": 32,
-                                "width": 32,
-                              },
-                              {
-                                "alignItems": "center",
-                                "backgroundColor": "#3A2419",
-                                "justifyContent": "center",
+                                "testUri": "../../../assets/avatars/avatar-01.png",
                               },
                             ],
+                            "style": {
+                              "backgroundColor": "#100E0C",
+                              "borderRadius": 999,
+                              "height": 32,
+                              "width": 32,
+                            },
+                            "symbolSize": null,
+                            "symbolWeight": null,
+                            "tintColor": undefined,
+                            "transition": null,
+                            "width": 32,
                           },
-                          "type": "View",
+                          "type": "ViewManagerAdapter_ExpoImage",
                         },
                         {
                           "children": [
@@ -21876,7 +21569,6 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                         },
                       ],
                       "props": {
-                        "ListFooterComponent": null,
                         "contentContainerStyle": {
                           "gap": 8,
                           "paddingHorizontal": 16,
@@ -22102,8 +21794,9 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                       "borderTopWidth": 1,
                       "flexDirection": "row",
                       "gap": 8,
+                      "paddingBottom": 46,
                       "paddingHorizontal": 16,
-                      "paddingVertical": 12,
+                      "paddingTop": 12,
                     },
                   },
                   "type": "View",
@@ -22304,46 +21997,47 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
               }
             }
           >
-            <View
+            <ViewManagerAdapter_ExpoImage
               accessibilityLabel="Yuki's avatar"
-              accessibilityRole="image"
-              accessible={true}
-              style={
+              backgroundColor={4279242252}
+              borderRadius={999}
+              cachePolicy="memory-disk"
+              containerViewRef={"[React.ref]"}
+              contentFit="cover"
+              contentPosition={
+                {
+                  "left": "50%",
+                  "top": "50%",
+                }
+              }
+              height={32}
+              nativeViewRef={"[React.ref]"}
+              onError={[Function]}
+              onLoad={[Function]}
+              onLoadStart={[Function]}
+              onProgress={[Function]}
+              placeholder={[]}
+              sfEffect={null}
+              source={
                 [
                   {
-                    "borderRadius": 999,
-                    "height": 32,
-                    "width": 32,
-                  },
-                  {
-                    "alignItems": "center",
-                    "backgroundColor": "#3A2419",
-                    "justifyContent": "center",
+                    "testUri": "../../../assets/avatars/avatar-15.png",
                   },
                 ]
               }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "fontFamily": "Inter-Medium",
-                      "fontSize": 13,
-                      "lineHeight": 18,
-                    },
-                    {
-                      "color": "#FF8560",
-                    },
-                    {
-                      "fontSize": 12.8,
-                      "lineHeight": 16,
-                    },
-                  ]
+              style={
+                {
+                  "backgroundColor": "#100E0C",
+                  "borderRadius": 999,
+                  "height": 32,
+                  "width": 32,
                 }
-              >
-                Y
-              </Text>
-            </View>
+              }
+              symbolSize={null}
+              symbolWeight={null}
+              transition={null}
+              width={32}
+            />
             <View
               style={
                 {
@@ -22587,8 +22281,9 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
               "borderTopWidth": 1,
               "flexDirection": "row",
               "gap": 8,
+              "paddingBottom": 46,
               "paddingHorizontal": 16,
-              "paddingVertical": 12,
+              "paddingTop": 12,
             }
           }
         >
@@ -22774,48 +22469,55 @@ exports[`Phase 7 — thread — dark theme thread/[id] — unmatched by them 1`]
                     {
                       "children": [
                         {
-                          "children": [
-                            {
-                              "children": [
-                                "M",
-                              ],
-                              "props": {
-                                "style": [
-                                  {
-                                    "fontFamily": "Inter-Medium",
-                                    "fontSize": 13,
-                                    "lineHeight": 18,
-                                  },
-                                  {
-                                    "color": "#FF8560",
-                                  },
-                                  {
-                                    "fontSize": 12.8,
-                                    "lineHeight": 16,
-                                  },
-                                ],
-                              },
-                              "type": "Text",
-                            },
-                          ],
+                          "children": null,
                           "props": {
                             "accessibilityLabel": "Maya's avatar",
-                            "accessibilityRole": "image",
-                            "accessible": true,
-                            "style": [
+                            "backgroundColor": 4279242252,
+                            "borderBottomColor": undefined,
+                            "borderColor": undefined,
+                            "borderEndColor": undefined,
+                            "borderLeftColor": undefined,
+                            "borderRadius": 999,
+                            "borderRightColor": undefined,
+                            "borderStartColor": undefined,
+                            "borderTopColor": undefined,
+                            "cachePolicy": "memory-disk",
+                            "containerViewRef": {
+                              "current": null,
+                            },
+                            "contentFit": "cover",
+                            "contentPosition": {
+                              "left": "50%",
+                              "top": "50%",
+                            },
+                            "height": 32,
+                            "nativeViewRef": {
+                              "current": null,
+                            },
+                            "onError": [Function],
+                            "onLoad": [Function],
+                            "onLoadStart": [Function],
+                            "onProgress": [Function],
+                            "placeholder": [],
+                            "sfEffect": null,
+                            "source": [
                               {
-                                "borderRadius": 999,
-                                "height": 32,
-                                "width": 32,
-                              },
-                              {
-                                "alignItems": "center",
-                                "backgroundColor": "#3A2419",
-                                "justifyContent": "center",
+                                "testUri": "../../../assets/avatars/avatar-01.png",
                               },
                             ],
+                            "style": {
+                              "backgroundColor": "#100E0C",
+                              "borderRadius": 999,
+                              "height": 32,
+                              "width": 32,
+                            },
+                            "symbolSize": null,
+                            "symbolWeight": null,
+                            "tintColor": undefined,
+                            "transition": null,
+                            "width": 32,
                           },
-                          "type": "View",
+                          "type": "ViewManagerAdapter_ExpoImage",
                         },
                         {
                           "children": [
@@ -23548,7 +23250,6 @@ exports[`Phase 7 — thread — dark theme thread/[id] — unmatched by them 1`]
                         },
                       ],
                       "props": {
-                        "ListFooterComponent": null,
                         "contentContainerStyle": {
                           "gap": 8,
                           "paddingHorizontal": 16,
@@ -23683,6 +23384,7 @@ exports[`Phase 7 — thread — dark theme thread/[id] — unmatched by them 1`]
                       "borderTopColor": "#2A2522",
                       "borderTopWidth": 1,
                       "padding": 16,
+                      "paddingBottom": 50,
                     },
                   },
                   "type": "View",
@@ -23802,48 +23504,55 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                     {
                       "children": [
                         {
-                          "children": [
-                            {
-                              "children": [
-                                "M",
-                              ],
-                              "props": {
-                                "style": [
-                                  {
-                                    "fontFamily": "Inter-Medium",
-                                    "fontSize": 13,
-                                    "lineHeight": 18,
-                                  },
-                                  {
-                                    "color": "#F2724B",
-                                  },
-                                  {
-                                    "fontSize": 12.8,
-                                    "lineHeight": 16,
-                                  },
-                                ],
-                              },
-                              "type": "Text",
-                            },
-                          ],
+                          "children": null,
                           "props": {
                             "accessibilityLabel": "Maya's avatar",
-                            "accessibilityRole": "image",
-                            "accessible": true,
-                            "style": [
+                            "backgroundColor": 4294045162,
+                            "borderBottomColor": undefined,
+                            "borderColor": undefined,
+                            "borderEndColor": undefined,
+                            "borderLeftColor": undefined,
+                            "borderRadius": 999,
+                            "borderRightColor": undefined,
+                            "borderStartColor": undefined,
+                            "borderTopColor": undefined,
+                            "cachePolicy": "memory-disk",
+                            "containerViewRef": {
+                              "current": null,
+                            },
+                            "contentFit": "cover",
+                            "contentPosition": {
+                              "left": "50%",
+                              "top": "50%",
+                            },
+                            "height": 32,
+                            "nativeViewRef": {
+                              "current": null,
+                            },
+                            "onError": [Function],
+                            "onLoad": [Function],
+                            "onLoadStart": [Function],
+                            "onProgress": [Function],
+                            "placeholder": [],
+                            "sfEffect": null,
+                            "source": [
                               {
-                                "borderRadius": 999,
-                                "height": 32,
-                                "width": 32,
-                              },
-                              {
-                                "alignItems": "center",
-                                "backgroundColor": "#FCE9E2",
-                                "justifyContent": "center",
+                                "testUri": "../../../assets/avatars/avatar-01.png",
                               },
                             ],
+                            "style": {
+                              "backgroundColor": "#F1EDEA",
+                              "borderRadius": 999,
+                              "height": 32,
+                              "width": 32,
+                            },
+                            "symbolSize": null,
+                            "symbolWeight": null,
+                            "tintColor": undefined,
+                            "transition": null,
+                            "width": 32,
                           },
-                          "type": "View",
+                          "type": "ViewManagerAdapter_ExpoImage",
                         },
                         {
                           "children": [
@@ -24635,7 +24344,6 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                         },
                       ],
                       "props": {
-                        "ListFooterComponent": null,
                         "contentContainerStyle": {
                           "gap": 8,
                           "paddingHorizontal": 16,
@@ -24861,8 +24569,9 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                       "borderTopWidth": 1,
                       "flexDirection": "row",
                       "gap": 8,
+                      "paddingBottom": 46,
                       "paddingHorizontal": 16,
-                      "paddingVertical": 12,
+                      "paddingTop": 12,
                     },
                   },
                   "type": "View",
@@ -25063,46 +24772,47 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
               }
             }
           >
-            <View
+            <ViewManagerAdapter_ExpoImage
               accessibilityLabel="Yuki's avatar"
-              accessibilityRole="image"
-              accessible={true}
-              style={
+              backgroundColor={4294045162}
+              borderRadius={999}
+              cachePolicy="memory-disk"
+              containerViewRef={"[React.ref]"}
+              contentFit="cover"
+              contentPosition={
+                {
+                  "left": "50%",
+                  "top": "50%",
+                }
+              }
+              height={32}
+              nativeViewRef={"[React.ref]"}
+              onError={[Function]}
+              onLoad={[Function]}
+              onLoadStart={[Function]}
+              onProgress={[Function]}
+              placeholder={[]}
+              sfEffect={null}
+              source={
                 [
                   {
-                    "borderRadius": 999,
-                    "height": 32,
-                    "width": 32,
-                  },
-                  {
-                    "alignItems": "center",
-                    "backgroundColor": "#FCE9E2",
-                    "justifyContent": "center",
+                    "testUri": "../../../assets/avatars/avatar-15.png",
                   },
                 ]
               }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "fontFamily": "Inter-Medium",
-                      "fontSize": 13,
-                      "lineHeight": 18,
-                    },
-                    {
-                      "color": "#F2724B",
-                    },
-                    {
-                      "fontSize": 12.8,
-                      "lineHeight": 16,
-                    },
-                  ]
+              style={
+                {
+                  "backgroundColor": "#F1EDEA",
+                  "borderRadius": 999,
+                  "height": 32,
+                  "width": 32,
                 }
-              >
-                Y
-              </Text>
-            </View>
+              }
+              symbolSize={null}
+              symbolWeight={null}
+              transition={null}
+              width={32}
+            />
             <View
               style={
                 {
@@ -25346,8 +25056,9 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
               "borderTopWidth": 1,
               "flexDirection": "row",
               "gap": 8,
+              "paddingBottom": 46,
               "paddingHorizontal": 16,
-              "paddingVertical": 12,
+              "paddingTop": 12,
             }
           }
         >
@@ -25533,48 +25244,55 @@ exports[`Phase 7 — thread — light theme thread/[id] — unmatched by them 1`
                     {
                       "children": [
                         {
-                          "children": [
-                            {
-                              "children": [
-                                "M",
-                              ],
-                              "props": {
-                                "style": [
-                                  {
-                                    "fontFamily": "Inter-Medium",
-                                    "fontSize": 13,
-                                    "lineHeight": 18,
-                                  },
-                                  {
-                                    "color": "#F2724B",
-                                  },
-                                  {
-                                    "fontSize": 12.8,
-                                    "lineHeight": 16,
-                                  },
-                                ],
-                              },
-                              "type": "Text",
-                            },
-                          ],
+                          "children": null,
                           "props": {
                             "accessibilityLabel": "Maya's avatar",
-                            "accessibilityRole": "image",
-                            "accessible": true,
-                            "style": [
+                            "backgroundColor": 4294045162,
+                            "borderBottomColor": undefined,
+                            "borderColor": undefined,
+                            "borderEndColor": undefined,
+                            "borderLeftColor": undefined,
+                            "borderRadius": 999,
+                            "borderRightColor": undefined,
+                            "borderStartColor": undefined,
+                            "borderTopColor": undefined,
+                            "cachePolicy": "memory-disk",
+                            "containerViewRef": {
+                              "current": null,
+                            },
+                            "contentFit": "cover",
+                            "contentPosition": {
+                              "left": "50%",
+                              "top": "50%",
+                            },
+                            "height": 32,
+                            "nativeViewRef": {
+                              "current": null,
+                            },
+                            "onError": [Function],
+                            "onLoad": [Function],
+                            "onLoadStart": [Function],
+                            "onProgress": [Function],
+                            "placeholder": [],
+                            "sfEffect": null,
+                            "source": [
                               {
-                                "borderRadius": 999,
-                                "height": 32,
-                                "width": 32,
-                              },
-                              {
-                                "alignItems": "center",
-                                "backgroundColor": "#FCE9E2",
-                                "justifyContent": "center",
+                                "testUri": "../../../assets/avatars/avatar-01.png",
                               },
                             ],
+                            "style": {
+                              "backgroundColor": "#F1EDEA",
+                              "borderRadius": 999,
+                              "height": 32,
+                              "width": 32,
+                            },
+                            "symbolSize": null,
+                            "symbolWeight": null,
+                            "tintColor": undefined,
+                            "transition": null,
+                            "width": 32,
                           },
-                          "type": "View",
+                          "type": "ViewManagerAdapter_ExpoImage",
                         },
                         {
                           "children": [
@@ -26307,7 +26025,6 @@ exports[`Phase 7 — thread — light theme thread/[id] — unmatched by them 1`
                         },
                       ],
                       "props": {
-                        "ListFooterComponent": null,
                         "contentContainerStyle": {
                           "gap": 8,
                           "paddingHorizontal": 16,
@@ -26442,6 +26159,7 @@ exports[`Phase 7 — thread — light theme thread/[id] — unmatched by them 1`
                       "borderTopColor": "#E6E2DD",
                       "borderTopWidth": 1,
                       "padding": 16,
+                      "paddingBottom": 50,
                     },
                   },
                   "type": "View",

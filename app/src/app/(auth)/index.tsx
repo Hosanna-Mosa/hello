@@ -1,8 +1,8 @@
 import { router } from "expo-router";
 
 import { Body, Box, Button, SafeArea, useTheme } from "@/components/common";
-import { Logo } from "@/components/brand/Logo";
-import { ValueCarousel, type CarouselSlide } from "@/components/welcome/ValueCarousel";
+import { Logo } from "@/components/welcome/molecules/Logo";
+import { ValueCarousel, type CarouselSlide } from "@/components/welcome/organisms/ValueCarousel";
 import { copy } from "@/copy";
 
 const FRIENDS = require("@/assets/images/illustrations/friends.png");

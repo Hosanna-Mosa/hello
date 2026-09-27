@@ -41,11 +41,11 @@ import LegalSettingsScreen from "@/app/settings/legal";
 import NotificationSettingsScreen from "@/app/settings/notifications";
 import SafetySettingsScreen from "@/app/settings/safety";
 
-import { NotificationPrimer } from "@/components/notifications/NotificationPrimer";
-import { CompletenessRing } from "@/components/profile/CompletenessRing";
-import { ProfileMenu } from "@/components/profile/ProfileMenu";
-import { ProfileStats } from "@/components/profile/ProfileStats";
-import { SafetyCard } from "@/components/safety/SafetyCard";
+import { NotificationPrimer } from "@/components/matched/organisms/NotificationPrimer";
+import { CompletenessRing } from "@/components/profile/molecules/CompletenessRing";
+import { ProfileMenu } from "@/components/profile/organisms/ProfileMenu";
+import { ProfileStats } from "@/components/profile/molecules/ProfileStats";
+import { SafetyCard } from "@/components/settings/safety/molecules/SafetyCard";
 
 import { Avatar } from "@/components/common";
 import { renderAtom, renderAtomAsync, THEMES } from "@/components/common/atoms/__tests__/renderAtom";

@@ -9,7 +9,7 @@
  * is both standard practice and the safest thing for them.
  */
 
-import { nextId, nowIso, request } from "./client";
+import { currentUserIdOrMe, http, isMockMode, nextId, nowIso, request } from "./client";
 import type { Block, Report, ReportReason } from "./types";
 
 let blocks: Block[] = [];
@@ -31,13 +31,19 @@ export const REPORT_REASONS: { reason: ReportReason; label: string }[] = [
 
 export const safetyService = {
   async block(userId: string): Promise<Block> {
+    if (!isMockMode()) {
+      // The server also ends any match, deletes the conversation and drops the
+      // likes — blocking is a teardown, not a filter — and tells both sockets.
+      return http<Block>("POST", "/blocks", { userId });
+    }
+
     return request(() => {
       const existing = blocks.find((b) => b.blockedUserId === userId);
       if (existing) return { ...existing };
 
       const block: Block = {
         id: nextId("block"),
-        blockerId: "me",
+        blockerId: currentUserIdOrMe(),
         blockedUserId: userId,
         createdAt: nowIso(),
       };
@@ -47,12 +53,21 @@ export const safetyService = {
   },
 
   async unblock(userId: string): Promise<void> {
+    if (!isMockMode()) {
+      // Undoes only YOUR block. If they also blocked you, that one stands.
+      return http<void>("DELETE", `/blocks/${encodeURIComponent(userId)}`);
+    }
+
     return request(() => {
       blocks = blocks.filter((b) => b.blockedUserId !== userId);
     });
   },
 
   async listBlocked(): Promise<Block[]> {
+    // Each row carries the blocked person's summary, because no other endpoint
+    // will return it — see `Block.user`.
+    if (!isMockMode()) return http<Block[]>("GET", "/blocks");
+
     return request(() => blocks.map((b) => ({ ...b })));
   },
 
@@ -64,13 +79,25 @@ export const safetyService = {
   ): Promise<Report> {
     const report: Report = {
       id: nextId("report"),
-      reporterId: "me",
+      reporterId: currentUserIdOrMe(),
       reportedUserId,
       reason,
       details,
       alsoBlocked: alsoBlock,
       createdAt: nowIso(),
     };
+
+    if (!isMockMode()) {
+      // `alsoBlock` is handled SERVER-side, in the same request, so the
+      // evidence snapshot is taken before the block deletes the conversation.
+      // Blocking again from here would be a second, redundant teardown.
+      return http<Report>("POST", "/reports", {
+        reportedUserId,
+        reason,
+        ...(details ? { details } : {}),
+        alsoBlock,
+      });
+    }
 
     if (alsoBlock) await safetyService.block(reportedUserId);
 
@@ -84,7 +111,14 @@ export const safetyService = {
     return request(() => reports.map((r) => ({ ...r })));
   },
 
-  /** Synchronous, for other services filtering their own results. */
+  /**
+   * Synchronous, for other services filtering their own results.
+   *
+   * MOCK ONLY, and every caller is already inside an `isMockMode()` branch.
+   * Against the real API the server excludes blocked people from discovery,
+   * search, likes, requests and chat before they are ever sent, so there is
+   * nothing left here to filter.
+   */
   blockedIdsSync(): Set<string> {
     return new Set(blocks.map((b) => b.blockedUserId));
   },

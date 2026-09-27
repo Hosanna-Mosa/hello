@@ -9,7 +9,7 @@ import {
   ErrorState,
   Heading,
   Icon,
-  InterestChips,
+  InterestText,
   Scroller,
   Tappable,
   TabScreenShell,
@@ -19,10 +19,11 @@ import {
   useTheme,
 } from "@/components/common";
 import { useFocusLoad } from "@/components/common/hooks/useFocusLoad";
-import { CompletenessRing } from "@/components/profile/CompletenessRing";
-import { ProfileMenu } from "@/components/profile/ProfileMenu";
-import { ProfileStats } from "@/components/profile/ProfileStats";
+import { CompletenessRing } from "@/components/profile/molecules/CompletenessRing";
+import { ProfileMenu } from "@/components/profile/organisms/ProfileMenu";
+import { ProfileStats } from "@/components/profile/molecules/ProfileStats";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { interestsByIds } from "@/mocks/interests";
 import { likesService } from "@/services/likes.service";
 import { matchesService } from "@/services/matches.service";
@@ -119,7 +120,7 @@ export default function ProfileScreen() {
       >
         <Box style={{ alignItems: "center" }}>
           <CompletenessRing percent={percent}>
-            <Avatar name={me?.name} size="xl" />
+            <Avatar source={avatarSource(me?.avatarId)} name={me?.name} size="xl" />
 
             {/*
               The edit affordance from the design: a pencil on the avatar's
@@ -196,8 +197,7 @@ export default function ProfileScreen() {
         </Box>
 
         {me && me.interestIds.length > 0 ? (
-          // Coloured, as the design shows and as the deck card already does.
-          <InterestChips interests={interestsByIds(me.interestIds)} coloured />
+          <InterestText interests={interestsByIds(me.interestIds)} />
         ) : (
           <Tappable
             onPress={() => router.push("/edit-profile/interests")}

@@ -9,19 +9,20 @@ import {
   Heading,
   List,
   ListScreenShell,
-  ProfileCard,
   useAsyncStatus,
   usePermission,
   usePullToRefresh,
   useTheme,
 } from "@/components/common";
-import { AdBanner } from "@/components/ads/AdBanner";
-import { EmptyNearby } from "@/components/home/EmptyNearby";
-import { HomeHeader } from "@/components/home/HomeHeader";
-import { LocationChip } from "@/components/home/LocationChip";
-import { LocationDenied } from "@/components/home/LocationDenied";
-import { NearbySkeleton } from "@/components/home/NearbySkeleton";
+import { AdBanner } from "@/components/common/molecules/AdBanner";
+import { ProfileCard } from "@/components/home/organisms/ProfileCard";
+import { EmptyNearby } from "@/components/home/organisms/EmptyNearby";
+import { HomeHeader } from "@/components/home/organisms/HomeHeader";
+import { LocationChip } from "@/components/home/molecules/LocationChip";
+import { LocationDenied } from "@/components/home/organisms/LocationDenied";
+import { NearbySkeleton } from "@/components/common/molecules/NearbySkeleton";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { interestsByIds } from "@/mocks/interests";
 import { likesService } from "@/services/likes.service";
 import { profilesService } from "@/services/profiles.service";
@@ -197,6 +198,7 @@ export default function NearbyScreen() {
               distanceMetres: item.distanceMetres,
               bio: item.bio,
               interests: interestsByIds(item.interestIds),
+              avatar: avatarSource(item.avatarId),
             }}
             onPress={() => router.push({ pathname: "/user/[id]", params: { id: item.id } })}
           />

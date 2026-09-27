@@ -11,12 +11,13 @@ import {
   useEntitlements,
   useTheme,
 } from "@/components/common";
-import { AdCard, AD_EVERY } from "@/components/ads/AdCard";
-import { DeckActions } from "@/components/deck/DeckActions";
-import { DeckSkeleton } from "@/components/deck/DeckSkeleton";
-import { SwipeCard } from "@/components/deck/SwipeCard";
-import { SwipeDeck, type SwipeDeckHandle } from "@/components/deck/SwipeDeck";
+import { AdCard, AD_EVERY } from "@/components/common/molecules/AdCard";
+import { DeckActions } from "@/components/match/molecules/DeckActions";
+import { DeckSkeleton } from "@/components/match/molecules/DeckSkeleton";
+import { SwipeCard } from "@/components/match/organisms/SwipeCard";
+import { SwipeDeck, type SwipeDeckHandle } from "@/components/match/organisms/SwipeDeck";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { interestsByIds } from "@/mocks/interests";
 import type { PublicProfile } from "@/services/types";
 import { useDeckStore } from "@/stores/deck.store";
@@ -193,6 +194,7 @@ export default function MatchScreen() {
                   distanceMetres: item.profile.distanceMetres,
                   bio: item.profile.bio,
                   interests: interestsByIds(item.profile.interestIds),
+                  avatar: avatarSource(item.profile.avatarId),
                 }}
               />
             )

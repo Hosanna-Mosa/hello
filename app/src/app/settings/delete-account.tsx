@@ -12,7 +12,7 @@ import {
   ScreenShell,
   Scroller,
   SectionHeader,
-  Tappable,
+  SelectableRow,
   useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
@@ -64,39 +64,14 @@ export default function DeleteAccountScreen() {
         <SectionHeader title={copy.settings.deleteReasonPrompt} />
 
         <Box style={{ gap: theme.spacing.sm }}>
-          {copy.settings.deleteReasons.map((option) => {
-            const selected = option === reason;
-
-            return (
-              <Tappable
-                key={option}
-                onPress={() => setReason(option)}
-                accessibilityRole="radio"
-                accessibilityState={{ selected }}
-                accessibilityLabel={option}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  gap: theme.spacing.md,
-                  padding: theme.spacing.lg,
-                  minHeight: 56,
-                  borderRadius: theme.radius.md,
-                  borderWidth: 1,
-                  borderColor: selected ? theme.color.accent : theme.color.border,
-                  backgroundColor: selected ? theme.color.accentMuted : theme.color.surface,
-                }}
-              >
-                <Body style={{ flex: 1 }}>{option}</Body>
-                {selected ? (
-                  <Icon
-                    name={{ ios: "checkmark.circle.fill", android: "check_circle" }}
-                    size={20}
-                    color="accent"
-                  />
-                ) : null}
-              </Tappable>
-            );
-          })}
+          {copy.settings.deleteReasons.map((option) => (
+            <SelectableRow
+              key={option}
+              label={option}
+              selected={option === reason}
+              onPress={() => setReason(option)}
+            />
+          ))}
         </Box>
       </>
     );

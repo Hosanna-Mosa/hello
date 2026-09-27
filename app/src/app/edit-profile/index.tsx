@@ -14,6 +14,7 @@ import {
   useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { interestsByIds } from "@/mocks/interests";
 import { meService } from "@/services/me.service";
 import type { User } from "@/services/types";
@@ -58,7 +59,7 @@ export default function EditProfileScreen() {
         }}
       >
         <Box style={{ alignItems: "center", gap: theme.spacing.sm }}>
-          <Avatar name={me?.name} size="xl" />
+          <Avatar source={avatarSource(me?.avatarId)} name={me?.name} size="xl" />
           <Caption>{copy.profile.completeHint}</Caption>
         </Box>
 

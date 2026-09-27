@@ -12,7 +12,7 @@
 
 import { SEEDED_LIKES, SEEDED_REQUESTS } from "@/mocks/threads";
 
-import { ApiError, nextId, nowIso, request } from "./client";
+import { ApiError, nextId, nowIso, request, http, isMockMode } from "./client";
 import { billingService } from "./billing.service";
 import { matchesService } from "./matches.service";
 import type { Like, Match, MessageRequest } from "./types";
@@ -37,6 +37,13 @@ export type LikeResult = {
 export const likesService = {
   /** A plain like, or a like with a note. Both spend one from the daily quota. */
   async sendLike(toUserId: string, note?: string): Promise<LikeResult> {
+    if (!isMockMode()) {
+      // The server spends the quota BEFORE writing, so a `quotaExceeded` here
+      // means nothing was recorded — which is what the out-of-likes screen
+      // relies on.
+      return http<LikeResult>("POST", "/likes", note?.trim() ? { toUserId, note: note.trim() } : { toUserId });
+    }
+
     // Throws `quotaExceeded` when the free allowance is gone. Deliberately
     // before the like is recorded, so a rejected like is not half-applied.
     await billingService.consumeLike();
@@ -61,6 +68,8 @@ export const likesService = {
 
   /** Inbound likes without a note — the (blurred, on free) Likes grid. */
   async listInboundLikes(): Promise<Like[]> {
+    if (!isMockMode()) return http<Like[]>("GET", "/likes/inbound");
+
     return request(() =>
       likes
         .filter((l) => l.toUserId === ME)
@@ -70,6 +79,8 @@ export const likesService = {
   },
 
   async listRequests(status: MessageRequest["status"] = "pending"): Promise<MessageRequest[]> {
+    if (!isMockMode()) return http<MessageRequest[]>("GET", `/requests?status=${status}`);
+
     return request(() =>
       requests
         .filter((r) => r.toUserId === ME && r.status === status)
@@ -80,6 +91,11 @@ export const likesService = {
 
   /** Accept → match + thread seeded with the note. The match gate is preserved. */
   async acceptRequest(requestId: string): Promise<Match> {
+    if (!isMockMode()) {
+      // Creates the match, the thread and the seed message together.
+      return http<Match>("POST", `/requests/${encodeURIComponent(requestId)}/accept`);
+    }
+
     return request(() => {
       const target = requests.find((r) => r.id === requestId);
       if (!target) throw new ApiError("notFound");
@@ -99,6 +115,12 @@ export const likesService = {
 
   /** Decline → silent discard. The sender is never notified (A18). */
   async declineRequest(requestId: string): Promise<void> {
+    if (!isMockMode()) {
+      // Silent by design (A18): the sender is never told and must not be able
+      // to infer it, so there is nothing to return.
+      return http<void>("POST", `/requests/${encodeURIComponent(requestId)}/decline`);
+    }
+
     return request(() => {
       const target = requests.find((r) => r.id === requestId);
       if (!target) throw new ApiError("notFound");

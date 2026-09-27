@@ -2,42 +2,42 @@ import { router, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
-  Avatar,
   Body,
   Box,
-  Caption,
   ConfirmDialog,
   EmptyState,
   ErrorState,
-  Heading,
-  Icon,
   List,
   type ListHandle,
+  type ListProps,
   ScreenShell,
-  Tappable,
   formatClockTime,
   formatDayLabel,
   isNewDay,
+  useBottomInset,
   useKeyboardInset,
   useTheme,
 } from "@/components/common";
-import { ChatBubble } from "@/components/chat/ChatBubble";
-import { ChatComposer } from "@/components/chat/ChatComposer";
-import { DaySeparator } from "@/components/chat/DaySeparator";
-import { ReactionPicker } from "@/components/chat/ReactionPicker";
-import { SystemMessage } from "@/components/chat/SystemMessage";
-import { ThreadMenu } from "@/components/chat/ThreadMenu";
-import { ThreadSkeleton } from "@/components/chat/ThreadSkeleton";
-import { TypingIndicator } from "@/components/chat/TypingIndicator";
+import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
+import { ChatComposer } from "@/components/thread/molecules/ChatComposer";
+import { DaySeparator } from "@/components/thread/molecules/DaySeparator";
+import { ReactionPicker } from "@/components/thread/molecules/ReactionPicker";
+import { SystemMessage } from "@/components/thread/molecules/SystemMessage";
+import { ThreadActions } from "@/components/thread/molecules/ThreadActions";
+import { ThreadHeader } from "@/components/thread/molecules/ThreadHeader";
+import { ThreadMenu } from "@/components/thread/organisms/ThreadMenu";
+import { ThreadSkeleton } from "@/components/common/molecules/ThreadSkeleton";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
+import { currentUserIdOrMe } from "@/services/client";
 import { chatService } from "@/services/chat.service";
 import { matchesService } from "@/services/matches.service";
 import { profilesService } from "@/services/profiles.service";
 import { safetyService } from "@/services/safety.service";
 import type { Message, PublicProfile, Thread } from "@/services/types";
 import { useChatStore } from "@/stores/chat.store";
+import { subscribeThread, unsubscribeThread } from "@/services/socket";
 
-const ME = "me";
 
 /**
  * One shared empty array for a thread with nothing loaded yet.
@@ -47,6 +47,26 @@ const ME = "me";
  * and React re-renders forever ("The result of getSnapshot should be cached").
  */
 const NO_MESSAGES: Message[] = [];
+
+/**
+ * How close to the bottom still counts as "reading the newest", in dp.
+ *
+ * Someone who has scrolled up to find something must not be yanked back down
+ * when a message lands. But someone a few pixels off the bottom plainly is at
+ * the bottom, and an exact comparison would fail them on every rubber-band
+ * bounce.
+ */
+const NEAR_BOTTOM_DP = 80;
+
+/**
+ * Marking a thread read is fire-and-forget.
+ *
+ * It changes a badge, not the conversation. Letting it reject unhandled warns
+ * in dev and tells the reader nothing; letting it reach the error state would
+ * replace a conversation that loaded perfectly well with "something went
+ * wrong". The badge simply clears on the next successful open.
+ */
+function ignoreReadFailure(): void {}
 
 /** A day separator or a message — the list renders one flat array of both. */
 type Row =
@@ -90,12 +110,34 @@ function buildRows(messages: Message[]): Row[] {
 export default function ThreadScreen() {
   const theme = useTheme();
   const keyboardInset = useKeyboardInset();
+  const bottomInset = useBottomInset();
   const { id } = useLocalSearchParams<{ id: string }>();
   const listRef = useRef<ListHandle<Row>>(null);
 
+  /**
+   * Who "me" is, asked rather than assumed.
+   *
+   * This was the literal `"me"` — the mock's own id for the signed-in user.
+   * Against the real API the id is a Mongo id, so "the participant who is not
+   * me" matched NOBODY and fell back to the first participant: both people saw
+   * the same name in the header, and every message rendered as incoming on
+   * both phones.
+   */
+  const viewerId = currentUserIdOrMe();
+
   const messages = useChatStore((state) => state.messages[id] ?? NO_MESSAGES);
   const draft = useChatStore((state) => state.drafts[id] ?? "");
-  const typing = useChatStore((state) => state.typing[id] ?? false);
+
+  /**
+   * Join this conversation's room for as long as the screen is open.
+   *
+   * The room carries live messages for the conversation on screen, so it is
+   * joined on mount and left on unmount. No-op in mock mode.
+   */
+  useEffect(() => {
+    subscribeThread(id);
+    return () => unsubscribeThread(id);
+  }, [id]);
   const loadMessages = useChatStore((state) => state.loadMessages);
   const setDraft = useChatStore((state) => state.setDraft);
   const send = useChatStore((state) => state.send);
@@ -108,7 +150,18 @@ export default function ThreadScreen() {
   const [partner, setPartner] = useState<PublicProfile | null>(null);
   /** False once the other side has unmatched — the thread survives, read-only. */
   const [active, setActive] = useState(true);
-  const [loading, setLoading] = useState(true);
+  /**
+   * Only skeleton a conversation we do not already have.
+   *
+   * A LAZY initialiser, so the store is read once at mount and never again —
+   * the flag must not flip to false the instant the first message arrives. The
+   * store keeps messages per thread and the socket keeps appending to them
+   * while you are somewhere else, so reopening a conversation you have already
+   * read finds them ALREADY THERE, and covering them with a skeleton is a
+   * loading state for work that is not needed. The refresh still runs; it just
+   * stops blanking the screen while it does.
+   */
+  const [loading, setLoading] = useState(() => messages.length === 0);
   const [error, setError] = useState<unknown>(null);
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -121,14 +174,16 @@ export default function ThreadScreen() {
     void (async () => {
       try {
         const loaded = await chatService.getThread(id);
-        const partnerId = loaded.participantIds.find((each) => each !== ME) ?? ME;
+        const partnerId = loaded.participantIds.find((each) => each !== viewerId) ?? viewerId;
 
         const [profile, match] = await Promise.all([
           profilesService.getProfile(partnerId),
           matchesService.getMatchForThread(id),
         ]);
         await loadMessages(id);
-        await markRead(id);
+        // Best effort, and deliberately not awaited: clearing the unread badge
+        // is not worth an error screen over a conversation that loaded fine.
+        void markRead(id).catch(ignoreReadFailure);
 
         if (cancelled) return;
         setThread(loaded);
@@ -144,21 +199,55 @@ export default function ThreadScreen() {
     return () => {
       cancelled = true;
     };
-  }, [id, loadMessages, markRead]);
+  }, [id, loadMessages, markRead, viewerId]);
 
   // A scripted reply arriving while the thread is open must not leave an unread
   // badge behind on the list.
   useEffect(() => {
-    if (!loading && messages.length > 0) void markRead(id);
+    if (!loading && messages.length > 0) void markRead(id).catch(ignoreReadFailure);
   }, [id, loading, markRead, messages.length]);
 
-  const scrollToEnd = useCallback(() => {
-    listRef.current?.scrollToEnd({ animated: true });
+  /** False until the list has been placed at the newest message once. */
+  const landed = useRef(false);
+  /** Whether the reader is at the bottom, so a new message should follow them. */
+  const atBottom = useRef(true);
+
+  // A different conversation opens at its own bottom, not the last one's.
+  useEffect(() => {
+    landed.current = false;
+    atBottom.current = true;
+  }, [id]);
+
+  const onScroll = useCallback<NonNullable<ListProps<Row>["onScroll"]>>((event) => {
+    const { contentOffset, contentSize, layoutMeasurement } = event.nativeEvent;
+    const fromBottom = contentSize.height - contentOffset.y - layoutMeasurement.height;
+    atBottom.current = fromBottom <= NEAR_BOTTOM_DP;
+  }, []);
+
+  /**
+   * Keep the newest message in view — without stealing the scroll.
+   *
+   * Two jobs behind one event. Opening a thread that overflows must ARRIVE at
+   * the bottom rather than animate down to it from the top, so the first call
+   * jumps. After that, a message landing should only pull the view down if the
+   * reader was already there; otherwise scrolling up to re-read something
+   * would be undone by the next message to arrive.
+   */
+  const onContentSizeChange = useCallback(() => {
+    if (!landed.current) {
+      landed.current = true;
+      listRef.current?.scrollToEnd({ animated: false });
+      return;
+    }
+
+    if (atBottom.current) listRef.current?.scrollToEnd({ animated: true });
   }, []);
 
   function onSend() {
     const body = draft.trim();
     if (!body) return;
+    // Sending is intent to see your own message, wherever you had scrolled to.
+    atBottom.current = true;
     void send(id, body);
   }
 
@@ -189,59 +278,26 @@ export default function ThreadScreen() {
 
   function header() {
     return (
-      <Box style={{ flexDirection: "row", alignItems: "center", gap: theme.spacing.sm }}>
-        {/* In-chat profile peek — the header is the way into it. */}
-        <Tappable
-          onPress={() =>
-            partner
-              ? router.push({ pathname: "/user/[id]", params: { id: partner.id } })
-              : undefined
-          }
-          disabled={!partner}
-          accessibilityRole="button"
-          accessibilityLabel={`${name}. View profile.`}
-          style={{
-            flex: 1,
-            flexDirection: "row",
-            alignItems: "center",
-            gap: theme.spacing.sm,
-          }}
-        >
-          <Avatar name={name} size="sm" />
-          <Box style={{ flex: 1 }}>
-            <Heading level="title" numberOfLines={1}>
-              {name}
-            </Heading>
-            {typing ? <Caption color="accent">{copy.chat.typing}</Caption> : null}
-          </Box>
-        </Tappable>
-      </Box>
+      <ThreadHeader
+        name={name}
+        source={avatarSource(partner?.avatarId)}
+        onPress={
+          partner
+            ? () => router.push({ pathname: "/user/[id]", params: { id: partner.id } })
+            : undefined
+        }
+      />
     );
   }
 
   function actions() {
     return (
-      <Box style={{ flexDirection: "row", alignItems: "center", gap: theme.spacing.lg }}>
-        {active ? (
-          <Tappable
-            onPress={() => router.push({ pathname: "/call/[id]", params: { id } })}
-            accessibilityRole="button"
-            accessibilityLabel={`Call ${name}`}
-            hitSlop={12}
-          >
-            <Icon name={{ ios: "phone", android: "call" }} size={22} />
-          </Tappable>
-        ) : null}
-
-        <Tappable
-          onPress={() => setMenuOpen(true)}
-          accessibilityRole="button"
-          accessibilityLabel="More options"
-          hitSlop={12}
-        >
-          <Icon name={{ ios: "ellipsis", android: "more_horiz" }} size={22} />
-        </Tappable>
-      </Box>
+      <ThreadActions
+        canCall={active}
+        callLabel={`Call ${name}`}
+        onCall={() => router.push({ pathname: "/call/[id]", params: { id } })}
+        onOpenMenu={() => setMenuOpen(true)}
+      />
     );
   }
 
@@ -254,7 +310,11 @@ export default function ThreadScreen() {
       );
     }
 
-    if (error) return <ErrorState onRetry={() => void loadMessages(id)} />;
+    // Only when there is nothing to show. A refresh that fails over a
+    // conversation already on screen must not replace it with an error — the
+    // messages are still true, and the cached ones are what the reader came
+    // back for.
+    if (error && rows.length === 0) return <ErrorState onRetry={() => void loadMessages(id)} />;
 
     if (rows.length === 0) {
       return (
@@ -276,14 +336,12 @@ export default function ThreadScreen() {
           paddingVertical: theme.spacing.md,
           gap: theme.spacing.sm,
         }}
-        onContentSizeChange={scrollToEnd}
-        ListFooterComponent={
-          typing ? (
-            <Box style={{ paddingTop: theme.spacing.sm }}>
-              <TypingIndicator />
-            </Box>
-          ) : null
-        }
+        onContentSizeChange={onContentSizeChange}
+        // No `scrollEventThrottle`: FlatList defaults it to 0.0001 so its own
+        // viewability and `onEndReached` stay responsive, and this handler is
+        // three subtractions and a ref write. Raising it would slow the list's
+        // internals down to speed up nothing.
+        onScroll={onScroll}
         renderItem={({ item }) => {
           if (item.kind === "day") return <DaySeparator label={item.label} />;
 
@@ -293,7 +351,7 @@ export default function ThreadScreen() {
           return (
             <ChatBubble
               body={message.body}
-              mine={message.senderId === ME}
+              mine={message.senderId === viewerId}
               timestamp={formatClockTime(new Date(message.createdAt).getTime())}
               reactions={message.reactions}
               onLongPress={active ? () => setReactingTo(message) : undefined}
@@ -326,6 +384,9 @@ export default function ThreadScreen() {
             accessibilityLiveRegion="polite"
             style={{
               padding: theme.spacing.lg,
+              // Same reason as the composer it replaces: the bar's background
+              // runs to the screen edge, the text sits above the gesture bar.
+              paddingBottom: theme.spacing.lg + bottomInset,
               borderTopWidth: 1,
               borderTopColor: theme.color.divider,
               backgroundColor: theme.color.surfaceSunken,
@@ -378,7 +439,7 @@ export default function ThreadScreen() {
 
       <ReactionPicker
         visible={reactingTo !== null}
-        selected={reactingTo?.reactions.find((r) => r.userId === ME)?.emoji}
+        selected={reactingTo?.reactions.find((r) => r.userId === viewerId)?.emoji}
         onSelect={onReact}
         onDismiss={() => setReactingTo(null)}
       />

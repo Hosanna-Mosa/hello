@@ -6,6 +6,12 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+/*
+  Imported for its side effect: registering the `call:incoming` listener that
+  navigates to the ringing screen. A call is the one flow that starts with the
+  OTHER person acting, so something always-mounted has to be listening.
+*/
+import "@/stores/calls.store";
 import { useSessionStore } from "@/stores/session.store";
 import { useUiStore } from "@/stores/ui.store";
 import { ThemedStatusBar } from "@/theme/ThemedStatusBar";
@@ -78,9 +84,18 @@ export default function RootLayout() {
               <Stack.Screen name="filters" />
               <Stack.Screen name="filters/interests" />
               <Stack.Screen name="filters/genders" />
+              {/*
+                Sized to its content, not to a fraction of the screen — a
+                profile is as long as the person made it.
+
+                This needs `fitToContents` on `SheetShell` too, and it needs
+                `plugins/withSheetDialogTheme`: the wrapper this produces has
+                NO height by design, so whatever is behind it shows, and the
+                Material defaults behind it were white (PLAN #153).
+              */}
               <Stack.Screen
                 name="user/[id]"
-                options={{ presentation: "formSheet", sheetAllowedDetents: [0.75, 0.95] }}
+                options={{ presentation: "formSheet", sheetAllowedDetents: "fitToContents" }}
               />
               <Stack.Screen
                 name="like-note/[id]"

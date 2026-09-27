@@ -67,14 +67,55 @@ Most NativeWind knowledge in training data is v4 and is **wrong here**.
 ## Approved dependencies — this list and nothing else
 
 `zustand` · `expo-location` · `expo-haptics` · `nativewind` · `react-native-css`
+`react-native-webrtc` + `@config-plugins/react-native-webrtc` — signed off
+2026-09-26 for real voice calls. Native: needs a dev build, and Jest needs
+`__mocks__/react-native-webrtc.js` because the real module builds a
+`NativeEventEmitter` at import time.
 dev: `react-test-renderer` · `jest-expo` · `tailwindcss` · `@tailwindcss/postcss` · `postcss` · `lightningcss`
 
 Already present: `expo-symbols` (replaces `@expo/vector-icons`, which is no
 longer bundled), `expo-image`, `@expo/ui`.
 
-**Anything beyond this list needs explicit sign-off.** Ads, premium and calls are
-all mocked UI and add **no** dependencies — an ad SDK, a billing provider and
-WebRTC are native modules requiring a rebuild. That is future work.
+**Anything beyond this list needs explicit sign-off.** Ads and premium are still
+mocked UI and add **no** dependencies — an ad SDK and a billing provider are
+native modules requiring a rebuild, and that remains future work. Calls were in
+that sentence until 2026-09-26; they are real now, which is exactly what a
+sign-off looks like when it lands.
+
+## Where a component lives
+
+Decided by **how many screens use it**, then by **what level it is**:
+
+- used by **2+ screens** → `components/common/<tier>/<Name>/`
+- used by **exactly 1 screen** → `components/<screen-name>/<tier>/<Name>/`
+
+`<tier>` is `atoms` / `molecules` / `organisms` in **both** cases — the atomic
+split is not only for `common/`. A screen folder is named after the **screen**,
+never a topic: a topic folder silently collects two screens' components, which
+is exactly how `chat/` came to hold the chat list and the thread at once.
+
+```
+components/
+├── common/            ← 2+ screens
+│   ├── atoms/         ← wraps a primitive, contains no other component
+│   ├── molecules/     ← built from atoms only
+│   ├── organisms/     ← uses a molecule, renders a collection, or is
+│   │                    shaped by a domain entity
+│   └── templates/     ← page shells; common even with one caller
+└── thread/            ← the thread screen only
+    ├── molecules/
+    └── organisms/
+```
+
+- **A screen folder is never imported by another screen.** Needing to is the
+  signal to move the component to `common/` — in the same change, not later.
+- **A screen file never builds a component inline.** Markup with its own name,
+  props or selected/empty state — especially inside a list renderer — is a
+  component that was not extracted yet.
+- Nested routes nest: `settings/safety.tsx` → `components/settings/safety/`.
+- Hooks get no tier: `components/<screen-name>/hooks/` or `common/hooks/`.
+- Usage changes → the component moves. `common/` is what *is* shared, not what
+  might be one day.
 
 ## Architecture rules
 
@@ -83,7 +124,9 @@ WebRTC are native modules requiring a rebuild. That is future work.
 - **Never create an empty folder.** Create it when the first file lands in it.
 - **Route files are never moved or renamed.** A file's path IS its route.
 - **No bare RN primitives** (`View`, `Text`, `Pressable`, `Image`, `ScrollView`,
-  `FlatList`, `TextInput`) outside `components/common/atoms/`. Use the wrappers.
+  `FlatList`, `TextInput`, `Modal`) outside `components/common/atoms/`. Use the
+  wrappers. `Modal`'s wrapper is `Sheet` — renamed because a wrapper that
+  shadows the name it imports reads as a mistake at every call site.
 - **A text wrapper never nests inside another text wrapper.** A bold word inside
   a sentence uses a plain `Text`.
 - Data flow is **screens → hooks → Zustand stores → mock service layer**.
@@ -106,7 +149,16 @@ These are positioning, not preferences. Violating one is a bug.
   There is no open messaging.
 - **"Hello" is a placeholder name.** Keep the product name out of all
   user-facing copy; all strings live in `src/copy/`.
-- **Voice calls only**, fully mocked. No video, no WebRTC, no mic permission.
+- **Voice calls only. No video, ever.** Calls are now REAL: `react-native-webrtc`
+  carries the audio peer-to-peer, signalled over the Socket.IO connection that
+  already exists. Operator sign-off, 2026-09-26 (PLAN #163).
+  - The mic permission this needs is `RECORD_AUDIO`, and that is the *only*
+    new permission we accept. The WebRTC config plugin also asks for `CAMERA`
+    and `SYSTEM_ALERT_WINDOW` for video calling — both are stripped via
+    `android.blockedPermissions`, and the release manifest is checked. A camera
+    permission would contradict "no photos anywhere" on the store listing.
+  - **Mock mode still fakes the pick-up** and must keep doing so: the offline
+    demo and all 506 tests run on it, and there is no server to signal through.
 - Distance is **km**, via one centralised formatter.
 - Out of scope for v1: groups, events, video calls, undo/rewind, superlike,
   map view, incognito, i18n, real ads, real billing, real backend.

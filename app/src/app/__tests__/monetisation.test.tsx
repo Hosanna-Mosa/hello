@@ -45,11 +45,11 @@ import LikesScreen from "@/app/likes";
 import PaywallScreen from "@/app/paywall";
 import SubscriptionSettingsScreen from "@/app/settings/subscription";
 
-import { AdBanner } from "@/components/ads/AdBanner";
-import { AdCard } from "@/components/ads/AdCard";
-import { AdRow } from "@/components/ads/AdRow";
-import { BenefitList } from "@/components/premium/BenefitList";
-import { PlanCard } from "@/components/premium/PlanCard";
+import { AdBanner } from "@/components/common/molecules/AdBanner";
+import { AdCard } from "@/components/common/molecules/AdCard";
+import { AdRow } from "@/components/common/molecules/AdRow";
+import { BenefitList } from "@/components/common/molecules/BenefitList";
+import { PlanCard } from "@/components/paywall/molecules/PlanCard";
 
 import { formatCountdown } from "@/components/common";
 import {

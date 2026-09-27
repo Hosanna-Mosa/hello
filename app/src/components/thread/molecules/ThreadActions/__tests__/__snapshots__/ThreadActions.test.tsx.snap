@@ -1,0 +1,259 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThreadActions — dark theme active thread offers a call 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 16,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Call Maya"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="phone"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4294308589}
+        tintColor="#F5F2ED"
+        type="monochrome"
+      />
+    </View>
+    <View
+      accessibilityLabel="More options"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="ellipsis"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4294308589}
+        tintColor="#F5F2ED"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`ThreadActions — light theme active thread offers a call 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "gap": 16,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="Call Maya"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="phone"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4279900181}
+        tintColor="#1A1815"
+        type="monochrome"
+      />
+    </View>
+    <View
+      accessibilityLabel="More options"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      hitSlop={12}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="ellipsis"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4279900181}
+        tintColor="#1A1815"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;

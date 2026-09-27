@@ -43,11 +43,11 @@ export default function AvatarScreen() {
     >
       <Box style={{ gap: theme.spacing.xl }}>
         <Box style={{ alignItems: "center" }}>
-          <Avatar name={selected?.label} size="xl" />
+          <Avatar source={selected?.asset} name={selected?.label} size="xl" />
         </Box>
 
         <AvatarPicker
-          options={AVATARS.map((a) => ({ id: a.id, label: a.label }))}
+          options={AVATARS.map((a) => ({ id: a.id, label: a.label, source: a.asset }))}
           selectedId={selectedId ?? undefined}
           onSelect={setSelectedId}
           columns={5}

@@ -3,15 +3,13 @@ import { useState } from "react";
 
 import {
   BareInput,
-  Body,
   Box,
   Button,
   Divider,
-  Icon,
-  Tappable,
+  SelectableRow,
   ToggleRow,
-  useTheme,
   WizardShell,
+  useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
 import { meService } from "@/services/me.service";
@@ -70,60 +68,15 @@ export default function GenderScreen() {
     >
       <Box style={{ gap: theme.spacing.md }}>
         <Box style={{ gap: theme.spacing.sm }}>
-          {OPTIONS.map((option) => {
-            const selected = option.kind === kind;
-
-            return (
-              <Tappable
-                key={option.kind}
-                onPress={() => setKind(option.kind)}
-                accessibilityRole="radio"
-                accessibilityState={{ selected }}
-                accessibilityLabel={option.label}
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  minHeight: 56,
-                  paddingHorizontal: theme.spacing.lg,
-                  borderRadius: theme.radius.md,
-                  borderWidth: 1,
-                  borderColor: selected ? theme.color.accent : theme.color.border,
-                  backgroundColor: selected ? theme.color.accentMuted : theme.color.surface,
-                }}
-              >
-                <Body style={{ flex: 1 }}>{option.label}</Body>
-
-                {selected ? (
-                  <Box
-                    style={{
-                      width: 24,
-                      height: 24,
-                      borderRadius: theme.radius.pill,
-                      backgroundColor: theme.color.accent,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Icon
-                      name={{ ios: "checkmark", android: "check" }}
-                      size={14}
-                      color="onAccent"
-                    />
-                  </Box>
-                ) : (
-                  <Box
-                    style={{
-                      width: 24,
-                      height: 24,
-                      borderRadius: theme.radius.pill,
-                      borderWidth: 1,
-                      borderColor: theme.color.borderStrong,
-                    }}
-                  />
-                )}
-              </Tappable>
-            );
-          })}
+          {OPTIONS.map((option) => (
+            <SelectableRow
+              key={option.kind}
+              label={option.label}
+              selected={option.kind === kind}
+              onPress={() => setKind(option.kind)}
+              indicator="radio"
+            />
+          ))}
         </Box>
 
         {kind === "selfDescribed" ? (

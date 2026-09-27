@@ -13,6 +13,7 @@ import {
   useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
+import { avatarSource } from "@/mocks/avatars";
 import { profilesService } from "@/services/profiles.service";
 import type { PublicProfile } from "@/services/types";
 import { useDeckStore } from "@/stores/deck.store";
@@ -64,7 +65,7 @@ export default function LikeNoteScreen() {
     >
       {person ? (
         <Box style={{ alignItems: "center", gap: theme.spacing.sm }}>
-          <Avatar name={person.name} size="lg" />
+          <Avatar source={avatarSource(person.avatarId)} name={person.name} size="lg" />
           <Heading level="title">{`${person.name}, ${person.age}`}</Heading>
         </Box>
       ) : null}

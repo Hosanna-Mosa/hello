@@ -7,14 +7,13 @@
  * data without this changing.
  */
 
-import type { ImageSource } from "expo-image";
 
-import { Avatar } from "@/components/common/atoms/Avatar";
+import { Avatar, type AvatarSource } from "@/components/common/atoms/Avatar";
 import { Box } from "@/components/common/atoms/Box";
 import { Tappable } from "@/components/common/atoms/Tappable";
 import { useTheme } from "@/components/common/hooks/useTheme";
 
-export type AvatarOption = { id: string; label: string; source?: ImageSource };
+export type AvatarOption = { id: string; label: string; source?: AvatarSource };
 
 export type AvatarPickerProps = {
   options: readonly AvatarOption[];

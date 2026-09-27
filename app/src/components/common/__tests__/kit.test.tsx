@@ -12,20 +12,17 @@ import {
   Button,
   CallShell,
   ConfirmDialog,
-  CountBadge,
   DistanceLabel,
   EmptyState,
   ErrorState,
-  Field,
   FormShell,
-  InterestChips,
+  InterestText,
   ListRow,
   ListScreenShell,
-  ProfileCard,
   RangeSlider,
   ScreenShell,
-  SearchBar,
   SectionHeader,
+  SelectableRow,
   SettingsRow,
   SheetShell,
   Skeleton,
@@ -37,22 +34,15 @@ import {
 } from "@/components/common";
 
 import { renderAtom, THEMES } from "../atoms/__tests__/renderAtom";
+import type { Interest } from "@/services/types";
 
-const INTERESTS = [
-  { id: "hiking", label: "Hiking" },
-  { id: "board-games", label: "Board games" },
-  { id: "coffee", label: "Coffee" },
-  { id: "film", label: "Film" },
+const INTERESTS: Interest[] = [
+  { id: "hiking", label: "Hiking", category: "outdoors" },
+  { id: "board-games", label: "Board games", category: "games" },
+  { id: "coffee", label: "Coffee", category: "food" },
+  { id: "film", label: "Film", category: "creative" },
 ];
 
-const PERSON = {
-  id: "u1",
-  name: "Maya",
-  age: 27,
-  distanceMetres: 2000,
-  bio: "Weekend hiker, terrible cook, always up for a quiz night.",
-  interests: INTERESTS,
-};
 
 const noop = () => {};
 
@@ -76,20 +66,10 @@ describe.each(THEMES)("shared kit — %s theme", (theme) => {
   it("Button disabled", () =>
     expect(renderAtom(<Button label="Continue" onPress={noop} disabled />, theme)).toMatchSnapshot());
 
-  it("Field", () =>
-    expect(renderAtom(<Field label="Your name" value="Maya" onChangeText={noop} />, theme)).toMatchSnapshot());
 
-  it("Field with error", () =>
-    expect(renderAtom(<Field label="Your name" value="" onChangeText={noop} error="Required" />, theme)).toMatchSnapshot());
 
-  it("Field with counter", () =>
-    expect(renderAtom(<Field label="Bio" value="Hello" onChangeText={noop} maxLength={300} showCounter />, theme)).toMatchSnapshot());
 
-  it("SearchBar empty", () =>
-    expect(renderAtom(<SearchBar value="" onChangeText={noop} />, theme)).toMatchSnapshot());
 
-  it("SearchBar with text", () =>
-    expect(renderAtom(<SearchBar value="maya" onChangeText={noop} />, theme)).toMatchSnapshot());
 
   it("EmptyState", () =>
     expect(renderAtom(
@@ -117,6 +97,24 @@ describe.each(THEMES)("shared kit — %s theme", (theme) => {
   it("ListRow muted", () =>
     expect(renderAtom(<ListRow title="Daniel" subtitle="Unmatched" muted />, theme)).toMatchSnapshot());
 
+  it("SelectableRow selected", () =>
+    expect(renderAtom(<SelectableRow label="Spam" selected onPress={noop} />, theme)).toMatchSnapshot());
+
+  it("SelectableRow unselected", () =>
+    expect(renderAtom(<SelectableRow label="Spam" selected={false} onPress={noop} />, theme)).toMatchSnapshot());
+
+  it("SelectableRow radio selected", () =>
+    expect(renderAtom(
+      <SelectableRow label="Woman" selected onPress={noop} indicator="radio" />, theme)).toMatchSnapshot());
+
+  it("SelectableRow radio unselected", () =>
+    expect(renderAtom(
+      <SelectableRow label="Woman" selected={false} onPress={noop} indicator="radio" />, theme)).toMatchSnapshot());
+
+  it("SelectableRow as checkbox", () =>
+    expect(renderAtom(
+      <SelectableRow label="Man" selected onPress={noop} role="checkbox" />, theme)).toMatchSnapshot());
+
   it("SettingsRow", () =>
     expect(renderAtom(<SettingsRow label="Discovery" value="25 km" onPress={noop} />, theme)).toMatchSnapshot());
 
@@ -143,18 +141,17 @@ describe.each(THEMES)("shared kit — %s theme", (theme) => {
   it("DistanceLabel", () =>
     expect(renderAtom(<DistanceLabel metres={2500} />, theme)).toMatchSnapshot());
 
-  it("InterestChips read-only", () =>
-    expect(renderAtom(<InterestChips interests={INTERESTS} max={2} />, theme)).toMatchSnapshot());
+  it("InterestText", () =>
+    expect(renderAtom(<InterestText interests={INTERESTS} />, theme)).toMatchSnapshot());
 
-  it("InterestChips selectable", () =>
-    expect(renderAtom(
-      <InterestChips interests={INTERESTS} selectedIds={["hiking"]} onToggle={noop} selectionLimit={2} />,
-      theme)).toMatchSnapshot());
+  it("InterestText truncated", () =>
+    expect(renderAtom(<InterestText interests={INTERESTS} max={2} />, theme)).toMatchSnapshot());
 
-  it("CountBadge", () =>
-    expect(renderAtom(
-      <CountBadge count={12} icon={{ ios: "heart", android: "favorite" }} label="Likes" onPress={noop} />,
-      theme)).toMatchSnapshot());
+  it("InterestText truncated with no overflow marker", () =>
+    expect(
+      renderAtom(<InterestText interests={INTERESTS} max={2} overflow={false} />, theme),
+    ).toMatchSnapshot());
+
 
   it("RangeSlider", () =>
     expect(renderAtom(
@@ -184,11 +181,7 @@ describe.each(THEMES)("shared kit — %s theme", (theme) => {
       <ConfirmDialog visible={false} title="x" message="y" confirmLabel="z" onConfirm={noop} onCancel={noop} />,
       theme)).toMatchSnapshot());
 
-  it("ProfileCard grid", () =>
-    expect(renderAtom(<ProfileCard person={PERSON} onPress={noop} />, theme)).toMatchSnapshot());
 
-  it("ProfileCard full", () =>
-    expect(renderAtom(<ProfileCard person={PERSON} layout="full" />, theme)).toMatchSnapshot());
 
   it("AvatarPicker", () =>
     expect(renderAtom(
@@ -217,7 +210,10 @@ describe.each(THEMES)("shared kit — %s theme", (theme) => {
     expect(renderAtom(
       <WizardShell step={5} total={7} question="What are you into?" hint="Pick at least 3" onBack={noop}
         footer={<Button label="Continue" onPress={noop} />}>
-        <InterestChips interests={INTERESTS} selectedIds={["hiking"]} onToggle={noop} />
+        {/* Stand-in content: this case is about the shell, not its child.
+            The real step mounts `InterestPicker`, whose sixty chips would
+            bury the frame being snapshotted. */}
+        <InterestText interests={INTERESTS} />
       </WizardShell>, theme)).toMatchSnapshot());
 
   it("SheetShell", () =>

@@ -1,0 +1,76 @@
+# systemd unit for the Hello API.
+#
+# WHY SYSTEMD AND NOT PM2. The only hard requirement is that the manager sends
+# SIGTERM and then WAITS: src/server.ts drains the HTTP server, then the
+# sockets, then Mongo and Redis, so an in-flight message still has somewhere to
+# be written. A hard kill mid-deploy drops it silently. systemd does that with
+# nothing to install, starts on boot without a separate `startup` step, and its
+# log is the system log.
+#
+# INSTALL
+#   sudo cp deploy/hello-api.service /etc/systemd/system/hello-api.service
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now hello-api
+#
+# OPERATE
+#   sudo systemctl restart hello-api
+#   sudo systemctl status hello-api
+#   sudo journalctl -u hello-api -f          # the OTP codes print here
+#
+# Adjust User and the two paths if the checkout does not live at /srv/hello.
+
+[Unit]
+Description=Hello API (Express + Socket.IO)
+Documentation=file:///srv/hello/backend/deploy/README.md
+After=network-online.target redis-server.service mongod.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hello
+Group=hello
+WorkingDirectory=/srv/hello/backend
+
+# No EnvironmentFile on purpose: src/config/env.ts loads `.env` itself through
+# dotenv, from this WorkingDirectory. One parser, so a value that works when run
+# by hand works here too — systemd and dotenv do not quote identically.
+ExecStart=/usr/bin/node dist/server.js
+
+Restart=always
+RestartSec=2
+
+# The signal the graceful shutdown listens for, and long enough to finish it.
+# SHUTDOWN_GRACE_MS in src/server.ts is the process's own deadline; this must be
+# comfortably longer, or systemd SIGKILLs a shutdown that was working.
+KillSignal=SIGTERM
+KillMode=mixed
+TimeoutStopSec=30
+
+# Logs to the journal. `journalctl -u hello-api` is where the OTP codes appear
+# while OTP_LOG_ONLY is true — which also means: whoever can read this journal
+# can sign in as anybody. Keep the box's shell access tight.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hello-api
+
+# ── Hardening ───────────────────────────────────────────────────────────────
+# This process needs to read its own directory and talk to the network. It has
+# no business writing anywhere else, and none of this costs anything.
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictNamespaces=true
+LockPersonality=true
+MemoryDenyWriteExecute=false
+# ProtectSystem=strict makes everything read-only; nothing needs to be writable,
+# so no ReadWritePaths. If a future job writes uploads, name that path here and
+# only that path.
+
+[Install]
+WantedBy=multi-user.target

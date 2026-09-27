@@ -57,12 +57,12 @@ export default function EditAvatarScreen() {
         <Box style={{ alignItems: "center", gap: theme.spacing.sm }}>
           {/* No `source`: the preset artwork does not exist yet (R2), so this
               falls back to the initial, exactly as onboarding does. */}
-          <Avatar name={selected?.label} size="xl" />
+          <Avatar source={selected?.asset} name={selected?.label} size="xl" />
           <Caption>{copy.onboarding.avatarHint}</Caption>
         </Box>
 
         <AvatarPicker
-          options={AVATARS.map((option) => ({ id: option.id, label: option.label }))}
+          options={AVATARS.map((option) => ({ id: option.id, label: option.label, source: option.asset }))}
           selectedId={selectedId ?? undefined}
           onSelect={setSelectedId}
         />

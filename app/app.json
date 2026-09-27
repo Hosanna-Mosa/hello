@@ -7,6 +7,7 @@
     "icon": "./assets/images/icon.png",
     "scheme": "hello",
     "userInterfaceStyle": "dark",
+    "backgroundColor": "#141210",
     "ios": {
       "icon": "./assets/expo.icon",
       "bundleIdentifier": "com.hosanna4189.Hello"
@@ -19,7 +20,11 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.hosanna4189.Hello"
+      "package": "com.hosanna4189.Hello",
+      "blockedPermissions": [
+        "android.permission.CAMERA",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ]
     },
     "web": {
       "output": "static",
@@ -48,7 +53,10 @@
             "./assets/fonts/Inter-Bold.ttf"
           ]
         }
-      ]
+      ],
+      "./plugins/withSheetDialogTheme",
+      "@config-plugins/react-native-webrtc",
+      "./plugins/withCleartextTraffic"
     ],
     "experiments": {
       "typedRoutes": true,

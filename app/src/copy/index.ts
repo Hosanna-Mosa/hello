@@ -195,7 +195,6 @@ export const copy = {
     segmentRequests: "Requests",
     newMatches: "New matches",
     composerPlaceholder: "Message",
-    typing: "Typing…",
     accept: "Accept",
     decline: "Decline",
     emptyThreadsTitle: "No conversations yet",
@@ -228,6 +227,11 @@ export const copy = {
   profile: {
     title: "Profile",
     edit: "Edit profile",
+    /**
+     * Only ever shown on a MATCHED person's profile — messaging is
+     * match-gated, so on a stranger's profile this action does not exist.
+     */
+    message: "Message",
     about: "About me",
     interests: "Interests",
     complete: (percent: number) => `${percent}% complete`,
@@ -327,6 +331,7 @@ export const copy = {
     primerAccept: "Turn on notifications",
     primerDecline: "Not now",
     primerHint: "You can change this any time in Settings.",
+    unknownActor: "Someone",
   },
 
   safety: {
@@ -392,6 +397,7 @@ export const copy = {
     likesLeft: (count: number) => `${count} likes left today`,
     unlimitedLikes: "Unlimited likes",
     seeWhoLikesYou: "See who likes you",
+    sentNote: "Sent a note",
     blurredHint: (count: number) =>
       count === 1 ? "1 person likes you" : `${count} people like you`,
     unlockCta: "Unlock",

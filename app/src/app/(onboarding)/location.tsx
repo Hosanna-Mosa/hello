@@ -54,10 +54,22 @@ export default function LocationScreen() {
   async function allow() {
     await permission.request();
 
-    // A12: a coarse coordinate only. Displayed distances come from mock data.
+    // A coarse coordinate only.
     if (permission.state !== "blocked") {
       try {
-        const position = await Location.getLastKnownPositionAsync();
+        // `getLastKnownPositionAsync` reads a CACHED fix and returns null when
+        // there isn't one — which is common on a phone that has just booted, or
+        // one that has not used location recently. Relying on it alone means
+        // granting permission still saves nothing, and the server then has no
+        // coordinate to measure distance from.
+        //
+        // So fall back to actually acquiring one. `Low` accuracy is deliberate:
+        // it is fast, cheap on battery, and this product only ever shows
+        // distance rounded to the nearest kilometre.
+        const position =
+          (await Location.getLastKnownPositionAsync()) ??
+          (await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Low }));
+
         if (position) {
           await meService.updateMe({
             location: {
