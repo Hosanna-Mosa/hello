@@ -38,10 +38,37 @@ export async function saveVoice(threadId: string, buffer: Buffer): Promise<Store
 
   const file = `${threadId}/${randomUUID()}.m4a`;
   const dir = join(root(), threadId);
-  await mkdir(dir, { recursive: true });
-  await writeFile(join(root(), file), buffer, { flag: "wx" });
+  try {
+    await mkdir(dir, { recursive: true });
+    await writeFile(join(root(), file), buffer, { flag: "wx" });
+  } catch (e) {
+    // EROFS / EACCES / ENOSPC: the server's fault, never the sender's. The
+    // directory and errno go in `detail` for the log; the message reaches the
+    // phone, so it names no path.
+    const err = e as NodeJS.ErrnoException;
+    throw ApiError.server("Couldn't save that recording.", { dir: root(), code: err.code, reason: err.message });
+  }
 
   return { file, mime: VOICE_MIME, bytes: buffer.length };
+}
+
+/**
+ * Proves at boot that `VOICE_DIR` can be written, by writing and removing a
+ * probe file. A read-only or missing directory otherwise surfaces only as
+ * "Couldn't send that voice message" on a phone, one upload at a time.
+ */
+export async function checkVoiceStorage(): Promise<{ ok: true; dir: string } | { ok: false; dir: string; error: string }> {
+  const dir = root();
+  const probe = join(dir, `.probe-${randomUUID()}`);
+  try {
+    await mkdir(dir, { recursive: true });
+    await writeFile(probe, "ok", { flag: "wx" });
+    await rm(probe, { force: true });
+    return { ok: true, dir };
+  } catch (e) {
+    const err = e as NodeJS.ErrnoException;
+    return { ok: false, dir, error: `${err.code ?? "unknown"}: ${err.message}` };
+  }
 }
 
 /**

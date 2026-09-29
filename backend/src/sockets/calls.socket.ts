@@ -15,7 +15,7 @@
  * can be followed end to end in the server journal (see `config/callLog.ts`).
  */
 
-import { callLog, candidateType } from "@/config/callLog.js";
+import { callLog, candidateType, voiceLog } from "@/config/callLog.js";
 import { toCall } from "@/serializers/call.serializer.js";
 import { toMessage } from "@/serializers/thread.serializer.js";
 import { MessageModel } from "@/models/message.model.js";
@@ -172,6 +172,29 @@ export function registerCallHandlers(socket: AppSocket): void {
     }
 
     callLog.info({ callId, userId, stage, detail }, `[call] phone: ${stage}`);
+  });
+
+  /**
+   * The same, for voice messages: recording, reading the file, the upload and
+   * why it failed. An upload that never reaches `POST /threads/:id/voice`
+   * leaves no other trace here. Shares the per-socket cap with `call:diag`.
+   */
+  socket.on("voice:diag", (payload: { threadId?: unknown; stage?: unknown; detail?: unknown }) => {
+    diagCount += 1;
+    if (diagCount > MAX_DIAG_PER_SOCKET) return;
+
+    const threadId = typeof payload?.threadId === "string" ? payload.threadId.slice(0, 40) : "?";
+    const stage = typeof payload?.stage === "string" ? payload.stage.slice(0, 60) : "?";
+    let detail: unknown = payload?.detail;
+    try {
+      if (JSON.stringify(detail ?? null).length > MAX_DIAG_BYTES) detail = "[too large]";
+    } catch {
+      detail = "[unserialisable]";
+    }
+
+    const line = { threadId, userId, stage, detail };
+    if (stage.includes("FAILED")) voiceLog.warn(line, `[voice] phone: ${stage}`);
+    else voiceLog.info(line, `[voice] phone: ${stage}`);
   });
 
   socket.on(

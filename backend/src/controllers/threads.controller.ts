@@ -97,7 +97,14 @@ export async function postVoice(req: Request, res: Response): Promise<void> {
     // "Unsupported audio format" here = the bytes were not an MP4/M4A; an
     // EACCES/ENOENT = VOICE_DIR is not writable (deploy README §18).
     voiceLog.warn(
-      { threadId, senderId: viewerId, bytes: audio.length, head: audio.subarray(0, 12).toString("hex"), err: (e as Error).message },
+      {
+        threadId,
+        senderId: viewerId,
+        bytes: audio.length,
+        head: audio.subarray(0, 12).toString("hex"),
+        err: (e as Error).message,
+        detail: (e as { detail?: unknown }).detail,
+      },
       "[voice] upload REFUSED at storage",
     );
     throw e;
