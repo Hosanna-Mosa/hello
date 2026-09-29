@@ -48,3 +48,7 @@ example
 
 # Kilo Code agent worktrees
 .kilo/
+# Gradle build output in local native modules
+**/android/build/
+**/android/.gradle/
+**/android/.cxx/

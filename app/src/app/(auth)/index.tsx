@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 
-import { Body, Box, Button, SafeArea, useTheme } from "@/components/common";
+import { Body, Box, Button, Label, SafeArea, Tappable, useTheme } from "@/components/common";
 import { Logo } from "@/components/welcome/molecules/Logo";
 import { ValueCarousel, type CarouselSlide } from "@/components/welcome/organisms/ValueCarousel";
 import { copy } from "@/copy";
@@ -10,9 +10,8 @@ const FRIENDS = require("@/assets/images/illustrations/friends.png");
 /**
  * Welcome.
  *
- * One action, and only one: phone. There is no Google, Apple, Facebook or email
- * sign-in anywhere in this product (PLAN §1), so a social button row here would
- * be fiction.
+ * One primary action: phone. Below it, a quiet "Log in with email" link for
+ * store reviewers, whose credentials the server maps to one existing account.
  */
 export default function WelcomeScreen() {
   const theme = useTheme();
@@ -48,6 +47,18 @@ export default function WelcomeScreen() {
           label={copy.auth.welcomeCta}
           onPress={() => router.push("/phone")}
         />
+
+        <Tappable
+          onPress={() => router.push("/email")}
+          accessibilityRole="link"
+          accessibilityLabel={copy.auth.emailLink}
+          hitSlop={12}
+          style={{ alignSelf: "center" }}
+        >
+          <Label color="accent" style={{ textDecorationLine: "underline" }}>
+            {copy.auth.emailLink}
+          </Label>
+        </Tappable>
 
         <Body
           color="textSecondary"

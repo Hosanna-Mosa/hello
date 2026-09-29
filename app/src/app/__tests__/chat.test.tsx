@@ -40,9 +40,10 @@ import ThreadScreen from "@/app/thread/[id]";
 
 import { CallControls } from "@/components/call/molecules/CallControls";
 import { IncomingCallActions } from "@/components/incoming-call/molecules/IncomingCallActions";
-import { formatCallDuration } from "@/components/call/hooks/useCallTimer";
+import { formatCallDuration } from "@/components/common/hooks/useCallTimer";
 import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
-import { ChatComposer } from "@/components/thread/molecules/ChatComposer";
+import { ChatComposer, type ComposerVoice } from "@/components/thread/organisms/ChatComposer";
+import { VoiceBubble } from "@/components/thread/organisms/VoiceBubble";
 import { DaySeparator } from "@/components/thread/molecules/DaySeparator";
 import { NewMatchesCarousel } from "@/components/chat/organisms/NewMatchesCarousel";
 import { ReactionPicker } from "@/components/thread/molecules/ReactionPicker";
@@ -70,9 +71,22 @@ import { likesService } from "@/services/likes.service";
 import { matchesService } from "@/services/matches.service";
 import { safetyService } from "@/services/safety.service";
 import { useChatStore } from "@/stores/chat.store";
+import { __resetActiveCall } from "@/stores/activeCall.store";
 import { useEntitlementsStore } from "@/stores/entitlements.store";
 
 const noop = () => {};
+
+const voiceIdle: ComposerVoice = {
+  recording: false,
+  seconds: 0,
+  cancelArmed: false,
+  onPressIn: noop,
+  onRelease: noop,
+  onSlide: noop,
+};
+
+// Clears the store's pending timers (the mock pick-up) after each test.
+afterEach(() => __resetActiveCall());
 
 beforeEach(() => {
   // Entitlements are global and every surface now reads them: without this a
@@ -85,6 +99,8 @@ beforeEach(() => {
   matchesService.__reset();
   likesService.__reset();
   callsService.__reset();
+  // A call outlives its screen now; one test's call must not be the next's.
+  __resetActiveCall();
   safetyService.__reset();
   useChatStore.setState({
     previews: [],
@@ -365,6 +381,45 @@ describe.each(THEMES)("Phase 7 — components — %s theme", (theme) => {
     expect(
       renderAtom(
         <ChatComposer value="Sounds good, see you then" onChangeText={noop} onSend={noop} />,
+        theme,
+      ),
+    ).toMatchSnapshot());
+
+  it("ChatComposer — voice, empty field shows the mic", () =>
+    expect(
+      renderAtom(<ChatComposer value="" onChangeText={noop} onSend={noop} voice={voiceIdle} />, theme),
+    ).toMatchSnapshot());
+
+  it("ChatComposer — recording, armed to cancel", () =>
+    expect(
+      renderAtom(
+        <ChatComposer
+          value=""
+          onChangeText={noop}
+          onSend={noop}
+          voice={{ ...voiceIdle, recording: true, seconds: 7, cancelArmed: true }}
+        />,
+        theme,
+      ),
+    ).toMatchSnapshot());
+
+  it("VoiceBubble — mine and theirs", () =>
+    expect(
+      renderAtom(
+        <>
+          <VoiceBubble
+            messageId="v1"
+            voice={{ url: "/v1/messages/v1/voice", durationSec: 14 }}
+            mine
+            timestamp="14:32"
+          />
+          <VoiceBubble
+            messageId="v2"
+            voice={{ url: "/v1/messages/v2/voice", durationSec: 63 }}
+            mine={false}
+            timestamp="14:33"
+          />
+        </>,
         theme,
       ),
     ).toMatchSnapshot());

@@ -40,7 +40,7 @@ const threadSchema = new Schema(
         {
           messageId: { type: Schema.Types.ObjectId, required: true },
           senderId: { type: Schema.Types.ObjectId, required: true },
-          kind: { type: String, enum: ["text", "system"], required: true },
+          kind: { type: String, enum: ["text", "system", "voice"], required: true },
           body: { type: String, required: true, maxlength: 2000 },
           createdAt: { type: Date, required: true },
         },

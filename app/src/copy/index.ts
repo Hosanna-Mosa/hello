@@ -74,6 +74,14 @@ export const copy = {
     otpResendIn: (seconds: number) => `Resend code in 0:${String(seconds).padStart(2, "0")}`,
     otpResend: "Resend code",
     otpInvalid: "Enter the 6-digit code",
+
+    emailLink: "Log in with email",
+    emailTitle: "Log in with email",
+    emailSubtitle: "Use the email and password you were given.",
+    emailLabel: "Email",
+    passwordLabel: "Password",
+    emailCta: "Log in",
+    emailInvalid: "That email or password isn't right.",
   },
 
   onboarding: {
@@ -195,6 +203,16 @@ export const copy = {
     segmentRequests: "Requests",
     newMatches: "New matches",
     composerPlaceholder: "Message",
+    // Voice messages.
+    voiceRecord: "Hold to record a voice message",
+    voiceSlideToCancel: "‹ Slide to cancel",
+    voiceReleaseToCancel: "Release to cancel",
+    voicePlay: "Play voice message",
+    voicePause: "Pause voice message",
+    voiceMessage: "Voice message",
+    voiceLabel: (mine: boolean, duration: string) =>
+      `${mine ? "Your" : "Their"} voice message, ${duration}`,
+    voiceFailed: "Couldn't send that voice message.",
     accept: "Accept",
     decline: "Decline",
     emptyThreadsTitle: "No conversations yet",
@@ -222,6 +240,9 @@ export const copy = {
     accept: "Accept",
     decline: "Decline",
     systemRecord: (duration: string) => `Voice call · ${duration}`,
+    /** The strip over every other screen while a call runs. */
+    barOngoing: (name: string, status: string) => (name ? `${name} · ${status}` : status),
+    barReturn: "Tap to return to call",
   },
 
   profile: {

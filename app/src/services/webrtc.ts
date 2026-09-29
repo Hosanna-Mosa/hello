@@ -24,10 +24,10 @@
  * returns false and the call ends the instant it is answered: you would see the
  * phone ring, accept, and watch it die (PLAN #196).
  *
+ * AUDIO ROUTING is `services/callAudio.ts` (a local native module, no new
+ * dependency): call mode, volume keys on the call stream, speaker ↔ earpiece.
+ *
  * NOT HANDLED YET, deliberately:
- *   - Audio ROUTING. Earpiece versus speaker needs `react-native-incall-manager`,
- *     a second native dependency that has not been signed off. The speaker
- *     button stays inert and the platform picks the route (PLAN #166).
  *   - Ringing a closed or locked app. That needs push and a native call
  *     screen; this connects two apps that are both open.
  */

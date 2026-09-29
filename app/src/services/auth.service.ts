@@ -6,8 +6,9 @@
  * code the server returns in the response body because SMS delivery is still
  * faked server-side.
  *
- * There is no password, no email and no social sign-in anywhere in this
- * product, so this is the entire auth surface either way.
+ * Plus one email + password sign-in that exists only for store reviewers: the
+ * server maps a single configured email to an existing phone account. The
+ * credentials live on the server, never here.
  */
 
 import { ApiError, http, isMockMode, nextId, nowIso, request, setCurrentUserId, setTokens } from "./client";
@@ -17,6 +18,7 @@ import { loadSession, saveSession } from "./secureSession";
 /** Digits only, 6–15 — loose enough for any country, strict enough to catch typos. */
 const PHONE = /^\d{6,15}$/;
 const CODE = /^\d{6}$/;
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 let session: Session | null = null;
 /**
@@ -115,6 +117,50 @@ export const authService = {
         // refresh-before-expiry path against the mock (contract, "Tokens").
         expiresIn: 900,
         phone: pendingPhone ?? "",
+        onboardingComplete: false,
+        createdAt: nowIso(),
+      };
+      return { ...session };
+    });
+  },
+
+  /**
+   * The store-review sign-in. On success the session is the phone account the
+   * server has this email mapped to — identical to that number's OTP sign-in.
+   */
+  async emailLogin(email: string, password: string): Promise<Session> {
+    const trimmed = email.trim();
+    if (!EMAIL.test(trimmed) || !password) {
+      throw new ApiError("validation", "Enter your email and password");
+    }
+
+    if (!isMockMode()) {
+      const next = await http<Session>(
+        "POST",
+        "/auth/email",
+        {
+          email: trimmed,
+          password,
+          timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        },
+        false,
+      );
+
+      setTokens({ token: next.token, refreshToken: next.refreshToken });
+      setCurrentUserId(next.userId);
+      session = next;
+      void saveSession(next);
+      return { ...next };
+    }
+
+    // Mock mode accepts any well-formed pair, as it accepts any 6 digits.
+    return request(() => {
+      session = {
+        userId: "me",
+        token: nextId("token"),
+        refreshToken: nextId("refresh"),
+        expiresIn: 900,
+        phone: "",
         onboardingComplete: false,
         createdAt: nowIso(),
       };

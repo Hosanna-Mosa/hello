@@ -23,6 +23,7 @@ import { ThreadModel, type ThreadDoc } from "@/models/thread.model.js";
 import { UserModel, type UserDoc } from "@/models/user.model.js";
 import { refundLike, spendLike } from "@/services/quota.service.js";
 import { hiddenUserIds } from "@/services/visibility.service.js";
+import { removeThreadVoice } from "@/services/voice.service.js";
 import { withTransaction } from "@/utils/transaction.js";
 
 const DUPLICATE_KEY = 11000;
@@ -277,6 +278,8 @@ export async function listMatches(viewer: UserDoc): Promise<MatchDoc[]> {
 export async function unmatch(viewer: UserDoc, matchId: string): Promise<void> {
   if (!Types.ObjectId.isValid(matchId)) throw ApiError.notFound();
 
+  let endedThreadId: string | null = null;
+
   await withTransaction(async (session) => {
     const opts = session ? { session } : {};
 
@@ -284,6 +287,7 @@ export async function unmatch(viewer: UserDoc, matchId: string): Promise<void> {
     if (!match) throw ApiError.notFound();
 
     if (match.threadId) {
+      endedThreadId = String(match.threadId);
       await MessageModel.deleteMany({ threadId: match.threadId }, opts);
       await ThreadModel.deleteOne({ _id: match.threadId }, opts);
     }
@@ -293,6 +297,10 @@ export async function unmatch(viewer: UserDoc, matchId: string): Promise<void> {
     match.threadId = null;
     await match.save(opts);
   });
+
+  // After the commit, never inside it: a rolled-back unmatch must not have
+  // already destroyed the audio of a conversation that still exists.
+  if (endedThreadId) await removeThreadVoice(endedThreadId);
 }
 
 export type { ThreadDoc };

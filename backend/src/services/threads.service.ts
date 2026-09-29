@@ -123,56 +123,122 @@ export async function sendMessage(
   const text = body.trim();
   if (!text) throw ApiError.validation("Message cannot be empty.");
 
-  return withTransaction(async (session) => {
-    const thread = await requireThread(viewer, threadId, session);
-    const opts = session ? { session } : {};
-    const now = new Date();
+  const { sent } = await appendMessage(viewer, threadId, { kind: "text", body: text }, clientMessageId);
+  return sent;
+}
 
-    let message: MessageDoc;
-    try {
+/** Written into `body` so previews, notifications and old clients read sensibly. */
+export const VOICE_BODY = "Voice message";
+
+export type VoiceFile = { file: string; mime: string; bytes: number; durationSec: number };
+
+/**
+ * Posts a voice message whose audio is ALREADY on disk.
+ *
+ * `duplicate` is true when `clientMessageId` matched an earlier send — the
+ * caller must then delete the file it just wrote, because the original
+ * message already has its own.
+ */
+export async function sendVoiceMessage(
+  viewer: UserDoc,
+  threadId: string,
+  voice: VoiceFile,
+  clientMessageId?: string,
+): Promise<{ sent: SentMessage; duplicate: boolean }> {
+  return appendMessage(viewer, threadId, { kind: "voice", body: VOICE_BODY, voice }, clientMessageId);
+}
+
+/** A voice message, only for someone in its conversation. */
+export async function getVoiceMessage(viewer: UserDoc, messageId: string): Promise<MessageDoc> {
+  if (!Types.ObjectId.isValid(messageId)) throw ApiError.notFound();
+
+  const message = (await MessageModel.findById(messageId)) as MessageDoc | null;
+  if (!message || message.kind !== "voice" || !message.voice) throw ApiError.notFound();
+
+  // Membership is the gate, exactly as for reading the thread itself.
+  await requireThread(viewer, String(message.threadId));
+  return message;
+}
+
+/**
+ * The one way a person's message enters a thread — text or voice.
+ *
+ * Shared so the two kinds cannot drift on the parts that matter: idempotency,
+ * the denormalised preview, and unread counts.
+ */
+async function appendMessage(
+  viewer: UserDoc,
+  threadId: string,
+  content: { kind: "text" | "voice"; body: string; voice?: VoiceFile },
+  clientMessageId?: string,
+): Promise<{ sent: SentMessage; duplicate: boolean }> {
+  try {
+    return await withTransaction(async (session) => {
+      const thread = await requireThread(viewer, threadId, session);
+      const opts = session ? { session } : {};
+      const now = new Date();
+
+      // A retry of a request whose response never arrived. Hand back the
+      // original rather than posting twice — the whole point of
+      // `clientMessageId` on a mobile network. Checked BEFORE inserting: see
+      // the catch below for why the insert error cannot be the only check.
+      if (clientMessageId) {
+        const existing = await MessageModel.findOne({ threadId: thread._id, clientMessageId }, null, opts);
+        if (existing) return { sent: { thread, message: existing as MessageDoc }, duplicate: true };
+      }
+
       const [created] = await MessageModel.create(
         [
           {
             threadId: thread._id,
             senderId: viewer._id,
-            kind: "text",
-            body: text,
+            kind: content.kind,
+            body: content.body,
+            ...(content.voice ? { voice: content.voice } : {}),
             createdAt: now,
             ...(clientMessageId ? { clientMessageId } : {}),
           },
         ],
         opts,
       );
-      message = created!;
-    } catch (e) {
-      if (!isDuplicate(e) || !clientMessageId) throw e;
+      const message = created!;
 
-      // A retry of a request whose response never arrived. Hand back the
-      // original rather than posting twice — which is the whole point of
-      // `clientMessageId` on a mobile network.
-      const existing = await MessageModel.findOne({ threadId: thread._id, clientMessageId }, null, opts);
-      if (!existing) throw e;
-      return { thread, message: existing as MessageDoc };
-    }
+      thread.lastMessageAt = now;
+      thread.lastMessage = {
+        messageId: message._id,
+        senderId: viewer._id as Types.ObjectId,
+        kind: content.kind,
+        body: content.body,
+        createdAt: now,
+      };
 
-    thread.lastMessageAt = now;
-    thread.lastMessage = {
-      messageId: message._id,
-      senderId: viewer._id as Types.ObjectId,
-      kind: "text",
-      body: text,
-      createdAt: now,
-    };
+      for (const p of thread.participants) {
+        // The sender has obviously read their own message; everyone else has not.
+        if (String(p.userId) === String(viewer._id)) p.lastReadAt = now;
+        else p.unreadCount = (p.unreadCount ?? 0) + 1;
+      }
 
-    for (const p of thread.participants) {
-      // The sender has obviously read their own message; everyone else has not.
-      if (String(p.userId) === String(viewer._id)) p.lastReadAt = now;
-      else p.unreadCount = (p.unreadCount ?? 0) + 1;
-    }
+      await thread.save(opts);
+      return { sent: { thread, message }, duplicate: false };
+    });
+  } catch (e) {
+    /*
+     * Two copies of the same send racing each other: the check above passed for
+     * both, and the unique index stopped the second insert.
+     *
+     * Resolved HERE, outside the transaction, on purpose. A duplicate-key error
+     * aborts the transaction, and this used to look the original up inside the
+     * aborted one — which fails as a TRANSIENT error, so the driver retried the
+     * whole callback, hit the same duplicate, and looped until timeout. On a
+     * replica set (production) a retried send simply hung (PLAN #213).
+     */
+    if (!isDuplicate(e) || !clientMessageId) throw e;
 
-    await thread.save(opts);
-    return { thread, message };
-  });
+    const thread = await requireThread(viewer, threadId);
+    const existing = await MessageModel.findOne({ threadId: thread._id, clientMessageId });
+    if (!existing) throw e;
+    return { sent: { thread, message: existing as MessageDoc }, duplicate: true };
+  }
 }
 
 /**

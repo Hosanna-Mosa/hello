@@ -117,6 +117,34 @@ describe("session persistence", () => {
     expect(stored.userId).toBe(SESSION.userId);
   });
 
+  it("persists the pair a REAL refresh returns, not only a direct setTokens", async () => {
+    const { auth, client } = coldStart([{ resendAfterSec: 30 }, SESSION]);
+    await auth.sendCode("44", "7700900123");
+    await auth.verifyCode("123456");
+
+    // An expired access token: 401, then the refresh, then the replay.
+    const replies = [
+      { status: 401, body: { error: { code: "unauthorized" } } },
+      { status: 200, body: { token: "access-token-3", refreshToken: "refresh-token-3", expiresIn: 900 } },
+      { status: 200, body: { ok: true } },
+    ];
+    global.fetch = jest.fn(async () => {
+      const next = replies.shift() ?? { status: 200, body: {} };
+      return {
+        ok: next.status < 400,
+        status: next.status,
+        json: async () => next.body,
+        text: async () => JSON.stringify(next.body),
+      };
+    }) as unknown as typeof fetch;
+
+    await client.http("GET", "/me");
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    const stored = JSON.parse([...mockStore.values()][0] ?? "{}");
+    expect(stored.refreshToken).toBe("refresh-token-3");
+  });
+
   it("clears the keychain on sign out", async () => {
     const { auth } = coldStart([{ resendAfterSec: 30 }, SESSION, {}]);
     await auth.sendCode("44", "7700900123");

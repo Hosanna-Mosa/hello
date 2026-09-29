@@ -11,7 +11,7 @@
 import { replyFor, type ReplyScript } from "@/mocks/replies";
 import { SEEDED_MESSAGES, SEEDED_THREADS } from "@/mocks/threads";
 
-import { ApiError, nextId, nowIso, request, isMockMode, http, currentUserIdOrMe } from "./client";
+import { ApiError, nextId, nowIso, request, isMockMode, http, currentUserIdOrMe, upload } from "./client";
 import type { Message, Paginated, Thread } from "./types";
 
 /**
@@ -143,6 +143,52 @@ export const chatService = {
         senderId: ME,
         kind: "text",
         body: trimmed,
+        status: "sent",
+        reactions: [],
+        createdAt: nowIso(),
+      };
+
+      messages = [...messages, message];
+      threads = threads.map((t) =>
+        t.id === threadId ? { ...t, lastMessageAt: message.createdAt } : t,
+      );
+
+      return { ...message };
+    });
+  },
+
+  /**
+   * Send a recorded voice message. `uri` is the local file the recorder wrote.
+   *
+   * Real mode uploads the raw audio; the server stores it and answers with the
+   * message, whose `voice.url` is the gated stream. Mock mode keeps the local
+   * file as the url, so the demo plays back what was just recorded.
+   */
+  async sendVoice(threadId: string, uri: string, durationSec: number): Promise<Message> {
+    const seconds = Math.round(durationSec * 10) / 10;
+
+    if (!isMockMode()) {
+      // React Native's fetch reads a `file://` uri into a Blob without any
+      // file-system library.
+      const audio = await (await fetch(uri)).blob();
+      const query = `durationSec=${seconds}&clientMessageId=${encodeURIComponent(nextId("vm"))}`;
+      return upload<Message>(
+        `/threads/${encodeURIComponent(threadId)}/voice?${query}`,
+        audio,
+        "audio/mp4",
+      );
+    }
+
+    return request(() => {
+      if (!threads.some((t) => t.id === threadId)) throw new ApiError("notFound");
+
+      const message: Message = {
+        id: nextId("message"),
+        threadId,
+        senderId: ME,
+        kind: "voice",
+        body: "Voice message",
+        voice: { url: uri, durationSec: seconds },
         status: "sent",
         reactions: [],
         createdAt: nowIso(),

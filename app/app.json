@@ -56,7 +56,15 @@
       ],
       "./plugins/withSheetDialogTheme",
       "@config-plugins/react-native-webrtc",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-audio",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to use your microphone for voice messages and calls.",
+          "enableBackgroundPlayback": false,
+          "enableBackgroundRecording": false
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

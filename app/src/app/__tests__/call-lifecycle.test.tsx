@@ -27,7 +27,7 @@ jest.mock("expo-router", () => {
   const { useEffect } = jest.requireActual("react");
 
   return {
-    router: { push: jest.fn(), back: jest.fn(), replace: jest.fn() },
+    router: { push: jest.fn(), back: jest.fn(), replace: jest.fn(), canGoBack: () => true },
     useLocalSearchParams: () => mockParams,
     useFocusEffect: (callback: () => void) => useEffect(callback, [callback]),
     Link: ({ children }: { children: React.ReactNode }) => children,
@@ -45,6 +45,7 @@ import CallScreen from "@/app/call/[id]";
 import { callsService } from "@/services/calls.service";
 import { chatService } from "@/services/chat.service";
 import { configureClient, resetClient } from "@/services/client";
+import { __resetActiveCall, useActiveCallStore } from "@/stores/activeCall.store";
 import { ThemeProvider } from "@/theme/ThemeProvider";
 
 const TEST_METRICS: Metrics = {
@@ -60,9 +61,16 @@ beforeEach(() => {
   configureClient({ minLatencyMs: 0, maxLatencyMs: 0 });
   chatService.__reset();
   callsService.__reset();
+  // The call lives in a store now, and outlives any one render — so it must
+  // be dropped between tests or the next one finds a call already running.
+  __resetActiveCall();
   mockParams.answered = undefined;
   mockParams.callId = undefined;
 });
+
+// Clears the store's pending timers (the mock pick-up), which would otherwise
+// keep Jest alive after the last test.
+afterEach(() => __resetActiveCall());
 
 async function settle(times = 8): Promise<void> {
   for (let i = 0; i < times; i += 1) {
@@ -134,6 +142,38 @@ describe("call/[id] starts exactly one call", () => {
         renderer.unmount();
       });
       startCall.mockRestore();
+    }
+  }, 20_000);
+
+  it("leaving the screen does NOT end the call", async () => {
+    // Hardware back unmounts the call screen. That used to hang up, because
+    // the call lived in the screen; now the screen is only a view of it.
+    const endCall = jest.spyOn(callsService, "endCall");
+
+    let renderer!: TestRenderer.ReactTestRenderer;
+    await TestRenderer.act(async () => {
+      renderer = TestRenderer.create(
+        <SafeAreaProvider initialMetrics={TEST_METRICS}>
+          <ThemeProvider override="light">
+            <CallScreen />
+          </ThemeProvider>
+        </SafeAreaProvider>,
+      );
+    });
+
+    try {
+      await settle();
+      expect(useActiveCallStore.getState().active).not.toBeNull();
+
+      await TestRenderer.act(async () => {
+        renderer.unmount();
+      });
+      await settle();
+
+      expect(endCall).not.toHaveBeenCalled();
+      expect(useActiveCallStore.getState().active?.phase).not.toBe("ended");
+    } finally {
+      endCall.mockRestore();
     }
   }, 20_000);
 });

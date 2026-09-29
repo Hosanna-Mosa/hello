@@ -33,6 +33,12 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
       first ? `${where ? `${where}: ` : ""}${first.message}` : undefined,
       err.issues,
     );
+  } else if (isBodyParserError(err)) {
+    // Malformed JSON or an over-size body (a voice clip past its cap). The
+    // client's fault, so a 400 it can show — not a 500 that reads as an outage.
+    apiError = ApiError.validation(
+      err.type === "entity.too.large" ? "That upload is too large." : "The request body could not be read.",
+    );
   } else {
     apiError = ApiError.server(undefined, err);
   }
@@ -46,4 +52,15 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
   }
 
   res.status(apiError.status).json(apiError.toBody());
+}
+
+/** Errors thrown by express's body parsers carry a 4xx `status` and a `type`. */
+function isBodyParserError(err: unknown): err is { status: number; type: string } {
+  const e = err as { status?: unknown; type?: unknown } | null;
+  return (
+    typeof e?.type === "string" &&
+    typeof e.status === "number" &&
+    e.status >= 400 &&
+    e.status < 500
+  );
 }

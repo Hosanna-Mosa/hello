@@ -69,6 +69,23 @@ const schema = z.object({
     .string()
     .optional()
     .transform((v) => v === "true"),
+  /**
+   * The store-review sign-in: one email + password that opens a session on one
+   * EXISTING phone account, so a Play reviewer can get in without receiving an
+   * SMS.
+   *
+   * Server-side on purpose. Shipped in the app, the password would be one
+   * `unzip` of the APK away, and the account it opens is a real person's.
+   * All three unset → the endpoint refuses every attempt. `REVIEW_LOGIN_PHONE`
+   * is E.164 (`+919704726252`) and must already be registered — this never
+   * creates an account.
+   */
+  REVIEW_LOGIN_EMAIL: z.string().email().optional(),
+  REVIEW_LOGIN_PASSWORD: z.string().min(8).optional(),
+  REVIEW_LOGIN_PHONE: z
+    .string()
+    .regex(/^\+\d{7,19}$/, "REVIEW_LOGIN_PHONE must be E.164, e.g. +919704726252")
+    .optional(),
   OTP_TTL_SEC: z.coerce.number().int().positive().default(300),
   OTP_RESEND_SEC: z.coerce.number().int().positive().default(30),
 
@@ -101,6 +118,17 @@ const schema = z.object({
    */
   SEED_ANCHOR_LAT: z.coerce.number().min(-90).max(90).default(51.5074),
   SEED_ANCHOR_LNG: z.coerce.number().min(-180).max(180).default(-0.1278),
+
+  /**
+   * Where voice messages are written. One folder per thread, so ending a
+   * conversation can remove its audio in one step. Must be writable by the
+   * service user — in production that is `/var/lib/hello/voice`, which the
+   * systemd unit's `StateDirectory=hello` creates.
+   */
+  VOICE_DIR: z.string().min(1).default("./data/voice"),
+  /** 2 minutes of AAC at ~64 kbps is ~1 MB; the cap leaves headroom. */
+  VOICE_MAX_BYTES: z.coerce.number().int().positive().default(2_000_000),
+  VOICE_MAX_SEC: z.coerce.number().int().positive().default(120),
 
   FREE_DAILY_LIKES: z.coerce.number().int().positive().default(15),
   CORS_ORIGINS: z.string().default("*"),

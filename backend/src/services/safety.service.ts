@@ -25,6 +25,7 @@ import { ThreadModel } from "@/models/thread.model.js";
 import { UserModel, type UserDoc } from "@/models/user.model.js";
 import type { ReportReason } from "@/types/wire.js";
 import { invalidateHidden } from "@/services/visibility.service.js";
+import { removeThreadVoice } from "@/services/voice.service.js";
 import { withTransaction } from "@/utils/transaction.js";
 
 const DUPLICATE_KEY = 11000;
@@ -83,6 +84,9 @@ async function severFor(
       opts,
     );
   });
+
+  // After the commit — see `unmatch` for why.
+  if (threadId) await removeThreadVoice(threadId);
 
   return { threadId, matchId, userIds: [String(a), String(b)] };
 }

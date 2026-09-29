@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { env } from "@/config/env.js";
+
 export const sendMessageSchema = z
   .object({
     body: z.string().trim().min(1, "Message cannot be empty").max(2000),
@@ -10,6 +12,12 @@ export const sendMessageSchema = z
     clientMessageId: z.string().min(1).max(64).optional(),
   })
   .strict();
+
+/** The query string of `POST /threads/:id/voice` — the body is the audio. */
+export const voiceQuerySchema = z.object({
+  durationSec: z.coerce.number().min(0.5, "Too short").max(env.VOICE_MAX_SEC, "Too long"),
+  clientMessageId: z.string().min(1).max(64).optional(),
+});
 
 export const reactionSchema = z
   .object({

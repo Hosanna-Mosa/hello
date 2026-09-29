@@ -28,7 +28,7 @@ import { callsService } from "@/services/calls.service";
 import { chatService } from "@/services/chat.service";
 import { currentUserIdOrMe, isMockMode } from "@/services/client";
 import { profilesService } from "@/services/profiles.service";
-import { emitCallAccept, onSocket } from "@/services/socket";
+import { onSocket } from "@/services/socket";
 import type { CallSession } from "@/services/types";
 
 export type IncomingCallPanelProps = {
@@ -102,9 +102,9 @@ export function IncomingCallPanel({
 
   function onAccept() {
     if (callId) {
-      // Tell the caller. This is what stops their ringing screen and starts
-      // the media negotiation — the event that used to go nowhere (PLAN #161).
-      emitCallAccept(callId);
+      // NOT accepted here. `activeCall.store` tells the caller once OUR
+      // microphone and connection are ready — accepting first is what let the
+      // caller's offer arrive at nothing and left them ringing.
       onAccepted(callId);
       return;
     }

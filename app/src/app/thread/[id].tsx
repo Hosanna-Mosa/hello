@@ -3,6 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   Body,
+  Caption,
   Box,
   ConfirmDialog,
   EmptyState,
@@ -18,14 +19,16 @@ import {
   useKeyboardInset,
   useTheme,
 } from "@/components/common";
+import { useComposerVoice } from "@/components/thread/hooks/useComposerVoice";
 import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
-import { ChatComposer } from "@/components/thread/molecules/ChatComposer";
+import { ChatComposer } from "@/components/thread/organisms/ChatComposer";
 import { DaySeparator } from "@/components/thread/molecules/DaySeparator";
 import { ReactionPicker } from "@/components/thread/molecules/ReactionPicker";
 import { SystemMessage } from "@/components/thread/molecules/SystemMessage";
 import { ThreadActions } from "@/components/thread/molecules/ThreadActions";
 import { ThreadHeader } from "@/components/thread/molecules/ThreadHeader";
 import { ThreadMenu } from "@/components/thread/organisms/ThreadMenu";
+import { VoiceBubble } from "@/components/thread/organisms/VoiceBubble";
 import { ThreadSkeleton } from "@/components/common/molecules/ThreadSkeleton";
 import { copy } from "@/copy";
 import { avatarSource } from "@/mocks/avatars";
@@ -256,6 +259,12 @@ export default function ThreadScreen() {
     if (atBottom.current) listRef.current?.scrollToEnd({ animated: true });
   }, []);
 
+  // Sending a voice message is intent to see it, like sending text.
+  const onVoiceSent = useCallback(() => {
+    atBottom.current = true;
+  }, []);
+  const composerVoice = useComposerVoice(id, onVoiceSent);
+
   function onSend() {
     const body = draft.trim();
     if (!body) return;
@@ -379,6 +388,19 @@ export default function ThreadScreen() {
           const { message } = item;
           if (message.kind === "system") return <SystemMessage body={message.body} />;
 
+          if (message.kind === "voice" && message.voice) {
+            return (
+              <VoiceBubble
+                messageId={message.id}
+                voice={message.voice}
+                mine={message.senderId === viewerId}
+                timestamp={formatClockTime(new Date(message.createdAt).getTime())}
+                reactions={message.reactions}
+                onLongPress={active ? () => setReactingTo(message) : undefined}
+              />
+            );
+          }
+
           return (
             <ChatBubble
               body={message.body}
@@ -404,11 +426,22 @@ export default function ThreadScreen() {
       <Box style={{ flex: 1, paddingBottom: keyboardInset }}>
         <Box style={{ flex: 1 }}>{body()}</Box>
 
+        {active && composerVoice.error ? (
+          <Caption
+            color="danger"
+            accessibilityLiveRegion="polite"
+            style={{ textAlign: "center", paddingVertical: theme.spacing.xs }}
+          >
+            {composerVoice.error}
+          </Caption>
+        ) : null}
+
         {active ? (
           <ChatComposer
             value={draft}
             onChangeText={(value) => setDraft(id, value)}
             onSend={onSend}
+            voice={composerVoice.voice}
           />
         ) : (
           <Box

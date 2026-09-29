@@ -15,3 +15,7 @@ coverage/
 
 # The test-partner script's saved session
 .partner.json
+
+# Voice message audio written in development (VOICE_DIR default).
+data/
+.test-voice/

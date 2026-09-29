@@ -79,12 +79,15 @@ never construct, parse or mutate one.
 
 ## Auth
 
-Phone + OTP only. No password, no email, no social sign-in.
+Phone + OTP. The one exception is the store-review sign-in below: a single
+email + password configured on the server (`REVIEW_LOGIN_*`) that opens an
+existing phone account. No other email, password or social sign-in exists.
 
 | Method | Path | Body | Returns |
 |---|---|---|---|
 | `POST` | `/auth/code` | `{ countryCode, phoneNumber }` | `{ resendAfterSec }` |
 | `POST` | `/auth/verify` | `{ countryCode, phoneNumber, code, timezone? }` | `Session` |
+| `POST` | `/auth/email` | `{ email, password, timezone? }` | `Session` — wrong pair, unset config, or missing target account → `400 validation` |
 | `POST` | `/auth/refresh` | `{ refreshToken }` | `{ token, refreshToken, expiresIn }` |
 | `POST` | `/auth/onboarding/complete` | — | `Session` |
 | `POST` | `/auth/signout` | — | `204` |
@@ -240,6 +243,8 @@ anywhere" has quietly become false.
 | `GET` | `/threads` | — | `Thread[]` |
 | `GET` | `/threads/:id/messages` | `?cursor=` | `Paginated<Message>` |
 | `POST` | `/threads/:id/messages` | `{ body, clientMessageId? }` | `Message` |
+| `POST` | `/threads/:id/voice` | raw audio (`audio/mp4`), `?durationSec=&clientMessageId=` | `Message` |
+| `GET` | `/messages/:id/voice` | — | the audio (`audio/mp4`, supports `Range`) |
 | `POST` | `/messages/:id/reactions` | `{ emoji }` | `Message` |
 | `POST` | `/threads/:id/read` | — | `204` |
 | `PATCH` | `/threads/:id` | `{ muted }` | `Thread` |
@@ -247,8 +252,15 @@ anywhere" has quietly become false.
 - Unmatching keeps the `Match` row with `endedAt` set, so the pair cannot
   resurface in discovery. The thread and its messages are deleted for **both**
   sides.
-- `Message.kind` is `text` or `system`. `system` is written by the server, not a
-  user — currently only call records.
+- `Message.kind` is `text`, `system` or `voice`. `system` is written by the
+  server, not a user — currently only call records.
+- **Voice messages.** The upload body is the recording itself — an MP4/M4A
+  container, sniffed server-side (`ftyp`), at most `VOICE_MAX_BYTES` (2 MB) and
+  `VOICE_MAX_SEC` (120 s). The response is a `voice` message whose
+  `voice: { url, durationSec }` points at `GET /messages/:id/voice`; `body` is
+  "Voice message" for previews. The stream needs the bearer token and answers
+  `notFound` to anyone outside the conversation, exactly like the thread. Audio
+  is deleted with its conversation (unmatch, block).
 - Reactions are one emoji per user per message; posting the same emoji twice
   removes it.
 - **Messages page newest-first**, 30 per page. A chat opens at the bottom, so

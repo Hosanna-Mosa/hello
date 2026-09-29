@@ -12,6 +12,12 @@ export default defineConfig({
       NODE_ENV: "test",
       MONGO_DB: "hello_test",
       REDIS_PREFIX: "hello:test",
+      // Fixed here so the review-login suite never depends on a developer's .env.
+      // Kept out of the working tree; the voice suite wipes it.
+      VOICE_DIR: "./.test-voice",
+      REVIEW_LOGIN_EMAIL: "reviewer@example.com",
+      REVIEW_LOGIN_PASSWORD: "review-pass-123",
+      REVIEW_LOGIN_PHONE: "+447700999001",
     },
   },
   resolve: {

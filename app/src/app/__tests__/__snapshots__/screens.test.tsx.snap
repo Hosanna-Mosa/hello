@@ -1,5 +1,367 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`auth + onboarding screens — dark theme (auth)/email 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNCSafeAreaView
+    edges={
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "additive",
+      }
+    }
+    style={
+      {
+        "backgroundColor": "#141210",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        [
+          {
+            "flex": 1,
+          },
+          {
+            "paddingBottom": 0,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+            "gap": 16,
+            "paddingHorizontal": 24,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "justifyContent": "center",
+              "minHeight": 44,
+              "paddingTop": 8,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Back"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            hitSlop={12}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignSelf": "flex-start",
+              }
+            }
+          >
+            <ViewManagerAdapter_SymbolModule
+              accessibilityElementsHidden={true}
+              animated={false}
+              colors={[]}
+              importantForAccessibility="no"
+              name="chevron.left"
+              size={22}
+              style={
+                {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+              tint={4294308589}
+              tintColor="#F5F2ED"
+              type="monochrome"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Bold",
+                  "fontSize": 32,
+                  "letterSpacing": -0.5,
+                  "lineHeight": 40,
+                },
+                {
+                  "color": "#F5F2ED",
+                },
+                undefined,
+              ]
+            }
+          >
+            Log in with email
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#A3A5A5",
+                },
+                {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                },
+              ]
+            }
+          >
+            Use the email and password you were given.
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#F5F2ED",
+                },
+                undefined,
+              ]
+            }
+          >
+            Email
+          </Text>
+          <TextInput
+            accessibilityLabel="Email"
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect={false}
+            autoFocus={true}
+            keyboardType="email-address"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholderTextColor="#747777"
+            returnKeyType="next"
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "backgroundColor": "#100E0C",
+                  "borderColor": "#322D29",
+                  "borderRadius": 8,
+                  "borderWidth": 1,
+                  "color": "#F5F2ED",
+                  "minHeight": 44,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 8,
+                },
+                undefined,
+              ]
+            }
+            textContentType="emailAddress"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#F5F2ED",
+                },
+                undefined,
+              ]
+            }
+          >
+            Password
+          </Text>
+          <TextInput
+            accessibilityLabel="Password"
+            autoCapitalize="none"
+            autoComplete="password"
+            autoCorrect={false}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onSubmitEditing={[Function]}
+            placeholderTextColor="#747777"
+            returnKeyType="go"
+            secureTextEntry={true}
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "backgroundColor": "#100E0C",
+                  "borderColor": "#322D29",
+                  "borderRadius": 8,
+                  "borderWidth": 1,
+                  "color": "#F5F2ED",
+                  "minHeight": 44,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 8,
+                },
+                undefined,
+              ]
+            }
+            textContentType="password"
+            value=""
+          />
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "padding": 24,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Log in"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": false,
+              "checked": undefined,
+              "disabled": true,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#FF8560",
+              "borderColor": "#FF8560",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "minHeight": 48,
+              "opacity": 0.5,
+              "paddingHorizontal": 24,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#1A1815",
+                },
+                undefined,
+              ]
+            }
+          >
+            Log in
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RNCSafeAreaView>
+</RNCSafeAreaProvider>
+`;
+
 exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -470,6 +832,65 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
           }
         >
           Continue with phone
+        </Text>
+      </View>
+      <View
+        accessibilityLabel="Log in with email"
+        accessibilityRole="link"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignSelf": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#FF8560",
+              },
+              {
+                "textDecorationLine": "underline",
+              },
+            ]
+          }
+        >
+          Log in with email
         </Text>
       </View>
       <Text
@@ -16828,6 +17249,368 @@ exports[`auth + onboarding screens — dark theme +not-found 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`auth + onboarding screens — light theme (auth)/email 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNCSafeAreaView
+    edges={
+      {
+        "bottom": "additive",
+        "left": "additive",
+        "right": "additive",
+        "top": "additive",
+      }
+    }
+    style={
+      {
+        "backgroundColor": "#FAF8F5",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      onLayout={[Function]}
+      style={
+        [
+          {
+            "flex": 1,
+          },
+          {
+            "paddingBottom": 0,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          {
+            "flex": 1,
+            "gap": 16,
+            "paddingHorizontal": 24,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "justifyContent": "center",
+              "minHeight": 44,
+              "paddingTop": 8,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Back"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            hitSlop={12}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignSelf": "flex-start",
+              }
+            }
+          >
+            <ViewManagerAdapter_SymbolModule
+              accessibilityElementsHidden={true}
+              animated={false}
+              colors={[]}
+              importantForAccessibility="no"
+              name="chevron.left"
+              size={22}
+              style={
+                {
+                  "height": 22,
+                  "width": 22,
+                }
+              }
+              tint={4279900181}
+              tintColor="#1A1815"
+              type="monochrome"
+            />
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Bold",
+                  "fontSize": 32,
+                  "letterSpacing": -0.5,
+                  "lineHeight": 40,
+                },
+                {
+                  "color": "#1A1815",
+                },
+                undefined,
+              ]
+            }
+          >
+            Log in with email
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#686B6B",
+                },
+                {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                },
+              ]
+            }
+          >
+            Use the email and password you were given.
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#1A1815",
+                },
+                undefined,
+              ]
+            }
+          >
+            Email
+          </Text>
+          <TextInput
+            accessibilityLabel="Email"
+            autoCapitalize="none"
+            autoComplete="email"
+            autoCorrect={false}
+            autoFocus={true}
+            keyboardType="email-address"
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            placeholderTextColor="#9A9C9C"
+            returnKeyType="next"
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "backgroundColor": "#F1EDEA",
+                  "borderColor": "#E6E2DD",
+                  "borderRadius": 8,
+                  "borderWidth": 1,
+                  "color": "#1A1815",
+                  "minHeight": 44,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 8,
+                },
+                undefined,
+              ]
+            }
+            textContentType="emailAddress"
+            value=""
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#1A1815",
+                },
+                undefined,
+              ]
+            }
+          >
+            Password
+          </Text>
+          <TextInput
+            accessibilityLabel="Password"
+            autoCapitalize="none"
+            autoComplete="password"
+            autoCorrect={false}
+            onBlur={[Function]}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            onSubmitEditing={[Function]}
+            placeholderTextColor="#9A9C9C"
+            returnKeyType="go"
+            secureTextEntry={true}
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "backgroundColor": "#F1EDEA",
+                  "borderColor": "#E6E2DD",
+                  "borderRadius": 8,
+                  "borderWidth": 1,
+                  "color": "#1A1815",
+                  "minHeight": 44,
+                  "paddingHorizontal": 12,
+                  "paddingVertical": 8,
+                },
+                undefined,
+              ]
+            }
+            textContentType="password"
+            value=""
+          />
+        </View>
+      </View>
+      <View
+        style={
+          {
+            "padding": 24,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Log in"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": false,
+              "checked": undefined,
+              "disabled": true,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#F2724B",
+              "borderColor": "#F2724B",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "justifyContent": "center",
+              "minHeight": 48,
+              "opacity": 0.5,
+              "paddingHorizontal": 24,
+            }
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Medium",
+                  "fontSize": 13,
+                  "lineHeight": 18,
+                },
+                {
+                  "color": "#FFFFFF",
+                },
+                undefined,
+              ]
+            }
+          >
+            Log in
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RNCSafeAreaView>
+</RNCSafeAreaProvider>
+`;
+
 exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -17298,6 +18081,65 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
           }
         >
           Continue with phone
+        </Text>
+      </View>
+      <View
+        accessibilityLabel="Log in with email"
+        accessibilityRole="link"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignSelf": "center",
+          }
+        }
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F2724B",
+              },
+              {
+                "textDecorationLine": "underline",
+              },
+            ]
+          }
+        >
+          Log in with email
         </Text>
       </View>
       <Text

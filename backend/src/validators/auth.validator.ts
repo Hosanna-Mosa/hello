@@ -22,6 +22,12 @@ export const verifyCodeSchema = z.object({
   timezone: z.string().max(64).optional(),
 });
 
+export const emailLoginSchema = z.object({
+  email: z.string().min(3).max(254),
+  password: z.string().min(1).max(128),
+  timezone: z.string().max(64).optional(),
+});
+
 export const refreshSchema = z.object({
   refreshToken: z.string().min(10).max(4096),
 });
@@ -29,3 +35,4 @@ export const refreshSchema = z.object({
 export type SendCodeBody = z.infer<typeof sendCodeSchema>;
 export type VerifyCodeBody = z.infer<typeof verifyCodeSchema>;
 export type RefreshBody = z.infer<typeof refreshSchema>;
+export type EmailLoginBody = z.infer<typeof emailLoginSchema>;

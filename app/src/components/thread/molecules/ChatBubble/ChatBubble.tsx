@@ -10,6 +10,8 @@
  * feature from anyone who has not been told about it.
  */
 
+import type { ReactNode } from "react";
+
 import { Body } from "@/components/common/atoms/Body";
 import { Box } from "@/components/common/atoms/Box";
 import { Caption } from "@/components/common/atoms/Caption";
@@ -27,6 +29,8 @@ export type ChatBubbleProps = {
   onLongPress?: () => void;
   /** Dims the bubble while the send is in flight. */
   pending?: boolean;
+  /** Shown INSTEAD of `body` — a voice message's player. `body` still labels it. */
+  children?: ReactNode;
 };
 
 export function ChatBubble({
@@ -36,6 +40,7 @@ export function ChatBubble({
   reactions = [],
   onLongPress,
   pending = false,
+  children,
 }: ChatBubbleProps) {
   const theme = useTheme();
 
@@ -69,7 +74,7 @@ export function ChatBubble({
           opacity: pending ? 0.6 : 1,
         }}
       >
-        <Body color={mine ? "onAccent" : "textPrimary"}>{body}</Body>
+        {children ?? <Body color={mine ? "onAccent" : "textPrimary"}>{body}</Body>}
 
         <Caption
           color={mine ? "onAccent" : "textTertiary"}

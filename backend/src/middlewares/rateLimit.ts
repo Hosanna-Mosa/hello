@@ -25,6 +25,7 @@ const BUCKETS = {
   "auth-code-phone": { points: 5, durationSec: 3_600 },
   "auth-code-ip": { points: 20, durationSec: 3_600 },
   "auth-verify-phone": { points: 10, durationSec: 900 },
+  "auth-email-ip": { points: 10, durationSec: 900 },
   "auth-refresh-ip": { points: 60, durationSec: 3_600 },
   "me-write": { points: 60, durationSec: 3_600 },
   /**
