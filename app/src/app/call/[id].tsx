@@ -85,6 +85,8 @@ export default function CallScreen() {
    * for a call that is already recorded.
    */
   const ending = useRef(false);
+  /** One call per screen, ever. See the guard in the effect below. */
+  const startedOnce = useRef(false);
 
   const timer = useCallTimer(phase === "connected");
   /**
@@ -97,13 +99,41 @@ export default function CallScreen() {
     if (phase === "connected") elapsed.current = timer.seconds;
   }, [phase, timer.seconds]);
 
-  const end = useCallback(
-      async (outcome: "completed" | "cancelled" | "missed" = "completed") => {
+  /**
+   * `phase`, readable without depending on it.
+   *
+   * THIS REF IS THE FIX FOR THE DOUBLE CALL. `end` used to close over `phase`,
+   * so every phase change rebuilt `end`, which rebuilt `beginMedia`, which was
+   * a dependency of the effect that CREATES the call — so the moment audio
+   * connected and phase went ringing → connected, that effect re-ran and sent a
+   * second `POST /calls`. The other phone rang again while already on the call.
+   *
+   * The `cancelled` flag did not help: it is checked after the await, so it
+   * discarded the response of a request that had already gone (PLAN #198).
+   */
+  const phaseRef = useRef<Phase>(phase);
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
+
+  /**
+   * Tear the call down.
+   *
+   * `notifyServer` is the whole reason this is one function and not two. When
+   * WE hang up, the server must be told. When the OTHER person hangs up we are
+   * told by `call:ended`, and posting an end for a call the server has already
+   * ended would be a second end for one call.
+   */
+  const finish = useCallback(
+    async (
+      outcome: "completed" | "cancelled" | "missed" = "completed",
+      notifyServer = true,
+    ) => {
       if (ending.current) return;
       ending.current = true;
 
       const duration = elapsed.current;
-      const connected = phase === "connected";
+      const connected = phaseRef.current === "connected";
       setPhase("ended");
 
       // Release the microphone FIRST. Whatever happens to the record, the mic
@@ -111,7 +141,7 @@ export default function CallScreen() {
       await stopCallMedia();
 
       const current = session.current;
-      if (current) {
+      if (current && notifyServer) {
         await callsService.endCall(
           current.id,
           connected ? outcome : outcome === "completed" ? "cancelled" : outcome,
@@ -123,9 +153,13 @@ export default function CallScreen() {
       }
 
       setTimeout(() => router.back(), ENDED_MS);
-      },
-    [phase, id, loadMessages],
+    },
+    // No `phase`: that is what made this unstable and rang the other phone
+    // twice. Both remaining values are stable for the life of the screen.
+    [id, loadMessages],
   );
+
+  const end = finish;
 
   /**
    * Open the microphone and negotiate.
@@ -152,10 +186,41 @@ export default function CallScreen() {
     [end],
   );
 
+  /**
+   * The other person hung up.
+   *
+   * The server emits `call:ended` to BOTH participants and has done all along —
+   * this screen simply never listened, so whoever did not press End sat on a
+   * running call with the timer ticking until they backed out by hand
+   * (PLAN #199). `notifyServer: false`, because the end that reached us IS the
+   * server's; telling it again would record a second end for one call.
+   */
+  useEffect(() => {
+    if (isMockMode()) return;
+
+    return onSocket("call:ended", (payload) => {
+      const ended = payload.call as CallSession | undefined;
+      const current = session.current;
+      // Guarded on the id so an end belonging to a previous call cannot kill
+      // the one that replaced it.
+      if (!ended?.id || !current || ended.id !== current.id) return;
+
+      void finish("completed", false);
+    });
+  }, [finish]);
+
   useEffect(() => {
     let cancelled = false;
 
     void (async () => {
+      // Belt and braces on top of the stable deps above. A call is a side
+      // effect with a cost — it makes someone else's phone ring — so it is
+      // worth being un-repeatable by construction rather than only by correct
+      // dependencies. This also covers React's dev-mode double-invoke and any
+      // remount.
+      if (startedOnce.current) return;
+      startedOnce.current = true;
+
       const thread = await chatService.getThread(id);
       // Ask who "me" is rather than assuming the mock's literal — against the
       // real API the id is a Mongo id, and a hardcoded "me" matches nobody, so
@@ -218,6 +283,52 @@ export default function CallScreen() {
     return onSocket("call:signal", (payload) => {
       void handleCallSignal(payload);
     });
+  }, []);
+
+  /**
+   * The screen went away without End being pressed.
+   *
+   * `stopCallMedia` lived ONLY inside `finish`, so it ran only when someone
+   * hung up. Any other way of leaving — the back gesture on a full-screen
+   * modal, navigation, the OS tearing the screen down — left the MICROPHONE
+   * OPEN and the call still open on the server. The call did not just vanish
+   * from view; it kept running, listening (PLAN #204).
+   *
+   * Deliberately touches no state and does no navigation: the component is
+   * already gone. It reads refs, which still hold their values at unmount, and
+   * fires the two side effects that must not be skipped.
+   */
+  useEffect(() => {
+    return () => {
+      if (ending.current) return;
+      ending.current = true;
+
+      const current = session.current;
+      const connected = phaseRef.current === "connected";
+      const duration = elapsed.current;
+
+      // The microphone first, always. Whatever happens to the record, it must
+      // not stay open a moment longer than the call.
+      void stopCallMedia().catch(() => {});
+
+      if (current) {
+        // SWALLOWED ON PURPOSE, and only here. There is no component left to
+        // show an error to, and a rejection with nobody to catch it is a red
+        // box in React Native. Failing is also the ORDINARY case: a callee
+        // holds the CALLER'S id, which its own service never minted, and
+        // against the real API the call may already have been ended by the
+        // other side. The microphone above is the part that must not be
+        // skipped; the record is best-effort.
+        void callsService
+          .endCall(
+            current.id,
+            connected ? "completed" : "cancelled",
+            connected ? duration : 0,
+          )
+          .catch(() => {});
+      }
+    };
+    // Unmount only. Every value it reads is a ref, current at teardown.
   }, []);
 
   /** Nobody answered. A ring that never ends is worse than a missed call. */

@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
@@ -208,6 +208,19 @@ export default function ThreadScreen() {
   }, [id, loading, markRead, messages.length]);
 
   /** False until the list has been placed at the newest message once. */
+  /** Latched while a call screen is opening, so one tap cannot open two. */
+  const callOpening = useRef(false);
+  /**
+   * Re-armed when this screen comes back into focus — which is exactly when
+   * calling again becomes possible, and unlike a timer it cannot re-arm while
+   * the call screen is still up.
+   */
+  useFocusEffect(
+    useCallback(() => {
+      callOpening.current = false;
+    }, []),
+  );
+
   const landed = useRef(false);
   /** Whether the reader is at the bottom, so a new message should follow them. */
   const atBottom = useRef(true);
@@ -290,12 +303,30 @@ export default function ThreadScreen() {
     );
   }
 
+  /**
+   * Open the call screen — once.
+   *
+   * A bare `router.push` here let a fast double-tap stack TWO call screens, and
+   * each one starts its own call, so the other phone rings twice for one tap.
+   * The ref is not debouncing taste: a call is a side effect someone else
+   * experiences, so it should be impossible to issue twice, not merely
+   * unlikely (PLAN #201).
+   *
+   * Released on blur rather than on a timer, so returning from the call screen
+   * re-arms it exactly when the screen is usable again.
+   */
+  function startCall() {
+    if (callOpening.current) return;
+    callOpening.current = true;
+    router.push({ pathname: "/call/[id]", params: { id } });
+  }
+
   function actions() {
     return (
       <ThreadActions
         canCall={active}
         callLabel={`Call ${name}`}
-        onCall={() => router.push({ pathname: "/call/[id]", params: { id } })}
+        onCall={startCall}
         onOpenMenu={() => setMenuOpen(true)}
       />
     );

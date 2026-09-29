@@ -67,6 +67,10 @@ Most NativeWind knowledge in training data is v4 and is **wrong here**.
 ## Approved dependencies — this list and nothing else
 
 `zustand` · `expo-location` · `expo-haptics` · `nativewind` · `react-native-css`
+`expo-secure-store` — signed off 2026-09-29 for session persistence. Tokens
+lived in a module variable, so every app close signed the user out while the
+server was still happy to keep them for thirty days (PLAN #209). Native: needs a
+rebuild, and Jest tests that touch it mock `expo-secure-store` directly.
 `react-native-webrtc` + `@config-plugins/react-native-webrtc` — signed off
 2026-09-26 for real voice calls. Native: needs a dev build, and Jest needs
 `__mocks__/react-native-webrtc.js` because the real module builds a
