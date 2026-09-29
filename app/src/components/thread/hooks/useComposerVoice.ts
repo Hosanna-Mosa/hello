@@ -32,7 +32,13 @@ export function useComposerVoice(threadId: string, onSent: () => void): Composer
   const deliver = useCallback(
     (clip: VoiceClip) => {
       onSent();
-      sendVoice(threadId, clip.uri, clip.durationSec).catch(() => setError(copy.chat.voiceFailed));
+      sendVoice(threadId, clip.uri, clip.durationSec).catch((e: unknown) => {
+        // The reason, not just "couldn't send": `network` vs a server refusal
+        // vs an unreadable file are three different fixes.
+        const err = e as { code?: string; message?: string } | null;
+        const reason = err?.message && err.message !== err.code ? err.message : err?.code;
+        setError(reason ? copy.chat.voiceFailedBecause(`(${reason})`) : copy.chat.voiceFailed);
+      });
     },
     [threadId, sendVoice, onSent],
   );

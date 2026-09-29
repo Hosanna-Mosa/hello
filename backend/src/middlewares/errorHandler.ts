@@ -51,6 +51,11 @@ export function errorHandler(err: unknown, req: Request, res: Response, _next: N
     logger.error({ err, requestId, path: req.originalUrl, method: req.method }, "request failed");
   }
 
+  // For a route's own audit line (the voice upload logs every outcome, and in
+  // production there is no per-request log to fall back on).
+  res.locals.errorCode = apiError.code;
+  res.locals.errorMessage = apiError.message;
+
   res.status(apiError.status).json(apiError.toBody());
 }
 
