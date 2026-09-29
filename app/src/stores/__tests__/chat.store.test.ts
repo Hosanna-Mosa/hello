@@ -107,3 +107,20 @@ describe("a message the sender also receives back", () => {
     expect(unread()).toBe(1);
   });
 });
+
+describe("voice messages", () => {
+  it("a sent clip lands in the conversation and as the list preview", async () => {
+    chatService.__reset();
+
+    await useChatStore.getState().sendVoice(THREAD, "file:///rec/clip.m4a", 4.26);
+
+    const list = useChatStore.getState().messages[THREAD] ?? [];
+    const sent = list[list.length - 1];
+    expect(sent?.kind).toBe("voice");
+    // Mock mode plays back the local recording; the length is kept to 0.1s.
+    expect(sent?.voice).toEqual({ url: "file:///rec/clip.m4a", durationSec: 4.3 });
+
+    const preview = useChatStore.getState().previews.find((p) => p.thread.id === THREAD);
+    expect(preview?.lastMessage?.kind).toBe("voice");
+  });
+});

@@ -32,6 +32,8 @@ export type ChatState = {
   loadRequests: () => Promise<void>;
   loadMessages: (threadId: string) => Promise<void>;
   send: (threadId: string, body: string) => Promise<void>;
+  /** A recorded clip at `uri`, `durationSec` long. */
+  sendVoice: (threadId: string, uri: string, durationSec: number) => Promise<void>;
   toggleReaction: (threadId: string, messageId: string, emoji: string) => Promise<void>;
   markRead: (threadId: string) => Promise<void>;
   setDraft: (threadId: string, draft: string) => void;
@@ -155,6 +157,18 @@ export const useChatStore = create<ChatState>((set, get) => ({
         }));
       })();
     }, script.replyAfterMs);
+  },
+
+  sendVoice: async (threadId, uri, durationSec) => {
+    const message = await chatService.sendVoice(threadId, uri, durationSec);
+    // Same path in as a text message, so the socket echo cannot double it.
+    set((state) => ({
+      messages: {
+        ...state.messages,
+        [threadId]: appended(state.messages[threadId] ?? [], message),
+      },
+      previews: withMessage(state.previews, threadId, message, "keep"),
+    }));
   },
 
   toggleReaction: async (threadId, messageId, emoji) => {

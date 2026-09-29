@@ -3809,6 +3809,260 @@ exports[`Phase 7 — components — dark theme ChatComposer — empty 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Phase 7 — components — dark theme ChatComposer — recording, armed to cancel 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "backgroundColor": "#141210",
+        "borderTopColor": "#2A2522",
+        "borderTopWidth": 1,
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingBottom": 46,
+        "paddingHorizontal": 16,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLiveRegion="polite"
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#1E1B18",
+          "borderColor": "#FF6B6B",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "row",
+          "gap": 12,
+          "minHeight": 44,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#FF6B6B",
+            "borderRadius": 999,
+            "height": 10,
+            "width": 10,
+          }
+        }
+      />
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#F5F2ED",
+            },
+            undefined,
+          ]
+        }
+      >
+        0:07
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#FF6B6B",
+            },
+            {
+              "flex": 1,
+              "textAlign": "right",
+            },
+          ]
+        }
+      >
+        Release to cancel
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Hold to record a voice message"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": true,
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FF8560",
+          "borderRadius": 999,
+          "height": 56,
+          "justifyContent": "center",
+          "marginTop": -12,
+          "width": 56,
+        }
+      }
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="mic.fill"
+        size={26}
+        style={
+          {
+            "height": 26,
+            "width": 26,
+          }
+        }
+        tint={4279900181}
+        tintColor="#1A1815"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Phase 7 — components — dark theme ChatComposer — voice, empty field shows the mic 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "backgroundColor": "#141210",
+        "borderTopColor": "#2A2522",
+        "borderTopWidth": 1,
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingBottom": 46,
+        "paddingHorizontal": 16,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#1E1B18",
+          "borderColor": "#322D29",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "justifyContent": "center",
+          "maxHeight": 120,
+          "minHeight": 44,
+          "paddingHorizontal": 16,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <TextInput
+        accessibilityLabel="Message"
+        blurOnSubmit={false}
+        editable={true}
+        maxLength={1000}
+        multiline={true}
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Message"
+        placeholderTextColor="#747777"
+        returnKeyType="send"
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#F5F2ED",
+            },
+            {
+              "padding": 0,
+            },
+          ]
+        }
+        value=""
+      />
+    </View>
+    <View
+      accessibilityLabel="Hold to record a voice message"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FF8560",
+          "borderRadius": 999,
+          "height": 44,
+          "justifyContent": "center",
+          "marginTop": 0,
+          "width": 44,
+        }
+      }
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="mic.fill"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4279900181}
+        tintColor="#1A1815"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Phase 7 — components — dark theme ChatComposer — with a draft 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -7065,6 +7319,409 @@ exports[`Phase 7 — components — dark theme ThreadSkeleton 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Phase 7 — components — dark theme VoiceBubble — mine and theirs 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="You said: Your voice message, 0:14. 14:32."
+      accessibilityRole="text"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#FF8560",
+          "borderBottomLeftRadius": 16,
+          "borderBottomRightRadius": 4,
+          "borderColor": "#322D29",
+          "borderRadius": 16,
+          "borderWidth": 0,
+          "gap": 2,
+          "maxWidth": "80%",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Play voice message"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          hitSlop={8}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "height": 32,
+              "justifyContent": "center",
+              "width": 32,
+            }
+          }
+        >
+          <ViewManagerAdapter_SymbolModule
+            accessibilityElementsHidden={true}
+            animated={false}
+            colors={[]}
+            importantForAccessibility="no"
+            name="play.fill"
+            size={26}
+            style={
+              {
+                "height": 26,
+                "width": 26,
+              }
+            }
+            tint={4279900181}
+            tintColor="#1A1815"
+            type="monochrome"
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 2,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#E06A47",
+                "borderRadius": 999,
+                "height": 4,
+                "overflow": "hidden",
+                "width": 140,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#1A1815",
+                  "height": 4,
+                  "width": 0,
+                }
+              }
+            />
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#1A1815",
+                },
+                undefined,
+              ]
+            }
+          >
+            0:14
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#1A1815",
+            },
+            {
+              "alignSelf": "flex-end",
+              "opacity": 0.8,
+            },
+          ]
+        }
+      >
+        14:32
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="They said: Their voice message, 1:03. 14:33."
+      accessibilityRole="text"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#1E1B18",
+          "borderBottomLeftRadius": 4,
+          "borderBottomRightRadius": 16,
+          "borderColor": "#322D29",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "gap": 2,
+          "maxWidth": "80%",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Play voice message"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          hitSlop={8}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "height": 32,
+              "justifyContent": "center",
+              "width": 32,
+            }
+          }
+        >
+          <ViewManagerAdapter_SymbolModule
+            accessibilityElementsHidden={true}
+            animated={false}
+            colors={[]}
+            importantForAccessibility="no"
+            name="play.fill"
+            size={26}
+            style={
+              {
+                "height": 26,
+                "width": 26,
+              }
+            }
+            tint={4294935904}
+            tintColor="#FF8560"
+            type="monochrome"
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 2,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#322D29",
+                "borderRadius": 999,
+                "height": 4,
+                "overflow": "hidden",
+                "width": 140,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#FF8560",
+                  "height": 4,
+                  "width": 0,
+                }
+              }
+            />
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#A3A5A5",
+                },
+                undefined,
+              ]
+            }
+          >
+            1:03
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#747777",
+            },
+            {
+              "alignSelf": "flex-end",
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        14:33
+      </Text>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Phase 7 — components — light theme CallControls — connected 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -7753,6 +8410,260 @@ exports[`Phase 7 — components — light theme ChatComposer — empty 1`] = `
         }
         tint={4288322716}
         tintColor="#9A9C9C"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Phase 7 — components — light theme ChatComposer — recording, armed to cancel 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "backgroundColor": "#FAF8F5",
+        "borderTopColor": "#E6E2DD",
+        "borderTopWidth": 1,
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingBottom": 46,
+        "paddingHorizontal": 16,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      accessibilityLiveRegion="polite"
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#EF4444",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "flexDirection": "row",
+          "gap": 12,
+          "minHeight": 44,
+          "paddingHorizontal": 16,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "backgroundColor": "#EF4444",
+            "borderRadius": 999,
+            "height": 10,
+            "width": 10,
+          }
+        }
+      />
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Medium",
+              "fontSize": 13,
+              "lineHeight": 18,
+            },
+            {
+              "color": "#1A1815",
+            },
+            undefined,
+          ]
+        }
+      >
+        0:07
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#EF4444",
+            },
+            {
+              "flex": 1,
+              "textAlign": "right",
+            },
+          ]
+        }
+      >
+        Release to cancel
+      </Text>
+    </View>
+    <View
+      accessibilityLabel="Hold to record a voice message"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": true,
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#F2724B",
+          "borderRadius": 999,
+          "height": 56,
+          "justifyContent": "center",
+          "marginTop": -12,
+          "width": 56,
+        }
+      }
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="mic.fill"
+        size={26}
+        style={
+          {
+            "height": 26,
+            "width": 26,
+          }
+        }
+        tint={4294967295}
+        tintColor="#FFFFFF"
+        type="monochrome"
+      />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Phase 7 — components — light theme ChatComposer — voice, empty field shows the mic 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "backgroundColor": "#FAF8F5",
+        "borderTopColor": "#E6E2DD",
+        "borderTopWidth": 1,
+        "flexDirection": "row",
+        "gap": 8,
+        "paddingBottom": 46,
+        "paddingHorizontal": 16,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderColor": "#E6E2DD",
+          "borderRadius": 20,
+          "borderWidth": 1,
+          "flex": 1,
+          "justifyContent": "center",
+          "maxHeight": 120,
+          "minHeight": 44,
+          "paddingHorizontal": 16,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <TextInput
+        accessibilityLabel="Message"
+        blurOnSubmit={false}
+        editable={true}
+        maxLength={1000}
+        multiline={true}
+        onChangeText={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Message"
+        placeholderTextColor="#9A9C9C"
+        returnKeyType="send"
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 15,
+              "lineHeight": 22,
+            },
+            {
+              "color": "#1A1815",
+            },
+            {
+              "padding": 0,
+            },
+          ]
+        }
+        value=""
+      />
+    </View>
+    <View
+      accessibilityLabel="Hold to record a voice message"
+      accessibilityRole="button"
+      accessibilityState={
+        {
+          "busy": false,
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#F2724B",
+          "borderRadius": 999,
+          "height": 44,
+          "justifyContent": "center",
+          "marginTop": 0,
+          "width": 44,
+        }
+      }
+    >
+      <ViewManagerAdapter_SymbolModule
+        accessibilityElementsHidden={true}
+        animated={false}
+        colors={[]}
+        importantForAccessibility="no"
+        name="mic.fill"
+        size={22}
+        style={
+          {
+            "height": 22,
+            "width": 22,
+          }
+        }
+        tint={4294967295}
+        tintColor="#FFFFFF"
         type="monochrome"
       />
     </View>
@@ -11011,6 +11922,409 @@ exports[`Phase 7 — components — light theme ThreadSkeleton 1`] = `
           ]
         }
       />
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Phase 7 — components — light theme VoiceBubble — mine and theirs 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "flex-end",
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="You said: Your voice message, 0:14. 14:32."
+      accessibilityRole="text"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#F2724B",
+          "borderBottomLeftRadius": 16,
+          "borderBottomRightRadius": 4,
+          "borderColor": "#E6E2DD",
+          "borderRadius": 16,
+          "borderWidth": 0,
+          "gap": 2,
+          "maxWidth": "80%",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Play voice message"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          hitSlop={8}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "height": 32,
+              "justifyContent": "center",
+              "width": 32,
+            }
+          }
+        >
+          <ViewManagerAdapter_SymbolModule
+            accessibilityElementsHidden={true}
+            animated={false}
+            colors={[]}
+            importantForAccessibility="no"
+            name="play.fill"
+            size={26}
+            style={
+              {
+                "height": 26,
+                "width": 26,
+              }
+            }
+            tint={4294967295}
+            tintColor="#FFFFFF"
+            type="monochrome"
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 2,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#D95C37",
+                "borderRadius": 999,
+                "height": 4,
+                "overflow": "hidden",
+                "width": 140,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#FFFFFF",
+                  "height": 4,
+                  "width": 0,
+                }
+              }
+            />
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#FFFFFF",
+                },
+                undefined,
+              ]
+            }
+          >
+            0:14
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#FFFFFF",
+            },
+            {
+              "alignSelf": "flex-end",
+              "opacity": 0.8,
+            },
+          ]
+        }
+      >
+        14:32
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "alignItems": "flex-start",
+        "paddingBottom": 0,
+      }
+    }
+  >
+    <View
+      accessibilityLabel="They said: Their voice message, 1:03. 14:33."
+      accessibilityRole="text"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": true,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "backgroundColor": "#FFFFFF",
+          "borderBottomLeftRadius": 4,
+          "borderBottomRightRadius": 16,
+          "borderColor": "#E6E2DD",
+          "borderRadius": 16,
+          "borderWidth": 1,
+          "gap": 2,
+          "maxWidth": "80%",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "gap": 8,
+          }
+        }
+      >
+        <View
+          accessibilityLabel="Play voice message"
+          accessibilityRole="button"
+          accessibilityState={
+            {
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
+            }
+          }
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          hitSlop={8}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "alignItems": "center",
+              "height": 32,
+              "justifyContent": "center",
+              "width": 32,
+            }
+          }
+        >
+          <ViewManagerAdapter_SymbolModule
+            accessibilityElementsHidden={true}
+            animated={false}
+            colors={[]}
+            importantForAccessibility="no"
+            name="play.fill"
+            size={26}
+            style={
+              {
+                "height": 26,
+                "width": 26,
+              }
+            }
+            tint={4294079051}
+            tintColor="#F2724B"
+            type="monochrome"
+          />
+        </View>
+        <View
+          style={
+            {
+              "gap": 2,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "backgroundColor": "#E6E2DD",
+                "borderRadius": 999,
+                "height": 4,
+                "overflow": "hidden",
+                "width": 140,
+              }
+            }
+          >
+            <View
+              style={
+                {
+                  "backgroundColor": "#F2724B",
+                  "height": 4,
+                  "width": 0,
+                }
+              }
+            />
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#686B6B",
+                },
+                undefined,
+              ]
+            }
+          >
+            1:03
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          [
+            {
+              "fontFamily": "Inter-Regular",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+            {
+              "color": "#9A9C9C",
+            },
+            {
+              "alignSelf": "flex-end",
+              "opacity": 1,
+            },
+          ]
+        }
+      >
+        14:33
+      </Text>
     </View>
   </View>
 </RNCSafeAreaProvider>
@@ -21732,14 +23046,14 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                             "animated": false,
                             "colors": [],
                             "importantForAccessibility": "no",
-                            "name": "arrow.right",
-                            "size": 20,
+                            "name": "mic.fill",
+                            "size": 22,
                             "style": {
-                              "height": 20,
-                              "width": 20,
+                              "height": 22,
+                              "width": 22,
                             },
-                            "tint": 4285822839,
-                            "tintColor": "#747777",
+                            "tint": 4279900181,
+                            "tintColor": "#1A1815",
                             "type": "monochrome",
                             "weight": undefined,
                           },
@@ -21747,39 +23061,21 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                         },
                       ],
                       "props": {
-                        "accessibilityLabel": "Send",
+                        "accessibilityLabel": "Hold to record a voice message",
                         "accessibilityRole": "button",
                         "accessibilityState": {
-                          "busy": undefined,
-                          "checked": undefined,
-                          "disabled": true,
-                          "expanded": undefined,
-                          "selected": undefined,
-                        },
-                        "accessibilityValue": {
-                          "max": undefined,
-                          "min": undefined,
-                          "now": undefined,
-                          "text": undefined,
+                          "busy": false,
+                          "disabled": false,
                         },
                         "accessible": true,
                         "collapsable": false,
-                        "focusable": true,
-                        "onBlur": [Function],
-                        "onClick": [Function],
-                        "onFocus": [Function],
-                        "onResponderGrant": [Function],
-                        "onResponderMove": [Function],
-                        "onResponderRelease": [Function],
-                        "onResponderTerminate": [Function],
-                        "onResponderTerminationRequest": [Function],
-                        "onStartShouldSetResponder": [Function],
                         "style": {
                           "alignItems": "center",
-                          "backgroundColor": "#100E0C",
+                          "backgroundColor": "#FF8560",
                           "borderRadius": 999,
                           "height": 44,
                           "justifyContent": "center",
+                          "marginTop": 0,
                           "width": 44,
                         },
                       },
@@ -22333,44 +23629,24 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
             />
           </View>
           <View
-            accessibilityLabel="Send"
+            accessibilityLabel="Hold to record a voice message"
             accessibilityRole="button"
             accessibilityState={
               {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": true,
-                "expanded": undefined,
-                "selected": undefined,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
+                "busy": false,
+                "disabled": false,
               }
             }
             accessible={true}
             collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               {
                 "alignItems": "center",
-                "backgroundColor": "#100E0C",
+                "backgroundColor": "#FF8560",
                 "borderRadius": 999,
                 "height": 44,
                 "justifyContent": "center",
+                "marginTop": 0,
                 "width": 44,
               }
             }
@@ -22380,16 +23656,16 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
               animated={false}
               colors={[]}
               importantForAccessibility="no"
-              name="arrow.right"
-              size={20}
+              name="mic.fill"
+              size={22}
               style={
                 {
-                  "height": 20,
-                  "width": 20,
+                  "height": 22,
+                  "width": 22,
                 }
               }
-              tint={4285822839}
-              tintColor="#747777"
+              tint={4279900181}
+              tintColor="#1A1815"
               type="monochrome"
             />
           </View>
@@ -24507,14 +25783,14 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                             "animated": false,
                             "colors": [],
                             "importantForAccessibility": "no",
-                            "name": "arrow.right",
-                            "size": 20,
+                            "name": "mic.fill",
+                            "size": 22,
                             "style": {
-                              "height": 20,
-                              "width": 20,
+                              "height": 22,
+                              "width": 22,
                             },
-                            "tint": 4288322716,
-                            "tintColor": "#9A9C9C",
+                            "tint": 4294967295,
+                            "tintColor": "#FFFFFF",
                             "type": "monochrome",
                             "weight": undefined,
                           },
@@ -24522,39 +25798,21 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                         },
                       ],
                       "props": {
-                        "accessibilityLabel": "Send",
+                        "accessibilityLabel": "Hold to record a voice message",
                         "accessibilityRole": "button",
                         "accessibilityState": {
-                          "busy": undefined,
-                          "checked": undefined,
-                          "disabled": true,
-                          "expanded": undefined,
-                          "selected": undefined,
-                        },
-                        "accessibilityValue": {
-                          "max": undefined,
-                          "min": undefined,
-                          "now": undefined,
-                          "text": undefined,
+                          "busy": false,
+                          "disabled": false,
                         },
                         "accessible": true,
                         "collapsable": false,
-                        "focusable": true,
-                        "onBlur": [Function],
-                        "onClick": [Function],
-                        "onFocus": [Function],
-                        "onResponderGrant": [Function],
-                        "onResponderMove": [Function],
-                        "onResponderRelease": [Function],
-                        "onResponderTerminate": [Function],
-                        "onResponderTerminationRequest": [Function],
-                        "onStartShouldSetResponder": [Function],
                         "style": {
                           "alignItems": "center",
-                          "backgroundColor": "#F1EDEA",
+                          "backgroundColor": "#F2724B",
                           "borderRadius": 999,
                           "height": 44,
                           "justifyContent": "center",
+                          "marginTop": 0,
                           "width": 44,
                         },
                       },
@@ -25108,44 +26366,24 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
             />
           </View>
           <View
-            accessibilityLabel="Send"
+            accessibilityLabel="Hold to record a voice message"
             accessibilityRole="button"
             accessibilityState={
               {
-                "busy": undefined,
-                "checked": undefined,
-                "disabled": true,
-                "expanded": undefined,
-                "selected": undefined,
-              }
-            }
-            accessibilityValue={
-              {
-                "max": undefined,
-                "min": undefined,
-                "now": undefined,
-                "text": undefined,
+                "busy": false,
+                "disabled": false,
               }
             }
             accessible={true}
             collapsable={false}
-            focusable={true}
-            onBlur={[Function]}
-            onClick={[Function]}
-            onFocus={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               {
                 "alignItems": "center",
-                "backgroundColor": "#F1EDEA",
+                "backgroundColor": "#F2724B",
                 "borderRadius": 999,
                 "height": 44,
                 "justifyContent": "center",
+                "marginTop": 0,
                 "width": 44,
               }
             }
@@ -25155,16 +26393,16 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
               animated={false}
               colors={[]}
               importantForAccessibility="no"
-              name="arrow.right"
-              size={20}
+              name="mic.fill"
+              size={22}
               style={
                 {
-                  "height": 20,
-                  "width": 20,
+                  "height": 22,
+                  "width": 22,
                 }
               }
-              tint={4288322716}
-              tintColor="#9A9C9C"
+              tint={4294967295}
+              tintColor="#FFFFFF"
               type="monochrome"
             />
           </View>

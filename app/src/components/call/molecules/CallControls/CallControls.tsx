@@ -1,10 +1,9 @@
 /**
  * Mute · Speaker · End.
  *
- * All three are mocked (A17): nothing is recorded, no microphone permission is
- * requested, and there is no audio route to switch. Mute and speaker toggle
- * their own visual state and nothing else — which is honest for a demo and is
- * exactly the surface a real integration would later drive.
+ * Presentational only: `activeCall.store` does the work. Mute silences the
+ * microphone track; Speaker switches loudspeaker ↔ earpiece through
+ * `services/callAudio.ts` (a no-op in mock mode and on iOS).
  *
  * End is red and last, and sits at the same 64pt size as the other two. It is
  * the one control people reach for without looking.

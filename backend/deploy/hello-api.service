@@ -68,9 +68,12 @@ RestrictSUIDSGID=true
 RestrictNamespaces=true
 LockPersonality=true
 MemoryDenyWriteExecute=false
-# ProtectSystem=strict makes everything read-only; nothing needs to be writable,
-# so no ReadWritePaths. If a future job writes uploads, name that path here and
-# only that path.
+# ProtectSystem=strict makes everything read-only. The ONE writable place is
+# voice message audio: StateDirectory creates /var/lib/hello owned by the
+# service user and makes it (and only it) writable. Set in .env:
+#   VOICE_DIR=/var/lib/hello/voice
+StateDirectory=hello
+StateDirectoryMode=0750
 
 [Install]
 WantedBy=multi-user.target

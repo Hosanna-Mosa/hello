@@ -29,8 +29,25 @@ const messageSchema = new Schema(
   {
     threadId: { type: Schema.Types.ObjectId, ref: "Thread", required: true },
     senderId: { type: Schema.Types.ObjectId, ref: "User", required: true },
-    kind: { type: String, enum: ["text", "system"], default: "text" },
+    kind: { type: String, enum: ["text", "system", "voice"], default: "text" },
     body: { type: String, required: true, trim: true, maxlength: 2000 },
+    /**
+     * A voice message's audio. `file` is a path relative to `VOICE_DIR` and is
+     * NEVER sent to a client — they get `/v1/messages/:id/voice`, which checks
+     * they are in the conversation before streaming it.
+     */
+    voice: {
+      type: new Schema(
+        {
+          file: { type: String, required: true, maxlength: 200 },
+          mime: { type: String, required: true, maxlength: 40 },
+          bytes: { type: Number, required: true, min: 1 },
+          durationSec: { type: Number, required: true, min: 0 },
+        },
+        { _id: false },
+      ),
+      default: null,
+    },
     /** Structured detail for a system message, e.g. a call record. */
     systemMeta: { type: Schema.Types.Mixed, default: null },
     reactions: { type: [reactionSchema], default: [] },

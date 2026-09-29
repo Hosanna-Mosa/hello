@@ -179,8 +179,23 @@ export type Reaction = {
 /**
  * `system` messages are written by the app, not a person — currently only the
  * "Voice call · 2:14" record that Phase 7 appends when a call ends.
+ *
+ * `voice` is a recorded voice message; its audio is in `Message.voice`, and
+ * `body` holds a plain-text stand-in ("Voice message") for previews.
  */
-export type MessageKind = "text" | "system";
+export type MessageKind = "text" | "system" | "voice";
+
+/**
+ * A voice message's audio.
+ *
+ * `url` is a path on the API (`/v1/messages/:id/voice`) that needs the bearer
+ * token, because only the two people in the conversation may play it. In mock
+ * mode it is the local file the recording was saved to.
+ */
+export type VoiceClip = {
+  url: string;
+  durationSec: number;
+};
 
 export type Message = {
   id: string;
@@ -188,6 +203,8 @@ export type Message = {
   senderId: string;
   kind: MessageKind;
   body: string;
+  /** Present exactly when `kind` is `"voice"`. */
+  voice?: VoiceClip;
   status: MessageStatus;
   reactions: Reaction[];
   createdAt: IsoDateTime;

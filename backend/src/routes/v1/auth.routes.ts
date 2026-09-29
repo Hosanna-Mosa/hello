@@ -11,7 +11,7 @@ import * as controller from "@/controllers/auth.controller.js";
 import { requireAuth } from "@/middlewares/auth.js";
 import { rateLimit } from "@/middlewares/rateLimit.js";
 import { validateBody } from "@/middlewares/validate.js";
-import { refreshSchema, sendCodeSchema, verifyCodeSchema } from "@/validators/auth.validator.js";
+import { emailLoginSchema, refreshSchema, sendCodeSchema, verifyCodeSchema } from "@/validators/auth.validator.js";
 
 export const authRouter: Router = Router();
 
@@ -29,6 +29,10 @@ authRouter.post(
   rateLimit("auth-verify-phone", "phone"),
   controller.postVerify,
 );
+
+// The store-review sign-in. Per-IP only: there is one account behind it, so a
+// per-subject bucket would add nothing a guesser could not walk around.
+authRouter.post("/email", validateBody(emailLoginSchema), rateLimit("auth-email-ip", "ip"), controller.postEmailLogin);
 
 authRouter.post("/refresh", validateBody(refreshSchema), rateLimit("auth-refresh-ip", "ip"), controller.postRefresh);
 

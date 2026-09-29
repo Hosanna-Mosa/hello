@@ -28,6 +28,7 @@ jest.mock("expo-location", () => ({
 import NotFoundScreen from "@/app/+not-found";
 import WelcomeScreen from "@/app/(auth)/index";
 import OtpScreen from "@/app/(auth)/otp";
+import EmailScreen from "@/app/(auth)/email";
 import PhoneScreen from "@/app/(auth)/phone";
 import AgeRestrictedScreen from "@/app/(onboarding)/age-restricted";
 import AvatarScreen from "@/app/(onboarding)/avatar";
@@ -46,6 +47,7 @@ describe.each(THEMES)("auth + onboarding screens — %s theme", (theme) => {
     expect(renderAtom(<WelcomeScreen />, theme)).toMatchSnapshot());
 
   it("(auth)/phone", () => expect(renderAtom(<PhoneScreen />, theme)).toMatchSnapshot());
+  it("(auth)/email", () => expect(renderAtom(<EmailScreen />, theme)).toMatchSnapshot());
 
   it("(auth)/otp", () => expect(renderAtom(<OtpScreen />, theme)).toMatchSnapshot());
 

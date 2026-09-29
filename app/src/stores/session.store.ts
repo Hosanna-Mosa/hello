@@ -15,6 +15,7 @@ import { authService } from "@/services/auth.service";
 import { onAuthLostHandler } from "@/services/client";
 import { connectSocket, disconnectSocket } from "@/services/socket";
 import { meService } from "@/services/me.service";
+import { useActiveCallStore } from "@/stores/activeCall.store";
 import type { User } from "@/services/types";
 
 export type SessionStatus = "loading" | "signedOut" | "onboarding" | "signedIn";
@@ -26,6 +27,7 @@ export type SessionState = {
   /** Resolve the session at launch. */
   hydrate: () => Promise<void>;
   verifyCode: (code: string) => Promise<void>;
+  emailLogin: (email: string, password: string) => Promise<void>;
   completeOnboarding: () => Promise<void>;
   signOut: () => Promise<void>;
   refreshUser: () => Promise<void>;
@@ -69,12 +71,22 @@ export const useSessionStore = create<SessionState>((set) => ({
     set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
   },
 
+  emailLogin: async (email, password) => {
+    const session = await authService.emailLogin(email, password);
+    connectSocket();
+    const user = await meService.getMe();
+    // Same rule as verifyCode: a finished account goes straight to the tabs.
+    set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
+  },
+
   completeOnboarding: async () => {
     await authService.completeOnboarding();
     set({ status: "signedIn" });
   },
 
   signOut: async () => {
+    // A call outlives screens now, so it must not outlive the account.
+    useActiveCallStore.getState().hangUp();
     disconnectSocket();
     await authService.signOut();
     // Data is in-memory only (R7), so signing out is a full reset.

@@ -5,7 +5,9 @@
  * guard would turn every unknown path into a 401 instead of a 404.
  */
 
-import { Router } from "express";
+import express, { Router } from "express";
+
+import { env } from "@/config/env.js";
 
 import * as controller from "@/controllers/threads.controller.js";
 import { requireAuth, requireOnboarded } from "@/middlewares/auth.js";
@@ -26,6 +28,18 @@ threadsRouter.post(
   validateBody(sendMessageSchema),
   controller.postMessage,
 );
+/**
+ * Voice messages. The body is raw audio, so this route parses its own body —
+ * with its own size cap — instead of the app-wide 64kb JSON parser.
+ */
+threadsRouter.post(
+  "/threads/:id/voice",
+  guarded,
+  rateLimit("message-send"),
+  express.raw({ type: ["audio/*", "application/octet-stream"], limit: env.VOICE_MAX_BYTES }),
+  controller.postVoice,
+);
+threadsRouter.get("/messages/:id/voice", guarded, controller.getVoice);
 threadsRouter.post("/threads/:id/read", guarded, controller.postRead);
 threadsRouter.patch("/threads/:id", guarded, validateBody(patchThreadSchema), controller.patchThread);
 

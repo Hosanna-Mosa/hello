@@ -583,6 +583,31 @@ systemctl restart hello-api
 
 `.env` is excluded from the copy, so your secrets and TURN settings are safe.
 
+#### One-time: voice messages (first deploy that includes them)
+
+Voice audio is stored on this disk, in `/var/lib/hello/voice` — **never** inside
+`/srv/hello/backend`, because the `rsync --delete` above would wipe every
+recording on each redeploy.
+
+On the VPS:
+
+```bash
+cp /srv/hello/backend/deploy/hello-api.service /etc/systemd/system/hello-api.service && systemctl daemon-reload
+```
+
+```bash
+echo 'VOICE_DIR=/var/lib/hello/voice' >> /srv/hello/backend/.env
+```
+
+```bash
+cp /srv/hello/backend/deploy/nginx-hello-api.conf /etc/nginx/sites-available/hello-api && nginx -t && systemctl reload nginx
+```
+
+(Re-apply your domain name to the nginx file first if you edited it in step 12.)
+Then `systemctl restart hello-api`. The unit's `StateDirectory=hello` creates
+`/var/lib/hello` owned by the `hello` user; the API creates `voice/` inside it.
+Without the nginx step, uploads over 256 KB fail with `413`.
+
 ---
 
 ### 19. Troubleshooting

@@ -75,6 +75,12 @@ rebuild, and Jest tests that touch it mock `expo-secure-store` directly.
 2026-09-26 for real voice calls. Native: needs a dev build, and Jest needs
 `__mocks__/react-native-webrtc.js` because the real module builds a
 `NativeEventEmitter` at import time.
+`expo-audio` — signed off 2026-09-29 for voice messages (record + play). Its
+config plugin runs with `enableBackgroundPlayback: false` and
+`enableBackgroundRecording: false` ON PURPOSE: the defaults add
+`FOREGROUND_SERVICE` + `FOREGROUND_SERVICE_MEDIA_PLAYBACK` and a playback
+service, which the one-permission rule below does not allow. Native: needs a
+rebuild, and Jest uses `__mocks__/expo-audio.js`.
 dev: `react-test-renderer` · `jest-expo` · `tailwindcss` · `@tailwindcss/postcss` · `postcss` · `lightningcss`
 
 Already present: `expo-symbols` (replaces `@expo/vector-icons`, which is no

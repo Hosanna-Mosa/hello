@@ -118,6 +118,10 @@ export function toMessage(doc: MessageDoc, thread: ThreadDoc, viewerId: string):
     senderId: String(doc.senderId),
     kind: (doc.kind ?? "text") as Message["kind"],
     body: doc.body,
+    // The storage path never leaves the server — only the gated stream URL.
+    ...(doc.kind === "voice" && doc.voice
+      ? { voice: { url: `/v1/messages/${String(doc._id)}/voice`, durationSec: doc.voice.durationSec } }
+      : {}),
     status: statusFor(doc, thread, viewerId),
     reactions: toReactions(doc),
     createdAt: (doc.createdAt ?? new Date()).toISOString(),

@@ -204,21 +204,34 @@ async function toApiError(res: Response): Promise<ApiError> {
   return new ApiError("validation");
 }
 
+/** A non-JSON body — a voice clip — sent as-is with its own content type. */
+class RawBody {
+  constructor(
+    readonly data: Blob,
+    readonly contentType: string,
+  ) {}
+}
+
 async function send(method: Method, path: string, body: unknown, auth: boolean): Promise<Response> {
   // `AbortSignal.timeout` is not in every RN runtime, so drive it by hand.
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  // An upload is bigger than any JSON body; give it longer on a slow network.
+  const timer = setTimeout(() => controller.abort(), body instanceof RawBody ? TIMEOUT_MS * 4 : TIMEOUT_MS);
 
   const headers: Record<string, string> = { Accept: "application/json" };
-  if (body !== undefined) headers["Content-Type"] = "application/json";
+  if (body instanceof RawBody) headers["Content-Type"] = body.contentType;
+  else if (body !== undefined) headers["Content-Type"] = "application/json";
   if (auth && tokens?.token) headers.Authorization = `Bearer ${tokens.token}`;
+
+  const payload =
+    body === undefined ? {} : { body: body instanceof RawBody ? body.data : JSON.stringify(body) };
 
   try {
     return await fetch(`${BASE_URL}/v1${path}`, {
       method,
       headers,
       signal: controller.signal,
-      ...(body === undefined ? {} : { body: JSON.stringify(body) }),
+      ...payload,
     });
   } catch (e) {
     // A DNS failure, a refused connection and a timeout all land here. The
@@ -249,7 +262,11 @@ async function refresh(): Promise<boolean> {
       if (!res.ok) return false;
 
       const next = (await res.json()) as Tokens;
-      tokens = { token: next.token, refreshToken: next.refreshToken };
+      // THROUGH setTokens, not a bare assignment: that is what persists the
+      // rotated pair. Assigning `tokens` directly kept the new refresh token in
+      // memory only, so the next cold start replayed the old one — which the
+      // server treats as theft and answers by revoking the session.
+      setTokens({ token: next.token, refreshToken: next.refreshToken });
       return true;
     } catch {
       return false;
@@ -285,6 +302,40 @@ export async function http<T>(method: Method, path: string, body?: unknown, auth
   if (res.status === 204) return undefined as T;
 
   return (await res.json()) as T;
+}
+
+/** POST a raw body (a voice clip), with the same refresh-once rule as `http`. */
+export async function upload<T>(path: string, data: Blob, contentType: string): Promise<T> {
+  return http<T>("POST", path, new RawBody(data, contentType));
+}
+
+/** Seconds since the epoch at which a JWT expires, or null if unreadable. */
+function jwtExpiry(token: string): number | null {
+  try {
+    const part = token.split(".")[1] ?? "";
+    const json = atob(part.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(part.length / 4) * 4, "="));
+    const exp = (JSON.parse(json) as { exp?: unknown }).exp;
+    return typeof exp === "number" ? exp : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * An access token that will still be valid for the next minute, refreshing
+ * first if it would not.
+ *
+ * For requests this module does NOT make — the audio player fetches a voice
+ * clip itself, so it cannot take part in the refresh-on-401 above, and a
+ * 15-minute token would otherwise leave old clips unplayable.
+ */
+export async function validAccessToken(): Promise<string | null> {
+  const token = tokens?.token;
+  if (!token) return null;
+
+  const exp = jwtExpiry(token);
+  if (exp !== null && exp * 1000 - Date.now() < 60_000) await refresh();
+  return tokens?.token ?? null;
 }
 
 /** Stable, readable ids for records created during a session. */

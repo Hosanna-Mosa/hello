@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { ActiveCallBar } from "@/components/common/organisms/ActiveCallBar";
 import { IncomingCallOverlay } from "@/components/common/organisms/IncomingCallOverlay";
 /*
   Imported for its side effect: registering the `call:incoming` listener. A call
@@ -14,6 +15,11 @@ import { IncomingCallOverlay } from "@/components/common/organisms/IncomingCallO
   and `IncomingCallOverlay` below renders from it.
 */
 import "@/stores/calls.store";
+/*
+  Same reason: the call in progress lives here, with its socket listeners
+  (accepted / signal / ended), so it survives leaving the call screen.
+*/
+import "@/stores/activeCall.store";
 import { useSessionStore } from "@/stores/session.store";
 import { useUiStore } from "@/stores/ui.store";
 import { ThemedStatusBar } from "@/theme/ThemedStatusBar";
@@ -56,6 +62,13 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <ThemeProvider override={themeOverride ?? undefined}>
           <ThemedStatusBar />
+
+          {/*
+            BEFORE <Stack>, as a sibling, so it pushes every screen down rather
+            than covering its header. Renders nothing unless a call is running
+            and you are somewhere other than the call screen.
+          */}
+          <ActiveCallBar />
 
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Protected guard={status === "signedOut" || status === "loading"}>
