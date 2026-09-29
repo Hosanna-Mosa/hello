@@ -79,10 +79,8 @@ const noop = () => {};
 const voiceIdle: ComposerVoice = {
   recording: false,
   seconds: 0,
-  cancelArmed: false,
-  onPressIn: noop,
-  onRelease: noop,
-  onSlide: noop,
+  onToggle: noop,
+  onCancel: noop,
 };
 
 // Clears the store's pending timers (the mock pick-up) after each test.
@@ -390,14 +388,14 @@ describe.each(THEMES)("Phase 7 — components — %s theme", (theme) => {
       renderAtom(<ChatComposer value="" onChangeText={noop} onSend={noop} voice={voiceIdle} />, theme),
     ).toMatchSnapshot());
 
-  it("ChatComposer — recording, armed to cancel", () =>
+  it("ChatComposer — recording", () =>
     expect(
       renderAtom(
         <ChatComposer
           value=""
           onChangeText={noop}
           onSend={noop}
-          voice={{ ...voiceIdle, recording: true, seconds: 7, cancelArmed: true }}
+          voice={{ ...voiceIdle, recording: true, seconds: 7 }}
         />,
         theme,
       ),

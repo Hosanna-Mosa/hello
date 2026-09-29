@@ -71,7 +71,10 @@ export function useVoicePlayback(messageId: string, clip: VoiceClip): VoicePlayb
     useNowPlaying.setState({ id: messageId });
     // Loud and clear, even with the ringer on silent — the user asked to hear it.
     await setAudioModeAsync({ playsInSilentMode: true, allowsRecording: false }).catch(() => {});
-    if (!loaded.current) {
+    // Load on first play — and AGAIN whenever the player holds nothing: a load
+    // that failed (expired token, network blip) must not leave this bubble
+    // dead until the chat is reopened. Each reload takes a fresh token.
+    if (!loaded.current || (!status.isLoaded && !status.isBuffering)) {
       player.replace(await sourceFor(clip));
       loaded.current = true;
     }

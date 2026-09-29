@@ -5,7 +5,7 @@ import { Avatar, CallShell } from "@/components/common";
 import { CallControls } from "@/components/call/molecules/CallControls";
 import { useCallTimer } from "@/components/common/hooks/useCallTimer";
 import { copy } from "@/copy";
-import { ENDED_MS, useActiveCallStore } from "@/stores/activeCall.store";
+import { ENDED_MS, FAILED_MS, useActiveCallStore } from "@/stores/activeCall.store";
 
 /**
  * A voice call — a VIEW of the call in `activeCall.store`, not its owner.
@@ -60,19 +60,20 @@ export default function CallScreen() {
   // Leave once the call is over: after "Call ended" has been on screen a beat,
   // or at once if the call vanished while we were away from it.
   const phase = active?.phase;
+  const failed = Boolean(active?.failure);
   useEffect(() => {
     if (active) hadCall.current = true;
 
     if (phase === "ended") {
       const handle = setTimeout(() => {
         if (router.canGoBack()) router.back();
-      }, ENDED_MS);
+      }, failed ? FAILED_MS : ENDED_MS);
       return () => clearTimeout(handle);
     }
 
     if (!active && hadCall.current && router.canGoBack()) router.back();
     return undefined;
-  }, [active, phase]);
+  }, [active, phase, failed]);
 
   const timer = useCallTimer(active?.phase === "connected" ? active.connectedAt : null);
 
@@ -83,7 +84,9 @@ export default function CallScreen() {
         ? copy.calls.connecting
         : active.phase === "connected"
           ? timer.formatted
-          : copy.calls.ended;
+          : active.failure
+            ? copy.calls.failed(active.failure)
+            : copy.calls.ended;
 
   return (
     <CallShell

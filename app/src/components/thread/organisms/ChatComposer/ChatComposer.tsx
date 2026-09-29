@@ -10,8 +10,8 @@
  * does not shift under the thumb as the field empties.
  *
  * VOICE. Given `voice`, an empty field shows the microphone where Send was —
- * the same slot, so nothing moves — and while recording the field itself is
- * replaced by the timer and the slide-to-cancel hint.
+ * the same slot, so nothing moves. Tap it to record: the field becomes
+ * "Recording… please speak" with a timer and a bin; tap the mic again to send.
  */
 
 import { BareInput } from "@/components/common/atoms/BareInput";
@@ -27,12 +27,12 @@ import { copy } from "@/copy";
 export type ComposerVoice = {
   recording: boolean;
   seconds: number;
-  cancelArmed: boolean;
   /** No microphone right now — during a voice call, for one. */
   disabled?: boolean;
-  onPressIn: () => void;
-  onRelease: (cancelled: boolean) => void;
-  onSlide: (dx: number) => void;
+  /** Start recording, or — while recording — stop and send. */
+  onToggle: () => void;
+  /** Discard the recording in progress. */
+  onCancel: () => void;
 };
 
 export type ChatComposerProps = {
@@ -81,7 +81,7 @@ export function ChatComposer({
       }}
     >
       {recording && voice ? (
-        <RecordingIndicator seconds={voice.seconds} cancelArmed={voice.cancelArmed} />
+        <RecordingIndicator seconds={voice.seconds} onCancel={voice.onCancel} />
       ) : (
         <Box
           style={{
@@ -119,13 +119,7 @@ export function ChatComposer({
       )}
 
       {showMic && voice ? (
-        <RecordButton
-          recording={recording}
-          disabled={voice.disabled}
-          onPressIn={voice.onPressIn}
-          onRelease={voice.onRelease}
-          onSlide={voice.onSlide}
-        />
+        <RecordButton recording={recording} disabled={voice.disabled} onPress={voice.onToggle} />
       ) : (
         <Tappable
           onPress={submit}

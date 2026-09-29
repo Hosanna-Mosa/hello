@@ -48,13 +48,16 @@ export async function attachSockets(server: HttpServer): Promise<Server> {
     const userId = String(socket.user?._id);
     void socket.join(userRoom(userId));
 
-    logger.info({ userId, socketId: socket.id }, "socket connected");
+    logger.info(
+      { userId, socketId: socket.id, recovered: socket.recovered },
+      "[socket] connected (recovered = resumed a short drop without re-auth)",
+    );
 
     registerChatHandlers(socket);
     registerCallHandlers(socket);
 
     socket.on("disconnect", (reason) => {
-      logger.info({ userId, socketId: socket.id, reason }, "socket disconnected");
+      logger.info({ userId, socketId: socket.id, reason }, "[socket] disconnected");
     });
   });
 

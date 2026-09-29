@@ -12,16 +12,25 @@
  */
 
 const mockBound: [string, (payload: unknown) => void][] = [];
+const mockIo: { options: { auth?: unknown } | null; connect: jest.Mock } = {
+  options: null,
+  connect: jest.fn(),
+};
 
 jest.mock("socket.io-client", () => ({
-  io: () => ({
-    on: (event: string, handler: (payload: unknown) => void) => {
-      mockBound.push([event, handler]);
-    },
-    off: () => {},
-    emit: () => {},
-    disconnect: () => {},
-  }),
+  io: (_url: string, options: { auth?: unknown }) => {
+    mockIo.options = options;
+    return {
+      connected: false,
+      on: (event: string, handler: (payload: unknown) => void) => {
+        mockBound.push([event, handler]);
+      },
+      off: () => {},
+      emit: () => {},
+      connect: mockIo.connect,
+      disconnect: () => {},
+    };
+  },
 }));
 
 const REAL_API = process.env.EXPO_PUBLIC_API;
@@ -82,7 +91,9 @@ describe("onSocket", () => {
     client.setTokens({ token: "access", refreshToken: "refresh" });
     socket.connectSocket();
 
-    expect(mockBound.map(([event]) => event).sort()).toEqual([
+    // The socket's own lifecycle listeners (connect / connect_error) aside.
+    const lifecycle = new Set(["connect", "connect_error"]);
+    expect(mockBound.map(([event]) => event).filter((e) => !lifecycle.has(e)).sort()).toEqual([
       "message:new",
       "thread:ended",
       "thread:receipt",
@@ -115,5 +126,41 @@ describe("onSocket", () => {
     const bound = mockBound.find(([event]) => event === "message:new");
     bound?.[1]({ threadId: "thread-2" });
     expect(received).toEqual([{ threadId: "thread-2" }]);
+  });
+});
+
+describe("the handshake token", () => {
+  it("is read at EACH connect, so a reconnect after a refresh carries the new one", async () => {
+    const { socket, client } = loadSocketModule();
+    client.setTokens({ token: "first", refreshToken: "r" });
+    socket.connectSocket();
+
+    const auth = mockIo.options?.auth as (cb: (data: { token: string }) => void) => void;
+    // The object form (`{ token }`) froze the sign-in token for the socket's life.
+    expect(typeof auth).toBe("function");
+
+    client.setTokens({ token: "second", refreshToken: "r" });
+    const sent = await new Promise<{ token: string }>((resolve) => auth(resolve));
+    expect(sent.token).toBe("second");
+    socket.disconnectSocket();
+  });
+
+  it("retries a handshake the server refused — socket.io will not", () => {
+    jest.useFakeTimers();
+    try {
+      const { socket, client } = loadSocketModule();
+      mockIo.connect.mockClear();
+      client.setTokens({ token: "t", refreshToken: "r" });
+      socket.connectSocket();
+
+      const onError = mockBound.find(([event]) => event === "connect_error")?.[1];
+      onError?.(Object.assign(new Error("Sign in to connect."), { data: { error: { code: "unauthorized" } } }));
+      jest.advanceTimersByTime(2500);
+
+      expect(mockIo.connect).toHaveBeenCalledTimes(1);
+      socket.disconnectSocket();
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

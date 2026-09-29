@@ -28,9 +28,10 @@ import { callsService } from "@/services/calls.service";
 import { chatService } from "@/services/chat.service";
 import { currentUserIdOrMe, isMockMode } from "@/services/client";
 import { profilesService } from "@/services/profiles.service";
-import { emitCallAccept, onSocket } from "@/services/socket";
+import { emitCallAccept, emitCallDiag, onSocket } from "@/services/socket";
 import type { CallOutcome, CallSession } from "@/services/types";
 import {
+  callMediaDiagnostics,
   handleCallSignal,
   setMuted as setMediaMuted,
   startCallMedia,
@@ -47,6 +48,13 @@ export const RING_TIMEOUT_MS = 45_000;
 export const MOCK_PICKUP_MS = 2200;
 /** How long "Call ended" stays up before the call is cleared. */
 export const ENDED_MS = 900;
+/**
+ * Answered, but no audio path yet. Past this the network is not going to
+ * connect the two phones, and "Connecting…" forever is worse than saying so.
+ */
+export const CONNECT_TIMEOUT_MS = 30_000;
+/** Long enough to read why a call could not connect. */
+export const FAILED_MS = 5000;
 
 export type CallPhase = "ringing" | "connecting" | "connected" | "ended";
 
@@ -62,6 +70,11 @@ export type ActiveCall = {
   connectedAt: number | null;
   muted: boolean;
   speaker: boolean;
+  /**
+   * Set when the call ended because it could not connect — the network
+   * diagnosis from `callMediaDiagnostics`, shown under "Couldn't connect".
+   */
+  failure: string | null;
 };
 
 export type ActiveCallState = {
@@ -139,7 +152,10 @@ async function loadPeer(gen: number, threadId: string): Promise<void> {
 function markConnected(gen: number): void {
   const active = current();
   if (!active || gen !== generation || active.phase === "ended") return;
-  if (active.phase !== "connected") patch(gen, { phase: "connected", connectedAt: Date.now() });
+  if (active.phase !== "connected") {
+    if (active.callId) emitCallDiag(active.callId, "CONNECTED — audio path up", { role: active.role });
+    patch(gen, { phase: "connected", connectedAt: Date.now() });
+  }
 }
 
 /** Open the microphone, enter call audio, and negotiate. False if it could not. */
@@ -148,9 +164,7 @@ async function openMedia(gen: number, callId: string, role: "caller" | "callee")
     callId,
     role,
     onConnected: () => markConnected(gen),
-    onFailed: () => {
-      if (gen === generation) void finish("completed");
-    },
+    onFailed: () => fail(gen),
   });
 
   if (started && gen === generation) {
@@ -172,6 +186,7 @@ function startOutgoing(threadId: string): void {
     connectedAt: null,
     muted: false,
     speaker: false,
+    failure: null,
   });
 
   void loadPeer(gen, threadId);
@@ -219,6 +234,7 @@ function answer(threadId: string, callId?: string): void {
     connectedAt: isMockMode() ? Date.now() : null,
     muted: false,
     speaker: false,
+    failure: null,
   });
 
   void loadPeer(gen, threadId);
@@ -248,8 +264,34 @@ function answer(threadId: string, callId?: string): void {
       void finish("cancelled");
       return;
     }
-    if (callId) emitCallAccept(callId);
+    if (callId) {
+      emitCallAccept(callId);
+      emitCallDiag(callId, "accept sent (media was ready first)");
+    }
+    later(CONNECT_TIMEOUT_MS, () => fail(gen));
   })();
+}
+
+/**
+ * The audio path never came up (or dropped). A call that had connected just
+ * ends; one that never did ends with the reason, so a failure says what the
+ * network did instead of spinning on "Connecting…".
+ */
+function fail(gen: number): void {
+  const active = current();
+  if (!active || gen !== generation || active.phase === "ended") return;
+  if (active.phase === "connected") {
+    void finish("completed");
+    return;
+  }
+  // Read BEFORE `finish` tears the connection down — afterwards there is
+  // nothing left to diagnose.
+  const diagnosis = callMediaDiagnostics();
+  if (active.callId) {
+    emitCallDiag(active.callId, "GAVE UP — could not connect", { role: active.role, diagnosis });
+  }
+  patch(gen, { failure: diagnosis });
+  void finish("cancelled");
 }
 
 /**
@@ -294,7 +336,7 @@ async function finish(outcome: CallOutcome, notifyServer = true): Promise<void> 
       .catch(() => {});
   }
 
-  later(ENDED_MS, () => {
+  later(current()?.failure ? FAILED_MS : ENDED_MS, () => {
     if (gen === generation) useActiveCallStore.setState({ active: null });
   });
 }
@@ -329,6 +371,8 @@ onSocket("call:accepted", ({ callId }) => {
   const gen = generation;
   clearTimers();
   patch(gen, { phase: "connecting" });
+  emitCallDiag(callId, "accepted received — opening media and sending offer");
+  later(CONNECT_TIMEOUT_MS, () => fail(gen));
 
   void (async () => {
     const ok = await openMedia(gen, callId, "caller");
