@@ -14,9 +14,12 @@ import type { ReactNode } from "react";
 import { Body } from "@/components/common/atoms/Body";
 import { Box } from "@/components/common/atoms/Box";
 import { Heading } from "@/components/common/atoms/Heading";
+import { Icon } from "@/components/common/atoms/Icon";
 import { SafeArea } from "@/components/common/atoms/SafeArea";
+import { Tappable } from "@/components/common/atoms/Tappable";
 import { useTheme } from "@/components/common/hooks/useTheme";
 import { dark } from "@/theme";
+import { ThemeProvider } from "@/theme/ThemeProvider";
 
 export type CallShellProps = {
   /** The avatar, centred. */
@@ -26,14 +29,37 @@ export type CallShellProps = {
   status: string;
   /** Mute / speaker / end. */
   controls: ReactNode;
+  /**
+   * Show a back chevron top-left. The incoming ring uses it to step away
+   * without answering — the call keeps ringing in a strip at the top.
+   */
+  onBack?: (() => void) | undefined;
+  backLabel?: string | undefined;
 };
 
-export function CallShell({ children, name, status, controls }: CallShellProps) {
+export function CallShell({ children, name, status, controls, onBack, backLabel }: CallShellProps) {
   const theme = useTheme();
 
   return (
     <Box style={{ flex: 1, backgroundColor: dark.color.background }}>
       <SafeArea style={{ flex: 1 }}>
+        {onBack ? (
+          <Box style={{ paddingHorizontal: theme.spacing.xl, paddingVertical: theme.spacing.md }}>
+            <Tappable
+              onPress={onBack}
+              accessibilityRole="button"
+              accessibilityLabel={backLabel ?? "Go back"}
+              hitSlop={12}
+              style={{ alignSelf: "flex-start" }}
+            >
+              {/* The shell is always dark, so the glyph must be too. */}
+              <ThemeProvider override="dark">
+                <Icon name={{ ios: "chevron.left", android: "arrow_back" }} size={22} />
+              </ThemeProvider>
+            </Tappable>
+          </Box>
+        ) : null}
+
         <Box
           style={{
             flex: 1,

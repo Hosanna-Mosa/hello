@@ -82,6 +82,15 @@ export const copy = {
     passwordLabel: "Password",
     emailCta: "Log in",
     emailInvalid: "That email or password isn't right.",
+    /*
+     * Every other way the sign-in can fail. These used to all read as
+     * emailInvalid, so a reviewer on a flaky connection or past the rate limit
+     * was told their correct password was wrong.
+     */
+    emailNetwork: "Can't reach the server. Check your connection and try again.",
+    emailRateLimited: "Too many attempts. Wait 15 minutes and try again.",
+    emailUnavailable: "Email sign-in isn't available right now. Please try again later.",
+    emailFailed: "Something went wrong signing in. Please try again.",
   },
 
   onboarding: {
@@ -252,6 +261,11 @@ export const copy = {
     /** The strip over every other screen while a call runs. */
     barOngoing: (name: string, status: string) => (name ? `${name} · ${status}` : status),
     barReturn: "Tap to return to call",
+    /** The same strip while a call is still ringing, backed out of. */
+    barIncoming: (name: string) => (name ? `${name} · Incoming call` : "Incoming call"),
+    barAnswer: "Tap to answer or decline",
+    /** The ring's back chevron: leaves the screen, not the call. */
+    minimize: "Go back — keep ringing",
   },
 
   profile: {

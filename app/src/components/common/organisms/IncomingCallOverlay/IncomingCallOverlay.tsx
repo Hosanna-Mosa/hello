@@ -11,9 +11,15 @@
  * Mounted once in `_layout.tsx`, AFTER `<Stack>`, so it paints over every
  * screen and over the native tab bar. It renders nothing at all when no call is
  * ringing, which is almost always.
+ *
+ * BACK DOES NOT DECLINE. The chevron and Android's hardware back both
+ * minimise the ring to `IncomingCallBar` — the same strip an ongoing call
+ * gets — so you can finish what you were doing and answer from there.
  */
 
 import { router } from "expo-router";
+import { useEffect } from "react";
+import { BackHandler } from "react-native";
 
 import { Box } from "@/components/common/atoms/Box";
 import { IncomingCallPanel } from "@/components/common/organisms/IncomingCallPanel";
@@ -21,9 +27,24 @@ import { useCallsStore } from "@/stores/calls.store";
 
 export function IncomingCallOverlay() {
   const incoming = useCallsStore((state) => state.incoming);
+  const minimized = useCallsStore((state) => state.minimized);
   const clearIncoming = useCallsStore((state) => state.clearIncoming);
+  const minimizeIncoming = useCallsStore((state) => state.minimizeIncoming);
 
-  if (!incoming) return null;
+  const showing = Boolean(incoming) && !minimized;
+
+  // The overlay is not a route, so hardware back would otherwise pop the
+  // screen UNDER the ring. While it shows, back means "minimise" instead.
+  useEffect(() => {
+    if (!showing) return undefined;
+    const subscription = BackHandler.addEventListener("hardwareBackPress", () => {
+      minimizeIncoming();
+      return true;
+    });
+    return () => subscription.remove();
+  }, [showing, minimizeIncoming]);
+
+  if (!incoming || minimized) return null;
 
   return (
     <Box
@@ -50,6 +71,7 @@ export function IncomingCallOverlay() {
           });
         }}
         onDismissed={clearIncoming}
+        onMinimize={minimizeIncoming}
       />
     </Box>
   );
