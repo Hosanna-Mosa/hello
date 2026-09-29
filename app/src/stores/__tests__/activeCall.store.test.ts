@@ -29,6 +29,7 @@ jest.mock("@/services/socket", () => ({
     return () => {};
   },
   emitCallAccept: (callId: string) => mockEvents.push(`accept:${callId}`),
+  emitCallDiag: () => {},
 }));
 
 jest.mock("@/services/webrtc", () => ({
@@ -46,6 +47,7 @@ jest.mock("@/services/webrtc", () => ({
     mockEvents.push("media-stopped");
   }),
   handleCallSignal: jest.fn(async () => {}),
+  callMediaDiagnostics: () => "ice checking · you host · them none · turn yes",
   setMuted: jest.fn(),
 }));
 
@@ -171,5 +173,27 @@ describe("ending", () => {
 
     expect(useActiveCallStore.getState().active?.phase).toBe("ended");
     expect(mockEvents.some((e) => e.startsWith("end:"))).toBe(false);
+  });
+});
+
+describe("never connecting", () => {
+  it("gives up after the connect timeout and says why", async () => {
+    jest.useFakeTimers();
+    try {
+      useActiveCallStore.getState().startOutgoing("thread-1");
+      await jest.advanceTimersByTimeAsync(0);
+      mockSocketHandlers.get("call:accepted")?.({ callId: "call-1" });
+      await jest.advanceTimersByTimeAsync(0);
+      expect(useActiveCallStore.getState().active?.phase).toBe("connecting");
+
+      await jest.advanceTimersByTimeAsync(30_000);
+
+      const active = useActiveCallStore.getState().active;
+      expect(active?.phase).toBe("ended");
+      expect(active?.failure).toBe("ice checking · you host · them none · turn yes");
+      expect(mockEvents).toContain("end:call-1:cancelled");
+    } finally {
+      jest.useRealTimers();
+    }
   });
 });

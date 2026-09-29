@@ -14,9 +14,10 @@
  * screens still reload on focus.
  */
 
+import { AppState, type NativeEventSubscription } from "react-native";
 import { io, type Socket } from "socket.io-client";
 
-import { apiBaseUrl, getAccessToken, isMockMode } from "./client";
+import { apiBaseUrl, getAccessToken, isMockMode, validAccessToken } from "./client";
 import type { Message } from "./types";
 
 export type SocketEvents = {
@@ -65,14 +66,29 @@ function bindAll(next: Socket): void {
   }
 }
 
+/** Retry state for a handshake the server refused (see `connect_error`). */
+let refusedRetry: ReturnType<typeof setTimeout> | null = null;
+let refusals = 0;
+let appState: NativeEventSubscription | null = null;
+
 export function connectSocket(): void {
   if (isMockMode() || socket) return;
+  if (!getAccessToken()) return;
 
-  const token = getAccessToken();
-  if (!token) return;
-
-  socket = io(apiBaseUrl(), {
-    auth: { token },
+  const next = io(apiBaseUrl(), {
+    /*
+     * A FUNCTION, not `{ token }`. socket.io calls it on every (re)connect, so
+     * each handshake carries a token that is valid NOW.
+     *
+     * The object form sent the sign-in token forever. Access tokens live 15
+     * minutes, so any reconnect after that — the screen locked, wifi to mobile
+     * data, the app backgrounded — was refused by the server's auth check, and
+     * socket.io does not retry a refused handshake on its own. The phone then
+     * stayed deaf until restarted: no ringing, no call signalling, no live chat.
+     */
+    auth: (cb) => {
+      void validAccessToken().then((token) => cb({ token: token ?? "" }));
+    },
     transports: ["websocket"],
     // A phone loses its connection constantly. Reconnect, but back off rather
     // than hammering a server that may be down.
@@ -80,13 +96,41 @@ export function connectSocket(): void {
     reconnectionDelay: 1000,
     reconnectionDelayMax: 10_000,
   });
+  socket = next;
+
+  next.on("connect", () => {
+    refusals = 0;
+  });
+
+  // Refused by the server (`err.data` is set) rather than a network failure:
+  // socket.io gives up on these, so try again with a fresh token, backing off.
+  next.on("connect_error", (err: Error & { data?: unknown }) => {
+    if (!err.data || refusedRetry || socket !== next) return;
+    refusals += 1;
+    const delay = Math.min(30_000, 1000 * 2 ** Math.min(refusals, 5));
+    refusedRetry = setTimeout(() => {
+      refusedRetry = null;
+      if (socket === next && !next.connected && getAccessToken()) next.connect();
+    }, delay);
+  });
+
+  // Coming back to the app is when a call is most likely to be placed or
+  // answered — make sure the line is up, rather than waiting on a backoff.
+  appState ??= AppState.addEventListener("change", (state) => {
+    if (state === "active" && socket && !socket.connected && getAccessToken()) socket.connect();
+  });
 
   // Everything that subscribed before now. socket.io keeps listeners across
   // its own reconnects, so this is needed once per connection, not per drop.
-  bindAll(socket);
+  bindAll(next);
 }
 
 export function disconnectSocket(): void {
+  if (refusedRetry) clearTimeout(refusedRetry);
+  refusedRetry = null;
+  refusals = 0;
+  appState?.remove();
+  appState = null;
   socket?.disconnect();
   socket = null;
 }
@@ -142,6 +186,18 @@ export function emitCallSignal(
   data: unknown,
 ): void {
   socket?.emit("call:signal", { callId, kind, data });
+}
+
+/**
+ * Report one step of this phone's side of a call to the server log.
+ *
+ * Calls fail ON THE DEVICE — a microphone that would not open, an offer that
+ * could not be applied, ICE that never left "checking" — and none of that is
+ * visible to the server otherwise. Fire-and-forget, and never user data: stage
+ * names, states and candidate TYPES only.
+ */
+export function emitCallDiag(callId: string, stage: string, detail?: unknown): void {
+  socket?.emit("call:diag", { callId, stage, ...(detail === undefined ? {} : { detail }) });
 }
 
 /** Tell the caller we picked up. Acked, because the UI waits on it. */

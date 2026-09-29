@@ -612,6 +612,45 @@ Without the nginx step, uploads over 256 KB fail with `413`.
 
 ### 19. Troubleshooting
 
+#### Following a call or a voice message in the log
+
+Every step of a call is logged with `[call]`, every voice message with
+`[voice]`, and socket logins with `[socket]`. The PHONES also report their own
+side of a call (`[call] phone: …`), so one command shows the whole story:
+
+```bash
+journalctl -u hello-api -f -o cat | grep -E '\[call\]|\[voice\]|\[socket\]'
+```
+
+For a single call, add `| grep <callId>` (the id is in the `[call] started` line).
+
+A healthy call reads, in order:
+
+1. `[call] started — ring sent to callee` with `calleeSockets` ≥ 1
+2. `[call] ice servers handed out` with `turn: true` — once per phone
+3. `[call] phone: media ready` (callee) → `[call] accepted by callee`
+4. `[call] phone: accepted received` → `offer sent` (caller)
+5. `[call] relayed offer` → `phone: offer received` → `answer sent` → `relayed answer` → `phone: answer received`
+6. many `[call] relayed ice candidate` lines (`candidate: host / srflx / relay`)
+7. `[call] phone: ice state: checking` → `connected` → `phone: CONNECTED — audio path up`
+
+Where it stops is the answer:
+
+| Last thing you see | Meaning |
+|---|---|
+| `calleeSockets: 0` | The other phone is not connected — app closed, or its socket dropped. Nothing can ring it |
+| `[socket] handshake REFUSED — invalid or expired token` repeating | A phone on an OLD build (before PLAN #223) cannot reconnect after 15 minutes. Install the new APK |
+| No `phone: media ready` after accept | The callee's microphone failed — look for `phone: media FAILED` |
+| `turn: false`, or `phone: ice-servers fetch FAILED` | `TURN_URLS` / `TURN_SECRET` missing from `.env`, or the phone could not fetch them |
+| `offer re-sent` repeating, no `answer` | The callee never got the offer — check its `[socket]` lines |
+| `offer FAILED to apply` / `answer FAILED to apply` | The error text says why |
+| `ice state: failed` / `GAVE UP` | Setup fine, the network blocked the audio. `diagnosis` shows route types: no `relay` in `localTypes` with `turn: true` = coturn unreachable from that phone's network, or `TURN_SECRET` here differs from `static-auth-secret` in `/etc/turnserver.conf` |
+
+Voice messages: `[voice] upload received` → `[voice] stored and sent` →
+`[voice] play request`. `upload REFUSED at storage` with `EACCES`/`ENOENT` =
+`VOICE_DIR` not writable (§18). No `upload received` at all while the app shows
+"Couldn't send" = nginx rejected the body (the §18 nginx step).
+
 | Problem | What to check |
 |---|---|
 | Backend will not start | `journalctl -u hello-api -n 50`. A missing setting says its own name and stops on purpose |

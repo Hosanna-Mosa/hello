@@ -3809,7 +3809,7 @@ exports[`Phase 7 — components — dark theme ChatComposer — empty 1`] = `
 </RNCSafeAreaProvider>
 `;
 
-exports[`Phase 7 — components — dark theme ChatComposer — recording, armed to cancel 1`] = `
+exports[`Phase 7 — components — dark theme ChatComposer — recording 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={
@@ -3837,7 +3837,6 @@ exports[`Phase 7 — components — dark theme ChatComposer — recording, armed
     }
   >
     <View
-      accessibilityLiveRegion="polite"
       style={
         {
           "alignItems": "center",
@@ -3847,12 +3846,73 @@ exports[`Phase 7 — components — dark theme ChatComposer — recording, armed
           "borderWidth": 1,
           "flex": 1,
           "flexDirection": "row",
-          "gap": 12,
+          "gap": 8,
           "minHeight": 44,
-          "paddingHorizontal": 16,
+          "paddingLeft": 4,
+          "paddingRight": 16,
         }
       }
     >
+      <View
+        accessibilityLabel="Discard recording"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={8}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "height": 36,
+            "justifyContent": "center",
+            "width": 36,
+          }
+        }
+      >
+        <ViewManagerAdapter_SymbolModule
+          accessibilityElementsHidden={true}
+          animated={false}
+          colors={[]}
+          importantForAccessibility="no"
+          name="trash"
+          size={20}
+          style={
+            {
+              "height": 20,
+              "width": 20,
+            }
+          }
+          tint={4288914853}
+          tintColor="#A3A5A5"
+          type="monochrome"
+        />
+      </View>
       <View
         style={
           {
@@ -3863,6 +3923,51 @@ exports[`Phase 7 — components — dark theme ChatComposer — recording, armed
           }
         }
       />
+      <View
+        accessibilityLiveRegion="polite"
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F5F2ED",
+              },
+              undefined,
+            ]
+          }
+        >
+          Recording… please speak
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Inter-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              {
+                "color": "#A3A5A5",
+              },
+              undefined,
+            ]
+          }
+        >
+          Tap the mic to send
+        </Text>
+      </View>
       <Text
         style={
           [
@@ -3880,47 +3985,48 @@ exports[`Phase 7 — components — dark theme ChatComposer — recording, armed
       >
         0:07
       </Text>
-      <Text
-        style={
-          [
-            {
-              "fontFamily": "Inter-Regular",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-            {
-              "color": "#FF6B6B",
-            },
-            {
-              "flex": 1,
-              "textAlign": "right",
-            },
-          ]
-        }
-      >
-        Release to cancel
-      </Text>
     </View>
     <View
-      accessibilityLabel="Hold to record a voice message"
+      accessibilityLabel="Stop and send voice message"
       accessibilityRole="button"
       accessibilityState={
         {
           "busy": true,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
       collapsable={false}
+      focusable={true}
+      hitSlop={6}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#FF8560",
+          "backgroundColor": "#FF6B6B",
           "borderRadius": 999,
-          "height": 56,
+          "height": 44,
           "justifyContent": "center",
-          "marginTop": -12,
-          "width": 56,
+          "width": 44,
         }
       }
     >
@@ -3930,15 +4036,15 @@ exports[`Phase 7 — components — dark theme ChatComposer — recording, armed
         colors={[]}
         importantForAccessibility="no"
         name="mic.fill"
-        size={26}
+        size={22}
         style={
           {
-            "height": 26,
-            "width": 26,
+            "height": 22,
+            "width": 22,
           }
         }
-        tint={4279900181}
-        tintColor="#1A1815"
+        tint={4279505424}
+        tintColor="#141210"
         type="monochrome"
       />
     </View>
@@ -4019,16 +4125,38 @@ exports[`Phase 7 — components — dark theme ChatComposer — voice, empty fie
       />
     </View>
     <View
-      accessibilityLabel="Hold to record a voice message"
+      accessibilityLabel="Record a voice message"
       accessibilityRole="button"
       accessibilityState={
         {
           "busy": false,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
       collapsable={false}
+      focusable={true}
+      hitSlop={6}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         {
           "alignItems": "center",
@@ -4036,7 +4164,6 @@ exports[`Phase 7 — components — dark theme ChatComposer — voice, empty fie
           "borderRadius": 999,
           "height": 44,
           "justifyContent": "center",
-          "marginTop": 0,
           "width": 44,
         }
       }
@@ -8417,7 +8544,7 @@ exports[`Phase 7 — components — light theme ChatComposer — empty 1`] = `
 </RNCSafeAreaProvider>
 `;
 
-exports[`Phase 7 — components — light theme ChatComposer — recording, armed to cancel 1`] = `
+exports[`Phase 7 — components — light theme ChatComposer — recording 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={
@@ -8445,7 +8572,6 @@ exports[`Phase 7 — components — light theme ChatComposer — recording, arme
     }
   >
     <View
-      accessibilityLiveRegion="polite"
       style={
         {
           "alignItems": "center",
@@ -8455,12 +8581,73 @@ exports[`Phase 7 — components — light theme ChatComposer — recording, arme
           "borderWidth": 1,
           "flex": 1,
           "flexDirection": "row",
-          "gap": 12,
+          "gap": 8,
           "minHeight": 44,
-          "paddingHorizontal": 16,
+          "paddingLeft": 4,
+          "paddingRight": 16,
         }
       }
     >
+      <View
+        accessibilityLabel="Discard recording"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={8}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "height": 36,
+            "justifyContent": "center",
+            "width": 36,
+          }
+        }
+      >
+        <ViewManagerAdapter_SymbolModule
+          accessibilityElementsHidden={true}
+          animated={false}
+          colors={[]}
+          importantForAccessibility="no"
+          name="trash"
+          size={20}
+          style={
+            {
+              "height": 20,
+              "width": 20,
+            }
+          }
+          tint={4285033323}
+          tintColor="#686B6B"
+          type="monochrome"
+        />
+      </View>
       <View
         style={
           {
@@ -8471,6 +8658,51 @@ exports[`Phase 7 — components — light theme ChatComposer — recording, arme
           }
         }
       />
+      <View
+        accessibilityLiveRegion="polite"
+        style={
+          {
+            "flex": 1,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#1A1815",
+              },
+              undefined,
+            ]
+          }
+        >
+          Recording… please speak
+        </Text>
+        <Text
+          numberOfLines={1}
+          style={
+            [
+              {
+                "fontFamily": "Inter-Regular",
+                "fontSize": 12,
+                "lineHeight": 16,
+              },
+              {
+                "color": "#686B6B",
+              },
+              undefined,
+            ]
+          }
+        >
+          Tap the mic to send
+        </Text>
+      </View>
       <Text
         style={
           [
@@ -8488,47 +8720,48 @@ exports[`Phase 7 — components — light theme ChatComposer — recording, arme
       >
         0:07
       </Text>
-      <Text
-        style={
-          [
-            {
-              "fontFamily": "Inter-Regular",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-            {
-              "color": "#EF4444",
-            },
-            {
-              "flex": 1,
-              "textAlign": "right",
-            },
-          ]
-        }
-      >
-        Release to cancel
-      </Text>
     </View>
     <View
-      accessibilityLabel="Hold to record a voice message"
+      accessibilityLabel="Stop and send voice message"
       accessibilityRole="button"
       accessibilityState={
         {
           "busy": true,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
       collapsable={false}
+      focusable={true}
+      hitSlop={6}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#F2724B",
+          "backgroundColor": "#EF4444",
           "borderRadius": 999,
-          "height": 56,
+          "height": 44,
           "justifyContent": "center",
-          "marginTop": -12,
-          "width": 56,
+          "width": 44,
         }
       }
     >
@@ -8538,11 +8771,11 @@ exports[`Phase 7 — components — light theme ChatComposer — recording, arme
         colors={[]}
         importantForAccessibility="no"
         name="mic.fill"
-        size={26}
+        size={22}
         style={
           {
-            "height": 26,
-            "width": 26,
+            "height": 22,
+            "width": 22,
           }
         }
         tint={4294967295}
@@ -8627,16 +8860,38 @@ exports[`Phase 7 — components — light theme ChatComposer — voice, empty fi
       />
     </View>
     <View
-      accessibilityLabel="Hold to record a voice message"
+      accessibilityLabel="Record a voice message"
       accessibilityRole="button"
       accessibilityState={
         {
           "busy": false,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
       collapsable={false}
+      focusable={true}
+      hitSlop={6}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         {
           "alignItems": "center",
@@ -8644,7 +8899,6 @@ exports[`Phase 7 — components — light theme ChatComposer — voice, empty fi
           "borderRadius": 999,
           "height": 44,
           "justifyContent": "center",
-          "marginTop": 0,
           "width": 44,
         }
       }
@@ -23061,21 +23315,40 @@ exports[`Phase 7 — thread — dark theme thread/[id] — a conversation 1`] = 
                         },
                       ],
                       "props": {
-                        "accessibilityLabel": "Hold to record a voice message",
+                        "accessibilityLabel": "Record a voice message",
                         "accessibilityRole": "button",
                         "accessibilityState": {
                           "busy": false,
+                          "checked": undefined,
                           "disabled": false,
+                          "expanded": undefined,
+                          "selected": undefined,
+                        },
+                        "accessibilityValue": {
+                          "max": undefined,
+                          "min": undefined,
+                          "now": undefined,
+                          "text": undefined,
                         },
                         "accessible": true,
                         "collapsable": false,
+                        "focusable": true,
+                        "hitSlop": 6,
+                        "onBlur": [Function],
+                        "onClick": [Function],
+                        "onFocus": [Function],
+                        "onResponderGrant": [Function],
+                        "onResponderMove": [Function],
+                        "onResponderRelease": [Function],
+                        "onResponderTerminate": [Function],
+                        "onResponderTerminationRequest": [Function],
+                        "onStartShouldSetResponder": [Function],
                         "style": {
                           "alignItems": "center",
                           "backgroundColor": "#FF8560",
                           "borderRadius": 999,
                           "height": 44,
                           "justifyContent": "center",
-                          "marginTop": 0,
                           "width": 44,
                         },
                       },
@@ -23629,16 +23902,38 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
             />
           </View>
           <View
-            accessibilityLabel="Hold to record a voice message"
+            accessibilityLabel="Record a voice message"
             accessibilityRole="button"
             accessibilityState={
               {
                 "busy": false,
+                "checked": undefined,
                 "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
               }
             }
             accessible={true}
             collapsable={false}
+            focusable={true}
+            hitSlop={6}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
                 "alignItems": "center",
@@ -23646,7 +23941,6 @@ exports[`Phase 7 — thread — dark theme thread/[id] — no messages yet 1`] =
                 "borderRadius": 999,
                 "height": 44,
                 "justifyContent": "center",
-                "marginTop": 0,
                 "width": 44,
               }
             }
@@ -25798,21 +26092,40 @@ exports[`Phase 7 — thread — light theme thread/[id] — a conversation 1`] =
                         },
                       ],
                       "props": {
-                        "accessibilityLabel": "Hold to record a voice message",
+                        "accessibilityLabel": "Record a voice message",
                         "accessibilityRole": "button",
                         "accessibilityState": {
                           "busy": false,
+                          "checked": undefined,
                           "disabled": false,
+                          "expanded": undefined,
+                          "selected": undefined,
+                        },
+                        "accessibilityValue": {
+                          "max": undefined,
+                          "min": undefined,
+                          "now": undefined,
+                          "text": undefined,
                         },
                         "accessible": true,
                         "collapsable": false,
+                        "focusable": true,
+                        "hitSlop": 6,
+                        "onBlur": [Function],
+                        "onClick": [Function],
+                        "onFocus": [Function],
+                        "onResponderGrant": [Function],
+                        "onResponderMove": [Function],
+                        "onResponderRelease": [Function],
+                        "onResponderTerminate": [Function],
+                        "onResponderTerminationRequest": [Function],
+                        "onStartShouldSetResponder": [Function],
                         "style": {
                           "alignItems": "center",
                           "backgroundColor": "#F2724B",
                           "borderRadius": 999,
                           "height": 44,
                           "justifyContent": "center",
-                          "marginTop": 0,
                           "width": 44,
                         },
                       },
@@ -26366,16 +26679,38 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
             />
           </View>
           <View
-            accessibilityLabel="Hold to record a voice message"
+            accessibilityLabel="Record a voice message"
             accessibilityRole="button"
             accessibilityState={
               {
                 "busy": false,
+                "checked": undefined,
                 "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
               }
             }
             accessible={true}
             collapsable={false}
+            focusable={true}
+            hitSlop={6}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               {
                 "alignItems": "center",
@@ -26383,7 +26718,6 @@ exports[`Phase 7 — thread — light theme thread/[id] — no messages yet 1`] 
                 "borderRadius": 999,
                 "height": 44,
                 "justifyContent": "center",
-                "marginTop": 0,
                 "width": 44,
               }
             }

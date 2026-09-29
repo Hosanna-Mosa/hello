@@ -43,7 +43,7 @@ import {
 } from "react-native-webrtc";
 
 import { http, isMockMode } from "./client";
-import { emitCallSignal } from "./socket";
+import { emitCallDiag, emitCallSignal } from "./socket";
 
 type IceServer = { urls: string[]; username?: string; credential?: string };
 
@@ -68,20 +68,59 @@ type Session = {
   pendingIce: RTCIceCandidate[];
   onConnected?: (() => void) | undefined;
   onFailed?: (() => void) | undefined;
+  /** Re-sends the caller's offer until an answer arrives. */
+  offerRetry: ReturnType<typeof setInterval> | null;
+  /** For the "couldn't connect" diagnosis: which route types each side found. */
+  localTypes: Set<string>;
+  remoteTypes: Set<string>;
+  hadTurn: boolean;
+  lastIceState: string;
 };
 
 let session: Session | null = null;
+
+type SignalPayload = { callId: string; kind: "offer" | "answer" | "ice"; data: unknown };
+
+/**
+ * Signals that arrived before this phone's connection for that call existed.
+ *
+ * Replayed the moment it does. Without this a message that wins the race — an
+ * offer reaching a phone still showing the microphone prompt, or a phone on an
+ * older build that accepts before it is ready — is simply dropped, and the call
+ * sits on "Connecting…" forever with nothing to say why.
+ */
+const early = new Map<string, { at: number; items: SignalPayload[] }>();
+const EARLY_TTL_MS = 60_000;
+
+function buffer(payload: SignalPayload): void {
+  const now = Date.now();
+  for (const [id, entry] of early) if (now - entry.at > EARLY_TTL_MS) early.delete(id);
+  const entry = early.get(payload.callId) ?? { at: now, items: [] };
+  if (entry.items.length < 100) early.set(payload.callId, { at: entry.at, items: [...entry.items, payload] });
+}
+
+/** `candidate:… typ relay …` → "relay". */
+function candidateType(candidate: unknown): string | null {
+  const text = (candidate as { candidate?: string } | null)?.candidate ?? "";
+  return / typ (\w+)/.exec(text)?.[1] ?? null;
+}
+
+/** An error as a short string for the call log. */
+function errorText(e: unknown): string {
+  return e instanceof Error ? e.message : String(e);
+}
 
 /** Mock mode has no server to fetch from and no media to negotiate. */
 function unavailable(): boolean {
   return isMockMode();
 }
 
-async function iceServers(): Promise<IceServer[]> {
+async function iceServers(callId: string): Promise<IceServer[]> {
   try {
     const res = await http<{ iceServers: IceServer[] }>("GET", "/calls/ice");
     return res.iceServers;
-  } catch {
+  } catch (e) {
+    emitCallDiag(callId, "ice-servers fetch FAILED — public STUN only, no relay", errorText(e));
     // A public STUN server is a usable fallback: it covers the common NATs.
     // What is lost is TURN, so a call behind a carrier-grade NAT will fail to
     // connect rather than fail to start — which is the better of the two.
@@ -96,14 +135,37 @@ function attach(pc: RTCPeerConnection, callId: string): void {
   pc.onicecandidate = (event: unknown) => {
     // A null candidate means gathering finished — there is nothing to send.
     const { candidate } = event as { candidate: RTCIceCandidate | null };
-    if (candidate) emitCallSignal(callId, "ice", candidate.toJSON());
+    if (!candidate) {
+      emitCallDiag(callId, "ice gathering complete", {
+        localTypes: session?.pc === pc ? [...session.localTypes] : [],
+      });
+      return;
+    }
+    const type = candidateType(candidate);
+    if (type && session?.pc === pc) session.localTypes.add(type);
+    emitCallSignal(callId, "ice", candidate.toJSON());
   };
 
   pc.onconnectionstatechange = () => {
+    emitCallDiag(callId, `connection state: ${pc.connectionState}`);
     if (pc.connectionState === "connected") session?.onConnected?.();
     if (pc.connectionState === "failed" || pc.connectionState === "closed") {
       session?.onFailed?.();
     }
+  };
+
+  // A second opinion on "connected". Some Android builds report the ICE state
+  // reliably but are late or silent on `connectionState` — and a call whose
+  // audio is flowing must not sit on "Connecting…" because one event was.
+  pc.oniceconnectionstatechange = () => {
+    const state = pc.iceConnectionState;
+    if (session?.pc === pc) session.lastIceState = state;
+    emitCallDiag(callId, `ice state: ${state}`, {
+      localTypes: session?.pc === pc ? [...session.localTypes] : [],
+      remoteTypes: session?.pc === pc ? [...session.remoteTypes] : [],
+    });
+    if (state === "connected" || state === "completed") session?.onConnected?.();
+    if (state === "failed") session?.onFailed?.();
   };
 }
 
@@ -159,41 +221,105 @@ export type StartOptions = {
  */
 export async function startCallMedia(options: StartOptions): Promise<boolean> {
   if (unavailable()) return false;
+  const { callId, role } = options;
+  emitCallDiag(callId, "media starting", { role, platform: Platform.OS });
 
   // Before `getUserMedia`, not after: it throws on a missing permission, and a
   // throw here is indistinguishable from a device with no microphone.
-  if (!(await ensureMicrophone())) return false;
+  if (!(await ensureMicrophone())) {
+    emitCallDiag(callId, "media FAILED — microphone permission denied", { role });
+    return false;
+  }
 
   await stopCallMedia();
 
   let localStream: MediaStream;
   try {
     localStream = (await mediaDevices.getUserMedia({ audio: true, video: false })) as MediaStream;
-  } catch {
+  } catch (e) {
+    emitCallDiag(callId, "media FAILED — getUserMedia threw", { role, error: errorText(e) });
     return false;
   }
 
-  const pc = new RTCPeerConnection({ iceServers: await iceServers() });
+  const servers = await iceServers(callId);
+  const pc = new RTCPeerConnection({ iceServers: servers });
   for (const track of localStream.getTracks()) pc.addTrack(track, localStream);
 
-  session = {
+  const current: Session = {
     callId: options.callId,
     pc,
     localStream,
     pendingIce: [],
     onConnected: options.onConnected,
     onFailed: options.onFailed,
+    offerRetry: null,
+    localTypes: new Set(),
+    remoteTypes: new Set(),
+    hadTurn: servers.some((server) => server.urls.some((url) => url.startsWith("turn"))),
+    lastIceState: "new",
   };
+  session = current;
+  emitCallDiag(callId, "media ready", {
+    role,
+    turn: current.hadTurn,
+    iceServers: servers.map((server) => server.urls.map((url) => url.split(":")[0]).join("+")),
+  });
 
   attach(pc, options.callId);
 
   if (options.role === "caller") {
-    const offer = await pc.createOffer({});
-    await pc.setLocalDescription(offer);
-    emitCallSignal(options.callId, "offer", offer);
+    try {
+      const offer = await pc.createOffer({});
+      await pc.setLocalDescription(offer);
+      emitCallSignal(options.callId, "offer", offer);
+      emitCallDiag(callId, "offer sent");
+    } catch (e) {
+      emitCallDiag(callId, "offer FAILED to create", errorText(e));
+      throw e;
+    }
+
+    // Until an answer arrives, say it again. One lost offer — the callee not
+    // quite ready, a socket that blinked — must not strand the call. The
+    // callee answers a repeat of the same offer idempotently.
+    let tries = 0;
+    current.offerRetry = setInterval(() => {
+      tries += 1;
+      if (session !== current || pc.signalingState !== "have-local-offer" || tries > 6) {
+        if (current.offerRetry) clearInterval(current.offerRetry);
+        current.offerRetry = null;
+        return;
+      }
+      if (pc.localDescription) {
+        emitCallSignal(options.callId, "offer", pc.localDescription.toJSON());
+        emitCallDiag(callId, `offer re-sent (no answer yet) #${tries}`);
+      }
+    }, 3000);
   }
 
+  // Anything that arrived for this call before we were ready.
+  const waiting = early.get(options.callId)?.items ?? [];
+  early.delete(options.callId);
+  if (waiting.length) {
+    emitCallDiag(callId, "replaying early signals", { kinds: waiting.map((w) => w.kind) });
+  }
+  for (const payload of waiting) await handleCallSignal(payload).catch(() => {});
+
   return true;
+}
+
+/**
+ * Why a call did not connect, in a few words — shown with "Couldn't connect"
+ * so a failed call says what the network did rather than just failing.
+ *
+ * No "relay" on OUR side and `turn no` = the server gave us no relay;
+ * no "relay" with `turn yes` = the relay was unreachable from this network;
+ * nothing from THEM = their side never got going (older build, no signal).
+ */
+export function callMediaDiagnostics(): string {
+  const current = session;
+  if (!current) return "no media";
+  const list = (types: Set<string>) => (types.size ? [...types].sort().join("+") : "none");
+  return `ice ${current.lastIceState} · you ${list(current.localTypes)} · them ${list(current.remoteTypes)} · turn ${current.hadTurn ? "yes" : "no"}`;
 }
 
 /**
@@ -202,31 +328,72 @@ export async function startCallMedia(options: StartOptions): Promise<boolean> {
  * Ignores anything for a different call: a stale message from a call that has
  * just ended must not renegotiate the one that replaced it.
  */
-export async function handleCallSignal(payload: {
-  callId: string;
-  kind: "offer" | "answer" | "ice";
-  data: unknown;
-}): Promise<void> {
+export async function handleCallSignal(payload: SignalPayload): Promise<void> {
   const current = session;
-  if (!current || current.callId !== payload.callId) return;
+  if (!current || current.callId !== payload.callId) {
+    // Not ready for this call yet (or a stale one — those age out).
+    buffer(payload);
+    if (payload.kind !== "ice") {
+      emitCallDiag(payload.callId, `${payload.kind} received before media was ready — buffered`);
+    }
+    return;
+  }
 
+  try {
+    await applySignal(current, payload);
+  } catch (e) {
+    // The failure that used to vanish: an offer/answer/candidate the
+    // connection refused. Reported, then re-thrown for the caller to swallow.
+    emitCallDiag(payload.callId, `${payload.kind} FAILED to apply`, {
+      error: errorText(e),
+      signalingState: current.pc.signalingState,
+    });
+    throw e;
+  }
+}
+
+async function applySignal(current: Session, payload: SignalPayload): Promise<void> {
   const { pc } = current;
 
   if (payload.kind === "offer") {
+    const offer = payload.data as { sdp?: string };
+
+    // The caller repeats its offer until it hears an answer. A repeat of the
+    // one we already answered gets the same answer back, not a renegotiation.
+    if (pc.remoteDescription && pc.remoteDescription.sdp === offer.sdp) {
+      if (pc.localDescription) emitCallSignal(current.callId, "answer", pc.localDescription.toJSON());
+      emitCallDiag(current.callId, "duplicate offer — re-sent the same answer");
+      return;
+    }
+
+    emitCallDiag(current.callId, "offer received");
     await pc.setRemoteDescription(new RTCSessionDescription(payload.data as never));
     await drainIce(current);
 
     const answer = await pc.createAnswer();
     await pc.setLocalDescription(answer);
     emitCallSignal(current.callId, "answer", answer);
+    emitCallDiag(current.callId, "answer sent");
     return;
   }
 
   if (payload.kind === "answer") {
+    // A second answer to a repeated offer: we are already past it.
+    if (pc.signalingState !== "have-local-offer") {
+      emitCallDiag(current.callId, "extra answer ignored", { signalingState: pc.signalingState });
+      return;
+    }
+    if (current.offerRetry) clearInterval(current.offerRetry);
+    current.offerRetry = null;
+
+    emitCallDiag(current.callId, "answer received");
     await pc.setRemoteDescription(new RTCSessionDescription(payload.data as never));
     await drainIce(current);
     return;
   }
+
+  const type = candidateType(payload.data);
+  if (type) current.remoteTypes.add(type);
 
   const candidate = new RTCIceCandidate(payload.data as never);
   // See `pendingIce`: before a remote description exists this throws.
@@ -240,11 +407,13 @@ export async function handleCallSignal(payload: {
 async function drainIce(current: Session): Promise<void> {
   const queued = current.pendingIce;
   current.pendingIce = [];
+  if (queued.length) emitCallDiag(current.callId, `applying ${queued.length} queued ice candidates`);
   for (const candidate of queued) {
     try {
       await current.pc.addIceCandidate(candidate);
-    } catch {
+    } catch (e) {
       // One bad candidate is not fatal — ICE tries every other pair it has.
+      emitCallDiag(current.callId, "queued ice candidate FAILED to apply", errorText(e));
     }
   }
 }
@@ -267,6 +436,12 @@ export async function stopCallMedia(): Promise<void> {
   const current = session;
   session = null;
   if (!current) return;
+  if (current.offerRetry) clearInterval(current.offerRetry);
+  emitCallDiag(current.callId, "media stopped", {
+    ice: current.lastIceState,
+    localTypes: [...current.localTypes],
+    remoteTypes: [...current.remoteTypes],
+  });
 
   for (const track of current.localStream.getTracks()) {
     try {

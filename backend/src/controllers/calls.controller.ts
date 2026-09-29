@@ -8,12 +8,14 @@
 
 import type { Request, Response } from "express";
 
+import { callLog } from "@/config/callLog.js";
 import { ApiError } from "@/errors/ApiError.js";
 import { MessageModel } from "@/models/message.model.js";
 import { toCall } from "@/serializers/call.serializer.js";
 import { toMessage } from "@/serializers/thread.serializer.js";
 import * as calls from "@/services/calls.service.js";
 import { emitCallEnded, emitIncomingCall } from "@/sockets/emitters.js";
+import { socketsOnline } from "@/sockets/presence.js";
 import { iceServersFor } from "@/services/ice.service.js";
 
 function requireUser(req: Request) {
@@ -34,7 +36,19 @@ export async function postCall(req: Request, res: Response): Promise<void> {
     fromUserId: viewerId,
   });
 
-  res.json(toCall(started.call, viewerId));
+  const wire = toCall(started.call, viewerId);
+  callLog.info(
+    {
+      callId: wire.id,
+      threadId,
+      callerId: viewerId,
+      calleeId: started.calleeId,
+      calleeSockets: await socketsOnline(started.calleeId),
+    },
+    "[call] started — ring sent to callee (calleeSockets 0 = nobody to ring)",
+  );
+
+  res.json(wire);
 }
 
 export async function postEndCall(req: Request, res: Response): Promise<void> {
@@ -45,6 +59,18 @@ export async function postEndCall(req: Request, res: Response): Promise<void> {
   const { outcome, durationSec } = req.body as { outcome: calls.CallOutcome; durationSec?: number };
   const ended = await calls.endCall(viewer, id, outcome, durationSec ?? 0);
   const viewerId = String(viewer._id);
+
+  callLog.info(
+    {
+      callId: id,
+      endedBy: viewerId,
+      requestedOutcome: outcome,
+      outcome: ended.call.outcome,
+      durationSec: ended.call.durationSec,
+      answered: Boolean(ended.call.answeredAt),
+    },
+    "[call] ended",
+  );
 
   let systemMessage = null;
   if (ended.systemMessageId) {
@@ -71,7 +97,21 @@ export async function postEndCall(req: Request, res: Response): Promise<void> {
  */
 export async function getIceServers(req: Request, res: Response): Promise<void> {
   const user = requireUser(req);
-  res.json({ iceServers: iceServersFor(String(user._id)) });
+  const iceServers = iceServersFor(String(user._id));
+
+  // Types only — never the credential. `turn: false` here means this phone
+  // cannot use a relay, and calls over most mobile networks will not connect.
+  callLog.info(
+    {
+      userId: String(user._id),
+      stun: iceServers.filter((s) => !s.username).flatMap((s) => s.urls).length,
+      turn: iceServers.some((s) => Boolean(s.username)),
+      turnUrls: iceServers.filter((s) => s.username).flatMap((s) => s.urls),
+    },
+    "[call] ice servers handed out",
+  );
+
+  res.json({ iceServers });
 }
 
 export async function getCalls(req: Request, res: Response): Promise<void> {

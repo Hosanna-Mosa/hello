@@ -4,6 +4,7 @@
 
 import type { Request, Response } from "express";
 
+import { voiceLog } from "@/config/callLog.js";
 import { ApiError } from "@/errors/ApiError.js";
 import { toMessage, toThread } from "@/serializers/thread.serializer.js";
 import * as threads from "@/services/threads.service.js";
@@ -64,8 +65,24 @@ export async function postVoice(req: Request, res: Response): Promise<void> {
   const viewer = requireUser(req);
   const threadId = paramId(req);
 
+  const viewerId = String(viewer._id);
+  const bytes = Buffer.isBuffer(req.body) ? req.body.length : 0;
+  voiceLog.info(
+    {
+      threadId,
+      senderId: viewerId,
+      bytes,
+      contentType: req.header("content-type"),
+      durationSec: req.query.durationSec,
+    },
+    "[voice] upload received",
+  );
+
   const parsed = voiceQuerySchema.safeParse(req.query);
-  if (!parsed.success) throw ApiError.validation("Invalid voice message.");
+  if (!parsed.success) {
+    voiceLog.warn({ threadId, senderId: viewerId, query: req.query }, "[voice] upload REFUSED — bad duration/id");
+    throw ApiError.validation("Invalid voice message.");
+  }
   const { durationSec, clientMessageId } = parsed.data;
 
   // Membership BEFORE touching the disk: a stranger must not be able to make
@@ -73,7 +90,18 @@ export async function postVoice(req: Request, res: Response): Promise<void> {
   await threads.getThread(viewer, threadId);
 
   const audio = Buffer.isBuffer(req.body) ? req.body : Buffer.alloc(0);
-  const stored = await saveVoice(threadId, audio);
+  let stored: Awaited<ReturnType<typeof saveVoice>>;
+  try {
+    stored = await saveVoice(threadId, audio);
+  } catch (e) {
+    // "Unsupported audio format" here = the bytes were not an MP4/M4A; an
+    // EACCES/ENOENT = VOICE_DIR is not writable (deploy README §18).
+    voiceLog.warn(
+      { threadId, senderId: viewerId, bytes: audio.length, head: audio.subarray(0, 12).toString("hex"), err: (e as Error).message },
+      "[voice] upload REFUSED at storage",
+    );
+    throw e;
+  }
 
   let sent: threads.SentMessage;
   try {
@@ -88,10 +116,15 @@ export async function postVoice(req: Request, res: Response): Promise<void> {
     sent = result.sent;
   } catch (e) {
     await removeVoiceFile(stored.file);
+    voiceLog.warn({ threadId, senderId: viewerId, err: (e as Error).message }, "[voice] message create FAILED — file removed");
     throw e;
   }
 
   const wire = toMessage(sent.message, sent.thread, String(viewer._id));
+  voiceLog.info(
+    { threadId, senderId: viewerId, messageId: wire.id, bytes: stored.bytes, durationSec, file: stored.file },
+    "[voice] stored and sent to both participants",
+  );
   emitMessage((sent.thread.participantIds ?? []).map(String), String(sent.thread._id), wire);
   res.json(wire);
 }
@@ -104,8 +137,18 @@ export async function postVoice(req: Request, res: Response): Promise<void> {
  */
 export async function getVoice(req: Request, res: Response): Promise<void> {
   const viewer = requireUser(req);
-  const message = await threads.getVoiceMessage(viewer, paramId(req));
+  let message: Awaited<ReturnType<typeof threads.getVoiceMessage>>;
+  try {
+    message = await threads.getVoiceMessage(viewer, paramId(req));
+  } catch (e) {
+    voiceLog.warn({ messageId: req.params.id, viewerId: String(viewer._id) }, "[voice] play REFUSED — not found / not in this chat");
+    throw e;
+  }
   const voice = message.voice!;
+  voiceLog.info(
+    { messageId: String(message._id), viewerId: String(viewer._id), range: req.header("range") ?? "none", bytes: voice.bytes },
+    "[voice] play request",
+  );
 
   await new Promise<void>((done, fail) => {
     res.sendFile(
@@ -123,7 +166,10 @@ export async function getVoice(req: Request, res: Response): Promise<void> {
       (err) => {
         if (!err) return done();
         const { code, status } = err as { code?: string; status?: number };
-        if (code === "ENOENT" || status === 404) return fail(ApiError.notFound());
+        if (code === "ENOENT" || status === 404) {
+          voiceLog.warn({ messageId: String(message._id), file: voice.file }, "[voice] play FAILED — file missing on disk");
+          return fail(ApiError.notFound());
+        }
         // The client hung up mid-stream; nothing left to answer.
         if (res.headersSent) return done();
         fail(err);

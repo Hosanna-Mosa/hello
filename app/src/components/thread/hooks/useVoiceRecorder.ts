@@ -1,11 +1,10 @@
 /**
- * Hold-to-record, for the thread composer.
+ * Recording a voice message, for the thread composer.
  *
- * `start` on finger-down, `finish` on release (returns the clip, or null if it
- * was too short to be deliberate), `cancel` on slide-away. The three can arrive
- * in any order relative to the async work — the first hold shows the
- * microphone prompt, and the finger is usually lifted while it is up — so
- * a release that lands before recording actually began still stops it.
+ * `start` on the first tap, `finish` on the second (returns the clip, or null
+ * if it was too short to be deliberate), `cancel` from the bin. The first
+ * `start` shows the microphone prompt; a `finish`/`cancel` that lands while
+ * recording is still starting still stops it.
  */
 
 import {
@@ -34,11 +33,14 @@ export const MAX_VOICE_SEC = 120;
 
 export type VoiceClip = { uri: string; durationSec: number };
 
+/** Why a start did or did not begin recording. */
+export type StartResult = "started" | "denied" | "failed";
+
 export type VoiceRecorder = {
   recording: boolean;
   /** Whole seconds so far, for the on-screen timer. */
   seconds: number;
-  start: () => Promise<void>;
+  start: () => Promise<StartResult>;
   finish: () => Promise<VoiceClip | null>;
   cancel: () => Promise<void>;
 };
@@ -53,7 +55,7 @@ export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): Voice
   const startedAt = useRef<number | null>(null);
   /** Set by a release that arrived while `start` was still working. */
   const released = useRef(false);
-  const starting = useRef<Promise<boolean> | null>(null);
+  const starting = useRef<Promise<StartResult> | null>(null);
 
   const stopAndRead = useCallback(async (): Promise<VoiceClip | null> => {
     const began = startedAt.current;
@@ -71,35 +73,46 @@ export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): Voice
     void setAudioModeAsync({ allowsRecording: false }).catch(() => {});
 
     const durationSec = (Date.now() - began) / 1000;
-    const uri = recorder.uri;
+    // `uri`, with the status's `url` as a fallback — the two are set by
+    // different paths in the native module, and a clip is lost if both are
+    // not consulted.
+    let uri = recorder.uri;
+    if (!uri) {
+      try {
+        uri = recorder.getStatus().url;
+      } catch {
+        uri = null;
+      }
+    }
     if (!uri || durationSec < MIN_VOICE_SEC) return null;
     return { uri, durationSec: Math.min(durationSec, MAX_VOICE_SEC) };
   }, [recorder]);
 
-  const start = useCallback(async () => {
-    if (starting.current || startedAt.current !== null) return;
+  const start = useCallback(async (): Promise<StartResult> => {
+    if (starting.current) return starting.current;
+    if (startedAt.current !== null) return "started";
     released.current = false;
 
-    starting.current = (async () => {
+    starting.current = (async (): Promise<StartResult> => {
       const permission = await requestRecordingPermissionsAsync();
-      if (!permission.granted) return false;
+      if (!permission.granted) return "denied";
 
       await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
       await recorder.prepareToRecordAsync();
       recorder.record();
-      return true;
-    })().catch(() => false);
+      return "started";
+    })().catch((): StartResult => "failed");
 
-    const ok = await starting.current;
+    const result = await starting.current;
     starting.current = null;
-    if (!ok) return;
+    if (result !== "started") return result;
 
     startedAt.current = Date.now();
     setRecording(true);
 
-    // Released while we were still starting (the permission prompt, usually):
-    // there is no deliberate message here, so throw it away.
+    // Stopped while we were still starting: nothing deliberate was recorded.
     if (released.current) await stopAndRead();
+    return "started";
   }, [recorder, stopAndRead]);
 
   const finish = useCallback(async () => {
