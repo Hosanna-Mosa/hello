@@ -204,10 +204,15 @@ async function toApiError(res: Response): Promise<ApiError> {
   return new ApiError("validation");
 }
 
-/** A non-JSON body — a voice clip — sent as-is with its own content type. */
+/**
+ * A non-JSON body — a voice clip — sent as-is with its own content type.
+ *
+ * Bytes, never a Blob: `expo/fetch` overwrites Content-Type with a Blob's
+ * `type`, which is empty for a file read from disk (see `readRecording`).
+ */
 class RawBody {
   constructor(
-    readonly data: Blob,
+    readonly data: Uint8Array<ArrayBuffer>,
     readonly contentType: string,
   ) {}
 }
@@ -305,7 +310,7 @@ export async function http<T>(method: Method, path: string, body?: unknown, auth
 }
 
 /** POST a raw body (a voice clip), with the same refresh-once rule as `http`. */
-export async function upload<T>(path: string, data: Blob, contentType: string): Promise<T> {
+export async function upload<T>(path: string, data: Uint8Array<ArrayBuffer>, contentType: string): Promise<T> {
   return http<T>("POST", path, new RawBody(data, contentType));
 }
 

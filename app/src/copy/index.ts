@@ -218,6 +218,8 @@ export const copy = {
     voiceLabel: (mine: boolean, duration: string) =>
       `${mine ? "Your" : "Their"} voice message, ${duration}`,
     voiceFailed: "Couldn't send that voice message.",
+    /** The server's own reason, so a screenshot of the failure says what failed. */
+    voiceFailedBecause: (reason: string) => `Couldn't send that voice message. ${reason}`,
     accept: "Accept",
     decline: "Decline",
     emptyThreadsTitle: "No conversations yet",

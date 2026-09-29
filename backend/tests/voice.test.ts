@@ -127,6 +127,20 @@ describe("voice messages", () => {
     expect(list.body[0].lastMessage.body).toBe("Voice message");
   });
 
+  it("accepts a clip sent with an EMPTY content type (what expo/fetch sends for a file Blob)", async () => {
+    const { a, threadId } = await makeMatchedPair();
+
+    // superagent drops an empty header, so send an unrelated type instead: the
+    // point is the same — the header does not decide, the MP4 sniff does.
+    const sent = await request(app)
+      .post(`/v1/threads/${threadId}/voice?durationSec=2`)
+      .set("authorization", a.auth)
+      .set("content-type", "text/plain")
+      .send(fakeM4a());
+    expect(sent.status).toBe(200);
+    expect(sent.body.kind).toBe("voice");
+  });
+
   it("answers a Range request, so the player can seek", async () => {
     const { a, threadId } = await makeMatchedPair();
     const sent = await upload(a.auth, threadId, fakeM4a(4096));
