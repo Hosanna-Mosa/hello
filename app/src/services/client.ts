@@ -16,6 +16,7 @@
  */
 
 import type { ApiErrorCode } from "./types";
+import { clearSession, saveTokens } from "./secureSession";
 
 export class ApiError extends Error {
   readonly code: ApiErrorCode;
@@ -57,6 +58,7 @@ const TIMEOUT_MS = Number(process.env.EXPO_PUBLIC_API_TIMEOUT_MS ?? 15000);
 
 type Tokens = { token: string; refreshToken: string };
 
+
 let tokens: Tokens | null = null;
 /**
  * The signed-in user's id.
@@ -72,6 +74,21 @@ let onAuthLost: (() => void) | null = null;
 
 export function setTokens(next: Tokens | null): void {
   tokens = next;
+
+  /*
+   * Persist here rather than only at sign-in, because this is ALSO where a
+   * refresh lands. The refresh token rotates on every use and the server
+   * destroys the whole session family if an old one is replayed, so a stored
+   * copy that missed a rotation is worse than none: the next cold start would
+   * present a dead token and sign the user out of every device (PLAN #209).
+   *
+   * Fire and forget — this function is synchronous and has dozens of callers,
+   * and a keychain write is not something any of them should wait for.
+   */
+  if (!isMockMode()) {
+    if (next) void saveTokens(next.token, next.refreshToken);
+    else void clearSession();
+  }
 }
 
 export function setCurrentUserId(id: string | null): void {

@@ -65,6 +65,10 @@ export { WizardProgress, type WizardProgressProps } from "./molecules/WizardProg
 // --- organisms ---
 export { AvatarPicker, type AvatarOption, type AvatarPickerProps } from "./organisms/AvatarPicker";
 export { ConfirmDialog, type ConfirmDialogProps } from "./organisms/ConfirmDialog";
+// IncomingCallOverlay / IncomingCallPanel are deliberately NOT re-exported
+// here. The overlay reaches for `expo-router`, and this barrel is imported by
+// the pure-UI tests — which then fail to parse `standard-navigation`, an ESM
+// package Jest does not transform. Import them by path.
 export { InterestPicker, type InterestPickerProps } from "./organisms/InterestPicker";
 
 // --- templates ---

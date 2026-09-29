@@ -6,10 +6,12 @@ import { useEffect } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { IncomingCallOverlay } from "@/components/common/organisms/IncomingCallOverlay";
 /*
-  Imported for its side effect: registering the `call:incoming` listener that
-  navigates to the ringing screen. A call is the one flow that starts with the
-  OTHER person acting, so something always-mounted has to be listening.
+  Imported for its side effect: registering the `call:incoming` listener. A call
+  is the one flow that starts with the OTHER person acting, so something
+  always-mounted has to be listening. It no longer navigates — it sets state,
+  and `IncomingCallOverlay` below renders from it.
 */
 import "@/stores/calls.store";
 import { useSessionStore } from "@/stores/session.store";
@@ -171,6 +173,17 @@ export default function RootLayout() {
 
             <Stack.Screen name="+not-found" options={{ headerShown: false }} />
           </Stack>
+
+          {/*
+            AFTER <Stack>, on purpose. A ringing phone must appear over whatever
+            screen you are on, and it used to be a `router.push` from the socket
+            handler — which made it a navigation event, so it showed only when
+            the Chat tab happened to be open and vanished on moving away
+            (PLAN #205). Rendered here it is state, above everything including
+            the native tab bar, and renders nothing at all when nobody is
+            calling — which is almost always.
+          */}
+          <IncomingCallOverlay />
         </ThemeProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>

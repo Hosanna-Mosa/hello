@@ -12,6 +12,7 @@
 
 import { ApiError, http, isMockMode, nextId, nowIso, request, setCurrentUserId, setTokens } from "./client";
 import type { Session } from "./types";
+import { loadSession, saveSession } from "./secureSession";
 
 /** Digits only, 6–15 — loose enough for any country, strict enough to catch typos. */
 const PHONE = /^\d{6,15}$/;
@@ -94,6 +95,9 @@ export const authService = {
       setTokens({ token: next.token, refreshToken: next.refreshToken });
       setCurrentUserId(next.userId);
       session = next;
+      // The whole session, so a cold start can restore the user id and the
+      // onboarding state too — not just the tokens.
+      void saveSession(next);
       return { ...next };
     }
 
@@ -118,9 +122,29 @@ export const authService = {
     });
   },
 
+  /**
+   * The current session, restoring from the keychain on a cold start.
+   *
+   * This is the ONE place a persisted session comes back, because it is what
+   * `session.store.hydrate()` calls first on every launch. Restoring here also
+   * means the tokens are in place before anything else asks for them.
+   *
+   * The restored token is NOT trusted blindly: `hydrate` calls `getMe()` next,
+   * and a dead token 401s there, which drives the client's refresh-once-then-
+   * sign-out path exactly as it would mid-session.
+   */
   async getSession(): Promise<Session | null> {
-    // No persistence yet (PLAN R7): a cold start has no token, so this is null
-    // in both modes until the user signs in.
+    if (!isMockMode() && !session) {
+      const stored = await loadSession();
+      if (stored) {
+        session = stored;
+        setTokens({ token: stored.token, refreshToken: stored.refreshToken });
+        setCurrentUserId(stored.userId);
+      }
+    }
+
+    // Mock mode never persists: the offline demo and all 512 tests depend on a
+    // fresh process starting signed out.
     return request(() => (session ? { ...session } : null));
   },
 
@@ -130,6 +154,9 @@ export const authService = {
       const done = await http<Session>("POST", "/auth/onboarding/complete");
       // The endpoint mints no new tokens — the caller already holds valid ones.
       session = { ...session, onboardingComplete: done.onboardingComplete };
+      // Restoring a session that still said `onboardingComplete: false` would
+      // drop a finished user back into onboarding on the next launch.
+      void saveSession(session);
       return { ...session };
     }
 

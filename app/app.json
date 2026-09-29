@@ -56,7 +56,7 @@
       ],
       "./plugins/withSheetDialogTheme",
       "@config-plugins/react-native-webrtc",
-      "./plugins/withCleartextTraffic"
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,

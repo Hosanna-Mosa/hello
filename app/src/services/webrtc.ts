@@ -17,6 +17,13 @@
  * cannot happen today, but the asymmetry is what stops a glare from deadlocking
  * if it ever does.
  *
+ * THE MICROPHONE PERMISSION IS OURS TO ASK FOR. `react-native-webrtc` does not
+ * request runtime permissions — not one of its twenty Android source files
+ * mentions `RECORD_AUDIO` — and a manifest entry alone grants nothing on
+ * Android 6+. Without the prompt `getUserMedia` throws, `startCallMedia`
+ * returns false and the call ends the instant it is answered: you would see the
+ * phone ring, accept, and watch it die (PLAN #196).
+ *
  * NOT HANDLED YET, deliberately:
  *   - Audio ROUTING. Earpiece versus speaker needs `react-native-incall-manager`,
  *     a second native dependency that has not been signed off. The speaker
@@ -24,6 +31,8 @@
  *   - Ringing a closed or locked app. That needs push and a native call
  *     screen; this connects two apps that are both open.
  */
+
+import { PermissionsAndroid, Platform } from "react-native";
 
 import {
   RTCPeerConnection,
@@ -98,6 +107,41 @@ function attach(pc: RTCPeerConnection, callId: string): void {
   };
 }
 
+/**
+ * Make sure we may open the microphone, asking if we have not yet.
+ *
+ * Android only. iOS prompts from inside `getUserMedia` itself, so asking first
+ * there would be a second dialog for the same thing.
+ *
+ * Returns false for a refusal INCLUDING "never ask again", where `request`
+ * resolves immediately without showing anything. That case cannot be fixed
+ * in-app — it needs the system settings screen — so the honest outcome is a
+ * call that fails to start rather than one that connects in silence.
+ */
+async function ensureMicrophone(): Promise<boolean> {
+  if (Platform.OS !== "android") return true;
+
+  const permission = PermissionsAndroid.PERMISSIONS.RECORD_AUDIO;
+
+  try {
+    if (await PermissionsAndroid.check(permission)) return true;
+
+    const result = await PermissionsAndroid.request(permission, {
+      title: "Microphone",
+      message: "Hello needs your microphone so the other person can hear you.",
+      buttonPositive: "Allow",
+      buttonNegative: "Not now",
+    });
+
+    return result === PermissionsAndroid.RESULTS.GRANTED;
+  } catch {
+    // Treated as a refusal. Letting the call proceed would reach
+    // `getUserMedia`, throw there, and end the call anyway — with a less
+    // obvious reason in the log.
+    return false;
+  }
+}
+
 export type StartOptions = {
   callId: string;
   /** The caller makes the offer; the callee waits for one. */
@@ -115,6 +159,10 @@ export type StartOptions = {
  */
 export async function startCallMedia(options: StartOptions): Promise<boolean> {
   if (unavailable()) return false;
+
+  // Before `getUserMedia`, not after: it throws on a missing permission, and a
+  // throw here is indistinguishable from a device with no microphone.
+  if (!(await ensureMicrophone())) return false;
 
   await stopCallMedia();
 
