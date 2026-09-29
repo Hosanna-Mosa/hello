@@ -35,12 +35,23 @@ export type IncomingCall = {
 export type CallsState = {
   /** The call currently ringing, if any. Cleared when it is answered or gone. */
   incoming: IncomingCall | null;
+  /**
+   * Backed out of the ring without answering. The call still rings — it just
+   * shrinks to `IncomingCallBar` at the top of every screen, the way a call in
+   * progress does, until it is answered, declined, or the caller gives up.
+   */
+  minimized: boolean;
   clearIncoming: () => void;
+  minimizeIncoming: () => void;
+  restoreIncoming: () => void;
 };
 
 export const useCallsStore = create<CallsState>((set) => ({
   incoming: null,
-  clearIncoming: () => set({ incoming: null }),
+  minimized: false,
+  clearIncoming: () => set({ incoming: null, minimized: false }),
+  minimizeIncoming: () => set({ minimized: true }),
+  restoreIncoming: () => set({ minimized: false }),
 }));
 
 onSocket("call:incoming", (payload) => {
@@ -58,7 +69,8 @@ onSocket("call:incoming", (payload) => {
   // the ring showed only when the Chat tab happened to be open and vanished on
   // moving away (PLAN #205). `IncomingCallOverlay` renders from this state,
   // above the navigator, so it cannot be lost by navigating.
-  useCallsStore.setState({ incoming });
+  // A new ring always starts full screen, whatever the last one was left as.
+  useCallsStore.setState({ incoming, minimized: false });
 });
 
 /**
@@ -79,7 +91,7 @@ onSocket("call:ended", (payload) => {
   // cannot silence the one that replaced it.
   const current = useCallsStore.getState().incoming;
   if (current && call?.id && call.id === current.callId) {
-    useCallsStore.setState({ incoming: null });
+    useCallsStore.setState({ incoming: null, minimized: false });
   }
 
   // Record it. `receiveMessage` dedupes by id, so the call screen's own

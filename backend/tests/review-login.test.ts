@@ -53,6 +53,14 @@ describe("review login", () => {
     expect(res.body.userId).toBe(userId);
   });
 
+  it("ignores whitespace around a pasted password", async () => {
+    const userId = await registerTarget();
+    const res = await request(app)
+      .post("/v1/auth/email")
+      .send({ email: EMAIL, password: ` ${PASSWORD}\n` });
+    expect(res.body.userId).toBe(userId);
+  });
+
   it("rejects a wrong password with `validation`", async () => {
     await registerTarget();
     const res = await request(app).post("/v1/auth/email").send({ email: EMAIL, password: "nope-nope" });

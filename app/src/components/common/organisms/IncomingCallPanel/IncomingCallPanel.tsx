@@ -43,6 +43,11 @@ export type IncomingCallPanelProps = {
   onAccepted: (callId?: string) => void;
   /** Declined, or the caller gave up. Stop showing this. */
   onDismissed: () => void;
+  /**
+   * Step back without answering — the ring carries on in `IncomingCallBar`.
+   * Omitted, there is no back chevron.
+   */
+  onMinimize?: (() => void) | undefined;
 };
 
 export function IncomingCallPanel({
@@ -50,6 +55,7 @@ export function IncomingCallPanel({
   callId,
   onAccepted,
   onDismissed,
+  onMinimize,
 }: IncomingCallPanelProps) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState<number | undefined>(undefined);
@@ -131,6 +137,8 @@ export function IncomingCallPanel({
     <CallShell
       name={name}
       status={copy.calls.incoming}
+      onBack={onMinimize}
+      backLabel={copy.calls.minimize}
       controls={<IncomingCallActions onAccept={onAccept} onDecline={() => void onDecline()} />}
     >
       <Avatar source={avatar} name={name} size="xl" />

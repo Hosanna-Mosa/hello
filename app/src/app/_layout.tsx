@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ActiveCallBar } from "@/components/common/organisms/ActiveCallBar";
+import { IncomingCallBar } from "@/components/common/organisms/IncomingCallBar";
 import { IncomingCallOverlay } from "@/components/common/organisms/IncomingCallOverlay";
 /*
   Imported for its side effect: registering the `call:incoming` listener. A call
@@ -69,6 +70,8 @@ export default function RootLayout() {
             and you are somewhere other than the call screen.
           */}
           <ActiveCallBar />
+          {/* The same strip for a ring you backed out of without answering. */}
+          <IncomingCallBar />
 
           <Stack screenOptions={{ headerShown: false }}>
             <Stack.Protected guard={status === "signedOut" || status === "loading"}>

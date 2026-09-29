@@ -16,7 +16,30 @@ import {
   useTheme,
 } from "@/components/common";
 import { copy } from "@/copy";
+import { ApiError } from "@/services/client";
 import { useSessionStore } from "@/stores/session.store";
+
+/**
+ * Only a `validation` answer means the pair was wrong. Everything else — no
+ * connection, the rate limit, a server without this route — has to say so, or
+ * a reviewer with the right password is told it is wrong and gives up.
+ */
+function signInError(error: unknown): string {
+  if (!(error instanceof ApiError)) return copy.auth.emailFailed;
+  switch (error.code) {
+    case "validation":
+      return copy.auth.emailInvalid;
+    case "network":
+      return copy.auth.emailNetwork;
+    case "rateLimited":
+      return copy.auth.emailRateLimited;
+    // 404: the server predates `POST /auth/email`.
+    case "notFound":
+      return copy.auth.emailUnavailable;
+    default:
+      return copy.auth.emailFailed;
+  }
+}
 
 /**
  * Email + password sign-in, for store reviewers.
@@ -42,8 +65,8 @@ export default function EmailScreen() {
       // Success flips the session status, and the root layout's
       // Stack.Protected guard swaps the group. No router.replace needed.
       await emailLogin(email, password);
-    } catch {
-      setError(copy.auth.emailInvalid);
+    } catch (e) {
+      setError(signInError(e));
     } finally {
       setSubmitting(false);
     }

@@ -119,7 +119,9 @@ export async function emailLogin(
 
   // Both compared every time, so a correct email is not faster to reject.
   const emailOk = secretMatches(email.trim().toLowerCase(), REVIEW_LOGIN_EMAIL.trim().toLowerCase());
-  const passwordOk = secretMatches(password, REVIEW_LOGIN_PASSWORD);
+  // Trimmed: the credential is pasted from the Play Console's review notes,
+  // and a trailing space or newline from that copy must not reject it.
+  const passwordOk = secretMatches(password.trim(), REVIEW_LOGIN_PASSWORD.trim());
   if (!emailOk || !passwordOk) throw wrong();
 
   const user = await UserModel.findOne({ "phone.hmac": phoneHmac(REVIEW_LOGIN_PHONE) });
