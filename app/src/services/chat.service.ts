@@ -12,7 +12,27 @@ import { replyFor, type ReplyScript } from "@/mocks/replies";
 import { SEEDED_MESSAGES, SEEDED_THREADS } from "@/mocks/threads";
 
 import { ApiError, nextId, nowIso, request, isMockMode, http, currentUserIdOrMe, upload } from "./client";
+import { emitVoiceDiag } from "./socket";
 import type { Message, Paginated, Thread } from "./types";
+
+/**
+ * The recorder's file as a Blob, via React Native's fetch — no file-system
+ * library needed.
+ *
+ * Two device quirks handled here: the recorder can hand back a bare path with
+ * no `file://` scheme, which fetch cannot open; and the file can still read as
+ * empty for a moment after `stop()` resolves, while the MP4 is finalised. An
+ * empty upload is refused by the server, so wait briefly for real bytes.
+ */
+async function readRecording(uri: string): Promise<Blob> {
+  const url = uri.startsWith("/") ? `file://${uri}` : uri;
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    const blob = await (await fetch(url)).blob();
+    if (blob.size > 0) return blob;
+    await new Promise((resolve) => setTimeout(resolve, 250));
+  }
+  throw new ApiError("validation", "The recording is empty.");
+}
 
 /**
  * A conversation as the list needs it: the thread, who it is with, and the
@@ -168,15 +188,33 @@ export const chatService = {
     const seconds = Math.round(durationSec * 10) / 10;
 
     if (!isMockMode()) {
-      // React Native's fetch reads a `file://` uri into a Blob without any
-      // file-system library.
-      const audio = await (await fetch(uri)).blob();
+      // Every step is reported to the server log (`[voice] phone: …`), so a
+      // failure on the device is visible without a USB cable.
+      emitVoiceDiag(threadId, "send started", { durationSec: seconds });
+
+      let audio: Blob;
+      try {
+        audio = await readRecording(uri);
+      } catch (e) {
+        emitVoiceDiag(threadId, "read FAILED", { error: String((e as Error)?.message ?? e) });
+        throw e instanceof ApiError ? e : new ApiError("validation", "Couldn't read the recording.");
+      }
+      emitVoiceDiag(threadId, "file read", { bytes: audio.size, type: audio.type || "none" });
+
       const query = `durationSec=${seconds}&clientMessageId=${encodeURIComponent(nextId("vm"))}`;
-      return upload<Message>(
-        `/threads/${encodeURIComponent(threadId)}/voice?${query}`,
-        audio,
-        "audio/mp4",
-      );
+      try {
+        const sent = await upload<Message>(
+          `/threads/${encodeURIComponent(threadId)}/voice?${query}`,
+          audio,
+          "audio/mp4",
+        );
+        emitVoiceDiag(threadId, "upload ok", { messageId: sent.id });
+        return sent;
+      } catch (e) {
+        const err = e as ApiError;
+        emitVoiceDiag(threadId, "upload FAILED", { code: err?.code ?? "unknown", message: err?.message, bytes: audio.size });
+        throw e;
+      }
     }
 
     return request(() => {

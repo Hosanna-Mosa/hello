@@ -200,6 +200,16 @@ export function emitCallDiag(callId: string, stage: string, detail?: unknown): v
   socket?.emit("call:diag", { callId, stage, ...(detail === undefined ? {} : { detail }) });
 }
 
+/**
+ * Report one step of sending a voice message to the server log — the same idea
+ * as `emitCallDiag`. A clip that fails to read on the phone never reaches the
+ * upload route, so without this the server has nothing to show. Sizes,
+ * durations and error codes only; never the audio.
+ */
+export function emitVoiceDiag(threadId: string, stage: string, detail?: unknown): void {
+  socket?.emit("voice:diag", { threadId, stage, ...(detail === undefined ? {} : { detail }) });
+}
+
 /** Tell the caller we picked up. Acked, because the UI waits on it. */
 export function emitCallAccept(callId: string): void {
   socket?.emit("call:accept", { callId });

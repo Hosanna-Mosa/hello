@@ -20,6 +20,19 @@ const secret = (name: string) =>
     .string({ error: `${name} is required` })
     .min(32, `${name} must be at least 32 characters — generate one, do not invent one`);
 
+/**
+ * Where voice audio goes when `VOICE_DIR` is not set.
+ *
+ * Under systemd, `StateDirectory=hello` exports `STATE_DIRECTORY` — the ONE
+ * writable place `ProtectSystem=strict` leaves. Defaulting to it means a
+ * forgotten `VOICE_DIR` line in `.env` no longer makes every upload fail with
+ * EROFS on a read-only checkout. Off systemd (dev, tests) it is `./data/voice`.
+ */
+function defaultVoiceDir(): string {
+  const state = process.env.STATE_DIRECTORY?.split(":")[0]?.trim();
+  return state ? `${state.replace(/\/+$/, "")}/voice` : "./data/voice";
+}
+
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().int().positive().default(4000),
@@ -123,9 +136,10 @@ const schema = z.object({
    * Where voice messages are written. One folder per thread, so ending a
    * conversation can remove its audio in one step. Must be writable by the
    * service user — in production that is `/var/lib/hello/voice`, which the
-   * systemd unit's `StateDirectory=hello` creates.
+   * systemd unit's `StateDirectory=hello` creates, and the default when unset.
+   * Checked for writability at boot (`checkVoiceStorage`).
    */
-  VOICE_DIR: z.string().min(1).default("./data/voice"),
+  VOICE_DIR: z.string().min(1).default(defaultVoiceDir()),
   /** 2 minutes of AAC at ~64 kbps is ~1 MB; the cap leaves headroom. */
   VOICE_MAX_BYTES: z.coerce.number().int().positive().default(2_000_000),
   VOICE_MAX_SEC: z.coerce.number().int().positive().default(120),

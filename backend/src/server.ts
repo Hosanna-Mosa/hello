@@ -14,9 +14,11 @@ import type { Server } from "node:http";
 
 import { createApp } from "@/app.js";
 import { env } from "@/config/env.js";
+import { voiceLog } from "@/config/callLog.js";
 import { logger } from "@/config/logger.js";
 import { connectMongo, disconnectMongo, supportsTransactions } from "@/config/mongo.js";
 import { connectRedis, disconnectRedis } from "@/config/redis.js";
+import { checkVoiceStorage } from "@/services/voice.service.js";
 import { attachSockets, closeSockets } from "@/sockets/io.js";
 
 const SHUTDOWN_GRACE_MS = 10_000;
@@ -30,6 +32,18 @@ async function main(): Promise<void> {
     // but it must be loud, and /ready reports not-ready until it is fixed.
     logger.warn(
       "mongod is a STANDALONE: no multi-document transactions. Accepting a message request cannot be atomic. Convert to a single-node replica set (replSetName: rs0).",
+    );
+  }
+
+  // Not fatal — chat and calls still work — but a voice folder the service
+  // cannot write means EVERY voice message fails, so say so at boot, loudly.
+  const voice = await checkVoiceStorage();
+  if (voice.ok) {
+    voiceLog.info({ dir: voice.dir, maxBytes: env.VOICE_MAX_BYTES }, "[voice] storage ready");
+  } else {
+    voiceLog.error(
+      { dir: voice.dir, error: voice.error },
+      "[voice] storage NOT WRITABLE — every voice message will fail. Set VOICE_DIR=/var/lib/hello/voice (deploy README §18)",
     );
   }
 
