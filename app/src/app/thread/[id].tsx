@@ -20,11 +20,11 @@ import {
   useTheme,
 } from "@/components/common";
 import { useComposerVoice } from "@/components/thread/hooks/useComposerVoice";
-import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
-import { ChatComposer } from "@/components/thread/organisms/ChatComposer";
-import { DaySeparator } from "@/components/thread/molecules/DaySeparator";
+import { ChatBubble } from "@/components/common/molecules/ChatBubble";
+import { ChatComposer } from "@/components/common/organisms/ChatComposer";
+import { DaySeparator } from "@/components/common/molecules/DaySeparator";
 import { ReactionPicker } from "@/components/thread/molecules/ReactionPicker";
-import { SystemMessage } from "@/components/thread/molecules/SystemMessage";
+import { SystemMessage } from "@/components/common/molecules/SystemMessage";
 import { ThreadActions } from "@/components/thread/molecules/ThreadActions";
 import { ThreadHeader } from "@/components/thread/molecules/ThreadHeader";
 import { ThreadMenu } from "@/components/thread/organisms/ThreadMenu";

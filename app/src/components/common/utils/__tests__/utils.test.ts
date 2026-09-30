@@ -8,6 +8,7 @@
 import { calculateAge, isOldEnough } from "@/components/common/utils/calculateAge";
 import { formatDistance } from "@/components/common/utils/formatDistance";
 import { formatRelativeTime } from "@/components/common/utils/formatRelativeTime";
+import { formatRupees } from "@/components/common/utils/formatRupees";
 import {
   profileCompleteness,
   profileCompletenessPercent,
@@ -118,5 +119,17 @@ describe("profileCompleteness", () => {
 
   it("reports a whole percent", () => {
     expect(profileCompletenessPercent({ name: "Maya" })).toBe(9);
+  });
+});
+
+describe("formatRupees", () => {
+  it("shows paise as whole rupees with the ₹ sign and Indian grouping", () => {
+    expect(formatRupees(29900)).toBe("₹299");
+    expect(formatRupees(149900)).toBe("₹1,499");
+    expect(formatRupees(10000000)).toBe("₹1,00,000");
+  });
+
+  it("rounds a derived per-month figure to whole rupees", () => {
+    expect(formatRupees(149900 / 6)).toBe("₹250");
   });
 });

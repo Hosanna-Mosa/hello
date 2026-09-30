@@ -1,4 +1,5 @@
-import { NativeTabs } from "expo-router/unstable-native-tabs";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { Icon, Label, NativeTabs, VectorIcon } from "expo-router/unstable-native-tabs";
 
 import { useTheme } from "@/components/common";
 import { copy } from "@/copy";
@@ -8,8 +9,12 @@ import { copy } from "@/copy";
  *
  * NATIVE tabs, from `expo-router/unstable-native-tabs`. `expo-router/tabs` and
  * `expo-router/js-tabs` are the same JS implementation — neither is native, and
- * importing `Tabs` from `expo-router` silently gives you the JS one. In SDK 58
- * this path becomes `expo-router/native-tabs`; expect one import rewrite.
+ * importing `Tabs` from `expo-router` silently gives you the JS one.
+ *
+ * SDK 54 API: `Icon` and `Label` are standalone elements from the same import
+ * (later SDKs moved them to `NativeTabs.Trigger.Icon` / `.Label`). iOS takes an
+ * SF Symbol; Android takes an image, which `VectorIcon` renders from the same
+ * Material Icons font the rest of the app uses (see `atoms/Icon`).
  *
  * Search and Likes are deliberately NOT tabs — they are Home header entries
  * (PLAN §1). Adding a fifth tab is a product change, not a layout tweak.
@@ -28,31 +33,34 @@ export default function TabsLayout() {
       labelVisibilityMode="labeled"
     >
       <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>{copy.tabs.home}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon sf={{ default: "house", selected: "house.fill" }} md="home" />
+        <Label>{copy.tabs.home}</Label>
+        <Icon
+          sf={{ default: "house", selected: "house.fill" }}
+          androidSrc={<VectorIcon family={MaterialIcons} name="home" />}
+        />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="match">
-        <NativeTabs.Trigger.Label>{copy.tabs.match}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
+        <Label>{copy.tabs.match}</Label>
+        <Icon
           sf={{ default: "rectangle.stack", selected: "rectangle.stack.fill" }}
-          md="layers"
+          androidSrc={<VectorIcon family={MaterialIcons} name="layers" />}
         />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="chat">
-        <NativeTabs.Trigger.Label>{copy.tabs.chat}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
+        <Label>{copy.tabs.chat}</Label>
+        <Icon
           sf={{ default: "bubble.left", selected: "bubble.left.fill" }}
-          md="chat_bubble"
+          androidSrc={<VectorIcon family={MaterialIcons} name="chat-bubble" />}
         />
       </NativeTabs.Trigger>
 
       <NativeTabs.Trigger name="profile">
-        <NativeTabs.Trigger.Label>{copy.tabs.profile}</NativeTabs.Trigger.Label>
-        <NativeTabs.Trigger.Icon
+        <Label>{copy.tabs.profile}</Label>
+        <Icon
           sf={{ default: "person", selected: "person.fill" }}
-          md="person"
+          androidSrc={<VectorIcon family={MaterialIcons} name="person" />}
         />
       </NativeTabs.Trigger>
     </NativeTabs>

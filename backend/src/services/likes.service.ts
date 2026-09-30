@@ -24,6 +24,7 @@ import { UserModel, type UserDoc } from "@/models/user.model.js";
 import { refundLike, spendLike } from "@/services/quota.service.js";
 import { hiddenUserIds } from "@/services/visibility.service.js";
 import { removeThreadVoice } from "@/services/voice.service.js";
+import type { Connection } from "@/types/wire.js";
 import { withTransaction } from "@/utils/transaction.js";
 
 const DUPLICATE_KEY = 11000;
@@ -190,9 +191,55 @@ export async function sendLike(viewer: UserDoc, toUserId: string, note?: string)
   }
 }
 
+/**
+ * Where the viewer stands with one person — drives the profile's main button.
+ *
+ * Deliberately lossy in two places (see `ConnectionStatus` in the contract):
+ *   - a request they DECLINED still reads `requested`: declines are never
+ *     inferable by the sender (A18);
+ *   - a silent like FROM them is not `incoming`: who likes you is premium.
+ * Only a pending request WITH a note — already visible in the Requests tab —
+ * is surfaced as `incoming`.
+ */
+export async function connectionWith(viewer: UserDoc, userId: string): Promise<Connection> {
+  if (!Types.ObjectId.isValid(userId) || String(viewer._id) === userId) throw ApiError.notFound();
+
+  const target = await UserModel.findOne({ _id: userId, status: "active" }).select("_id");
+  if (!target) throw ApiError.notFound();
+  const hidden = await hiddenUserIds(viewer);
+  if (hidden.some((h) => String(h) === userId)) throw ApiError.notFound();
+
+  const match = await MatchModel.findOne({ pairKey: pairKeyFor(viewer._id, target._id), endedAt: null });
+  if (match) {
+    return { status: "matched", threadId: match.threadId ? String(match.threadId) : null, requestId: null };
+  }
+
+  const incoming = await MessageRequestModel.findOne({
+    fromUserId: target._id,
+    toUserId: viewer._id,
+    status: "pending",
+  });
+  if (incoming) return { status: "incoming", threadId: null, requestId: String(incoming._id) };
+
+  const mine = await LikeModel.exists({ fromUserId: viewer._id, toUserId: target._id });
+  return { status: mine ? "requested" : "none", threadId: null, requestId: null };
+}
+
 export async function listInboundLikes(viewer: UserDoc): Promise<LikeDoc[]> {
   const hidden = await hiddenUserIds(viewer);
   return LikeModel.find({ toUserId: viewer._id, fromUserId: { $nin: hidden } })
+    .sort({ createdAt: -1, _id: -1 })
+    .limit(100);
+}
+
+/**
+ * People the viewer has liked — the "You liked" screen. Your own likes, so no
+ * premium gate; blocked/hidden people and closed accounts drop out, the same
+ * as everywhere else a person is listed.
+ */
+export async function listOutboundLikes(viewer: UserDoc): Promise<LikeDoc[]> {
+  const hidden = await hiddenUserIds(viewer);
+  return LikeModel.find({ fromUserId: viewer._id, toUserId: { $nin: hidden } })
     .sort({ createdAt: -1, _id: -1 })
     .limit(100);
 }

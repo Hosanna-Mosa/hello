@@ -474,7 +474,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -488,8 +487,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -563,7 +560,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -577,8 +573,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -652,7 +646,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -666,8 +659,6 @@ exports[`auth + onboarding screens — dark theme (auth)/index — welcome 1`] =
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -1974,7 +1965,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/age-restricted �
         onLoadStart={[Function]}
         onProgress={[Function]}
         placeholder={[]}
-        sfEffect={null}
         source={
           [
             {
@@ -1988,8 +1978,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/age-restricted �
             "width": "100%",
           }
         }
-        symbolSize={null}
-        symbolWeight={null}
         transition={null}
         width="100%"
       />
@@ -2507,7 +2495,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2523,8 +2510,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -2592,7 +2577,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2608,8 +2592,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -2677,7 +2659,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2693,8 +2674,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -2762,7 +2741,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2778,8 +2756,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -2847,7 +2823,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2863,8 +2838,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -2932,7 +2905,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -2948,8 +2920,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3017,7 +2987,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3033,8 +3002,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3102,7 +3069,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3118,8 +3084,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3187,7 +3151,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3203,8 +3166,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3272,7 +3233,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3288,8 +3248,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3357,7 +3315,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3373,8 +3330,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3442,7 +3397,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3458,8 +3412,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3527,7 +3479,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3543,8 +3494,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3612,7 +3561,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3628,8 +3576,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3697,7 +3643,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3713,8 +3658,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3782,7 +3725,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3798,8 +3740,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3867,7 +3807,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3883,8 +3822,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -3952,7 +3889,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -3968,8 +3904,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4037,7 +3971,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4053,8 +3986,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4122,7 +4053,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4138,8 +4068,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4207,7 +4135,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4223,8 +4150,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4292,7 +4217,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4308,8 +4232,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4377,7 +4299,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4393,8 +4314,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4462,7 +4381,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4478,8 +4396,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4547,7 +4463,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4563,8 +4478,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4632,7 +4545,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4648,8 +4560,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4717,7 +4627,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4733,8 +4642,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4802,7 +4709,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4818,8 +4724,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4887,7 +4791,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4903,8 +4806,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -4972,7 +4873,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -4988,8 +4888,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/avatar — step 4
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -16402,7 +16300,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/location — step
             onLoadStart={[Function]}
             onProgress={[Function]}
             placeholder={[]}
-            sfEffect={null}
             source={
               [
                 {
@@ -16416,8 +16313,6 @@ exports[`auth + onboarding screens — dark theme (onboarding)/location — step
                 "width": "100%",
               }
             }
-            symbolSize={null}
-            symbolWeight={null}
             transition={null}
             width="100%"
           />
@@ -17723,7 +17618,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -17737,8 +17631,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -17812,7 +17704,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -17826,8 +17717,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -17901,7 +17790,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -17915,8 +17803,6 @@ exports[`auth + onboarding screens — light theme (auth)/index — welcome 1`] 
                   "width": 702,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={702}
             />
@@ -19223,7 +19109,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/age-restricted �
         onLoadStart={[Function]}
         onProgress={[Function]}
         placeholder={[]}
-        sfEffect={null}
         source={
           [
             {
@@ -19237,8 +19122,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/age-restricted �
             "width": "100%",
           }
         }
-        symbolSize={null}
-        symbolWeight={null}
         transition={null}
         width="100%"
       />
@@ -19756,7 +19639,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -19772,8 +19654,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -19841,7 +19721,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -19857,8 +19736,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -19926,7 +19803,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -19942,8 +19818,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20011,7 +19885,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20027,8 +19900,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20096,7 +19967,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20112,8 +19982,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20181,7 +20049,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20197,8 +20064,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20266,7 +20131,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20282,8 +20146,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20351,7 +20213,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20367,8 +20228,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20436,7 +20295,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20452,8 +20310,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20521,7 +20377,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20537,8 +20392,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20606,7 +20459,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20622,8 +20474,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20691,7 +20541,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20707,8 +20556,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20776,7 +20623,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20792,8 +20638,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20861,7 +20705,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20877,8 +20720,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -20946,7 +20787,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -20962,8 +20802,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21031,7 +20869,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21047,8 +20884,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21116,7 +20951,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21132,8 +20966,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21201,7 +21033,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21217,8 +21048,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21286,7 +21115,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21302,8 +21130,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21371,7 +21197,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21387,8 +21212,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21456,7 +21279,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21472,8 +21294,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21541,7 +21361,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21557,8 +21376,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21626,7 +21443,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21642,8 +21458,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21711,7 +21525,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21727,8 +21540,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21796,7 +21607,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21812,8 +21622,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21881,7 +21689,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21897,8 +21704,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -21966,7 +21771,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -21982,8 +21786,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -22051,7 +21853,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -22067,8 +21868,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -22136,7 +21935,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -22152,8 +21950,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -22221,7 +22017,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -22237,8 +22032,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/avatar — step 
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -33651,7 +33444,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/location — ste
             onLoadStart={[Function]}
             onProgress={[Function]}
             placeholder={[]}
-            sfEffect={null}
             source={
               [
                 {
@@ -33665,8 +33457,6 @@ exports[`auth + onboarding screens — light theme (onboarding)/location — ste
                 "width": "100%",
               }
             }
-            symbolSize={null}
-            symbolWeight={null}
             transition={null}
             width="100%"
           />

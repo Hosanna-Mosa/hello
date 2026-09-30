@@ -127,10 +127,10 @@ export function RangeSlider({
     // react-hooks/immutability treats a hook result as React-owned and flags
     // this assignment. It is a false positive: a Reanimated shared value is a
     // mutable box on the UI thread and `.value = x` is its documented API.
-    // Suppressed here rather than switched off globally, so the rule keeps
-    // working everywhere it is right. Phase 6's swipe deck will hit the same
-    // thing — see PLAN R5 and parking log #9.
-    // eslint-disable-next-line react-hooks/immutability
+    // On Expo SDK 54 the lint plugin has no such rule, so nothing is
+    // suppressed; on an SDK whose plugin has it, restore
+    // `eslint-disable-next-line react-hooks/immutability` above this line.
+    // See PLAN R5 and parking log #9.
     trackWidth.value = event.nativeEvent.layout.width;
   }
 

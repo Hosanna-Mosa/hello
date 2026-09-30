@@ -1,5 +1,5 @@
 /**
- * Matches and likes, side by side with a divider.
+ * Matches, likes, and (when given) people you liked — side by side with dividers.
  *
  * The design's row reads "24 Friends · 56 Likes · 8 Connections". This product
  * has no "friends" and no "connections" — both would be the match count under
@@ -18,15 +18,20 @@ import { copy } from "@/copy";
 export type ProfileStatsProps = {
   matches: number;
   likes: number;
+  /** People you liked. Omit to show only the first two. */
+  liked?: number;
   onMatchesPress?: () => void;
   onLikesPress?: () => void;
+  onLikedPress?: () => void;
 };
 
 export function ProfileStats({
   matches,
   likes,
+  liked,
   onMatchesPress,
   onLikesPress,
+  onLikedPress,
 }: ProfileStatsProps) {
   const theme = useTheme();
 
@@ -58,6 +63,13 @@ export function ProfileStats({
       <Box style={{ width: 1, height: 32, backgroundColor: theme.color.divider }} />
 
       {stat(likes, copy.profile.statLikes, onLikesPress)}
+
+      {liked === undefined ? null : (
+        <>
+          <Box style={{ width: 1, height: 32, backgroundColor: theme.color.divider }} />
+          {stat(liked, copy.profile.statLiked, onLikedPress)}
+        </>
+      )}
     </Box>
   );
 }

@@ -16,11 +16,11 @@ import type { Entitlements, Plan } from "./types";
 /** A16 — 15 a day on free, resetting at local midnight. */
 export const FREE_DAILY_LIKES = 15;
 
-/** Placeholder prices. No currency conversion, no store integration. */
+/** Placeholder prices, in paise (INR only — the app shows no other currency). No store integration. */
 export const PLANS: Plan[] = [
-  { id: "plan-1m", label: "1 month", priceMinor: 999, currency: "GBP", period: "month", highlighted: false },
-  { id: "plan-6m", label: "6 months", priceMinor: 3999, currency: "GBP", period: "sixMonths", highlighted: true },
-  { id: "plan-12m", label: "12 months", priceMinor: 5999, currency: "GBP", period: "year", highlighted: false },
+  { id: "plan-1m", label: "1 month", priceMinor: 29900, currency: "INR", period: "month", highlighted: false },
+  { id: "plan-6m", label: "6 months", priceMinor: 149900, currency: "INR", period: "sixMonths", highlighted: true },
+  { id: "plan-12m", label: "12 months", priceMinor: 249900, currency: "INR", period: "year", highlighted: false },
 ];
 
 function nextLocalMidnight(from: Date = new Date()): string {

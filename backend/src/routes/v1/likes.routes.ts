@@ -19,10 +19,13 @@ const guarded = [requireAuth, requireOnboarded];
 
 likesRouter.post("/likes", guarded, rateLimit("me-write"), validateBody(likeSchema), controller.postLike);
 likesRouter.get("/likes/inbound", guarded, controller.getInboundLikes);
+likesRouter.get("/likes/outbound", guarded, controller.getOutboundLikes);
 
 likesRouter.get("/requests", guarded, controller.getRequests);
 likesRouter.post("/requests/:id/accept", guarded, controller.postAcceptRequest);
 likesRouter.post("/requests/:id/decline", guarded, controller.postDeclineRequest);
+
+likesRouter.get("/connections/:userId", guarded, controller.getConnection);
 
 likesRouter.get("/matches", guarded, controller.getMatches);
 likesRouter.delete("/matches/:id", guarded, controller.deleteMatch);

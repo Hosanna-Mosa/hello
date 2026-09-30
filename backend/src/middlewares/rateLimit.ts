@@ -27,7 +27,11 @@ const BUCKETS = {
   "auth-verify-phone": { points: 10, durationSec: 900 },
   "auth-email-ip": { points: 10, durationSec: 900 },
   "auth-refresh-ip": { points: 60, durationSec: 3_600 },
+  /** Admin sign-in, per IP. The per-account lockout lives on the admin row. */
+  "admin-login-ip": { points: 10, durationSec: 900 },
   "me-write": { points: 60, durationSec: 3_600 },
+  /** Opening support tickets. Generous for a person, a wall for a script. */
+  "support-create": { points: 10, durationSec: 3_600 },
   /**
    * 60/min — one per second sustained.
    *

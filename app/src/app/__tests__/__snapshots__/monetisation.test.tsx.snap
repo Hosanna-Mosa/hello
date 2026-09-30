@@ -48,7 +48,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                     "tint": 4288914853,
                     "tintColor": "#A3A5A5",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -394,7 +393,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                                 "onLoadStart": [Function],
                                                 "onProgress": [Function],
                                                 "placeholder": [],
-                                                "sfEffect": null,
                                                 "source": [
                                                   {
                                                     "testUri": "../../../assets/avatars/avatar-15.png",
@@ -406,8 +404,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                                   "height": 64,
                                                   "width": 64,
                                                 },
-                                                "symbolSize": null,
-                                                "symbolWeight": null,
                                                 "tintColor": undefined,
                                                 "transition": null,
                                                 "width": 64,
@@ -548,7 +544,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-01.png",
@@ -560,8 +555,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -759,7 +752,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-02.png",
@@ -771,8 +763,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -956,7 +946,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-03.png",
@@ -968,8 +957,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -1314,7 +1301,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-04.png",
@@ -1326,8 +1312,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -1511,7 +1495,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-05.png",
@@ -1523,8 +1506,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -1708,7 +1689,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-06.png",
@@ -1720,8 +1700,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -1905,7 +1883,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-07.png",
@@ -1917,8 +1894,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -2102,7 +2077,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-08.png",
@@ -2114,8 +2088,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/chat — with ad row 1`] = 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -3478,7 +3450,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3494,8 +3465,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3652,7 +3621,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3668,8 +3636,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3845,7 +3811,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3861,8 +3826,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4019,7 +3982,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4035,8 +3997,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4212,7 +4172,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4228,8 +4187,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4386,7 +4343,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4402,8 +4358,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4579,7 +4533,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4595,8 +4548,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4753,7 +4704,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4769,8 +4719,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4946,7 +4894,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4962,8 +4909,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5120,7 +5065,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -5136,8 +5080,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5313,7 +5255,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -5329,8 +5270,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5487,7 +5426,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -5503,8 +5441,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/index — nearby, with bann
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5654,7 +5590,6 @@ exports[`Phase 9 — free tier — dark theme (tabs)/match — out of likes, wit
                     "tint": 4285822839,
                     "tintColor": "#747777",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -6673,6 +6608,90 @@ exports[`Phase 9 — free tier — dark theme (tabs)/profile — upsell, no badg
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#2A2522",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#F5F2ED",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#A3A5A5",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             accessibilityLabel="Make more friends"
@@ -7593,6 +7612,7 @@ exports[`Phase 9 — free tier — dark theme filters — interests and active-r
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -7647,6 +7667,7 @@ exports[`Phase 9 — free tier — dark theme filters — interests and active-r
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -7851,6 +7872,7 @@ exports[`Phase 9 — free tier — dark theme filters — interests and active-r
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -7905,6 +7927,7 @@ exports[`Phase 9 — free tier — dark theme filters — interests and active-r
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -7973,6 +7996,7 @@ exports[`Phase 9 — free tier — dark theme filters — interests and active-r
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -8701,6 +8725,58 @@ exports[`Phase 9 — free tier — dark theme likes — locked tiles and the cou
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#FF8560",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -9638,7 +9714,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                     "tint": 4285033323,
                     "tintColor": "#686B6B",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -9984,7 +10059,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                                 "onLoadStart": [Function],
                                                 "onProgress": [Function],
                                                 "placeholder": [],
-                                                "sfEffect": null,
                                                 "source": [
                                                   {
                                                     "testUri": "../../../assets/avatars/avatar-15.png",
@@ -9996,8 +10070,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                                   "height": 64,
                                                   "width": 64,
                                                 },
-                                                "symbolSize": null,
-                                                "symbolWeight": null,
                                                 "tintColor": undefined,
                                                 "transition": null,
                                                 "width": 64,
@@ -10138,7 +10210,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-01.png",
@@ -10150,8 +10221,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -10349,7 +10418,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-02.png",
@@ -10361,8 +10429,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -10546,7 +10612,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-03.png",
@@ -10558,8 +10623,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -10904,7 +10967,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-04.png",
@@ -10916,8 +10978,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -11101,7 +11161,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-05.png",
@@ -11113,8 +11172,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -11298,7 +11355,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-06.png",
@@ -11310,8 +11366,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -11495,7 +11549,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-07.png",
@@ -11507,8 +11560,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -11692,7 +11743,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-08.png",
@@ -11704,8 +11754,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/chat — with ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -13068,7 +13116,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13084,8 +13131,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -13242,7 +13287,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13258,8 +13302,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -13435,7 +13477,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13451,8 +13492,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -13609,7 +13648,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13625,8 +13663,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -13802,7 +13838,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13818,8 +13853,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -13976,7 +14009,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -13992,8 +14024,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -14169,7 +14199,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -14185,8 +14214,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -14343,7 +14370,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -14359,8 +14385,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -14536,7 +14560,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -14552,8 +14575,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -14710,7 +14731,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -14726,8 +14746,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -14903,7 +14921,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -14919,8 +14936,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -15077,7 +15092,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -15093,8 +15107,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/index — nearby, with ban
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -15244,7 +15256,6 @@ exports[`Phase 9 — free tier — light theme (tabs)/match — out of likes, wi
                     "tint": 4288322716,
                     "tintColor": "#9A9C9C",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -16263,6 +16274,90 @@ exports[`Phase 9 — free tier — light theme (tabs)/profile — upsell, no bad
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#E6E2DD",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#1A1815",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#686B6B",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             accessibilityLabel="Make more friends"
@@ -17183,6 +17278,7 @@ exports[`Phase 9 — free tier — light theme filters — interests and active-
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -17237,6 +17333,7 @@ exports[`Phase 9 — free tier — light theme filters — interests and active-
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -17441,6 +17538,7 @@ exports[`Phase 9 — free tier — light theme filters — interests and active-
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -17495,6 +17593,7 @@ exports[`Phase 9 — free tier — light theme filters — interests and active-
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -17563,6 +17662,7 @@ exports[`Phase 9 — free tier — light theme filters — interests and active-
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -18291,6 +18391,58 @@ exports[`Phase 9 — free tier — light theme likes — locked tiles and the co
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F2724B",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -19849,7 +20001,7 @@ exports[`Phase 9 — paywall and components — dark theme PlanCard — highligh
   }
 >
   <View
-    accessibilityLabel="6 months, £39.99, £6.67 per month"
+    accessibilityLabel="6 months, ₹1,499, ₹250 per month"
     accessibilityRole="radio"
     accessibilityState={
       {
@@ -19950,7 +20102,7 @@ exports[`Phase 9 — paywall and components — dark theme PlanCard — highligh
           ]
         }
       >
-        £39.99
+        ₹1,499
       </Text>
     </View>
     <Text
@@ -19968,7 +20120,7 @@ exports[`Phase 9 — paywall and components — dark theme PlanCard — highligh
         ]
       }
     >
-      £6.67 / month
+      ₹250 / month
     </Text>
   </View>
 </RNCSafeAreaProvider>
@@ -20271,7 +20423,7 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
           }
         >
           <View
-            accessibilityLabel="1 month, £9.99, £9.99 per month"
+            accessibilityLabel="1 month, ₹299, ₹299 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -20355,7 +20507,7 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                   ]
                 }
               >
-                £9.99
+                ₹299
               </Text>
             </View>
             <Text
@@ -20373,11 +20525,11 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                 ]
               }
             >
-              £9.99 / month
+              ₹299 / month
             </Text>
           </View>
           <View
-            accessibilityLabel="6 months, £39.99, £6.67 per month"
+            accessibilityLabel="6 months, ₹1,499, ₹250 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -20478,7 +20630,7 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                   ]
                 }
               >
-                £39.99
+                ₹1,499
               </Text>
             </View>
             <Text
@@ -20496,11 +20648,11 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                 ]
               }
             >
-              £6.67 / month
+              ₹250 / month
             </Text>
           </View>
           <View
-            accessibilityLabel="12 months, £59.99, £5.00 per month"
+            accessibilityLabel="12 months, ₹2,499, ₹208 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -20584,7 +20736,7 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                   ]
                 }
               >
-                £59.99
+                ₹2,499
               </Text>
             </View>
             <Text
@@ -20602,7 +20754,7 @@ exports[`Phase 9 — paywall and components — dark theme paywall 1`] = `
                 ]
               }
             >
-              £5.00 / month
+              ₹208 / month
             </Text>
           </View>
         </View>
@@ -22828,7 +22980,7 @@ exports[`Phase 9 — paywall and components — light theme PlanCard — highlig
   }
 >
   <View
-    accessibilityLabel="6 months, £39.99, £6.67 per month"
+    accessibilityLabel="6 months, ₹1,499, ₹250 per month"
     accessibilityRole="radio"
     accessibilityState={
       {
@@ -22929,7 +23081,7 @@ exports[`Phase 9 — paywall and components — light theme PlanCard — highlig
           ]
         }
       >
-        £39.99
+        ₹1,499
       </Text>
     </View>
     <Text
@@ -22947,7 +23099,7 @@ exports[`Phase 9 — paywall and components — light theme PlanCard — highlig
         ]
       }
     >
-      £6.67 / month
+      ₹250 / month
     </Text>
   </View>
 </RNCSafeAreaProvider>
@@ -23250,7 +23402,7 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
           }
         >
           <View
-            accessibilityLabel="1 month, £9.99, £9.99 per month"
+            accessibilityLabel="1 month, ₹299, ₹299 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -23334,7 +23486,7 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                   ]
                 }
               >
-                £9.99
+                ₹299
               </Text>
             </View>
             <Text
@@ -23352,11 +23504,11 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                 ]
               }
             >
-              £9.99 / month
+              ₹299 / month
             </Text>
           </View>
           <View
-            accessibilityLabel="6 months, £39.99, £6.67 per month"
+            accessibilityLabel="6 months, ₹1,499, ₹250 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -23457,7 +23609,7 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                   ]
                 }
               >
-                £39.99
+                ₹1,499
               </Text>
             </View>
             <Text
@@ -23475,11 +23627,11 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                 ]
               }
             >
-              £6.67 / month
+              ₹250 / month
             </Text>
           </View>
           <View
-            accessibilityLabel="12 months, £59.99, £5.00 per month"
+            accessibilityLabel="12 months, ₹2,499, ₹208 per month"
             accessibilityRole="radio"
             accessibilityState={
               {
@@ -23563,7 +23715,7 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                   ]
                 }
               >
-                £59.99
+                ₹2,499
               </Text>
             </View>
             <Text
@@ -23581,7 +23733,7 @@ exports[`Phase 9 — paywall and components — light theme paywall 1`] = `
                 ]
               }
             >
-              £5.00 / month
+              ₹208 / month
             </Text>
           </View>
         </View>
@@ -25186,7 +25338,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                     "tint": 4288914853,
                     "tintColor": "#A3A5A5",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -25532,7 +25683,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                                 "onLoadStart": [Function],
                                                 "onProgress": [Function],
                                                 "placeholder": [],
-                                                "sfEffect": null,
                                                 "source": [
                                                   {
                                                     "testUri": "../../../assets/avatars/avatar-15.png",
@@ -25544,8 +25694,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                                   "height": 64,
                                                   "width": 64,
                                                 },
-                                                "symbolSize": null,
-                                                "symbolWeight": null,
                                                 "tintColor": undefined,
                                                 "transition": null,
                                                 "width": 64,
@@ -25686,7 +25834,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-01.png",
@@ -25698,8 +25845,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -25897,7 +26042,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-02.png",
@@ -25909,8 +26053,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -26094,7 +26236,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-03.png",
@@ -26106,8 +26247,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -26315,7 +26454,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-04.png",
@@ -26327,8 +26465,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -26512,7 +26648,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-05.png",
@@ -26524,8 +26659,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -26709,7 +26842,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-06.png",
@@ -26721,8 +26853,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -26906,7 +27036,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-07.png",
@@ -26918,8 +27047,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -27103,7 +27230,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-08.png",
@@ -27115,8 +27241,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/chat — no ad row 1`] =
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -28353,7 +28477,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -28369,8 +28492,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -28527,7 +28648,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -28543,8 +28663,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -28720,7 +28838,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -28736,8 +28853,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -28894,7 +29009,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -28910,8 +29024,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29087,7 +29199,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -29103,8 +29214,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29261,7 +29370,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -29277,8 +29385,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29454,7 +29560,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -29470,8 +29575,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29628,7 +29731,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -29644,8 +29746,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29821,7 +29921,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -29837,8 +29936,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -29995,7 +30092,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -30011,8 +30107,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -30188,7 +30282,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -30204,8 +30297,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -30362,7 +30453,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -30378,8 +30468,6 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/index — no banner 1`] 
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -31362,6 +31450,90 @@ exports[`Phase 9 — premium tier — dark theme (tabs)/profile — badge, no up
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#2A2522",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#F5F2ED",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#A3A5A5",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             style={
@@ -32162,6 +32334,7 @@ exports[`Phase 9 — premium tier — dark theme filters — unlocked 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -32216,6 +32389,7 @@ exports[`Phase 9 — premium tier — dark theme filters — unlocked 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -32420,6 +32594,7 @@ exports[`Phase 9 — premium tier — dark theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -32474,6 +32649,7 @@ exports[`Phase 9 — premium tier — dark theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -32542,6 +32718,7 @@ exports[`Phase 9 — premium tier — dark theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -33196,6 +33373,58 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#FF8560",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -33488,7 +33717,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -33504,8 +33732,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -33610,7 +33836,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -33626,8 +33851,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -33751,7 +33974,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -33767,8 +33989,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -33873,7 +34093,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -33889,8 +34108,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -33996,7 +34213,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -34012,8 +34228,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -34100,7 +34314,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -34116,8 +34329,6 @@ exports[`Phase 9 — premium tier — dark theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -34196,7 +34407,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                     "tint": 4285033323,
                     "tintColor": "#686B6B",
                     "type": "monochrome",
-                    "weight": undefined,
                   },
                   "type": "ViewManagerAdapter_SymbolModule",
                 },
@@ -34542,7 +34752,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                                 "onLoadStart": [Function],
                                                 "onProgress": [Function],
                                                 "placeholder": [],
-                                                "sfEffect": null,
                                                 "source": [
                                                   {
                                                     "testUri": "../../../assets/avatars/avatar-15.png",
@@ -34554,8 +34763,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                                   "height": 64,
                                                   "width": 64,
                                                 },
-                                                "symbolSize": null,
-                                                "symbolWeight": null,
                                                 "tintColor": undefined,
                                                 "transition": null,
                                                 "width": 64,
@@ -34696,7 +34903,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-01.png",
@@ -34708,8 +34914,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -34907,7 +35111,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-02.png",
@@ -34919,8 +35122,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -35104,7 +35305,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-03.png",
@@ -35116,8 +35316,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -35325,7 +35523,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-04.png",
@@ -35337,8 +35534,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -35522,7 +35717,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-05.png",
@@ -35534,8 +35728,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -35719,7 +35911,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-06.png",
@@ -35731,8 +35922,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -35916,7 +36105,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-07.png",
@@ -35928,8 +36116,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -36113,7 +36299,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                 "onLoadStart": [Function],
                                 "onProgress": [Function],
                                 "placeholder": [],
-                                "sfEffect": null,
                                 "source": [
                                   {
                                     "testUri": "../../../assets/avatars/avatar-08.png",
@@ -36125,8 +36310,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/chat — no ad row 1`] 
                                   "height": 44,
                                   "width": 44,
                                 },
-                                "symbolSize": null,
-                                "symbolWeight": null,
                                 "tintColor": undefined,
                                 "transition": null,
                                 "width": 44,
@@ -37363,7 +37546,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -37379,8 +37561,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -37537,7 +37717,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -37553,8 +37732,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -37730,7 +37907,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -37746,8 +37922,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -37904,7 +38078,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -37920,8 +38093,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -38097,7 +38268,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -38113,8 +38283,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -38271,7 +38439,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -38287,8 +38454,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -38464,7 +38629,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -38480,8 +38644,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -38638,7 +38800,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -38654,8 +38815,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -38831,7 +38990,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -38847,8 +39005,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -39005,7 +39161,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -39021,8 +39176,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -39198,7 +39351,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -39214,8 +39366,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -39372,7 +39522,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -39388,8 +39537,6 @@ exports[`Phase 9 — premium tier — light theme (tabs)/index — no banner 1`]
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -40372,6 +40519,90 @@ exports[`Phase 9 — premium tier — light theme (tabs)/profile — badge, no u
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#E6E2DD",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#1A1815",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#686B6B",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             style={
@@ -41172,6 +41403,7 @@ exports[`Phase 9 — premium tier — light theme filters — unlocked 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -41226,6 +41458,7 @@ exports[`Phase 9 — premium tier — light theme filters — unlocked 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -41430,6 +41663,7 @@ exports[`Phase 9 — premium tier — light theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -41484,6 +41718,7 @@ exports[`Phase 9 — premium tier — light theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -41552,6 +41787,7 @@ exports[`Phase 9 — premium tier — light theme filters — unlocked 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -42206,6 +42442,58 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F2724B",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -42498,7 +42786,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -42514,8 +42801,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -42620,7 +42905,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -42636,8 +42920,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -42761,7 +43043,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -42777,8 +43058,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -42883,7 +43162,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -42899,8 +43177,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -43006,7 +43282,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -43022,8 +43297,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />
@@ -43110,7 +43383,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                   onLoadStart={[Function]}
                   onProgress={[Function]}
                   placeholder={[]}
-                  sfEffect={null}
                   source={
                     [
                       {
@@ -43126,8 +43398,6 @@ exports[`Phase 9 — premium tier — light theme likes — revealed 1`] = `
                       "width": 64,
                     }
                   }
-                  symbolSize={null}
-                  symbolWeight={null}
                   transition={null}
                   width={64}
                 />

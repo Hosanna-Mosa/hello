@@ -14,6 +14,7 @@ const mockRecorder = {
   start: jest.fn(async () => "started" as "started" | "denied" | "failed"),
   finish: jest.fn(async () => ({ uri: "file:///clip.m4a", durationSec: 3 }) as { uri: string; durationSec: number } | null),
   cancel: jest.fn(async () => {}),
+  lastError: jest.fn((): string | null => null),
 };
 const mockSendVoice = jest.fn(async () => {});
 
@@ -111,6 +112,15 @@ describe("tap to record, tap to send", () => {
     await tap("toggle", renderer);
 
     expect(latest?.error).toBe(copy.chat.voiceMicDenied);
+  });
+
+  it("a microphone that fails to start says why — never silence (PLAN #241)", async () => {
+    mockRecorder.start.mockResolvedValueOnce("failed");
+    mockRecorder.lastError.mockReturnValueOnce("prepare timed out");
+    const renderer = await render();
+    await tap("toggle", renderer);
+
+    expect(latest?.error).toBe(copy.chat.voiceMicFailedBecause("prepare timed out"));
   });
 
   it("a recording too short to send says so, and sends nothing", async () => {

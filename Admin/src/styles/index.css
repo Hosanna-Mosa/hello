@@ -1,0 +1,55 @@
+/*
+ * The ONE place colours, fonts, radii and shadows are defined. Components use
+ * these tokens through Tailwind utilities (bg-surface, text-muted, font-sans…)
+ * and never a raw hex. Values mirror the mobile app's design system
+ * (app/src/theme/tokens.light.ts) so the panel reads as the same product.
+ */
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-canvas: #faf8f5;
+  --color-surface: #ffffff;
+  --color-sunken: #f1ede9;
+  --color-ink: #1a1815;
+  --color-muted: #686b6b;
+  --color-faint: #9a9c9c;
+  --color-line: #e6e2dd;
+  --color-line-strong: #cfc9c2;
+
+  --color-primary: #f2724b;
+  --color-primary-hover: #d95c37;
+  --color-primary-soft: #fce9e2;
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #2fa89b;
+  --color-secondary-soft: #e3f4f1;
+  --color-chart: #1f8a7f;
+
+  --color-success: #0e8f71;
+  --color-success-soft: #dcf5ee;
+  --color-warning: #b45309;
+  --color-warning-soft: #fef3c7;
+  --color-danger: #dc2626;
+  --color-danger-soft: #fde8e8;
+  --color-info: #2563eb;
+  --color-info-soft: #e0ecff;
+
+  --radius-card: 1rem;
+  --radius-control: 0.625rem;
+  --shadow-card: 0 1px 2px rgb(26 24 21 / 0.04), 0 4px 16px rgb(26 24 21 / 0.04);
+  --shadow-pop: 0 12px 40px rgb(26 24 21 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+}

@@ -26,9 +26,9 @@ import { toGeoJsonPoint } from "@/utils/geo.js";
 import { normalizePhone } from "@/utils/phone.js";
 
 const PLANS = [
-  { _id: "plan-1m", label: "1 month", priceMinor: 999, currency: "GBP", period: "month", highlighted: false, sortOrder: 0 },
-  { _id: "plan-6m", label: "6 months", priceMinor: 3999, currency: "GBP", period: "sixMonths", highlighted: true, sortOrder: 1 },
-  { _id: "plan-12m", label: "12 months", priceMinor: 5999, currency: "GBP", period: "year", highlighted: false, sortOrder: 2 },
+  { _id: "plan-1m", label: "1 month", priceMinor: 29900, currency: "INR", period: "month", highlighted: false, sortOrder: 0 },
+  { _id: "plan-6m", label: "6 months", priceMinor: 149900, currency: "INR", period: "sixMonths", highlighted: true, sortOrder: 1 },
+  { _id: "plan-12m", label: "12 months", priceMinor: 249900, currency: "INR", period: "year", highlighted: false, sortOrder: 2 },
 ] as const;
 
 async function main(): Promise<void> {

@@ -87,7 +87,6 @@ exports[`atoms — dark theme Avatar with source 1`] = `
     onLoadStart={[Function]}
     onProgress={[Function]}
     placeholder={[]}
-    sfEffect={null}
     source={
       [
         {
@@ -103,8 +102,6 @@ exports[`atoms — dark theme Avatar with source 1`] = `
         "width": 44,
       }
     }
-    symbolSize={null}
-    symbolWeight={null}
     transition={null}
     width={44}
   />
@@ -984,7 +981,6 @@ exports[`atoms — dark theme Picture 1`] = `
     onLoadStart={[Function]}
     onProgress={[Function]}
     placeholder={[]}
-    sfEffect={null}
     source={
       [
         {
@@ -993,8 +989,6 @@ exports[`atoms — dark theme Picture 1`] = `
       ]
     }
     style={{}}
-    symbolSize={null}
-    symbolWeight={null}
     transition={null}
   />
 </RNCSafeAreaProvider>
@@ -1510,7 +1504,6 @@ exports[`atoms — light theme Avatar with source 1`] = `
     onLoadStart={[Function]}
     onProgress={[Function]}
     placeholder={[]}
-    sfEffect={null}
     source={
       [
         {
@@ -1526,8 +1519,6 @@ exports[`atoms — light theme Avatar with source 1`] = `
         "width": 44,
       }
     }
-    symbolSize={null}
-    symbolWeight={null}
     transition={null}
     width={44}
   />
@@ -2407,7 +2398,6 @@ exports[`atoms — light theme Picture 1`] = `
     onLoadStart={[Function]}
     onProgress={[Function]}
     placeholder={[]}
-    sfEffect={null}
     source={
       [
         {
@@ -2416,8 +2406,6 @@ exports[`atoms — light theme Picture 1`] = `
       ]
     }
     style={{}}
-    symbolSize={null}
-    symbolWeight={null}
     transition={null}
   />
 </RNCSafeAreaProvider>

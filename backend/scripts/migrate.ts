@@ -11,6 +11,7 @@
  */
 
 import { connectMongo, disconnectMongo } from "@/config/mongo.js";
+import { AdminModel } from "@/models/admin.model.js";
 import { AvatarModel } from "@/models/avatar.model.js";
 import { InterestModel } from "@/models/interest.model.js";
 import { LikeModel } from "@/models/like.model.js";
@@ -22,11 +23,14 @@ import { PassModel } from "@/models/pass.model.js";
 import { PlanModel } from "@/models/plan.model.js";
 import { ThreadModel } from "@/models/thread.model.js";
 import { SessionModel } from "@/models/session.model.js";
+import { SupportMessageModel } from "@/models/supportMessage.model.js";
+import { SupportTicketModel } from "@/models/supportTicket.model.js";
 import { UserModel } from "@/models/user.model.js";
 
 const MODELS = [
-  UserModel, SessionModel, InterestModel, AvatarModel, PlanModel, PassModel,
+  UserModel, SessionModel, AdminModel, InterestModel, AvatarModel, PlanModel, PassModel,
   LikeModel, MessageRequestModel, MatchModel, ThreadModel, MessageModel, CallModel,
+  SupportTicketModel, SupportMessageModel,
 ];
 
 async function main(): Promise<void> {

@@ -2,7 +2,9 @@
 
 ## Read before writing any code
 
-1. **Expo HAS CHANGED.** Read the versioned docs at <https://docs.expo.dev/versions/v57.0.0/>.
+1. **Expo HAS CHANGED.** Read the versioned docs at <https://docs.expo.dev/versions/v54.0.0/>.
+   The app runs **Expo SDK 54** — downgraded from 57 by operator decision on
+   2026-09-30 (PLAN parking #235). Docs or examples for SDK 55+ do not apply.
    Your training data is older than this SDK. Do not write navigation, animation
    or auth code from memory.
 2. **`../PLAN.md`** is the source of truth for scope, phases and locked decisions.
@@ -11,14 +13,18 @@
 
 ## Stack — exact versions, do not bump
 
-Expo `~57.0.24` · expo-router `~57.0.22` · React Native `0.86.3` · React `19.2.3`
-Reanimated `4.5.1` · gesture-handler `~2.32.0` · worklets `0.10.1` · TypeScript `~6.0.3`
+Expo `~54.0.37` · expo-router `~6.0.24` · React Native `0.81.5` · React `19.1.0`
+Reanimated `~4.1.1` · gesture-handler `~2.28.0` · worklets `0.5.1` · TypeScript `~5.9.2`
 NativeWind `5.0.0-rc.0` · react-native-css `3.1.0-rc.0` · Tailwind `4.1.12`
+
+On SDK 54 the `expo-*` packages have their own version numbers (expo-router 6,
+expo-audio 1.1, expo-symbols 1.0 …) — they are NOT `54.x`. Never pick one by
+hand: `npx expo install <pkg>` chooses the SDK 54 version.
 
 - Routes live in **`src/app/`**. Alias `@/*` → `./src/*`.
 - Experiments ON: `typedRoutes`, `reactCompiler`.
 - `npx expo install --check` is the authority on versions. **Do not "fix" the
-  Reanimated 4.5.1 / RN 0.86.3 pairing** — Expo ships it deliberately (PLAN R6).
+  Reanimated / RN pairing** it chooses — Expo ships it deliberately (PLAN R6).
 
 ## Version-critical facts — these contradict what you remember
 
@@ -28,8 +34,9 @@ NativeWind `5.0.0-rc.0` · react-native-css `3.1.0-rc.0` · Tailwind `4.1.12`
 | Auth gating is `<Stack.Protected guard={…}>` | NOT `useEffect` + `useSegments` + `router.replace` |
 | `useAnimatedGestureHandler` is **REMOVED** | Use gesture-handler 2 `Gesture.Pan()` |
 | Worklets live in `react-native-worklets` | Babel plugin is auto-configured by `babel-preset-expo` — **never hand-add one** |
-| `@react-navigation/*` imports fail from app code | Import from `expo-router/react-navigation` |
-| New Architecture is always on (SDK 55+) | Never write `newArchEnabled: false` |
+| `expo-router/react-navigation` does NOT exist on SDK 54 | Import from `@react-navigation/*` if ever needed (nothing in `src/` does today) |
+| New Architecture is on by default (SDK 54) | Never write `newArchEnabled: false` |
+| `expo-symbols` 1.0 is **iOS-only** — no Android Material Symbols | Android icons come from `@expo/vector-icons` MaterialIcons, inside `atoms/Icon`. Call sites still pass `{ ios, android }`; the atom maps `arrow_back` → `arrow-back` |
 | `presentation: 'formSheet'` + `sheetAllowedDetents` is native | **No bottom-sheet library.** Use it for profile + filter sheets |
 | typedRoutes forbids relative hrefs | `href={{ pathname: '/user/[id]', params: { id } }}` |
 | React Compiler is beta | **Never mutate objects/arrays in place** — the #1 breakage. Escape hatch: `"use no memo"` |
@@ -45,8 +52,10 @@ error**. Grep for it.
 Import from **`expo-router/unstable-native-tabs`**.
 
 `expo-router/tabs` and `expo-router/js-tabs` are the same JS implementation —
-neither is native. Native tabs are only at the `unstable-` path in SDK 57
-(renamed to `expo-router/native-tabs` in SDK 58; expect one import rewrite).
+neither is native. On SDK 54 the tab's children are the standalone `Icon` and
+`Label` from the same import (later SDKs moved them to
+`NativeTabs.Trigger.Icon` / `.Label`). Android tab icons are images:
+`androidSrc={<VectorIcon family={MaterialIcons} name="home" />}`.
 
 Four tabs, and only four: **Home · Match · Chat · Profile**.
 Search and Likes are Home *header* entries, never tabs.
@@ -83,8 +92,23 @@ service, which the one-permission rule below does not allow. Native: needs a
 rebuild, and Jest uses `__mocks__/expo-audio.js`.
 dev: `react-test-renderer` · `jest-expo` · `tailwindcss` · `@tailwindcss/postcss` · `postcss` · `lightningcss`
 
-Already present: `expo-symbols` (replaces `@expo/vector-icons`, which is no
-longer bundled), `expo-image`, `@expo/ui`.
+`@expo/vector-icons` — added 2026-09-30 with the SDK 54 downgrade, which the
+operator asked for: `expo-symbols` 1.0 draws nothing on Android, and this is
+Expo's own bundled icon set. Used only by `atoms/Icon` and the tab bar.
+
+Already present: `expo-symbols` (iOS icons), `expo-image`.
+
+`@expo/ui` was REMOVED on 2026-09-30 (PLAN #238): nothing imported it, and on
+SDK 54 every 0.2 release ships a prebuilt Android library that crashes the app
+at launch (`ComposeViewFunctionDefinitionBuilder` missing). Do not re-add it on
+SDK 54.
+
+`expo-asset` — added 2026-09-30: a required native peer of `expo-audio` 1.1
+(expo-doctor flags it; voice messages can crash without it).
+
+All HTTP goes through `src/services/httpFetch.ts` (`expo/fetch`, explicit).
+SDK 54 does not make `expo/fetch` the global `fetch`, and the voice upload
+depends on its behaviour. Never call the global `fetch` in app code.
 
 **Anything beyond this list needs explicit sign-off.** Ads and premium are still
 mocked UI and add **no** dependencies — an ad SDK and a billing provider are
@@ -170,6 +194,9 @@ These are positioning, not preferences. Violating one is a bug.
   - **Mock mode still fakes the pick-up** and must keep doing so: the offline
     demo and all 506 tests run on it, and there is no server to signal through.
 - Distance is **km**, via one centralised formatter.
+- Money is **INR only** (₹), via one centralised formatter: `formatRupees(paise)`
+  in `components/common/utils`. Amounts are integer paise. Never format a price
+  any other way, and never show another currency (operator decision 2026-09-30).
 - Out of scope for v1: groups, events, video calls, undo/rewind, superlike,
   map view, incognito, i18n, real ads, real billing, real backend.
 

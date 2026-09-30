@@ -12,6 +12,7 @@ import { replyFor, type ReplyScript } from "@/mocks/replies";
 import { SEEDED_MESSAGES, SEEDED_THREADS } from "@/mocks/threads";
 
 import { ApiError, nextId, nowIso, request, isMockMode, http, currentUserIdOrMe, upload } from "./client";
+import { httpFetch } from "./httpFetch";
 import { emitVoiceDiag } from "./socket";
 import type { Message, Paginated, Thread } from "./types";
 
@@ -19,7 +20,7 @@ import type { Message, Paginated, Thread } from "./types";
  * The recorder's file as raw bytes — no file-system library needed.
  *
  * BYTES, NOT A BLOB, and this is the whole voice-message bug: the global
- * `fetch` is `expo/fetch` (SDK 57 installs it), which REPLACES a request's
+ * `fetch` is `expo/fetch` (imported explicitly — see httpFetch.ts), which REPLACES a request's
  * Content-Type with the Blob's own `type` — and a Blob read from a `file://`
  * url has an empty type. So `audio/mp4` was silently sent as `""`, the
  * server's raw parser skipped the body, and every upload was refused as "The
@@ -31,7 +32,7 @@ import type { Message, Paginated, Thread } from "./types";
 async function readRecording(uri: string): Promise<Uint8Array<ArrayBuffer>> {
   const url = uri.startsWith("/") ? `file://${uri}` : uri;
   for (let attempt = 0; attempt < 4; attempt += 1) {
-    const bytes = new Uint8Array(await (await fetch(url)).arrayBuffer());
+    const bytes = new Uint8Array(await (await httpFetch(url)).arrayBuffer());
     if (bytes.byteLength > 0) return bytes;
     await new Promise((resolve) => setTimeout(resolve, 250));
   }

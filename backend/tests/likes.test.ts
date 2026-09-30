@@ -339,3 +339,81 @@ describe("quota atomicity under concurrency", () => {
     expect(await LikeModel.countDocuments({ fromUserId: me.id })).toBe(env.FREE_DAILY_LIKES);
   });
 });
+
+describe("connection status (the profile's main button)", () => {
+  const status = async (auth: string, userId: string) =>
+    (await request(app).get(`/v1/connections/${userId}`).set("authorization", auth)).body as {
+      status: string;
+      threadId: string | null;
+      requestId: string | null;
+    };
+
+  it("walks none → requested → matched as the two people act", async () => {
+    const a = await makeUser("Ada");
+    const b = await makeUser("Ben");
+
+    expect((await status(a.auth, b.id)).status).toBe("none");
+
+    await request(app).post("/v1/likes").set("authorization", a.auth).send({ toUserId: b.id, note: "Coffee?" });
+    expect((await status(a.auth, b.id)).status).toBe("requested");
+
+    const incoming = await status(b.auth, a.id);
+    expect(incoming.status).toBe("incoming");
+    expect(incoming.requestId).toBeTruthy();
+
+    await request(app).post(`/v1/requests/${incoming.requestId as string}/accept`).set("authorization", b.auth);
+    const matched = await status(a.auth, b.id);
+    expect(matched.status).toBe("matched");
+    expect(matched.threadId).toBeTruthy();
+  });
+
+  it("a declined request still reads 'requested' to the sender (A18)", async () => {
+    const a = await makeUser("Ada");
+    const b = await makeUser("Ben");
+    await request(app).post("/v1/likes").set("authorization", a.auth).send({ toUserId: b.id, note: "Hi" });
+    const { requestId } = await status(b.auth, a.id);
+    await request(app).post(`/v1/requests/${requestId as string}/decline`).set("authorization", b.auth);
+
+    expect((await status(a.auth, b.id)).status).toBe("requested");
+    expect((await status(b.auth, a.id)).status).toBe("none");
+  });
+
+  it("does not reveal a silent like — who likes you is premium", async () => {
+    const a = await makeUser("Ada");
+    const b = await makeUser("Ben");
+    await request(app).post("/v1/likes").set("authorization", a.auth).send({ toUserId: b.id });
+    expect((await status(b.auth, a.id)).status).toBe("none");
+  });
+
+  it("answers a bad id or yourself with 404", async () => {
+    const a = await makeUser("Ada");
+    expect((await request(app).get("/v1/connections/nope").set("authorization", a.auth)).status).toBe(404);
+    expect((await request(app).get(`/v1/connections/${a.id}`).set("authorization", a.auth)).status).toBe(404);
+  });
+});
+
+describe("likes you sent (the 'You liked' screen)", () => {
+  const outbound = async (auth: string) =>
+    (await request(app).get("/v1/likes/outbound").set("authorization", auth)).body as {
+      toUserId: string;
+      note?: string;
+    }[];
+
+  it("lists only the viewer's own likes, newest first, notes included", async () => {
+    const a = await makeUser("Ada");
+    const b = await makeUser("Ben");
+    const c = await makeUser("Cy");
+    await request(app).post("/v1/likes").set("authorization", a.auth).send({ toUserId: b.id });
+    await request(app).post("/v1/likes").set("authorization", a.auth).send({ toUserId: c.id, note: "Chess?" });
+    await request(app).post("/v1/likes").set("authorization", b.auth).send({ toUserId: a.id });
+
+    const mine = await outbound(a.auth);
+    expect(mine.map((l) => l.toUserId)).toEqual([c.id, b.id]);
+    expect(mine[0]?.note).toBe("Chess?");
+    expect((await outbound(b.auth)).map((l) => l.toUserId)).toEqual([a.id]);
+  });
+
+  it("needs a session", async () => {
+    expect((await request(app).get("/v1/likes/outbound")).status).toBe(401);
+  });
+});

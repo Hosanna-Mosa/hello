@@ -44,6 +44,16 @@ export const useSessionStore = create<SessionState>((set) => ({
       return;
     }
     const user = await meService.getMe();
+    /*
+     * A RESTORED session needs its live connection too — after `getMe()`, so
+     * the token has been validated (and refreshed if it had expired) first.
+     *
+     * Only sign-in used to open the socket, so every cold start with a saved
+     * session looked signed in but was deaf: no live messages, no ringing for
+     * an incoming call, no live support replies, until the person signed out
+     * and back in (PLAN #237). No-op in mock mode.
+     */
+    connectSocket();
     set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
   },
 

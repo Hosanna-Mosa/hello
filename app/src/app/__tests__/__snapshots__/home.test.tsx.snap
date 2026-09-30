@@ -669,7 +669,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                         onLoadStart={[Function]}
                         onProgress={[Function]}
                         placeholder={[]}
-                        sfEffect={null}
                         source={
                           [
                             {
@@ -685,8 +684,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                             "width": 64,
                           }
                         }
-                        symbolSize={null}
-                        symbolWeight={null}
                         transition={null}
                         width={64}
                       />
@@ -783,7 +780,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -799,8 +795,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -968,7 +962,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -984,8 +977,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -1141,7 +1132,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -1157,8 +1147,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -1459,7 +1447,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -1475,8 +1462,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -1632,7 +1617,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -1648,8 +1632,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -1805,7 +1787,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -1821,8 +1802,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -1978,7 +1957,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -1994,8 +1972,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -2151,7 +2127,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -2167,8 +2142,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -3207,7 +3180,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3223,8 +3195,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3381,7 +3351,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3397,8 +3366,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3574,7 +3541,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3590,8 +3556,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3748,7 +3712,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3764,8 +3727,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -3941,7 +3902,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -3957,8 +3917,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4115,7 +4073,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4131,8 +4088,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4308,7 +4263,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4324,8 +4278,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4482,7 +4434,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4498,8 +4449,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4675,7 +4624,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4691,8 +4639,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -4849,7 +4795,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -4865,8 +4810,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5042,7 +4985,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -5058,8 +5000,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5216,7 +5156,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -5232,8 +5171,6 @@ exports[`Phase 5 — Home — dark theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -5436,6 +5373,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -5483,6 +5421,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -5532,6 +5471,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -5580,6 +5520,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -5620,6 +5561,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -5660,6 +5602,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -5701,6 +5644,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -5741,6 +5685,7 @@ exports[`Phase 5 — Home — dark theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -6610,6 +6555,90 @@ exports[`Phase 5 — Home — dark theme (tabs)/profile placeholder 1`] = `
                 }
               >
                 Likes
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#2A2522",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#F5F2ED",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#A3A5A5",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
               </Text>
             </View>
           </View>
@@ -7532,6 +7561,7 @@ exports[`Phase 5 — Home — dark theme filters 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -7586,6 +7616,7 @@ exports[`Phase 5 — Home — dark theme filters 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -7790,6 +7821,7 @@ exports[`Phase 5 — Home — dark theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -7844,6 +7876,7 @@ exports[`Phase 5 — Home — dark theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -7912,6 +7945,7 @@ exports[`Phase 5 — Home — dark theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -14106,6 +14140,58 @@ exports[`Phase 5 — Home — dark theme likes 1`] = `
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#FF8560",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -15255,7 +15341,6 @@ exports[`Phase 5 — Home — dark theme nearby — empty (design illustration +
       onLoadStart={[Function]}
       onProgress={[Function]}
       placeholder={[]}
-      sfEffect={null}
       source={
         [
           {
@@ -15269,8 +15354,6 @@ exports[`Phase 5 — Home — dark theme nearby — empty (design illustration +
           "width": "100%",
         }
       }
-      symbolSize={null}
-      symbolWeight={null}
       transition={null}
       width="100%"
     />
@@ -16018,6 +16101,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -16066,6 +16150,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16106,6 +16191,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16154,6 +16240,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16194,6 +16281,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16249,6 +16337,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -16297,6 +16386,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16337,6 +16427,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16385,6 +16476,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16425,6 +16517,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16480,6 +16573,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -16528,6 +16622,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16568,6 +16663,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16616,6 +16712,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16656,6 +16753,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16711,6 +16809,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -16759,6 +16858,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16799,6 +16899,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -16847,6 +16948,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16887,6 +16989,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -16942,6 +17045,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -16990,6 +17094,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -17030,6 +17135,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -17078,6 +17184,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -17118,6 +17225,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -17173,6 +17281,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -17221,6 +17330,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -17261,6 +17371,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -17309,6 +17420,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -17349,6 +17461,7 @@ exports[`Phase 5 — Home — dark theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -18242,7 +18355,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18258,8 +18370,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -18396,7 +18506,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18412,8 +18521,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -18602,7 +18709,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18618,8 +18724,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -18756,7 +18860,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18772,8 +18875,6 @@ exports[`Phase 5 — Home — dark theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -19129,6 +19230,7 @@ exports[`Phase 5 — Home — dark theme user/[id] 1`] = `
     style={
       {
         "backgroundColor": "#262220",
+        "flex": 1,
       }
     }
   >
@@ -19153,8 +19255,8 @@ exports[`Phase 5 — Home — dark theme user/[id] 1`] = `
         }
       />
     </View>
-    <View
-      style={
+    <RCTScrollView
+      contentContainerStyle={
         {
           "gap": 16,
           "paddingBottom": 24,
@@ -19162,425 +19264,61 @@ exports[`Phase 5 — Home — dark theme user/[id] 1`] = `
         }
       }
     >
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "gap": 12,
-          }
-        }
-      >
-        <ViewManagerAdapter_ExpoImage
-          accessibilityLabel="Maya's avatar"
-          backgroundColor={4279242252}
-          borderRadius={999}
-          cachePolicy="memory-disk"
-          containerViewRef={"[React.ref]"}
-          contentFit="cover"
-          contentPosition={
-            {
-              "left": "50%",
-              "top": "50%",
-            }
-          }
-          height={120}
-          nativeViewRef={"[React.ref]"}
-          onError={[Function]}
-          onLoad={[Function]}
-          onLoadStart={[Function]}
-          onProgress={[Function]}
-          placeholder={[]}
-          sfEffect={null}
-          source={
-            [
-              {
-                "testUri": "../../../assets/avatars/avatar-01.png",
-              },
-            ]
-          }
-          style={
-            {
-              "backgroundColor": "#100E0C",
-              "borderRadius": 999,
-              "height": 120,
-              "width": 120,
-            }
-          }
-          symbolSize={null}
-          symbolWeight={null}
-          transition={null}
-          width={120}
-        />
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Bold",
-                "fontSize": 24,
-                "letterSpacing": -0.3,
-                "lineHeight": 32,
-              },
-              {
-                "color": "#F5F2ED",
-              },
-              undefined,
-            ]
-          }
-        >
-          Maya, 39
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 12,
-                "lineHeight": 16,
-              },
-              {
-                "color": "#A3A5A5",
-              },
-              undefined,
-            ]
-          }
-        >
-          23 km away
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
+      <View>
         <View
-          accessibilityRole="header"
           style={
             {
               "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "paddingVertical": 8,
+              "gap": 12,
             }
           }
         >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#A3A5A5",
-                },
-                {
-                  "letterSpacing": 0.6,
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            About me
-          </Text>
-        </View>
-        <Text
-          style={
-            [
+          <ViewManagerAdapter_ExpoImage
+            accessibilityLabel="Maya's avatar"
+            backgroundColor={4279242252}
+            borderRadius={999}
+            cachePolicy="memory-disk"
+            containerViewRef={"[React.ref]"}
+            contentFit="cover"
+            contentPosition={
               {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 15,
-                "lineHeight": 22,
-              },
-              {
-                "color": "#A3A5A5",
-              },
-              undefined,
-            ]
-          }
-        >
-          Weekend hiker, terrible cook. Always up for a quiz night.
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
-        <View
-          accessibilityRole="header"
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#A3A5A5",
-                },
-                {
-                  "letterSpacing": 0.6,
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            Interests
-          </Text>
-        </View>
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 15,
-                "lineHeight": 22,
-              },
-              {
-                "color": "#A3A5A5",
-              },
-              undefined,
-            ]
-          }
-        >
-          Running · Indie · Live gigs · Long walks · Hiking · Karaoke
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "paddingTop": 16,
-          }
-        }
-      >
-        <View
-          accessibilityLabel="Report Maya"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": undefined,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          hitSlop={12}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "gap": 4,
-            }
-          }
-        >
-          <ViewManagerAdapter_SymbolModule
-            accessibilityElementsHidden={true}
-            animated={false}
-            colors={[]}
-            importantForAccessibility="no"
-            name="flag"
-            size={16}
-            style={
-              {
-                "height": 16,
-                "width": 16,
+                "left": "50%",
+                "top": "50%",
               }
             }
-            tint={4285822839}
-            tintColor="#747777"
-            type="monochrome"
+            height={120}
+            nativeViewRef={"[React.ref]"}
+            onError={[Function]}
+            onLoad={[Function]}
+            onLoadStart={[Function]}
+            onProgress={[Function]}
+            placeholder={[]}
+            source={
+              [
+                {
+                  "testUri": "../../../assets/avatars/avatar-01.png",
+                },
+              ]
+            }
+            style={
+              {
+                "backgroundColor": "#100E0C",
+                "borderRadius": 999,
+                "height": 120,
+                "width": 120,
+              }
+            }
+            transition={null}
+            width={120}
           />
           <Text
             style={
               [
                 {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#A3A5A5",
-                },
-                undefined,
-              ]
-            }
-          >
-            Report Maya
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        {
-          "gap": 8,
-          "padding": 24,
-        }
-      }
-    >
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
-        <View
-          accessibilityLabel="Message"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": false,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "backgroundColor": "#FF8560",
-              "borderColor": "#FF8560",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "minHeight": 48,
-              "opacity": 1,
-              "paddingHorizontal": 24,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#1A1815",
-                },
-                undefined,
-              ]
-            }
-          >
-            Message
-          </Text>
-        </View>
-        <View
-          accessibilityLabel="Done"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": false,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "backgroundColor": "#1E1B18",
-              "borderColor": "#4A433D",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "minHeight": 48,
-              "opacity": 1,
-              "paddingHorizontal": 24,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
+                  "fontFamily": "Inter-Bold",
+                  "fontSize": 24,
+                  "letterSpacing": -0.3,
+                  "lineHeight": 32,
                 },
                 {
                   "color": "#F5F2ED",
@@ -19589,11 +19327,301 @@ exports[`Phase 5 — Home — dark theme user/[id] 1`] = `
               ]
             }
           >
-            Done
+            Maya, 39
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#A3A5A5",
+                },
+                undefined,
+              ]
+            }
+          >
+            23 km away
           </Text>
         </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <View
+            accessibilityRole="header"
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#A3A5A5",
+                  },
+                  {
+                    "letterSpacing": 0.6,
+                    "textTransform": "uppercase",
+                  },
+                ]
+              }
+            >
+              About me
+            </Text>
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#A3A5A5",
+                },
+                undefined,
+              ]
+            }
+          >
+            Weekend hiker, terrible cook. Always up for a quiz night.
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <View
+            accessibilityRole="header"
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#A3A5A5",
+                  },
+                  {
+                    "letterSpacing": 0.6,
+                    "textTransform": "uppercase",
+                  },
+                ]
+              }
+            >
+              Interests
+            </Text>
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#A3A5A5",
+                },
+                undefined,
+              ]
+            }
+          >
+            Running · Indie · Live gigs · Long walks · Hiking · Karaoke
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "paddingTop": 16,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Report Maya"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            hitSlop={12}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "gap": 4,
+              }
+            }
+          >
+            <ViewManagerAdapter_SymbolModule
+              accessibilityElementsHidden={true}
+              animated={false}
+              colors={[]}
+              importantForAccessibility="no"
+              name="flag"
+              size={16}
+              style={
+                {
+                  "height": 16,
+                  "width": 16,
+                }
+              }
+              tint={4285822839}
+              tintColor="#747777"
+              type="monochrome"
+            />
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#A3A5A5",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Report Maya
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+              "paddingTop": 8,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Message"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": false,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#FF8560",
+                "borderColor": "#FF8560",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "minHeight": 48,
+                "opacity": 1,
+                "paddingHorizontal": 24,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Medium",
+                    "fontSize": 13,
+                    "lineHeight": 18,
+                  },
+                  {
+                    "color": "#1A1815",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Message
+            </Text>
+          </View>
+        </View>
       </View>
-    </View>
+    </RCTScrollView>
   </View>
 </RNCSafeAreaProvider>
 `;
@@ -20267,7 +20295,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                         onLoadStart={[Function]}
                         onProgress={[Function]}
                         placeholder={[]}
-                        sfEffect={null}
                         source={
                           [
                             {
@@ -20283,8 +20310,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                             "width": 64,
                           }
                         }
-                        symbolSize={null}
-                        symbolWeight={null}
                         transition={null}
                         width={64}
                       />
@@ -20381,7 +20406,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20397,8 +20421,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -20566,7 +20588,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20582,8 +20603,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -20739,7 +20758,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20755,8 +20773,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -21057,7 +21073,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -21073,8 +21088,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -21230,7 +21243,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -21246,8 +21258,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -21403,7 +21413,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -21419,8 +21428,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -21576,7 +21583,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -21592,8 +21598,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -21749,7 +21753,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -21765,8 +21768,6 @@ exports[`Phase 5 — Home — light theme (tabs)/chat placeholder 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -22805,7 +22806,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -22821,8 +22821,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -22979,7 +22977,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -22995,8 +22992,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -23172,7 +23167,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -23188,8 +23182,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -23346,7 +23338,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -23362,8 +23353,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -23539,7 +23528,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -23555,8 +23543,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -23713,7 +23699,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -23729,8 +23714,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -23906,7 +23889,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -23922,8 +23904,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -24080,7 +24060,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -24096,8 +24075,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -24273,7 +24250,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -24289,8 +24265,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -24447,7 +24421,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -24463,8 +24436,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -24640,7 +24611,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -24656,8 +24626,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -24814,7 +24782,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                     onLoadStart={[Function]}
                     onProgress={[Function]}
                     placeholder={[]}
-                    sfEffect={null}
                     source={
                       [
                         {
@@ -24830,8 +24797,6 @@ exports[`Phase 5 — Home — light theme (tabs)/index — nearby grid 1`] = `
                         "width": 64,
                       }
                     }
-                    symbolSize={null}
-                    symbolWeight={null}
                     transition={null}
                     width={64}
                   />
@@ -25034,6 +24999,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -25081,6 +25047,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -25130,6 +25097,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -25178,6 +25146,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -25218,6 +25187,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -25258,6 +25228,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -25299,6 +25270,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -25339,6 +25311,7 @@ exports[`Phase 5 — Home — light theme (tabs)/match placeholder 1`] = `
                   },
                 ]
               }
+              nativeID="<reanimated>"
               style={
                 [
                   {
@@ -26208,6 +26181,90 @@ exports[`Phase 5 — Home — light theme (tabs)/profile placeholder 1`] = `
                 }
               >
                 Likes
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#E6E2DD",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#1A1815",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#686B6B",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
               </Text>
             </View>
           </View>
@@ -27130,6 +27187,7 @@ exports[`Phase 5 — Home — light theme filters 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -27184,6 +27242,7 @@ exports[`Phase 5 — Home — light theme filters 1`] = `
                         },
                       ]
                     }
+                    nativeID="<reanimated>"
                     style={
                       [
                         {
@@ -27388,6 +27447,7 @@ exports[`Phase 5 — Home — light theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -27442,6 +27502,7 @@ exports[`Phase 5 — Home — light theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -27510,6 +27571,7 @@ exports[`Phase 5 — Home — light theme filters 1`] = `
                       },
                     ]
                   }
+                  nativeID="<reanimated>"
                   style={
                     [
                       {
@@ -33704,6 +33766,58 @@ exports[`Phase 5 — Home — light theme likes 1`] = `
       >
         Likes you
       </Text>
+      <View
+        accessibilityLabel="People you liked"
+        accessibilityRole="button"
+        accessibilityState={
+          {
+            "busy": undefined,
+            "checked": undefined,
+            "disabled": undefined,
+            "expanded": undefined,
+            "selected": undefined,
+          }
+        }
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        hitSlop={12}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+      >
+        <Text
+          style={
+            [
+              {
+                "fontFamily": "Inter-Medium",
+                "fontSize": 13,
+                "lineHeight": 18,
+              },
+              {
+                "color": "#F2724B",
+              },
+              undefined,
+            ]
+          }
+        >
+          You liked
+        </Text>
+      </View>
     </View>
     <View
       style={
@@ -34853,7 +34967,6 @@ exports[`Phase 5 — Home — light theme nearby — empty (design illustration 
       onLoadStart={[Function]}
       onProgress={[Function]}
       placeholder={[]}
-      sfEffect={null}
       source={
         [
           {
@@ -34867,8 +34980,6 @@ exports[`Phase 5 — Home — light theme nearby — empty (design illustration 
           "width": "100%",
         }
       }
-      symbolSize={null}
-      symbolWeight={null}
       transition={null}
       width="100%"
     />
@@ -35616,6 +35727,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -35664,6 +35776,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -35704,6 +35817,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -35752,6 +35866,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -35792,6 +35907,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -35847,6 +35963,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -35895,6 +36012,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -35935,6 +36053,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -35983,6 +36102,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36023,6 +36143,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36078,6 +36199,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -36126,6 +36248,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36166,6 +36289,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36214,6 +36338,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36254,6 +36379,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36309,6 +36435,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -36357,6 +36484,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36397,6 +36525,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36445,6 +36574,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36485,6 +36615,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36540,6 +36671,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -36588,6 +36720,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36628,6 +36761,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36676,6 +36810,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36716,6 +36851,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36771,6 +36907,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
             },
           ]
         }
+        nativeID="<reanimated>"
         style={
           [
             {
@@ -36819,6 +36956,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36859,6 +36997,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -36907,6 +37046,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -36947,6 +37087,7 @@ exports[`Phase 5 — Home — light theme nearby — loading skeletons 1`] = `
                 },
               ]
             }
+            nativeID="<reanimated>"
             style={
               [
                 {
@@ -37840,7 +37981,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -37856,8 +37996,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -37994,7 +38132,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -38010,8 +38147,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -38200,7 +38335,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -38216,8 +38350,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -38354,7 +38486,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -38370,8 +38501,6 @@ exports[`Phase 5 — Home — light theme notifications 1`] = `
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -38727,6 +38856,7 @@ exports[`Phase 5 — Home — light theme user/[id] 1`] = `
     style={
       {
         "backgroundColor": "#FFFFFF",
+        "flex": 1,
       }
     }
   >
@@ -38751,8 +38881,8 @@ exports[`Phase 5 — Home — light theme user/[id] 1`] = `
         }
       />
     </View>
-    <View
-      style={
+    <RCTScrollView
+      contentContainerStyle={
         {
           "gap": 16,
           "paddingBottom": 24,
@@ -38760,425 +38890,61 @@ exports[`Phase 5 — Home — light theme user/[id] 1`] = `
         }
       }
     >
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "gap": 12,
-          }
-        }
-      >
-        <ViewManagerAdapter_ExpoImage
-          accessibilityLabel="Maya's avatar"
-          backgroundColor={4294045162}
-          borderRadius={999}
-          cachePolicy="memory-disk"
-          containerViewRef={"[React.ref]"}
-          contentFit="cover"
-          contentPosition={
-            {
-              "left": "50%",
-              "top": "50%",
-            }
-          }
-          height={120}
-          nativeViewRef={"[React.ref]"}
-          onError={[Function]}
-          onLoad={[Function]}
-          onLoadStart={[Function]}
-          onProgress={[Function]}
-          placeholder={[]}
-          sfEffect={null}
-          source={
-            [
-              {
-                "testUri": "../../../assets/avatars/avatar-01.png",
-              },
-            ]
-          }
-          style={
-            {
-              "backgroundColor": "#F1EDEA",
-              "borderRadius": 999,
-              "height": 120,
-              "width": 120,
-            }
-          }
-          symbolSize={null}
-          symbolWeight={null}
-          transition={null}
-          width={120}
-        />
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Bold",
-                "fontSize": 24,
-                "letterSpacing": -0.3,
-                "lineHeight": 32,
-              },
-              {
-                "color": "#1A1815",
-              },
-              undefined,
-            ]
-          }
-        >
-          Maya, 39
-        </Text>
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 12,
-                "lineHeight": 16,
-              },
-              {
-                "color": "#686B6B",
-              },
-              undefined,
-            ]
-          }
-        >
-          23 km away
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
+      <View>
         <View
-          accessibilityRole="header"
           style={
             {
               "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "paddingVertical": 8,
+              "gap": 12,
             }
           }
         >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#686B6B",
-                },
-                {
-                  "letterSpacing": 0.6,
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            About me
-          </Text>
-        </View>
-        <Text
-          style={
-            [
+          <ViewManagerAdapter_ExpoImage
+            accessibilityLabel="Maya's avatar"
+            backgroundColor={4294045162}
+            borderRadius={999}
+            cachePolicy="memory-disk"
+            containerViewRef={"[React.ref]"}
+            contentFit="cover"
+            contentPosition={
               {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 15,
-                "lineHeight": 22,
-              },
-              {
-                "color": "#686B6B",
-              },
-              undefined,
-            ]
-          }
-        >
-          Weekend hiker, terrible cook. Always up for a quiz night.
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
-        <View
-          accessibilityRole="header"
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "justifyContent": "space-between",
-              "paddingVertical": 8,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#686B6B",
-                },
-                {
-                  "letterSpacing": 0.6,
-                  "textTransform": "uppercase",
-                },
-              ]
-            }
-          >
-            Interests
-          </Text>
-        </View>
-        <Text
-          style={
-            [
-              {
-                "fontFamily": "Inter-Regular",
-                "fontSize": 15,
-                "lineHeight": 22,
-              },
-              {
-                "color": "#686B6B",
-              },
-              undefined,
-            ]
-          }
-        >
-          Running · Indie · Live gigs · Long walks · Hiking · Karaoke
-        </Text>
-      </View>
-      <View
-        style={
-          {
-            "alignItems": "center",
-            "paddingTop": 16,
-          }
-        }
-      >
-        <View
-          accessibilityLabel="Report Maya"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": undefined,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          hitSlop={12}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "flexDirection": "row",
-              "gap": 4,
-            }
-          }
-        >
-          <ViewManagerAdapter_SymbolModule
-            accessibilityElementsHidden={true}
-            animated={false}
-            colors={[]}
-            importantForAccessibility="no"
-            name="flag"
-            size={16}
-            style={
-              {
-                "height": 16,
-                "width": 16,
+                "left": "50%",
+                "top": "50%",
               }
             }
-            tint={4288322716}
-            tintColor="#9A9C9C"
-            type="monochrome"
+            height={120}
+            nativeViewRef={"[React.ref]"}
+            onError={[Function]}
+            onLoad={[Function]}
+            onLoadStart={[Function]}
+            onProgress={[Function]}
+            placeholder={[]}
+            source={
+              [
+                {
+                  "testUri": "../../../assets/avatars/avatar-01.png",
+                },
+              ]
+            }
+            style={
+              {
+                "backgroundColor": "#F1EDEA",
+                "borderRadius": 999,
+                "height": 120,
+                "width": 120,
+              }
+            }
+            transition={null}
+            width={120}
           />
           <Text
             style={
               [
                 {
-                  "fontFamily": "Inter-Regular",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-                {
-                  "color": "#686B6B",
-                },
-                undefined,
-              ]
-            }
-          >
-            Report Maya
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        {
-          "gap": 8,
-          "padding": 24,
-        }
-      }
-    >
-      <View
-        style={
-          {
-            "gap": 8,
-          }
-        }
-      >
-        <View
-          accessibilityLabel="Message"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": false,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "backgroundColor": "#F2724B",
-              "borderColor": "#F2724B",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "minHeight": 48,
-              "opacity": 1,
-              "paddingHorizontal": 24,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
-                },
-                {
-                  "color": "#FFFFFF",
-                },
-                undefined,
-              ]
-            }
-          >
-            Message
-          </Text>
-        </View>
-        <View
-          accessibilityLabel="Done"
-          accessibilityRole="button"
-          accessibilityState={
-            {
-              "busy": false,
-              "checked": undefined,
-              "disabled": false,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "alignSelf": "stretch",
-              "backgroundColor": "#FFFFFF",
-              "borderColor": "#CFC9C2",
-              "borderRadius": 12,
-              "borderWidth": 1,
-              "justifyContent": "center",
-              "minHeight": 48,
-              "opacity": 1,
-              "paddingHorizontal": 24,
-            }
-          }
-        >
-          <Text
-            style={
-              [
-                {
-                  "fontFamily": "Inter-Medium",
-                  "fontSize": 13,
-                  "lineHeight": 18,
+                  "fontFamily": "Inter-Bold",
+                  "fontSize": 24,
+                  "letterSpacing": -0.3,
+                  "lineHeight": 32,
                 },
                 {
                   "color": "#1A1815",
@@ -39187,11 +38953,301 @@ exports[`Phase 5 — Home — light theme user/[id] 1`] = `
               ]
             }
           >
-            Done
+            Maya, 39
+          </Text>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+                {
+                  "color": "#686B6B",
+                },
+                undefined,
+              ]
+            }
+          >
+            23 km away
           </Text>
         </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <View
+            accessibilityRole="header"
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#686B6B",
+                  },
+                  {
+                    "letterSpacing": 0.6,
+                    "textTransform": "uppercase",
+                  },
+                ]
+              }
+            >
+              About me
+            </Text>
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#686B6B",
+                },
+                undefined,
+              ]
+            }
+          >
+            Weekend hiker, terrible cook. Always up for a quiz night.
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+            }
+          }
+        >
+          <View
+            accessibilityRole="header"
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#686B6B",
+                  },
+                  {
+                    "letterSpacing": 0.6,
+                    "textTransform": "uppercase",
+                  },
+                ]
+              }
+            >
+              Interests
+            </Text>
+          </View>
+          <Text
+            style={
+              [
+                {
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 15,
+                  "lineHeight": 22,
+                },
+                {
+                  "color": "#686B6B",
+                },
+                undefined,
+              ]
+            }
+          >
+            Running · Indie · Live gigs · Long walks · Hiking · Karaoke
+          </Text>
+        </View>
+        <View
+          style={
+            {
+              "alignItems": "center",
+              "paddingTop": 16,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Report Maya"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            hitSlop={12}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "gap": 4,
+              }
+            }
+          >
+            <ViewManagerAdapter_SymbolModule
+              accessibilityElementsHidden={true}
+              animated={false}
+              colors={[]}
+              importantForAccessibility="no"
+              name="flag"
+              size={16}
+              style={
+                {
+                  "height": 16,
+                  "width": 16,
+                }
+              }
+              tint={4288322716}
+              tintColor="#9A9C9C"
+              type="monochrome"
+            />
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Regular",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                  {
+                    "color": "#686B6B",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Report Maya
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            {
+              "gap": 8,
+              "paddingTop": 8,
+            }
+          }
+        >
+          <View
+            accessibilityLabel="Message"
+            accessibilityRole="button"
+            accessibilityState={
+              {
+                "busy": false,
+                "checked": undefined,
+                "disabled": false,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "alignItems": "center",
+                "alignSelf": "stretch",
+                "backgroundColor": "#F2724B",
+                "borderColor": "#F2724B",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "justifyContent": "center",
+                "minHeight": 48,
+                "opacity": 1,
+                "paddingHorizontal": 24,
+              }
+            }
+          >
+            <Text
+              style={
+                [
+                  {
+                    "fontFamily": "Inter-Medium",
+                    "fontSize": 13,
+                    "lineHeight": 18,
+                  },
+                  {
+                    "color": "#FFFFFF",
+                  },
+                  undefined,
+                ]
+              }
+            >
+              Message
+            </Text>
+          </View>
+        </View>
       </View>
-    </View>
+    </RCTScrollView>
   </View>
 </RNCSafeAreaProvider>
 `;

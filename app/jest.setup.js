@@ -43,3 +43,14 @@ class FrozenDate extends RealDate {
 }
 
 global.Date = FrozenDate;
+
+/**
+ * `expo/fetch` cannot load under Jest — it subclasses a native class that only
+ * exists on a device. The app reaches it through `src/services/httpFetch.ts`,
+ * so map that module onto whatever `global.fetch` is AT CALL TIME: the suites
+ * fake the server by assigning `global.fetch`, and this keeps every one of
+ * them working unchanged.
+ */
+jest.mock("@/services/httpFetch", () => ({
+  httpFetch: (...args) => global.fetch(...args),
+}));

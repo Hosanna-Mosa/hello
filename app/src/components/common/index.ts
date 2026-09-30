@@ -47,6 +47,8 @@ export { Stamp, type StampKind, type StampProps } from "./atoms/Stamp";
 export { BenefitList } from "./molecules/BenefitList";
 export { Button, type ButtonProps, type ButtonVariant } from "./molecules/Button";
 export { Card, type CardProps } from "./molecules/Card";
+export { ChatBubble, type ChatBubbleProps } from "./molecules/ChatBubble";
+export { DaySeparator, type DaySeparatorProps } from "./molecules/DaySeparator";
 export { DistanceLabel, type DistanceLabelProps } from "./molecules/DistanceLabel";
 export { EmptyState, type EmptyStateProps } from "./molecules/EmptyState";
 export { ErrorState, type ErrorStateProps } from "./molecules/ErrorState";
@@ -58,12 +60,15 @@ export { SectionHeader, type SectionHeaderProps } from "./molecules/SectionHeade
 export { SelectableRow, type SelectableRowProps } from "./molecules/SelectableRow";
 export { SettingsRow, type SettingsRowProps } from "./molecules/SettingsRow";
 export { Skeleton, type SkeletonProps } from "./molecules/Skeleton";
+export { SupportStatusPill, type SupportStatusPillProps } from "./molecules/SupportStatusPill";
+export { SystemMessage, type SystemMessageProps } from "./molecules/SystemMessage";
 export { ThreadSkeleton, type ThreadSkeletonProps } from "./molecules/ThreadSkeleton";
 export { ToggleRow, type ToggleRowProps } from "./molecules/ToggleRow";
 export { WizardProgress, type WizardProgressProps } from "./molecules/WizardProgress";
 
 // --- organisms ---
 export { AvatarPicker, type AvatarOption, type AvatarPickerProps } from "./organisms/AvatarPicker";
+export { ChatComposer, type ChatComposerProps, type ComposerVoice } from "./organisms/ChatComposer";
 export { ConfirmDialog, type ConfirmDialogProps } from "./organisms/ConfirmDialog";
 // IncomingCallOverlay / IncomingCallPanel are deliberately NOT re-exported
 // here. The overlay reaches for `expo-router`, and this barrel is imported by
@@ -118,6 +123,7 @@ export {
   isNewDay,
 } from "./utils/formatMessageTime";
 export { formatRelativeTime } from "./utils/formatRelativeTime";
+export { formatRupees } from "./utils/formatRupees";
 export {
   profileCompleteness,
   profileCompletenessPercent,

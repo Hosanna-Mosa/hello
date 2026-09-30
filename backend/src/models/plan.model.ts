@@ -2,7 +2,7 @@
  * Subscription plans. Product-owned reference data, so prices and the
  * "Best value" ribbon change without a deploy.
  *
- * `priceMinor` is an integer in minor units (pence). Money is never a float —
+ * `priceMinor` is an integer in minor units (paise). Money is never a float —
  * 9.99 is not representable in binary and rounding errors in prices are the
  * kind of bug that reaches an invoice.
  *
@@ -17,7 +17,8 @@ const planSchema = new Schema(
     _id: { type: String, required: true },
     label: { type: String, required: true, maxlength: 40 },
     priceMinor: { type: Number, required: true, min: 0 },
-    currency: { type: String, required: true, maxlength: 3 },
+    // INR only — the product shows no other currency.
+    currency: { type: String, enum: ["INR"], default: "INR", required: true },
     period: { type: String, enum: ["month", "sixMonths", "year"], required: true },
     highlighted: { type: Boolean, default: false },
     active: { type: Boolean, default: true },

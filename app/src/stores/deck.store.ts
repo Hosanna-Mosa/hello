@@ -26,6 +26,14 @@ export type DeckState = {
   lastMatch: Match | null;
   /** True when the daily quota is spent (A16). */
   outOfLikes: boolean;
+  /**
+   * Where the next page starts, or null when there is none. Discovery is
+   * paginated (12 a page) — without this the deck showed the first page only
+   * and read "all caught up" with dozens more matching (PLAN #249).
+   */
+  nextCursor: string | null;
+  /** The filters the current deck was loaded with, reused for later pages. */
+  filters: ProfileFilters;
 
   load: (filters?: ProfileFilters) => Promise<void>;
   like: (note?: string) => Promise<Match | null>;
@@ -35,6 +43,13 @@ export type DeckState = {
   current: () => PublicProfile | undefined;
 };
 
+/** Bumped by every `load`, so a slow answer for old filters is dropped. */
+let loadGeneration = 0;
+/** One page fetch at a time. */
+let fetchingMore = false;
+/** Fetch the next page this many cards before the deck runs dry. */
+const TOP_UP_AT = 3;
+
 export const useDeckStore = create<DeckState>((set, get) => ({
   cards: [],
   index: 0,
@@ -42,16 +57,21 @@ export const useDeckStore = create<DeckState>((set, get) => ({
   error: null,
   lastMatch: null,
   outOfLikes: false,
+  nextCursor: null,
+  filters: {},
 
   load: async (filters?: ProfileFilters) => {
-    set({ loading: true, error: null });
+    const generation = ++loadGeneration;
+    set({ loading: true, error: null, filters: filters ?? {} });
     try {
       const page = await profilesService.listNearby(filters ?? {});
-      set({ cards: page.items, index: 0 });
+      // A newer load (filters changed again) wins; this answer is stale.
+      if (generation !== loadGeneration) return;
+      set({ cards: page.items, index: 0, nextCursor: page.nextCursor });
     } catch (error) {
-      set({ error });
+      if (generation === loadGeneration) set({ error });
     } finally {
-      set({ loading: false });
+      if (generation === loadGeneration) set({ loading: false });
     }
   },
 
@@ -63,6 +83,7 @@ export const useDeckStore = create<DeckState>((set, get) => ({
       const { match } = await likesService.sendLike(card.id, note);
       // Advance regardless of whether it matched — there is no undo.
       set((state) => ({ index: state.index + 1, lastMatch: match }));
+      void topUp();
       return match;
     } catch (error) {
       // Quota exhaustion is a state, not a failure: the card stays put so the
@@ -75,7 +96,10 @@ export const useDeckStore = create<DeckState>((set, get) => ({
     }
   },
 
-  pass: () => set((state) => ({ index: state.index + 1 })),
+  pass: () => {
+    set((state) => ({ index: state.index + 1 }));
+    void topUp();
+  },
 
   clearLastMatch: () => set({ lastMatch: null }),
 
@@ -84,3 +108,30 @@ export const useDeckStore = create<DeckState>((set, get) => ({
     return cards[index];
   },
 }));
+
+/**
+ * Append the next page when the deck is nearly spent. Silent on failure — the
+ * cards already there keep working, and the next swipe tries again.
+ */
+async function topUp(): Promise<void> {
+  const { cards, index, nextCursor, filters } = useDeckStore.getState();
+  if (fetchingMore || !nextCursor || cards.length - index > TOP_UP_AT) return;
+
+  fetchingMore = true;
+  const generation = loadGeneration;
+  try {
+    const page = await profilesService.listNearby(filters, nextCursor);
+    if (generation !== loadGeneration) return;
+    useDeckStore.setState((state) => {
+      const seen = new Set(state.cards.map((c) => c.id));
+      return {
+        cards: [...state.cards, ...page.items.filter((c) => !seen.has(c.id))],
+        nextCursor: page.nextCursor,
+      };
+    });
+  } catch {
+    // Keep what we have.
+  } finally {
+    fetchingMore = false;
+  }
+}

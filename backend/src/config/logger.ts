@@ -7,9 +7,25 @@
  * which is what `requestId` is for.
  */
 
+import { createRequire } from "node:module";
+
 import pino from "pino";
 
 import { env, isProd } from "@/config/env.js";
+
+/** pino-pretty is a devDependency — a production install may not have it. */
+function canResolve(name: string): boolean {
+  try {
+    createRequire(import.meta.url).resolve(name);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+// Coloured, human-readable console in development — and in production when
+// REQUEST_LOG=true asks for a watchable console. Otherwise raw JSON lines.
+const pretty = (!isProd || env.REQUEST_LOG === true) && canResolve("pino-pretty");
 
 export const logger = pino({
   level: env.LOG_LEVEL,
@@ -30,5 +46,5 @@ export const logger = pino({
     ],
     censor: "[redacted]",
   },
-  ...(isProd ? {} : { transport: { target: "pino-pretty", options: { colorize: true, translateTime: "HH:MM:ss" } } }),
+  ...(!pretty ? {} : { transport: { target: "pino-pretty", options: { colorize: true, translateTime: "HH:MM:ss" } } }),
 });

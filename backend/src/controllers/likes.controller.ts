@@ -41,6 +41,17 @@ export async function postLike(req: Request, res: Response): Promise<void> {
   });
 }
 
+/** Where you stand with one person — see `connectionWith`. */
+export async function getConnection(req: Request, res: Response): Promise<void> {
+  const userId = req.params.userId;
+  if (typeof userId !== "string" || !userId) throw ApiError.notFound();
+  res.json(await likes.connectionWith(requireUser(req), userId));
+}
+
+export async function getOutboundLikes(req: Request, res: Response): Promise<void> {
+  res.json((await likes.listOutboundLikes(requireUser(req))).map(toLike));
+}
+
 export async function getInboundLikes(req: Request, res: Response): Promise<void> {
   res.json((await likes.listInboundLikes(requireUser(req))).map(toLike));
 }
