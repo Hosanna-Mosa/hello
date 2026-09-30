@@ -7,7 +7,8 @@
  * optional reset action, content, and a pinned footer.
  */
 
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
+import type { LayoutChangeEvent } from "react-native";
 
 import { Box } from "@/components/common/atoms/Box";
 import { Heading } from "@/components/common/atoms/Heading";
@@ -47,6 +48,13 @@ export type SheetShellProps = {
    * empty gap.
    */
   footerInline?: boolean;
+  /**
+   * Called with the height the sheet NEEDS — header plus everything in the
+   * scroller — once both have laid out, and again whenever it changes. Lets a
+   * route size its detent to its content after layout, which is the part
+   * native `fitToContents` gets wrong on SDK 54 Android (PLAN #236).
+   */
+  onNaturalHeight?: (height: number) => void;
 };
 
 export function SheetShell({
@@ -58,11 +66,27 @@ export function SheetShell({
   showGrabber = true,
   fitToContents = false,
   footerInline = false,
+  onNaturalHeight,
 }: SheetShellProps) {
   const theme = useTheme();
+  // Natural height = the shell, minus the scroller's viewport, plus what the
+  // scroller actually holds. Measured on views that already exist, so the
+  // tree is unchanged for sheets that do not ask.
+  const sizes = useRef({ shell: 0, viewport: 0, content: 0 });
+
+  const measure = (key: "shell" | "viewport" | "content", value: number) => {
+    sizes.current = { ...sizes.current, [key]: value };
+    const { shell, viewport, content } = sizes.current;
+    if (onNaturalHeight && shell && viewport && content) {
+      onNaturalHeight(shell - viewport + content);
+    }
+  };
 
   return (
     <Box
+      {...(onNaturalHeight
+        ? { onLayout: (event: LayoutChangeEvent) => measure("shell", event.nativeEvent.layout.height) }
+        : {})}
       style={{
         ...(fitToContents ? {} : { flex: 1 }),
         backgroundColor: theme.color.surfaceElevated,
@@ -120,6 +144,12 @@ export function SheetShell({
         </Box>
       ) : (
         <Scroller
+          {...(onNaturalHeight
+            ? {
+                onLayout: (event: LayoutChangeEvent) => measure("viewport", event.nativeEvent.layout.height),
+                onContentSizeChange: (_width: number, height: number) => measure("content", height),
+              }
+            : {})}
           contentContainerStyle={{
             paddingHorizontal: theme.spacing.xl,
             paddingBottom: theme.spacing.xl,

@@ -156,6 +156,8 @@ describe.each(THEMES)("Phase 5 — Home — %s theme", (theme) => {
       renderAtom(
         <HomeHeader
           likeCount={12}
+          notificationCount={3}
+          onNotificationsPress={noop}
           onSearchPress={noop}
           onLikesPress={noop}
           onFiltersPress={noop}
@@ -169,6 +171,8 @@ describe.each(THEMES)("Phase 5 — Home — %s theme", (theme) => {
       renderAtom(
         <HomeHeader
           likeCount={0}
+          notificationCount={0}
+          onNotificationsPress={noop}
           onSearchPress={noop}
           onLikesPress={noop}
           onFiltersPress={noop}

@@ -17,6 +17,7 @@ import {
 import { AdBanner } from "@/components/common/molecules/AdBanner";
 import { ProfileCard } from "@/components/home/organisms/ProfileCard";
 import { EmptyNearby } from "@/components/home/organisms/EmptyNearby";
+import { useUnreadActivity } from "@/components/home/hooks/useUnreadActivity";
 import { HomeHeader } from "@/components/home/organisms/HomeHeader";
 import { LocationChip } from "@/components/home/molecules/LocationChip";
 import { LocationDenied } from "@/components/home/organisms/LocationDenied";
@@ -44,6 +45,7 @@ export default function NearbyScreen() {
   const [error, setError] = useState<unknown>(null);
   const [loading, setLoading] = useState(true);
   const [likeCount, setLikeCount] = useState(0);
+  const unreadActivity = useUnreadActivity();
 
   const permission = usePermission({
     get: async () => {
@@ -141,6 +143,8 @@ export default function NearbyScreen() {
       actions={
         <HomeHeader
           likeCount={likeCount}
+          notificationCount={unreadActivity}
+          onNotificationsPress={() => router.push("/notifications")}
           onSearchPress={() => router.push("/search")}
           onLikesPress={() => router.push("/likes")}
           onFiltersPress={() => router.push("/filters")}

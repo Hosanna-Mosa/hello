@@ -474,6 +474,9 @@ export const copy = {
     primerDecline: "Not now",
     primerHint: "You can change this any time in Settings.",
     unknownActor: "Someone",
+    requestBody: "sent you a message request",
+    likeBody: "liked your profile",
+    bellLabel: "Activity",
   },
 
   safety: {
