@@ -1,5 +1,8 @@
 /**
- * The Home header: search, likes, filters.
+ * The Home header: search, activity, likes, filters.
+ *
+ * The bell carries the unread activity count and opens the feed — it is the
+ * only way into it.
  *
  * These three are header entries rather than tabs by product decision
  * (PLAN §1) — there are four tabs and only four. The likes entry carries the
@@ -11,9 +14,13 @@ import { Icon } from "@/components/common/atoms/Icon";
 import { Tappable } from "@/components/common/atoms/Tappable";
 import { useTheme } from "@/components/common/hooks/useTheme";
 import { CountBadge } from "@/components/home/molecules/CountBadge";
+import { copy } from "@/copy";
 
 export type HomeHeaderProps = {
   likeCount: number;
+  /** Unread activity. Zero hides the badge. */
+  notificationCount: number;
+  onNotificationsPress: () => void;
   onSearchPress: () => void;
   onLikesPress: () => void;
   onFiltersPress: () => void;
@@ -21,6 +28,8 @@ export type HomeHeaderProps = {
 
 export function HomeHeader({
   likeCount,
+  notificationCount,
+  onNotificationsPress,
   onSearchPress,
   onLikesPress,
   onFiltersPress,
@@ -38,6 +47,13 @@ export function HomeHeader({
       >
         <Icon name={{ ios: "magnifyingglass", android: "search" }} />
       </Tappable>
+
+      <CountBadge
+        count={notificationCount}
+        icon={{ ios: "bell", android: "notifications" }}
+        label={copy.notifications.bellLabel}
+        onPress={onNotificationsPress}
+      />
 
       <CountBadge
         count={likeCount}

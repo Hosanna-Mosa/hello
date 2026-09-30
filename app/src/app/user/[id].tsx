@@ -1,4 +1,4 @@
-import { router, useLocalSearchParams } from "expo-router";
+import { router, Stack, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 
 import {
@@ -17,6 +17,7 @@ import {
   Tappable,
   useTheme,
 } from "@/components/common";
+import { useContentDetent } from "@/components/user/hooks/useContentDetent";
 import { ConnectionActions } from "@/components/user/organisms/ConnectionActions";
 import { copy } from "@/copy";
 import { avatarSource } from "@/mocks/avatars";
@@ -46,6 +47,9 @@ export default function UserProfileScreen() {
   const [connection, setConnection] = useState<Connection | undefined>(undefined);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
+  // The sheet shrinks to the profile once it has laid out — no empty band
+  // under the action (the 70% opening detent in `_layout.tsx` is the fallback).
+  const { detent, onNaturalHeight } = useContentDetent();
 
   useEffect(() => {
     if (!id) return;
@@ -133,55 +137,59 @@ export default function UserProfileScreen() {
   }
 
   return (
-    <SheetShell
-      footerInline
-      footer={
-        <ConnectionActions
-          status={connection?.status}
-          name={profile.name}
-          busy={busy}
-          error={actionError}
-          onMessage={() => connection?.threadId && openThread(connection.threadId)}
-          onAccept={() => void acceptRequest()}
-          onSendRequest={(note) => void sendRequest(note)}
-        />
-      }
-    >
-      <Box style={{ alignItems: "center", gap: theme.spacing.md }}>
-        <Avatar source={avatarSource(profile.avatarId)} name={profile.name} size="xl" />
-        <Heading level="heading">{`${profile.name}, ${profile.age}`}</Heading>
-        <DistanceLabel metres={profile.distanceMetres} />
-      </Box>
-
-      {profile.bio ? (
-        <Box style={{ gap: theme.spacing.sm }}>
-          <SectionHeader title={copy.profile.about} />
-          <Body color="textSecondary">{profile.bio}</Body>
+    <>
+      {detent ? <Stack.Screen options={{ sheetAllowedDetents: [detent] }} /> : null}
+      <SheetShell
+        footerInline
+        onNaturalHeight={onNaturalHeight}
+        footer={
+          <ConnectionActions
+            status={connection?.status}
+            name={profile.name}
+            busy={busy}
+            error={actionError}
+            onMessage={() => connection?.threadId && openThread(connection.threadId)}
+            onAccept={() => void acceptRequest()}
+            onSendRequest={(note) => void sendRequest(note)}
+          />
+        }
+      >
+        <Box style={{ alignItems: "center", gap: theme.spacing.md }}>
+          <Avatar source={avatarSource(profile.avatarId)} name={profile.name} size="xl" />
+          <Heading level="heading">{`${profile.name}, ${profile.age}`}</Heading>
+          <DistanceLabel metres={profile.distanceMetres} />
         </Box>
-      ) : null}
 
-      <Box style={{ gap: theme.spacing.sm }}>
-        <SectionHeader title={copy.profile.interests} />
-        <InterestText interests={interestsByIds(profile.interestIds)} />
-      </Box>
+        {profile.bio ? (
+          <Box style={{ gap: theme.spacing.sm }}>
+            <SectionHeader title={copy.profile.about} />
+            <Body color="textSecondary">{profile.bio}</Body>
+          </Box>
+        ) : null}
 
-      {/*
-        The safety entry PLAN requires on a profile. Quiet and at the bottom —
-        it should be findable without being the loudest thing on someone's
-        profile, which would be its own kind of accusation.
-      */}
-      <Box style={{ alignItems: "center", paddingTop: theme.spacing.lg }}>
-        <Tappable
-          onPress={() => router.push({ pathname: "/report/[id]", params: { id: profile.id } })}
-          accessibilityRole="button"
-          accessibilityLabel={`${copy.safety.reportTitle} ${profile.name}`}
-          hitSlop={12}
-          style={{ flexDirection: "row", alignItems: "center", gap: theme.spacing.xs }}
-        >
-          <Icon name={{ ios: "flag", android: "flag" }} size={16} color="textTertiary" />
-          <Caption>{`${copy.safety.reportTitle} ${profile.name}`}</Caption>
-        </Tappable>
-      </Box>
-    </SheetShell>
+        <Box style={{ gap: theme.spacing.sm }}>
+          <SectionHeader title={copy.profile.interests} />
+          <InterestText interests={interestsByIds(profile.interestIds)} />
+        </Box>
+
+        {/*
+          The safety entry PLAN requires on a profile. Quiet and at the bottom —
+          it should be findable without being the loudest thing on someone's
+          profile, which would be its own kind of accusation.
+        */}
+        <Box style={{ alignItems: "center", paddingTop: theme.spacing.lg }}>
+          <Tappable
+            onPress={() => router.push({ pathname: "/report/[id]", params: { id: profile.id } })}
+            accessibilityRole="button"
+            accessibilityLabel={`${copy.safety.reportTitle} ${profile.name}`}
+            hitSlop={12}
+            style={{ flexDirection: "row", alignItems: "center", gap: theme.spacing.xs }}
+          >
+            <Icon name={{ ios: "flag", android: "flag" }} size={16} color="textTertiary" />
+            <Caption>{`${copy.safety.reportTitle} ${profile.name}`}</Caption>
+          </Tappable>
+        </Box>
+      </SheetShell>
+    </>
   );
 }

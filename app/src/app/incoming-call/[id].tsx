@@ -1,5 +1,6 @@
 import { router, useLocalSearchParams } from "expo-router";
 
+import { useRinger } from "@/components/common/hooks/useRinger";
 import { IncomingCallPanel } from "@/components/common/organisms/IncomingCallPanel";
 import { useCallsStore } from "@/stores/calls.store";
 
@@ -18,6 +19,9 @@ import { useCallsStore } from "@/stores/calls.store";
 export default function IncomingCallScreen() {
   const { id, callId } = useLocalSearchParams<{ id: string; callId?: string }>();
   const clearIncoming = useCallsStore((state) => state.clearIncoming);
+
+  // Rings for as long as this screen is up; leaving it (answer or decline) stops it.
+  useRinger(true);
 
   return (
     <IncomingCallPanel

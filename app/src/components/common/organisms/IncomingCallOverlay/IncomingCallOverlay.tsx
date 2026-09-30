@@ -22,6 +22,7 @@ import { useEffect } from "react";
 import { BackHandler } from "react-native";
 
 import { Box } from "@/components/common/atoms/Box";
+import { useRinger } from "@/components/common/hooks/useRinger";
 import { IncomingCallPanel } from "@/components/common/organisms/IncomingCallPanel";
 import { useCallsStore } from "@/stores/calls.store";
 
@@ -32,6 +33,9 @@ export function IncomingCallOverlay() {
   const minimizeIncoming = useCallsStore((state) => state.minimizeIncoming);
 
   const showing = Boolean(incoming) && !minimized;
+
+  // Keyed on `incoming`, not `showing`: a minimised ring still rings.
+  useRinger(Boolean(incoming));
 
   // The overlay is not a route, so hardware back would otherwise pop the
   // screen UNDER the ring. While it shows, back means "minimise" instead.

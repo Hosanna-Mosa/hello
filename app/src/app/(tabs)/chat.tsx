@@ -1,5 +1,5 @@
-import { router } from "expo-router";
-import { useCallback, useState } from "react";
+import { router, useLocalSearchParams } from "expo-router";
+import { useCallback, useEffect, useState } from "react";
 import { RefreshControl } from "react-native";
 
 import {
@@ -48,7 +48,25 @@ function isNewMatch(preview: ThreadPreview): boolean {
  */
 export default function ChatScreen() {
   const theme = useTheme();
-  const [segment, setSegment] = useState<SegmentValue>("messages");
+  /*
+   * A link can pick the segment: a request notification opens this tab on
+   * Requests (`/chat?segment=requests`). The tab stays mounted, so the param is
+   * applied when it CHANGES (adjusting state during render, not in an effect),
+   * then cleared — otherwise a second tap on the same notification, after the
+   * user had moved back to Messages, would change nothing.
+   */
+  const { segment: linkedSegment } = useLocalSearchParams<{ segment?: SegmentValue }>();
+  const [segment, setSegment] = useState<SegmentValue>(
+    linkedSegment === "requests" ? "requests" : "messages",
+  );
+  const [appliedLink, setAppliedLink] = useState(linkedSegment);
+  if (linkedSegment !== appliedLink) {
+    setAppliedLink(linkedSegment);
+    if (linkedSegment === "messages" || linkedSegment === "requests") setSegment(linkedSegment);
+  }
+  useEffect(() => {
+    if (linkedSegment) router.setParams({ segment: undefined });
+  }, [linkedSegment]);
 
   const previews = useChatStore((state) => state.previews);
   const requests = useChatStore((state) => state.requests);

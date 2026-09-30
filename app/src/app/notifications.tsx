@@ -1,15 +1,10 @@
 import { router } from "expo-router";
-import { useEffect, useState } from "react";
-
-import { Linking } from "react-native";
+import { useCallback, useEffect, useState } from "react";
 
 import {
   Box,
-  Caption,
-  Icon,
-  Label,
-  Tappable,
   EmptyState,
+  ErrorState,
   ScreenShell,
   SectionedList,
   SectionHeader,
@@ -21,8 +16,8 @@ import { NotificationRow } from "@/components/notifications/organisms/Notificati
 import { copy } from "@/copy";
 import { avatarSource } from "@/mocks/avatars";
 import { notificationsService } from "@/services/notifications.service";
-import { userById } from "@/mocks/profiles";
-import type { AppNotification } from "@/services/types";
+import { profilesService } from "@/services/profiles.service";
+import type { AppNotification, PublicProfile } from "@/services/types";
 
 /** "Today" / "Yesterday" / a date — the grouping key AND the heading. */
 function dayLabel(iso: string, now = Date.now()): string {
@@ -36,21 +31,51 @@ function dayLabel(iso: string, now = Date.now()): string {
   return then.toLocaleDateString("en-GB", { day: "numeric", month: "long" });
 }
 
+/**
+ * Activity — recent requests and likes, opened from the Home bell.
+ *
+ * No "notifications are off" banner: it used to show unconditionally, whatever
+ * the real permission, because there is no push module to ask (PLAN #252).
+ */
 export default function NotificationsScreen() {
   const theme = useTheme();
   const [items, setItems] = useState<AppNotification[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<unknown>(null);
+  /** Actor profiles, keyed by user id — the mock directory knows nobody real. */
+  const [people, setPeople] = useState<Record<string, PublicProfile>>({});
 
-  useEffect(() => {
-    void notificationsService
-      .list()
-      .then(setItems)
-      .finally(() => setLoading(false));
-    // Opening the feed is the read receipt.
-    void notificationsService.markAllRead();
+  const load = useCallback(async () => {
+    setError(null);
+    try {
+      const list = await notificationsService.list();
+      setItems(list);
+      // Opening the feed is the read receipt — AFTER the list is read, so the
+      // badge only clears for what was actually shown.
+      void notificationsService.markAllRead();
+
+      const ids = [...new Set(list.flatMap((each) => (each.actorId ? [each.actorId] : [])))];
+      const found = await Promise.all(
+        ids.map((id) =>
+          profilesService.getProfile(id).then(
+            (profile) => [id, profile] as const,
+            () => null,
+          ),
+        ),
+      );
+      setPeople(Object.fromEntries(found.filter((each) => each !== null)));
+    } catch (caught) {
+      setError(caught);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-  const status = useAsyncStatus({ isLoading: loading, data: items });
+  useEffect(() => {
+    void load();
+  }, [load]);
+
+  const status = useAsyncStatus({ isLoading: loading, error, data: items });
 
   // Grouped by day, newest first, preserving the service's ordering.
   const sections = (items ?? []).reduce<{ title: string; data: AppNotification[] }[]>(
@@ -66,40 +91,13 @@ export default function NotificationsScreen() {
   return (
     <ScreenShell title={copy.home.notificationsTitle} onBack={() => router.back()}>
       {/*
-        Recovery state: the feed still works with OS notifications off, but the
-        user will not hear about anything until they open the app. Saying so is
-        the difference between "quiet" and "broken".
-      */}
-      <Box
-        accessibilityRole="alert"
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          gap: theme.spacing.md,
-          marginHorizontal: theme.spacing.xl,
-          marginBottom: theme.spacing.md,
-          padding: theme.spacing.md,
-          borderRadius: theme.radius.md,
-          backgroundColor: theme.color.surfaceSunken,
-        }}
-      >
-        <Icon name={{ ios: "bell.slash", android: "notifications_off" }} size={18} color="textSecondary" />
-        <Caption style={{ flex: 1 }}>{copy.home.notificationsDisabled}</Caption>
-        <Tappable
-          onPress={() => Linking.openSettings()}
-          accessibilityRole="button"
-          accessibilityLabel={copy.common.settings}
-          hitSlop={8}
-        >
-          <Label color="accent">{copy.common.settings}</Label>
-        </Tappable>
-      </Box>
-      {/*
         Loading is NOT empty. Collapsing the two tells the user "nothing here"
         while the request is still in flight — the same lie as showing an empty
         state for a failed fetch.
       */}
-      {status === "loading" ? (
+      {status === "error" ? (
+        <ErrorState onRetry={() => void load()} />
+      ) : status === "loading" ? (
         <Box style={{ paddingTop: theme.spacing.xxl, alignItems: "center" }}>
           <Spinner />
         </Box>
@@ -120,7 +118,7 @@ export default function NotificationsScreen() {
             </Box>
           )}
           renderItem={({ item }) => {
-            const actor = item.actorId ? userById(item.actorId) : undefined;
+            const actor = item.actorId ? people[item.actorId] : undefined;
             return (
               <NotificationRow
                 actorName={actor?.name}
@@ -131,7 +129,9 @@ export default function NotificationsScreen() {
                 onPress={
                   // Deep links use the real scheme, where route groups like
                   // `(tabs)` do not appear — so these are plain paths.
-                  item.deepLink ? () => router.push(item.deepLink as never) : undefined
+                  // `navigate`, not `push`: a request link goes to the Chat TAB,
+                  // and push would stack a second copy of the tabs over this.
+                  item.deepLink ? () => router.navigate(item.deepLink as never) : undefined
                 }
               />
             );
