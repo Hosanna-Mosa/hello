@@ -20,7 +20,7 @@
 import type { NextFunction, Request, Response } from "express";
 
 import { logger } from "@/config/logger.js";
-import { isProd } from "@/config/env.js";
+import { env, isProd } from "@/config/env.js";
 
 /** Collapses a User-Agent to one recognisable word. */
 function agentOf(ua: string | undefined): string {
@@ -84,6 +84,6 @@ export function requestLog(req: Request, res: Response, next: NextFunction): voi
 
 /**
  * In production the structured form is what a log aggregator can query, so the
- * human-readable line is development only.
+ * human-readable line is development only — unless `REQUEST_LOG=true` asks for it.
  */
-export const useHumanRequestLog = !isProd;
+export const useHumanRequestLog = env.REQUEST_LOG ?? !isProd;

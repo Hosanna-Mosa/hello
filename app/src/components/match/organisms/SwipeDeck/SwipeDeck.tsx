@@ -1,14 +1,15 @@
 "use no memo";
 
-/* eslint-disable react-hooks/immutability --
+/*
  * This component is built on Reanimated shared values, and `sharedValue.value = x`
- * is their documented API. React Compiler's rule treats any hook result as
- * React-owned and flags every write — including the ones inside the gesture
- * worklets, which is most of this file.
+ * is their documented API. React Compiler's `react-hooks/immutability` rule
+ * treats any hook result as React-owned and flags every write — including the
+ * ones inside the gesture worklets, which is most of this file.
  *
- * Disabled for the file rather than line by line: six scattered suppressions
- * would say less than one explanation, and the rule stays active everywhere
- * else in the codebase where it is right. See PLAN R5 and parking log #9.
+ * On Expo SDK 54 the lint config's react-hooks plugin does not have that rule,
+ * so no suppression is needed (and ESLint rejects one naming an unknown rule).
+ * On an SDK whose plugin has it, restore a file-level
+ * `eslint-disable react-hooks/immutability` here. See PLAN R5 and parking #9.
  */
 
 /**

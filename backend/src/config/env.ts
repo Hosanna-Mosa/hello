@@ -159,7 +159,31 @@ const schema = z.object({
   /** Short. A credential only has to outlive the setup of one call. */
   TURN_TTL_SEC: z.coerce.number().int().positive().default(600),
 
+  /**
+   * The admin panel's own signing secret — deliberately NOT the app's
+   * `JWT_ACCESS_SECRET`, so an app token can never be replayed as an admin
+   * one. Optional so an API with no panel still boots; unset, every admin
+   * route refuses (see `middlewares/adminAuth.ts`).
+   */
+  ADMIN_JWT_SECRET: secret("ADMIN_JWT_SECRET").optional(),
+  /** Hard cap on one admin sign-in. Not sliding: a stolen cookie dies on time. */
+  ADMIN_SESSION_TTL_SEC: z.coerce.number().int().positive().default(28_800),
+  /**
+   * Origins the admin panel is served from. Admin routes answer CORS with
+   * credentials ONLY for these — never the app's `CORS_ORIGINS`, and never `*`.
+   * Unset → same-origin only (the panel behind the same host, or Vite's proxy).
+   */
+  ADMIN_ORIGINS: z.string().optional(),
+
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
+  /**
+   * The one-line-per-request log (middlewares/requestLog.ts). Unset → on in
+   * development, off in production. `true` / `false` forces it either way.
+   */
+  REQUEST_LOG: z
+    .enum(["true", "false"])
+    .optional()
+    .transform((v) => (v === undefined ? undefined : v === "true")),
 });
 
 export type Env = z.infer<typeof schema>;
@@ -212,4 +236,8 @@ export const env = load();
 
 export const isProd = env.NODE_ENV === "production";
 export const isTest = env.NODE_ENV === "test";
+export const adminOrigins = (env.ADMIN_ORIGINS ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter((s) => s && s !== "*");
 export const corsOrigins = env.CORS_ORIGINS === "*" ? true : env.CORS_ORIGINS.split(",").map((s) => s.trim());

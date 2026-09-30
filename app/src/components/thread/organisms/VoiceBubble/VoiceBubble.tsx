@@ -8,7 +8,7 @@
 
 import { formatCallDuration } from "@/components/common/hooks/useCallTimer";
 import { useVoicePlayback } from "@/components/thread/hooks/useVoicePlayback";
-import { ChatBubble } from "@/components/thread/molecules/ChatBubble";
+import { ChatBubble } from "@/components/common/molecules/ChatBubble";
 import { VoicePlayer } from "@/components/thread/molecules/VoicePlayer";
 import { copy } from "@/copy";
 import type { Reaction, VoiceClip } from "@/services/types";

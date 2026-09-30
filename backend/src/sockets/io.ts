@@ -14,14 +14,16 @@ import type { Server as HttpServer } from "node:http";
 import { createAdapter } from "@socket.io/redis-adapter";
 import { Server, type Socket } from "socket.io";
 
-import { corsOrigins } from "@/config/env.js";
+import { adminOrigins, corsOrigins } from "@/config/env.js";
 import { logger } from "@/config/logger.js";
 import { redis } from "@/config/redis.js";
 import type { UserDoc } from "@/models/user.model.js";
+import { registerAdminNamespace } from "@/sockets/admin.socket.js";
 import { authenticateSocket } from "@/sockets/auth.socket.js";
 import { registerChatHandlers } from "@/sockets/chat.socket.js";
 import { registerCallHandlers } from "@/sockets/calls.socket.js";
-import { userRoom } from "@/sockets/rooms.js";
+import { ADMIN_NAMESPACE, adminSessionRoom, userRoom } from "@/sockets/rooms.js";
+import { registerSupportHandlers } from "@/sockets/support.socket.js";
 
 export type AppSocket = Socket & { user?: UserDoc };
 
@@ -29,7 +31,10 @@ let io: Server | null = null;
 
 export async function attachSockets(server: HttpServer): Promise<Server> {
   io = new Server(server, {
-    cors: { origin: corsOrigins, credentials: false },
+    // The panel's origin too, for a deployment that serves it from its own
+    // host. Nothing rides on cookies here — `/admin` authenticates with a
+    // socket ticket — so CORS is a courtesy, not the security boundary.
+    cors: { origin: corsOrigins === true ? true : [...corsOrigins, ...adminOrigins], credentials: false },
     // A phone on a train drops its connection constantly. Recovery replays
     // what it missed instead of making the client re-fetch the world.
     connectionStateRecovery: { maxDisconnectionDuration: 2 * 60 * 1000 },
@@ -55,13 +60,23 @@ export async function attachSockets(server: HttpServer): Promise<Server> {
 
     registerChatHandlers(socket);
     registerCallHandlers(socket);
+    registerSupportHandlers(socket);
 
     socket.on("disconnect", (reason) => {
       logger.info({ userId, socketId: socket.id, reason }, "[socket] disconnected");
     });
   });
 
+  // The admin panel, on its own namespace with its own auth — `io.use` above
+  // applies to `/` only, so an app token opens nothing here and vice versa.
+  registerAdminNamespace(io.of(ADMIN_NAMESPACE));
+
   return io;
+}
+
+/** Close one operator session's sockets — called when that session signs out. */
+export function disconnectAdminSession(jti: string): void {
+  io?.of(ADMIN_NAMESPACE).in(adminSessionRoom(jti)).disconnectSockets(true);
 }
 
 /**

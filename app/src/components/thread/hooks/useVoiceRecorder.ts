@@ -36,6 +36,26 @@ export type VoiceClip = { uri: string; durationSec: number };
 /** Why a start did or did not begin recording. */
 export type StartResult = "started" | "denied" | "failed";
 
+/**
+ * How long each start step may take before it counts as failed.
+ *
+ * Without a limit, a permission prompt that never appears or a native
+ * `prepareToRecordAsync` that never settles left `start` pending forever: the
+ * mic tap did nothing at all, with no message (PLAN #241). The permission step
+ * gets longer because a person may genuinely take a while to answer the
+ * system dialog.
+ */
+const PERMISSION_TIMEOUT_MS = 30_000;
+const SETUP_TIMEOUT_MS = 8_000;
+
+function withTimeout<T>(work: Promise<T>, ms: number, step: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const limit = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${step} timed out`)), ms);
+  });
+  return Promise.race([work, limit]).finally(() => clearTimeout(timer));
+}
+
 export type VoiceRecorder = {
   recording: boolean;
   /** Whole seconds so far, for the on-screen timer. */
@@ -43,6 +63,8 @@ export type VoiceRecorder = {
   start: () => Promise<StartResult>;
   finish: () => Promise<VoiceClip | null>;
   cancel: () => Promise<void>;
+  /** Why the last `start` did not begin recording — for the message and the log. */
+  lastError: () => string | null;
 };
 
 export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): VoiceRecorder {
@@ -56,6 +78,7 @@ export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): Voice
   /** Set by a release that arrived while `start` was still working. */
   const released = useRef(false);
   const starting = useRef<Promise<StartResult> | null>(null);
+  const lastError = useRef<string | null>(null);
 
   const stopAndRead = useCallback(async (): Promise<VoiceClip | null> => {
     const began = startedAt.current;
@@ -92,16 +115,27 @@ export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): Voice
     if (starting.current) return starting.current;
     if (startedAt.current !== null) return "started";
     released.current = false;
+    lastError.current = null;
 
     starting.current = (async (): Promise<StartResult> => {
-      const permission = await requestRecordingPermissionsAsync();
-      if (!permission.granted) return "denied";
+      const permission = await withTimeout(requestRecordingPermissionsAsync(), PERMISSION_TIMEOUT_MS, "permission");
+      if (!permission.granted) {
+        lastError.current = permission.canAskAgain ? "permission denied" : "permission blocked in settings";
+        return "denied";
+      }
 
-      await setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true });
-      await recorder.prepareToRecordAsync();
+      await withTimeout(
+        setAudioModeAsync({ allowsRecording: true, playsInSilentMode: true }),
+        SETUP_TIMEOUT_MS,
+        "audio mode",
+      );
+      await withTimeout(recorder.prepareToRecordAsync(), SETUP_TIMEOUT_MS, "prepare");
       recorder.record();
       return "started";
-    })().catch((): StartResult => "failed");
+    })().catch((e: unknown): StartResult => {
+      lastError.current = e instanceof Error ? e.message : String(e);
+      return "failed";
+    });
 
     const result = await starting.current;
     starting.current = null;
@@ -158,5 +192,7 @@ export function useVoiceRecorder(onAutoFinish: (clip: VoiceClip) => void): Voice
     };
   }, [recorder]);
 
-  return { recording, seconds, start, finish, cancel };
+  const readLastError = useCallback(() => lastError.current, []);
+
+  return { recording, seconds, start, finish, cancel, lastError: readLastError };
 }

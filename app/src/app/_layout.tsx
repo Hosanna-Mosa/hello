@@ -21,6 +21,11 @@ import "@/stores/calls.store";
   (accepted / signal / ended), so it survives leaving the call screen.
 */
 import "@/stores/activeCall.store";
+/*
+  Same reason: support replies and status changes arrive over the socket while
+  you are anywhere in the app, so the Help badge and ticket list stay current.
+*/
+import "@/stores/support.store";
 import { useSessionStore } from "@/stores/session.store";
 import { useUiStore } from "@/stores/ui.store";
 import { ThemedStatusBar } from "@/theme/ThemedStatusBar";
@@ -88,6 +93,7 @@ export default function RootLayout() {
               {/* Home satellites — pushed over the tabs. */}
               <Stack.Screen name="search" />
               <Stack.Screen name="likes" />
+              <Stack.Screen name="likes/sent" />
               <Stack.Screen name="notifications" />
 
               {/*
@@ -103,17 +109,23 @@ export default function RootLayout() {
               <Stack.Screen name="filters/interests" />
               <Stack.Screen name="filters/genders" />
               {/*
-                Sized to its content, not to a fraction of the screen — a
-                profile is as long as the person made it.
+                Opens at 70% — a typical profile plus its action — and drags
+                to 90% for a long bio. The action sits straight under the
+                content (`footerInline`), not pinned to the bottom edge, which
+                left a large empty gap above it (PLAN #246).
 
-                This needs `fitToContents` on `SheetShell` too, and it needs
-                `plugins/withSheetDialogTheme`: the wrapper this produces has
-                NO height by design, so whatever is behind it shows, and the
-                Material defaults behind it were white (PLAN #153).
+                Was `"fitToContents"`. On SDK 54's react-native-screens (4.16)
+                Android measures a fit-to-contents sheet before its content
+                lays out, so it opened short and cut off the interests, the
+                report link and Done, with nothing to scroll (PLAN #236). One
+                fixed detent plus the scrolling `SheetShell` works — verified
+                on an SDK 54 Android build. `plugins/withSheetDialogTheme` is
+                still what keeps the area behind the sheet from showing white
+                (PLAN #153).
               */}
               <Stack.Screen
                 name="user/[id]"
-                options={{ presentation: "formSheet", sheetAllowedDetents: "fitToContents" }}
+                options={{ presentation: "formSheet", sheetAllowedDetents: [0.7, 0.9] }}
               />
               <Stack.Screen
                 name="like-note/[id]"
@@ -139,6 +151,14 @@ export default function RootLayout() {
               <Stack.Screen name="settings/legal" />
               <Stack.Screen name="settings/delete-account" />
               <Stack.Screen name="settings/subscription" />
+
+              {/*
+                Support: the ticket list, a new ticket, and one ticket's
+                conversation — plain pushes, reached from Settings → Help.
+              */}
+              <Stack.Screen name="support/index" />
+              <Stack.Screen name="support/new" />
+              <Stack.Screen name="support/[id]" />
 
               {/*
                 The paywall is a sheet for the same reason reporting is: it is

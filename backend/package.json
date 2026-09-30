@@ -18,6 +18,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "seed": "tsx scripts/seed.ts",
+    "seed:admin": "tsx scripts/seed-admin.ts",
+    "seed:hyderabad": "tsx scripts/seed-hyderabad.ts",
     "migrate": "tsx scripts/migrate.ts",
     "check-db": "tsx scripts/check-db.ts",
     "set-mongo": "bash scripts/set-mongo-uri.sh",

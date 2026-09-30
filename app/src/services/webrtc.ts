@@ -34,13 +34,7 @@
 
 import { PermissionsAndroid, Platform } from "react-native";
 
-import {
-  RTCPeerConnection,
-  RTCIceCandidate,
-  RTCSessionDescription,
-  mediaDevices,
-  type MediaStream,
-} from "react-native-webrtc";
+import type { MediaStream, RTCIceCandidate, RTCPeerConnection } from "react-native-webrtc";
 
 import { http, isMockMode } from "./client";
 import { emitCallDiag, emitCallSignal } from "./socket";
@@ -111,8 +105,48 @@ function errorText(e: unknown): string {
 }
 
 /** Mock mode has no server to fetch from and no media to negotiate. */
+/**
+ * `react-native-webrtc`, loaded on first use — never at import time.
+ *
+ * The package throws the moment it is imported if its native half is missing:
+ * in Expo Go, or in a dev build made before WebRTC (or before an SDK change).
+ * A static import made that crash take down everything that imports this file
+ * — the call store, and through it the session store — so the whole app
+ * red-boxed at launch over a feature nobody was using yet (PLAN #240).
+ *
+ * Loaded lazily and guarded, a build without WebRTC just cannot place or take
+ * calls: `startCallMedia` returns false and the call screen says it could not
+ * start. Everything else keeps working.
+ */
+type WebRTCModule = typeof import("react-native-webrtc");
+let webrtcModule: WebRTCModule | null | undefined;
+
+function webrtc(): WebRTCModule | null {
+  if (webrtcModule === undefined) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      webrtcModule = require("react-native-webrtc") as WebRTCModule;
+    } catch {
+      webrtcModule = null;
+    }
+  }
+  return webrtcModule;
+}
+
+/** The loaded module. Only called after `unavailable()` has returned false. */
+function lib(): WebRTCModule {
+  const loaded = webrtc();
+  if (!loaded) throw new Error("WebRTC is not available in this build.");
+  return loaded;
+}
+
+/** Whether this build can make real calls — false in Expo Go or an outdated build. */
+export function callingSupported(): boolean {
+  return webrtc() !== null;
+}
+
 function unavailable(): boolean {
-  return isMockMode();
+  return isMockMode() || !callingSupported();
 }
 
 async function iceServers(callId: string): Promise<IceServer[]> {
@@ -235,14 +269,14 @@ export async function startCallMedia(options: StartOptions): Promise<boolean> {
 
   let localStream: MediaStream;
   try {
-    localStream = (await mediaDevices.getUserMedia({ audio: true, video: false })) as MediaStream;
+    localStream = (await lib().mediaDevices.getUserMedia({ audio: true, video: false })) as MediaStream;
   } catch (e) {
     emitCallDiag(callId, "media FAILED — getUserMedia threw", { role, error: errorText(e) });
     return false;
   }
 
   const servers = await iceServers(callId);
-  const pc = new RTCPeerConnection({ iceServers: servers });
+  const pc = new (lib().RTCPeerConnection)({ iceServers: servers });
   for (const track of localStream.getTracks()) pc.addTrack(track, localStream);
 
   const current: Session = {
@@ -367,7 +401,7 @@ async function applySignal(current: Session, payload: SignalPayload): Promise<vo
     }
 
     emitCallDiag(current.callId, "offer received");
-    await pc.setRemoteDescription(new RTCSessionDescription(payload.data as never));
+    await pc.setRemoteDescription(new (lib().RTCSessionDescription)(payload.data as never));
     await drainIce(current);
 
     const answer = await pc.createAnswer();
@@ -387,7 +421,7 @@ async function applySignal(current: Session, payload: SignalPayload): Promise<vo
     current.offerRetry = null;
 
     emitCallDiag(current.callId, "answer received");
-    await pc.setRemoteDescription(new RTCSessionDescription(payload.data as never));
+    await pc.setRemoteDescription(new (lib().RTCSessionDescription)(payload.data as never));
     await drainIce(current);
     return;
   }
@@ -395,7 +429,7 @@ async function applySignal(current: Session, payload: SignalPayload): Promise<vo
   const type = candidateType(payload.data);
   if (type) current.remoteTypes.add(type);
 
-  const candidate = new RTCIceCandidate(payload.data as never);
+  const candidate = new (lib().RTCIceCandidate)(payload.data as never);
   // See `pendingIce`: before a remote description exists this throws.
   if (pc.remoteDescription) {
     await pc.addIceCandidate(candidate);

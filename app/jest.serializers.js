@@ -61,3 +61,33 @@ expect.addSnapshotSerializer({
   test: (value) => typeof value === "string" && MINTED_ID.test(value),
   serialize: () => '"<id>"',
 });
+
+/**
+ * Redact Reanimated's per-component `nativeID`.
+ *
+ * Reanimated 4.1 (Expo SDK 54) stamps every animated component with
+ * `nativeID={reanimatedID}` for layout animations, and that id is a global
+ * counter — so the number depends on how many animated components rendered
+ * earlier in the process. Kept raw, a snapshot would pass when a file runs
+ * alone and fail in the full suite, or after a test is added above it.
+ *
+ * Only a purely numeric `nativeID` is rewritten; one we set ourselves is a
+ * word and is left alone. The rewritten value is not numeric, so the serializer
+ * does not match its own output.
+ */
+const COUNTER_ID = /^\d+$/;
+
+expect.addSnapshotSerializer({
+  test: (value) =>
+    Boolean(value) &&
+    typeof value === "object" &&
+    typeof value.props?.nativeID === "string" &&
+    COUNTER_ID.test(value.props.nativeID),
+  serialize: (value, config, indentation, depth, refs, printer) => {
+    // A copy that keeps every own property, including the test renderer's
+    // non-enumerable type tag, so it still prints as JSX.
+    const copy = Object.create(Object.getPrototypeOf(value), Object.getOwnPropertyDescriptors(value));
+    copy.props = { ...value.props, nativeID: "<reanimated>" };
+    return printer(copy, config, indentation, depth, refs);
+  },
+});

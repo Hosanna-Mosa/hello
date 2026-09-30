@@ -2617,6 +2617,7 @@ exports[`shared kit — dark theme ListScreenShell loading 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -2701,6 +2702,7 @@ exports[`shared kit — dark theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -2755,6 +2757,7 @@ exports[`shared kit — dark theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -2823,6 +2826,7 @@ exports[`shared kit — dark theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -2920,6 +2924,7 @@ exports[`shared kit — dark theme RangeSlider single handle 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -2974,6 +2979,7 @@ exports[`shared kit — dark theme RangeSlider single handle 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -4221,6 +4227,7 @@ exports[`shared kit — dark theme Skeleton 1`] = `
         },
       ]
     }
+    nativeID="<reanimated>"
     style={
       [
         {
@@ -4276,6 +4283,7 @@ exports[`shared kit — dark theme Skeleton circle 1`] = `
         },
       ]
     }
+    nativeID="<reanimated>"
     style={
       [
         {
@@ -7705,6 +7713,7 @@ exports[`shared kit — light theme ListScreenShell loading 1`] = `
               },
             ]
           }
+          nativeID="<reanimated>"
           style={
             [
               {
@@ -7789,6 +7798,7 @@ exports[`shared kit — light theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -7843,6 +7853,7 @@ exports[`shared kit — light theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -7911,6 +7922,7 @@ exports[`shared kit — light theme RangeSlider 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -8008,6 +8020,7 @@ exports[`shared kit — light theme RangeSlider single handle 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -8062,6 +8075,7 @@ exports[`shared kit — light theme RangeSlider single handle 1`] = `
           },
         ]
       }
+      nativeID="<reanimated>"
       style={
         [
           {
@@ -9309,6 +9323,7 @@ exports[`shared kit — light theme Skeleton 1`] = `
         },
       ]
     }
+    nativeID="<reanimated>"
     style={
       [
         {
@@ -9364,6 +9379,7 @@ exports[`shared kit — light theme Skeleton circle 1`] = `
         },
       ]
     }
+    nativeID="<reanimated>"
     style={
       [
         {

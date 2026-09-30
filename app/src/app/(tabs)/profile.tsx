@@ -49,6 +49,7 @@ export default function ProfileScreen() {
   const [me, setMe] = useState<User | null>(null);
   const [matches, setMatches] = useState(0);
   const [likes, setLikes] = useState(0);
+  const [liked, setLiked] = useState(0);
   const [error, setError] = useState<unknown>(null);
 
   const load = useCallback(async () => {
@@ -59,15 +60,17 @@ export default function ProfileScreen() {
      * dev is a red box on whatever screen happens to be mounted by then.
      */
     try {
-      const [user, matchList, likeList] = await Promise.all([
+      const [user, matchList, likeList, likedList] = await Promise.all([
         meService.getMe(),
         matchesService.listMatches(),
         likesService.listInboundLikes(),
+        likesService.listOutboundLikes(),
       ]);
       setError(null);
       setMe(user);
       setMatches(matchList.length);
       setLikes(likeList.length);
+      setLiked(likedList.length);
     } catch (caught) {
       setError(caught);
     }
@@ -211,8 +214,10 @@ export default function ProfileScreen() {
         <ProfileStats
           matches={matches}
           likes={likes}
+          liked={liked}
           onMatchesPress={() => router.push("/(tabs)/chat")}
           onLikesPress={() => router.push("/likes")}
+          onLikedPress={() => router.push("/likes/sent")}
         />
 
         {isPremium ? null : (

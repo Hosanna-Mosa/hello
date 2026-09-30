@@ -15,10 +15,11 @@ import cors from "cors";
 import express, { type Express } from "express";
 import helmet from "helmet";
 
-import { corsOrigins, isTest } from "@/config/env.js";
+import { adminOrigins, corsOrigins, isTest } from "@/config/env.js";
 import { errorHandler, notFoundHandler } from "@/middlewares/errorHandler.js";
 import { requestId } from "@/middlewares/requestId.js";
 import { requestLog, useHumanRequestLog } from "@/middlewares/requestLog.js";
+import { adminRouter } from "@/routes/v1/admin.routes.js";
 import { healthRouter } from "@/routes/v1/health.routes.js";
 import { v1Router } from "@/routes/v1/index.js";
 
@@ -37,8 +38,25 @@ export function createApp(): Express {
   if (!isTest && useHumanRequestLog) app.use(requestLog);
 
   app.use(helmet());
-  app.use(cors({ origin: corsOrigins, credentials: false }));
   app.use(compression());
+
+  // The admin panel, BEFORE the app's CORS: that one reflects any origin in
+  // development, and the panel must never be reachable from one it does not
+  // name. Credentials (the session cookie) are allowed only for ADMIN_ORIGINS;
+  // with none set it is same-origin only. Its own small body limit, too.
+  app.use(
+    "/v1/admin",
+    cors({
+      origin: adminOrigins.length > 0 ? adminOrigins : false,
+      credentials: true,
+      methods: ["GET", "POST", "PATCH"],
+      allowedHeaders: ["Content-Type", "X-Admin-Request"],
+    }),
+    express.json({ limit: "8kb" }),
+    adminRouter,
+  );
+
+  app.use(cors({ origin: corsOrigins, credentials: false }));
   // 64kb: the largest legitimate body is a bio or a message, both far under it.
   app.use(express.json({ limit: "64kb" }));
 

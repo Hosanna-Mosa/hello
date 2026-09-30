@@ -98,12 +98,27 @@ export default function MatchScreen() {
   const showingAd = adsDismissed < adsBefore(index, showAds);
   const visualIndex = index + adsDismissed;
 
+  /*
+   * Reload whenever a filter changes, not just on first mount: "Show 93
+   * people" on the Filters screen only writes the store and goes back, so a
+   * deck loaded once kept showing the old (often spent) result (PLAN #249).
+   */
+  const filterKey = useFiltersStore((state) =>
+    JSON.stringify([
+      state.maxDistanceMetres,
+      state.minAge,
+      state.maxAge,
+      state.interestIds,
+      state.activeRecently,
+      state.genders,
+    ]),
+  );
+
   useEffect(() => {
-    void (async () => {
-      await load(toQuery());
-    })();
+    setAdsDismissed(0);
+    void load(toQuery());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [filterKey]);
 
   // NOTE: PLAN asks for the next N avatars to be prefetched through expo-image's
   // cache. That cannot be written yet — the preset avatar artwork does not exist

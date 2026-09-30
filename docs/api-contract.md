@@ -367,6 +367,53 @@ the person reported.
 
 ---
 
+## Support
+
+A user can open any number of tickets; each is one problem with its own
+conversation with the support team, answered from the admin panel.
+
+| Method | Path | Body | Returns |
+|---|---|---|---|
+| `GET` | `/support/tickets` | — | `SupportTicket[]`, most recent activity first |
+| `POST` | `/support/tickets` | `{ subject, category, message, clientMessageId? }` | `201` `SupportTicketDetail` |
+| `GET` | `/support/tickets/:id` | — | `SupportTicketDetail` — and the ticket is now read |
+| `POST` | `/support/tickets/:id/messages` | `{ body, clientMessageId? }` | `SupportTicketDetail` (the appended message(s)) |
+| `POST` | `/support/tickets/:id/read` | — | `SupportTicket` |
+| `POST` | `/support/tickets/:id/resolution` | `{ accept: boolean }` | `SupportTicketDetail` |
+
+```ts
+type SupportCategory = "account" | "safety" | "technical" | "billing" | "feedback" | "other";
+type SupportTicketStatus = "open" | "pendingResolution" | "resolved";
+type SupportTicketDetail = { ticket: SupportTicket; messages: SupportMessage[] };
+```
+
+**The lifecycle, and who may move it:**
+
+```
+open ──(support: Resolve)──▶ pendingResolution ──(user: yes)──▶ resolved
+  ▲                                 │
+  └──── (user: not yet, or writes another message) ────┘
+```
+
+- Support can only **ask** to resolve. The ticket closes when the **user**
+  answers yes (`POST …/resolution { accept: true }`), never over their head.
+- `accept: false` reopens it. So does the user simply writing again while
+  support waits — replying "it's still broken" *is* the answer.
+- `resolved` is final: both sides are refused new messages (`400`), and a new
+  problem is a new ticket.
+- Every change of status appends a `system` message with an `event`
+  (`resolutionRequested` / `resolutionAccepted` / `resolutionDeclined`), in the
+  same transaction as the status change, so history and status never disagree.
+- Answering the same way twice is a no-op, not an error.
+- Someone else's ticket is `404`, never `403`.
+- `clientMessageId` makes create and send idempotent: a retry returns the
+  original rather than storing twice. Rate limits: 10 new tickets/hour, and the
+  chat send limit for messages.
+
+The user never sees which operator replied — `author` is `"admin"`, full stop.
+
+---
+
 ## Preferences
 
 | Method | Path | Body | Returns |
@@ -416,6 +463,27 @@ equivalent, so the two can never disagree about a rule.
 - **There is no decline event, and there never will be.** A18 says a declined
   request must not be inferable by the sender; that is enforced by the absence
   of a channel, not by client discipline.
+
+### Support events
+
+On the app's connection (`/`):
+
+| Direction | Event | Payload |
+|---|---|---|
+| server → | `support:message:new` | `{ ticketId, message: SupportMessage }` — including your own, echoed to your other devices |
+| server → | `support:ticket:updated` | `{ ticket: SupportTicket }` |
+| server → | `support:typing` | `{ ticketId, author: "admin", isTyping }` — only while subscribed |
+| → server | `support:subscribe` / `support:unsubscribe` | `{ ticketId }` — ownership checked |
+| → server | `support:message:send` | `{ ticketId, body, clientMessageId }`, acked with `SupportTicketDetail` or `{ error }` |
+| → server | `support:typing` | `{ ticketId, isTyping }` |
+
+The admin panel uses its own namespace, **`/admin`**, authenticated with a
+one-minute ticket from `GET /v1/admin/auth/socket-ticket` (the session cookie
+is HttpOnly and path-scoped, so it cannot reach the handshake). The socket is
+closed when that session signs out or expires. Operators receive every
+ticket's `support:message:new` / `support:ticket:updated` (admin shapes, with
+the user summary and `adminId`), and send `support:message:send`,
+`support:typing` and `support:read`.
 
 ## Still open
 

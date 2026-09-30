@@ -18,7 +18,7 @@ import { AppState, type NativeEventSubscription } from "react-native";
 import { io, type Socket } from "socket.io-client";
 
 import { apiBaseUrl, getAccessToken, isMockMode, validAccessToken } from "./client";
-import type { Message } from "./types";
+import type { Message, SupportMessage, SupportTicket, SupportTicketDetail } from "./types";
 
 export type SocketEvents = {
   "message:new": { threadId: string; message: Message };
@@ -38,6 +38,12 @@ export type SocketEvents = {
    */
   "call:signal": { callId: string; kind: "offer" | "answer" | "ice"; data: unknown; fromUserId: string };
   "call:ended": { call: unknown; systemMessage?: Message };
+  /** A new line in one of your support tickets — from support, or from you on another device. */
+  "support:message:new": { ticketId: string; message: SupportMessage };
+  /** A ticket's status, preview or unread count changed. */
+  "support:ticket:updated": { ticket: SupportTicket };
+  /** Support (or you, elsewhere) typing in a ticket you have open. */
+  "support:typing": { ticketId: string; author: "user" | "admin"; isTyping: boolean };
 };
 
 let socket: Socket | null = null;
@@ -217,4 +223,61 @@ export function emitCallAccept(callId: string): void {
 
 export function socketConnected(): boolean {
   return socket?.connected ?? false;
+}
+
+// --- support ----------------------------------------------------------------
+
+/** Join a support ticket's room while it is on screen, so typing arrives. */
+export function subscribeSupportTicket(ticketId: string): void {
+  socket?.emit("support:subscribe", { ticketId });
+}
+
+export function unsubscribeSupportTicket(ticketId: string): void {
+  socket?.emit("support:unsubscribe", { ticketId });
+}
+
+export function emitSupportTyping(ticketId: string, isTyping: boolean): void {
+  socket?.emit("support:typing", { ticketId, isTyping });
+}
+
+/** How long a socket send may take before the caller falls back to HTTP. */
+const SUPPORT_ACK_TIMEOUT_MS = 8000;
+
+type SupportAck = SupportTicketDetail | { error: { code: string; message: string } };
+
+/**
+ * Send a support message over the live connection.
+ *
+ * Resolves with the stored ticket and message(s) — the same body the REST
+ * route returns — or `null` when there is no connection or no answer in time,
+ * so the caller can retry over HTTP. The `clientMessageId` makes that retry
+ * safe: if the socket send did land, the server returns the original rather
+ * than storing it twice.
+ *
+ * A server REFUSAL (the ticket is resolved, the body is empty) rejects with
+ * its code, because retrying over HTTP would only be refused again.
+ */
+export function sendSupportMessageLive(
+  ticketId: string,
+  body: string,
+  clientMessageId: string,
+): Promise<SupportTicketDetail | null> {
+  const live = socket;
+  if (!live?.connected) return Promise.resolve(null);
+
+  return new Promise((resolve, reject) => {
+    live
+      .timeout(SUPPORT_ACK_TIMEOUT_MS)
+      .emit("support:message:send", { ticketId, body, clientMessageId }, (err: Error | null, result: SupportAck) => {
+        if (err) {
+          resolve(null);
+          return;
+        }
+        if ("error" in result) {
+          reject(Object.assign(new Error(result.error.message), { code: result.error.code }));
+          return;
+        }
+        resolve(result);
+      });
+  });
 }

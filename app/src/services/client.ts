@@ -15,6 +15,7 @@
  * again after an app restart, which is PLAN R7 and still open.
  */
 
+import { httpFetch, type HttpResponse } from "./httpFetch";
 import type { ApiErrorCode } from "./types";
 import { clearSession, saveTokens } from "./secureSession";
 
@@ -176,6 +177,7 @@ export async function request<T>(produce: () => T | Promise<T>): Promise<T> {
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
 
+
 /** The server's envelope: `{ error: { code, message } }`. */
 type ErrorBody = { error?: { code?: ApiErrorCode; message?: string } };
 
@@ -186,7 +188,7 @@ type ErrorBody = { error?: { code?: ApiErrorCode; message?: string } };
  * ambiguous — it carries both `rateLimited` and `quotaExceeded`, and only the
  * latter drives the out-of-likes screen.
  */
-async function toApiError(res: Response): Promise<ApiError> {
+async function toApiError(res: HttpResponse): Promise<ApiError> {
   let body: ErrorBody | null = null;
   try {
     body = (await res.json()) as ErrorBody;
@@ -217,7 +219,7 @@ class RawBody {
   ) {}
 }
 
-async function send(method: Method, path: string, body: unknown, auth: boolean): Promise<Response> {
+async function send(method: Method, path: string, body: unknown, auth: boolean): Promise<HttpResponse> {
   // `AbortSignal.timeout` is not in every RN runtime, so drive it by hand.
   const controller = new AbortController();
   // An upload is bigger than any JSON body; give it longer on a slow network.
@@ -232,7 +234,7 @@ async function send(method: Method, path: string, body: unknown, auth: boolean):
     body === undefined ? {} : { body: body instanceof RawBody ? body.data : JSON.stringify(body) };
 
   try {
-    return await fetch(`${BASE_URL}/v1${path}`, {
+    return await httpFetch(`${BASE_URL}/v1${path}`, {
       method,
       headers,
       signal: controller.signal,

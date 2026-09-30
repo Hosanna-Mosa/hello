@@ -12,8 +12,9 @@ import * as Haptics from "expo-haptics";
 import { useCallback, useState } from "react";
 
 import { useVoiceRecorder, type VoiceClip } from "@/components/thread/hooks/useVoiceRecorder";
-import type { ComposerVoice } from "@/components/thread/organisms/ChatComposer";
+import type { ComposerVoice } from "@/components/common/organisms/ChatComposer";
 import { copy } from "@/copy";
+import { emitVoiceDiag } from "@/services/socket";
 import { useActiveCallStore } from "@/stores/activeCall.store";
 import { useChatStore } from "@/stores/chat.store";
 
@@ -57,11 +58,18 @@ export function useComposerVoice(threadId: string, onSent: () => void): Composer
       return;
     }
 
+    // Each step goes to the server log as `[voice] phone: …`, so a mic tap
+    // that "does nothing" on someone's phone shows where it stopped.
+    emitVoiceDiag(threadId, "mic tapped");
     void recorder.start().then((result) => {
+      const reason = recorder.lastError();
+      emitVoiceDiag(threadId, `record ${result}`, reason ? { reason } : undefined);
       if (result === "denied") setError(copy.chat.voiceMicDenied);
-      else if (result === "failed") setError(copy.chat.voiceMicFailed);
+      else if (result === "failed") {
+        setError(reason ? copy.chat.voiceMicFailedBecause(reason) : copy.chat.voiceMicFailed);
+      }
     });
-  }, [recorder, deliver]);
+  }, [recorder, deliver, threadId]);
 
   const onCancel = useCallback(() => {
     setError(null);

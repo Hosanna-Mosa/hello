@@ -2,7 +2,7 @@
 //
 // Copied verbatim from app/src/services/types.ts by scripts/sync-contract.mjs.
 // Edit that file; run `npm run sync-contract` (or any build) to refresh this one.
-// source-sha256: 1a676b3eef15e773
+// source-sha256: d6df42de4621ca30
 
 /**
  * Entity types.
@@ -141,6 +141,29 @@ export type Match = {
   createdAt: IsoDateTime;
   /** Set when either side unmatches; the pair is kept so it cannot recur. */
   endedAt: IsoDateTime | null;
+};
+
+/**
+ * Where you stand with one person — what their profile's main button does.
+ *
+ *   none       nothing between you           → "Send request"
+ *   requested  you liked / sent a request    → "Request sent" (disabled)
+ *   incoming   they sent YOU a request       → "Accept request"
+ *   matched    an active match               → "Message"
+ *
+ * A request they DECLINED still reads `requested`, forever: a sender must never
+ * be able to infer a decline (A18). A silent like from them is NOT surfaced as
+ * `incoming` either — seeing who liked you is a premium feature, and a profile
+ * button must not become a way around it.
+ */
+export type ConnectionStatus = "none" | "requested" | "incoming" | "matched";
+
+export type Connection = {
+  status: ConnectionStatus;
+  /** Set when `matched` — the conversation to open. */
+  threadId: string | null;
+  /** Set when `incoming` — the request to accept. */
+  requestId: string | null;
 };
 
 // ---------------------------------------------------------------------------
@@ -304,6 +327,68 @@ export type Report = {
   /** Reporting optionally blocks too. */
   alsoBlocked: boolean;
   createdAt: IsoDateTime;
+};
+
+// ---------------------------------------------------------------------------
+// Support
+// ---------------------------------------------------------------------------
+
+/** What a ticket is about. Picked by the user when they open it. */
+export type SupportCategory = "account" | "safety" | "technical" | "billing" | "feedback" | "other";
+
+/**
+ * Where a ticket is in its life. It only ever moves along these edges:
+ *
+ *   open ──(support: "resolve")──▶ pendingResolution ──(user: "yes")──▶ resolved
+ *     ▲                                   │
+ *     └──────(user: "not yet", or the user writes another message)──┘
+ *
+ * Support can only ASK to resolve. The ticket closes when the user agrees, so a
+ * problem is never marked fixed over the head of the person who has it.
+ * `resolved` is final — both sides become read-only, and a new problem is a
+ * new ticket.
+ */
+export type SupportTicketStatus = "open" | "pendingResolution" | "resolved";
+
+/** Who wrote a support message. `system` lines record a status change. */
+export type SupportAuthor = "user" | "admin" | "system";
+
+/** The status change a `system` message records. */
+export type SupportEvent = "resolutionRequested" | "resolutionAccepted" | "resolutionDeclined";
+
+export type SupportTicket = {
+  id: string;
+  subject: string;
+  category: SupportCategory;
+  status: SupportTicketStatus;
+  /** Denormalised so the ticket list needs one request, not one per row. */
+  lastMessageAt: IsoDateTime;
+  lastMessagePreview: string;
+  lastMessageAuthor: SupportAuthor;
+  /** Messages from support the user has not seen yet. */
+  unreadCount: number;
+  /** When support asked to close it; null unless `pendingResolution`. */
+  resolutionRequestedAt: IsoDateTime | null;
+  resolvedAt: IsoDateTime | null;
+  createdAt: IsoDateTime;
+};
+
+export type SupportMessage = {
+  id: string;
+  ticketId: string;
+  author: SupportAuthor;
+  body: string;
+  /** Set exactly when `author` is `"system"`. */
+  event: SupportEvent | null;
+  /** Echoed back so an optimistic send can be matched to the stored message. */
+  clientMessageId: string | null;
+  createdAt: IsoDateTime;
+};
+
+/** `GET /support/tickets/:id` — the ticket and its whole conversation. */
+export type SupportTicketDetail = {
+  ticket: SupportTicket;
+  messages: SupportMessage[];
 };
 
 // ---------------------------------------------------------------------------

@@ -122,3 +122,52 @@ describe.each(THEMES)("Phase 6 — match deck — %s theme", (theme) => {
       renderAtom(<DeckActions onPass={noop} onLike={noop} onNote={noop} disabled />, theme),
     ).toMatchSnapshot());
 });
+
+describe("Match tab reloads when filters change (PLAN #249)", () => {
+  it("applying new filters re-queries the deck — it is not loaded only once", async () => {
+    const { profilesService } = jest.requireActual<typeof import("@/services/profiles.service")>(
+      "@/services/profiles.service",
+    );
+    const { useFiltersStore } = jest.requireActual<typeof import("@/stores/filters.store")>(
+      "@/stores/filters.store",
+    );
+    const TestRenderer = jest.requireActual<typeof import("react-test-renderer")>("react-test-renderer");
+    const spy = jest.spyOn(profilesService, "listNearby");
+    const flush = () =>
+      TestRenderer.act(async () => {
+        for (let i = 0; i < 6; i += 1) await new Promise((r) => setTimeout(r, 0));
+      });
+
+    let renderer!: import("react-test-renderer").ReactTestRenderer;
+    await TestRenderer.act(async () => {
+      const { SafeAreaProvider } = jest.requireActual<typeof import("react-native-safe-area-context")>(
+        "react-native-safe-area-context",
+      );
+      const { ThemeProvider } = jest.requireActual<typeof import("@/theme/ThemeProvider")>("@/theme/ThemeProvider");
+      renderer = TestRenderer.create(
+        <SafeAreaProvider
+          initialMetrics={{ frame: { x: 0, y: 0, width: 390, height: 844 }, insets: { top: 47, left: 0, right: 0, bottom: 34 } }}
+        >
+          <ThemeProvider override="light">
+            <MatchScreen />
+          </ThemeProvider>
+        </SafeAreaProvider>,
+      );
+    });
+    await flush();
+    const before = spy.mock.calls.length;
+    expect(before).toBeGreaterThan(0);
+
+    await TestRenderer.act(async () => useFiltersStore.getState().setDistance(100_000));
+    await flush();
+
+    expect(spy.mock.calls.length).toBeGreaterThan(before);
+    expect(spy.mock.calls.at(-1)?.[0]).toEqual(expect.objectContaining({ maxDistanceMetres: 100_000 }));
+
+    await TestRenderer.act(async () => {
+      renderer.unmount();
+      useFiltersStore.getState().reset();
+    });
+    spy.mockRestore();
+  });
+});

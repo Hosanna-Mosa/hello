@@ -156,6 +156,15 @@ export const copy = {
     likesEmptyTitle: "No likes yet",
     likesEmptyBody: "Keep your profile fresh and check back soon.",
     likesBlurredCta: "See who likes you",
+    // People YOU liked (PLAN #247).
+    sentLikesTitle: "You liked",
+    sentLikesLink: "People you liked",
+    sentLikesEmptyTitle: "You haven't liked anyone yet",
+    sentLikesEmptyBody: "Tap the heart on someone's profile and they'll show up here.",
+    sentLikesBrowse: "Find people",
+    sentStatusMatched: "Connected · you can message",
+    sentStatusRequested: "Request sent",
+    sentStatusLiked: "Liked",
     notificationsTitle: "Activity",
     notificationsEmptyTitle: "Nothing yet",
     notificationsEmptyBody: "Likes, matches and messages will show up here.",
@@ -221,6 +230,8 @@ export const copy = {
     voiceTooShort: "Too short — record for at least a second.",
     voiceMicDenied: "Allow microphone access in Settings to send voice messages.",
     voiceMicFailed: "Couldn't start the microphone. Try again.",
+    /** With the reason, so a screenshot of the failure says what failed. */
+    voiceMicFailedBecause: (reason: string) => `Couldn't start the microphone (${reason}). Try again.`,
     voicePlay: "Play voice message",
     voicePause: "Pause voice message",
     voiceMessage: "Voice message",
@@ -276,6 +287,17 @@ export const copy = {
      * match-gated, so on a stranger's profile this action does not exist.
      */
     message: "Message",
+    // The connection states of someone else's profile (PLAN #244).
+    sendRequest: "Send request",
+    requestSent: "Request sent",
+    requestSentHint: "You can message once they accept.",
+    acceptRequest: "Accept request",
+    requestNoteLabel: "Add a note",
+    requestNotePlaceholder: "Say why you'd like to connect — they'll see this with your request.",
+    requestNoteDefault: (name: string) => `Hi ${name}! I'd love to connect.`,
+    sendRequestConfirm: "Send",
+    requestFailed: "Couldn't send your request. Try again.",
+    outOfRequests: "You're out of requests for today.",
     about: "About me",
     interests: "Interests",
     complete: (percent: number) => `${percent}% complete`,
@@ -289,6 +311,7 @@ export const copy = {
      */
     statMatches: "Matches",
     statLikes: "Likes",
+    statLiked: "You liked",
     addBio: "Add a bio",
     addInterests: "Add interests",
     completeHint: "A fuller profile gets more replies.",
@@ -366,6 +389,81 @@ export const copy = {
     ],
     deleteConfirmWord: "DELETE",
     deleteFinal: "Delete my account",
+  },
+
+  support: {
+    title: "Support",
+    intro: "Tell us what's going on and our team will reply right here. Open a separate ticket for each problem.",
+    newTicket: "New ticket",
+    emptyTitle: "No tickets yet",
+    emptyBody: "Something not working? Open a ticket and the support team will reply in the app.",
+    status: {
+      open: "Open",
+      pendingResolution: "Awaiting your confirmation",
+      resolved: "Resolved",
+    },
+    /** The same, short enough for a list row. */
+    statusShort: {
+      open: "Open",
+      pendingResolution: "Action needed",
+      resolved: "Resolved",
+    },
+    unreadValue: (count: number) => `${count} new`,
+    category: {
+      account: "Account & sign-in",
+      technical: "Something isn't working",
+      safety: "Safety & reporting",
+      billing: "Subscription & billing",
+      feedback: "Feedback & ideas",
+      other: "Something else",
+    },
+    previewYou: (text: string) => `You: ${text}`,
+    previewSupport: (text: string) => `Support: ${text}`,
+    openedOn: (category: string, date: string) => `${category} · Opened ${date}`,
+
+    // New ticket
+    newTitle: "New ticket",
+    categoryLabel: "What's it about?",
+    subjectLabel: "Subject",
+    subjectPlaceholder: "A few words, e.g. “Can't save my interests”",
+    messageLabel: "Describe the problem",
+    messagePlaceholder:
+      "What happened, and what did you expect instead? The more detail you give, the faster we can help.",
+    submit: "Send to support",
+    subjectTooShort: "Add a subject of at least 3 characters.",
+    createFailed: "Couldn't send your ticket. Check your connection and try again.",
+    charactersLeft: (used: number, max: number) => `${used}/${max}`,
+
+    // The conversation
+    you: "You",
+    supportTeam: "Support team",
+    composerPlaceholder: "Reply to support",
+    typing: "Support is typing…",
+    sendFailed: "Not sent",
+    retry: "Retry",
+    discard: "Delete",
+    loadFailed: "Couldn't load this ticket.",
+    firstReplyHint: "Thanks — your ticket is with the support team. You'll see their reply here.",
+    resolvedFooter: "This ticket is resolved. Need more help? Open a new ticket.",
+    openNewTicket: "Open a new ticket",
+
+    // "Is it resolved?"
+    resolutionTitle: "Is your issue resolved?",
+    resolutionBody:
+      "Support has marked this ticket as resolved. If everything is working now, we'll close it. If not, the conversation carries on.",
+    resolutionConfirm: "Yes, it's resolved",
+    resolutionDecline: "No, I still need help",
+    resolutionBanner: "Support thinks this is fixed. Is it?",
+    resolutionAnswer: "Answer",
+    respondFailed: "Couldn't update the ticket. Try again.",
+    events: {
+      resolutionRequested: "Support marked this issue as resolved",
+      resolutionAccepted: "Resolved — this ticket is now closed",
+      resolutionDeclined: "Not resolved yet — the conversation continues",
+    },
+
+    /** Dev-only menu item: play the support side pressing "Resolve". */
+    simulateResolve: "Simulate: support resolves (dev)",
   },
 
   notifications: {

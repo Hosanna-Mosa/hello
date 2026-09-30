@@ -18,6 +18,13 @@ export default defineConfig({
       REVIEW_LOGIN_EMAIL: "reviewer@example.com",
       REVIEW_LOGIN_PASSWORD: "review-pass-123",
       REVIEW_LOGIN_PHONE: "+447700999001",
+      ADMIN_JWT_SECRET: "test-admin-secret-0123456789abcdefghijklmnop",
+      // Every suite signs in through `/auth/code` → `devCode`, which only
+      // exists in dev mode. Pinned here so a developer's .env — which is
+      // pointed at a real deployment and has it off — cannot fail 100+ tests
+      // at sign-in (PLAN #231). NODE_ENV is "test", so the production guard
+      // in env.ts does not apply.
+      OTP_DEV_MODE: "true",
     },
   },
   resolve: {

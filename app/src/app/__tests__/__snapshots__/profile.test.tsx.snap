@@ -3730,7 +3730,6 @@ exports[`Phase 8 — profile — dark theme (tabs)/profile 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -3746,8 +3745,6 @@ exports[`Phase 8 — profile — dark theme (tabs)/profile 1`] = `
                     "width": 120,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={120}
               />
@@ -4087,6 +4084,90 @@ exports[`Phase 8 — profile — dark theme (tabs)/profile 1`] = `
                 }
               >
                 Likes
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#2A2522",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#F5F2ED",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#A3A5A5",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
               </Text>
             </View>
           </View>
@@ -5503,6 +5584,90 @@ exports[`Phase 8 — profile — dark theme (tabs)/profile — nothing filled in
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#2A2522",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#F5F2ED",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#A3A5A5",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             accessibilityLabel="Make more friends"
@@ -6227,7 +6392,6 @@ exports[`Phase 8 — profile — dark theme edit-profile 1`] = `
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -6243,8 +6407,6 @@ exports[`Phase 8 — profile — dark theme edit-profile 1`] = `
                   "width": 120,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={120}
             />
@@ -6954,7 +7116,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -6970,8 +7131,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                   "width": 120,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={120}
             />
@@ -7065,7 +7224,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7081,8 +7239,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7150,7 +7306,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7166,8 +7321,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7235,7 +7388,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7251,8 +7403,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7320,7 +7470,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7336,8 +7485,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7405,7 +7552,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7421,8 +7567,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7490,7 +7634,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7506,8 +7649,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7575,7 +7716,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7591,8 +7731,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7660,7 +7798,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7676,8 +7813,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7745,7 +7880,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7761,8 +7895,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7830,7 +7962,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7846,8 +7977,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -7915,7 +8044,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -7931,8 +8059,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8000,7 +8126,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8016,8 +8141,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8085,7 +8208,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8101,8 +8223,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8170,7 +8290,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8186,8 +8305,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8255,7 +8372,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8271,8 +8387,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8340,7 +8454,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8356,8 +8469,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8425,7 +8536,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8441,8 +8551,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8510,7 +8618,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8526,8 +8633,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8595,7 +8700,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8611,8 +8715,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8680,7 +8782,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8696,8 +8797,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8765,7 +8864,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8781,8 +8879,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8850,7 +8946,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8866,8 +8961,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -8935,7 +9028,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -8951,8 +9043,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9020,7 +9110,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9036,8 +9125,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9105,7 +9192,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9121,8 +9207,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9190,7 +9274,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9206,8 +9289,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9275,7 +9356,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9291,8 +9371,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9360,7 +9438,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9376,8 +9453,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9445,7 +9520,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9461,8 +9535,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -9530,7 +9602,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -9546,8 +9617,6 @@ exports[`Phase 8 — profile — dark theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -15094,7 +15163,6 @@ exports[`Phase 8 — profile — light theme (tabs)/profile 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -15110,8 +15178,6 @@ exports[`Phase 8 — profile — light theme (tabs)/profile 1`] = `
                     "width": 120,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={120}
               />
@@ -15451,6 +15517,90 @@ exports[`Phase 8 — profile — light theme (tabs)/profile 1`] = `
                 }
               >
                 Likes
+              </Text>
+            </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#E6E2DD",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#1A1815",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#686B6B",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
               </Text>
             </View>
           </View>
@@ -16867,6 +17017,90 @@ exports[`Phase 8 — profile — light theme (tabs)/profile — nothing filled i
                 Likes
               </Text>
             </View>
+            <View
+              style={
+                {
+                  "backgroundColor": "#E6E2DD",
+                  "height": 32,
+                  "width": 1,
+                }
+              }
+            />
+            <View
+              accessibilityLabel="0 You liked"
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": false,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "alignItems": "center",
+                  "flex": 1,
+                  "gap": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-SemiBold",
+                      "fontSize": 20,
+                      "lineHeight": 28,
+                    },
+                    {
+                      "color": "#1A1815",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                0
+              </Text>
+              <Text
+                style={
+                  [
+                    {
+                      "fontFamily": "Inter-Regular",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                    {
+                      "color": "#686B6B",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                You liked
+              </Text>
+            </View>
           </View>
           <View
             accessibilityLabel="Make more friends"
@@ -17591,7 +17825,6 @@ exports[`Phase 8 — profile — light theme edit-profile 1`] = `
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -17607,8 +17840,6 @@ exports[`Phase 8 — profile — light theme edit-profile 1`] = `
                   "width": 120,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={120}
             />
@@ -18318,7 +18549,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
               onLoadStart={[Function]}
               onProgress={[Function]}
               placeholder={[]}
-              sfEffect={null}
               source={
                 [
                   {
@@ -18334,8 +18564,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                   "width": 120,
                 }
               }
-              symbolSize={null}
-              symbolWeight={null}
               transition={null}
               width={120}
             />
@@ -18429,7 +18657,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18445,8 +18672,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18514,7 +18739,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18530,8 +18754,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18599,7 +18821,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18615,8 +18836,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18684,7 +18903,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18700,8 +18918,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18769,7 +18985,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18785,8 +19000,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18854,7 +19067,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18870,8 +19082,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -18939,7 +19149,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -18955,8 +19164,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19024,7 +19231,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19040,8 +19246,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19109,7 +19313,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19125,8 +19328,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19194,7 +19395,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19210,8 +19410,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19279,7 +19477,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19295,8 +19492,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19364,7 +19559,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19380,8 +19574,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19449,7 +19641,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19465,8 +19656,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19534,7 +19723,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19550,8 +19738,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19619,7 +19805,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19635,8 +19820,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19704,7 +19887,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19720,8 +19902,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19789,7 +19969,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19805,8 +19984,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19874,7 +20051,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19890,8 +20066,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -19959,7 +20133,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -19975,8 +20148,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20044,7 +20215,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20060,8 +20230,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20129,7 +20297,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20145,8 +20312,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20214,7 +20379,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20230,8 +20394,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20299,7 +20461,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20315,8 +20476,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20384,7 +20543,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20400,8 +20558,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20469,7 +20625,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20485,8 +20640,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20554,7 +20707,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20570,8 +20722,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20639,7 +20789,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20655,8 +20804,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20724,7 +20871,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20740,8 +20886,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20809,7 +20953,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20825,8 +20968,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -20894,7 +21035,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -20910,8 +21050,6 @@ exports[`Phase 8 — profile — light theme edit-profile/avatar 1`] = `
                     "width": 64,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={64}
               />
@@ -30683,7 +30821,6 @@ exports[`Phase 8 — settings — dark theme settings/blocked — with someone b
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -30699,8 +30836,6 @@ exports[`Phase 8 — settings — dark theme settings/blocked — with someone b
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -31743,6 +31878,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -31797,6 +31933,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -31937,6 +32074,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -31991,6 +32129,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32059,6 +32198,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32476,6 +32616,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery — hidden 1`] =
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32530,6 +32671,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery — hidden 1`] =
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32670,6 +32812,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery — hidden 1`] =
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32724,6 +32867,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery — hidden 1`] =
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -32792,6 +32936,7 @@ exports[`Phase 8 — settings — dark theme settings/discovery — hidden 1`] =
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -33090,11 +33235,12 @@ exports[`Phase 8 — settings — dark theme settings/help 1`] = `
             />
             <View
               accessibilityLabel="Contact support"
+              accessibilityRole="button"
               accessibilityState={
                 {
                   "busy": undefined,
                   "checked": undefined,
-                  "disabled": true,
+                  "disabled": false,
                   "expanded": undefined,
                   "selected": undefined,
                 }
@@ -33136,7 +33282,7 @@ exports[`Phase 8 — settings — dark theme settings/help 1`] = `
                 animated={false}
                 colors={[]}
                 importantForAccessibility="no"
-                name="envelope"
+                name="bubble.left.and.bubble.right"
                 size={20}
                 style={
                   {
@@ -33167,6 +33313,23 @@ exports[`Phase 8 — settings — dark theme settings/help 1`] = `
               >
                 Contact support
               </Text>
+              <ViewManagerAdapter_SymbolModule
+                accessibilityElementsHidden={true}
+                animated={false}
+                colors={[]}
+                importantForAccessibility="no"
+                name="chevron.right"
+                size={16}
+                style={
+                  {
+                    "height": 16,
+                    "width": 16,
+                  }
+                }
+                tint={4285822839}
+                tintColor="#747777"
+                type="monochrome"
+              />
             </View>
           </View>
           <Text
@@ -37611,7 +37774,6 @@ exports[`Phase 8 — settings — light theme settings/blocked — with someone 
                 onLoadStart={[Function]}
                 onProgress={[Function]}
                 placeholder={[]}
-                sfEffect={null}
                 source={
                   [
                     {
@@ -37627,8 +37789,6 @@ exports[`Phase 8 — settings — light theme settings/blocked — with someone 
                     "width": 44,
                   }
                 }
-                symbolSize={null}
-                symbolWeight={null}
                 transition={null}
                 width={44}
               />
@@ -38671,6 +38831,7 @@ exports[`Phase 8 — settings — light theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -38725,6 +38886,7 @@ exports[`Phase 8 — settings — light theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -38865,6 +39027,7 @@ exports[`Phase 8 — settings — light theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -38919,6 +39082,7 @@ exports[`Phase 8 — settings — light theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -38987,6 +39151,7 @@ exports[`Phase 8 — settings — light theme settings/discovery 1`] = `
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -39404,6 +39569,7 @@ exports[`Phase 8 — settings — light theme settings/discovery — hidden 1`] 
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -39458,6 +39624,7 @@ exports[`Phase 8 — settings — light theme settings/discovery — hidden 1`] 
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -39598,6 +39765,7 @@ exports[`Phase 8 — settings — light theme settings/discovery — hidden 1`] 
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -39652,6 +39820,7 @@ exports[`Phase 8 — settings — light theme settings/discovery — hidden 1`] 
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -39720,6 +39889,7 @@ exports[`Phase 8 — settings — light theme settings/discovery — hidden 1`] 
                     },
                   ]
                 }
+                nativeID="<reanimated>"
                 style={
                   [
                     {
@@ -40018,11 +40188,12 @@ exports[`Phase 8 — settings — light theme settings/help 1`] = `
             />
             <View
               accessibilityLabel="Contact support"
+              accessibilityRole="button"
               accessibilityState={
                 {
                   "busy": undefined,
                   "checked": undefined,
-                  "disabled": true,
+                  "disabled": false,
                   "expanded": undefined,
                   "selected": undefined,
                 }
@@ -40064,7 +40235,7 @@ exports[`Phase 8 — settings — light theme settings/help 1`] = `
                 animated={false}
                 colors={[]}
                 importantForAccessibility="no"
-                name="envelope"
+                name="bubble.left.and.bubble.right"
                 size={20}
                 style={
                   {
@@ -40095,6 +40266,23 @@ exports[`Phase 8 — settings — light theme settings/help 1`] = `
               >
                 Contact support
               </Text>
+              <ViewManagerAdapter_SymbolModule
+                accessibilityElementsHidden={true}
+                animated={false}
+                colors={[]}
+                importantForAccessibility="no"
+                name="chevron.right"
+                size={16}
+                style={
+                  {
+                    "height": 16,
+                    "width": 16,
+                  }
+                }
+                tint={4288322716}
+                tintColor="#9A9C9C"
+                type="monochrome"
+              />
             </View>
           </View>
           <Text

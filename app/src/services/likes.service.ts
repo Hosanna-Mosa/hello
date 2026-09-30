@@ -15,7 +15,7 @@ import { SEEDED_LIKES, SEEDED_REQUESTS } from "@/mocks/threads";
 import { ApiError, nextId, nowIso, request, http, isMockMode } from "./client";
 import { billingService } from "./billing.service";
 import { matchesService } from "./matches.service";
-import type { Like, Match, MessageRequest } from "./types";
+import type { Connection, Like, Match, MessageRequest } from "./types";
 
 const ME = "me";
 
@@ -66,6 +66,26 @@ export const likesService = {
     });
   },
 
+  /**
+   * Where you stand with one person — drives the profile sheet's main button.
+   * Same rules as the server: a decline still reads `requested` (A18), and a
+   * silent like from them is never surfaced as `incoming` (premium).
+   */
+  async getConnection(userId: string): Promise<Connection> {
+    if (!isMockMode()) return http<Connection>("GET", `/connections/${encodeURIComponent(userId)}`);
+
+    const match = await matchesService.getMatchWithUser(userId);
+    return request(() => {
+      if (match) return { status: "matched", threadId: match.threadId, requestId: null };
+
+      const incoming = requests.find((r) => r.fromUserId === userId && r.toUserId === ME && r.status === "pending");
+      if (incoming) return { status: "incoming", threadId: null, requestId: incoming.id };
+
+      const mine = likes.some((l) => l.fromUserId === ME && l.toUserId === userId);
+      return { status: mine ? "requested" : "none", threadId: null, requestId: null };
+    });
+  },
+
   /** Inbound likes without a note — the (blurred, on free) Likes grid. */
   async listInboundLikes(): Promise<Like[]> {
     if (!isMockMode()) return http<Like[]>("GET", "/likes/inbound");
@@ -73,6 +93,18 @@ export const likesService = {
     return request(() =>
       likes
         .filter((l) => l.toUserId === ME)
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        .map((l) => ({ ...l })),
+    );
+  },
+
+  /** Likes YOU sent — the "You liked" screen. Your own, so never gated. */
+  async listOutboundLikes(): Promise<Like[]> {
+    if (!isMockMode()) return http<Like[]>("GET", "/likes/outbound");
+
+    return request(() =>
+      likes
+        .filter((l) => l.fromUserId === ME)
         .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .map((l) => ({ ...l })),
     );

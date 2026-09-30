@@ -6,8 +6,10 @@ import {
   Box,
   Button,
   EmptyState,
+  Label,
   List,
   ScreenShell,
+  Tappable,
   useAsyncStatus,
   useEntitlements,
   useTheme,
@@ -21,6 +23,18 @@ import { profilesService } from "@/services/profiles.service";
 import type { Like, PublicProfile } from "@/services/types";
 
 type InboundLike = { like: Like; profile: PublicProfile };
+
+/** The way to the other half — people YOU liked. In the header, so every state has it. */
+const sentLikesLink = (
+  <Tappable
+    onPress={() => router.push("/likes/sent")}
+    accessibilityRole="button"
+    accessibilityLabel={copy.home.sentLikesLink}
+    hitSlop={12}
+  >
+    <Label color="accent">{copy.home.sentLikesTitle}</Label>
+  </Tappable>
+);
 
 /**
  * People who liked you.
@@ -64,7 +78,7 @@ export default function LikesScreen() {
 
   if (status === "loading") {
     return (
-      <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()}>
+      <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()} actions={sentLikesLink}>
         <Box style={{ padding: theme.spacing.xl }}>
           <NearbySkeleton count={4} />
         </Box>
@@ -74,7 +88,7 @@ export default function LikesScreen() {
 
   if (status === "empty" || status === "error") {
     return (
-      <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()}>
+      <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()} actions={sentLikesLink}>
         <EmptyState
           icon={{ ios: "heart", android: "favorite" }}
           title={copy.home.likesEmptyTitle}
@@ -85,7 +99,7 @@ export default function LikesScreen() {
   }
 
   return (
-    <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()}>
+    <ScreenShell title={copy.home.likesTitle} onBack={() => router.back()} actions={sentLikesLink}>
       <List
         data={items ?? []}
         keyExtractor={(item) => item.like.id}

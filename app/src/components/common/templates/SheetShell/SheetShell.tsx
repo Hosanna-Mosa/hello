@@ -40,6 +40,13 @@ export type SheetShellProps = {
    * set it on a sheet whose content can run long.
    */
   fitToContents?: boolean;
+  /**
+   * Put the footer straight under the content, scrolling with it, instead of
+   * pinned to the sheet's bottom edge. For a sheet whose content is usually
+   * much shorter than its detent — pinned, the actions float under a big
+   * empty gap.
+   */
+  footerInline?: boolean;
 };
 
 export function SheetShell({
@@ -50,6 +57,7 @@ export function SheetShell({
   footer,
   showGrabber = true,
   fitToContents = false,
+  footerInline = false,
 }: SheetShellProps) {
   const theme = useTheme();
 
@@ -119,10 +127,13 @@ export function SheetShell({
           }}
         >
           {children}
+          {footer && footerInline ? (
+            <Box style={{ paddingTop: theme.spacing.sm, gap: theme.spacing.sm }}>{footer}</Box>
+          ) : null}
         </Scroller>
       )}
 
-      {footer ? (
+      {footer && !(footerInline && !fitToContents) ? (
         <Box style={{ padding: theme.spacing.xl, gap: theme.spacing.sm }}>{footer}</Box>
       ) : null}
     </Box>
