@@ -79,20 +79,42 @@ never construct, parse or mutate one.
 
 ## Auth
 
-Phone + OTP. The one exception is the store-review sign-in below: a single
-email + password configured on the server (`REVIEW_LOGIN_*`) that opens an
-existing phone account. No other email, password or social sign-in exists.
+Sign-up with name + email + phone + password; sign-in with email-or-phone +
+password. The store-review credential (`REVIEW_LOGIN_*`) is also accepted by
+`/auth/login`, and still by `/auth/email`. No social sign-in exists.
+
+Phone + OTP (`/auth/code`, `/auth/verify`) is mounted **only when
+`OTP_LOGIN_ENABLED=true`** — off in every deployment, on in the backend test
+suite. A verified code creates an account with no password, so leaving it on
+would be a second, password-less way in.
 
 | Method | Path | Body | Returns |
 |---|---|---|---|
-| `POST` | `/auth/code` | `{ countryCode, phoneNumber }` | `{ resendAfterSec }` |
-| `POST` | `/auth/verify` | `{ countryCode, phoneNumber, code, timezone? }` | `Session` |
+| `POST` | `/auth/signup` | `{ name, email, countryCode, phoneNumber, password, timezone? }` | `201 Session` (`onboardingComplete: false`) — taken email / number, or a weak password → `400 validation` with a message safe to show |
+| `POST` | `/auth/login` | `{ identifier, password, timezone? }` | `Session` — any failure about the pair → `400 validation` "That email, phone number or password isn't right." |
+| `POST` | `/auth/code` | `{ countryCode, phoneNumber }` | `{ resendAfterSec }` — only with `OTP_LOGIN_ENABLED` |
+| `POST` | `/auth/verify` | `{ countryCode, phoneNumber, code, timezone? }` | `Session` — only with `OTP_LOGIN_ENABLED` |
 | `POST` | `/auth/email` | `{ email, password, timezone? }` | `Session` — wrong pair, unset config, or missing target account → `400 validation` |
 | `POST` | `/auth/refresh` | `{ refreshToken }` | `{ token, refreshToken, expiresIn }` |
 | `POST` | `/auth/onboarding/complete` | — | `Session` |
 | `POST` | `/auth/signout` | — | `204` |
 
 `Session` = `{ userId, token, refreshToken, expiresIn, phone, onboardingComplete, createdAt }`.
+
+### Passwords
+
+- `password` at sign-up: 8–128 characters, at least one letter and one digit.
+- `identifier` is an email (matched case-insensitively) or a phone number in
+  E.164 (`+919876543210`). The app reads a bare number as `+91`.
+- Stored as scrypt (`utils/password.ts`), never returned by any endpoint
+  (`select: false` on the model). Email and phone are looked up by a peppered
+  HMAC, never by the plaintext.
+- `/auth/login` gives an unknown account, a wrong password, an erased account
+  and a pre-password (OTP-era) account the **same** answer in about the same
+  time, so it cannot be used to discover who is registered. `/auth/signup`
+  does say an email or number is taken — rate limited per IP.
+- Rate limits: login 20 / 15 min per IP **and** 10 / 15 min per account;
+  sign-up 10 / hour per IP.
 
 ### Tokens
 
@@ -111,9 +133,8 @@ days and is the only way to mint a new one.
   server needs it to compute the user's local midnight for the daily like quota.
   See **Billing**.
 
-`phone` is the number the session was opened with, formatted `+91 98765 43210`.
-Settings → Account displays it, and it is the only identifier this product
-has — there is no email, password or social login anywhere.
+`phone` is the account's number, formatted `+91 98765 43210`. Settings →
+Account displays it.
 
 ---
 

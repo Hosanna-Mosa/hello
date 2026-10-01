@@ -11,7 +11,7 @@
 
 import { create } from "zustand";
 
-import { authService } from "@/services/auth.service";
+import { authService, type SignupInput } from "@/services/auth.service";
 import { onAuthLostHandler } from "@/services/client";
 import { connectSocket, disconnectSocket } from "@/services/socket";
 import { meService } from "@/services/me.service";
@@ -26,8 +26,9 @@ export type SessionState = {
 
   /** Resolve the session at launch. */
   hydrate: () => Promise<void>;
-  verifyCode: (code: string) => Promise<void>;
-  emailLogin: (email: string, password: string) => Promise<void>;
+  /** `identifier` is an email or a phone number, as typed. */
+  login: (identifier: string, password: string) => Promise<void>;
+  signup: (input: SignupInput) => Promise<void>;
   completeOnboarding: () => Promise<void>;
   signOut: () => Promise<void>;
   refreshUser: () => Promise<void>;
@@ -57,36 +58,28 @@ export const useSessionStore = create<SessionState>((set) => ({
     set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
   },
 
-  verifyCode: async (code) => {
-    const session = await authService.verifyCode(code);
+  login: async (identifier, password) => {
+    const session = await authService.login(identifier, password);
     // A token exists now, so the live connection can open. No-op in mock mode.
     connectSocket();
     const user = await meService.getMe();
 
     /*
      * Onboarding is for people who have not done it — NOT for everyone who
-     * signs in.
-     *
-     * This used to set "onboarding" unconditionally, which was true of the
-     * mock (where every verify mints a brand new account) and wrong of the
-     * real API, where signing in on a second device, after a reinstall, or
-     * simply after the in-memory token expired walked the same person through
-     * name, birthday, gender, avatar, interests, bio and location again — and
-     * `PATCH /me` happily overwrote what they had already answered.
-     *
-     * The server has always said which it is; the client just threw the answer
-     * away. In mock mode `onboardingComplete` is false on a fresh verify, so
-     * the demo still walks the wizard.
+     * signs in. Signing in on a second device or after a reinstall must not
+     * walk the same person through the wizard again, overwriting answers they
+     * already gave (PLAN #141). The server says which it is.
      */
     set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
   },
 
-  emailLogin: async (email, password) => {
-    const session = await authService.emailLogin(email, password);
+  signup: async (input) => {
+    await authService.signup(input);
     connectSocket();
     const user = await meService.getMe();
-    // Same rule as verifyCode: a finished account goes straight to the tabs.
-    set({ status: session.onboardingComplete ? "signedIn" : "onboarding", user });
+    // A new account always starts the wizard: birthday (the 18+ gate),
+    // avatar, interests and the rest are asked there.
+    set({ status: "onboarding", user });
   },
 
   completeOnboarding: async () => {

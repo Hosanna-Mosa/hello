@@ -84,11 +84,15 @@ async function ensurePartner(): Promise<State> {
   }
 
   const phoneNumber = "9000000042";
-  const { devCode } = await api("/auth/code", { method: "POST", body: { countryCode: "44", phoneNumber } });
-  const session = await api("/auth/verify", {
+  // Local-only test account, so a fixed password is fine. Signs up once, then
+  // signs in — `reset` drops the state file, not the account.
+  const password = "partner-pass-42";
+  const session = await api("/auth/signup", {
     method: "POST",
-    body: { countryCode: "44", phoneNumber, code: devCode },
-  });
+    body: { name: "Partner", email: "partner@example.test", countryCode: "44", phoneNumber, password },
+  }).catch(() =>
+    api("/auth/login", { method: "POST", body: { identifier: `+44${phoneNumber}`, password } }),
+  );
 
   await api("/me", {
     method: "PATCH",

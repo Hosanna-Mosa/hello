@@ -13,7 +13,7 @@ import {
   request,
   resetClient,
 } from "@/services/client";
-import { authService } from "@/services/auth.service";
+import { authService, toIdentifier } from "@/services/auth.service";
 import { billingService, FREE_DAILY_LIKES } from "@/services/billing.service";
 import { callsService } from "@/services/calls.service";
 import { chatService } from "@/services/chat.service";
@@ -272,15 +272,38 @@ describe("calls (A17)", () => {
 });
 
 describe("auth", () => {
-  it("accepts any 6 digits and rejects anything else", async () => {
-    await expect(authService.verifyCode("12345")).rejects.toMatchObject({ code: "validation" });
-    await expect(authService.verifyCode("000000")).resolves.toMatchObject({
+  it("signs in with an email or a phone number, and rejects anything else", async () => {
+    await expect(authService.login("not-an-email@", "friendly-42")).rejects.toMatchObject({ code: "validation" });
+    await expect(authService.login("asha@example.com", "")).rejects.toMatchObject({ code: "validation" });
+    await expect(authService.login("asha@example.com", "friendly-42")).resolves.toMatchObject({
+      onboardingComplete: false,
+    });
+    await expect(authService.login("98765 43210", "friendly-42")).resolves.toMatchObject({
+      phone: "+919876543210",
+    });
+  });
+
+  it("reads a bare number in the default country, and keeps a typed one", () => {
+    expect(toIdentifier("98765 43210")).toBe("+919876543210");
+    expect(toIdentifier("098765 43210")).toBe("+919876543210");
+    expect(toIdentifier("+44 7700 900123")).toBe("+447700900123");
+    expect(toIdentifier(" Asha@Example.com ")).toBe("Asha@Example.com");
+    expect(toIdentifier("123")).toBeNull();
+  });
+
+  it("refuses a weak password at sign-up, before any request", async () => {
+    const base = { name: "Asha", email: "asha@example.com", countryCode: "+91", phoneNumber: "9876543210" };
+    await expect(authService.signup({ ...base, password: "short1" })).rejects.toMatchObject({ code: "validation" });
+    await expect(authService.signup({ ...base, password: "lettersonly" })).rejects.toMatchObject({
+      code: "validation",
+    });
+    await expect(authService.signup({ ...base, password: "friendly-42" })).resolves.toMatchObject({
       onboardingComplete: false,
     });
   });
 
   it("a fresh session has not completed onboarding", async () => {
-    const session = await authService.verifyCode("123456");
+    const session = await authService.login("asha@example.com", "friendly-42");
     expect(session.onboardingComplete).toBe(false);
 
     const completed = await authService.completeOnboarding();

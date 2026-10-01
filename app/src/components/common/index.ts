@@ -55,6 +55,7 @@ export { ErrorState, type ErrorStateProps } from "./molecules/ErrorState";
 export { InterestText, type InterestTextProps } from "./molecules/InterestText";
 export { ListRow, type ListRowProps } from "./molecules/ListRow";
 export { NearbySkeleton, type NearbySkeletonProps } from "./molecules/NearbySkeleton";
+export { PasswordInput, type PasswordInputProps } from "./molecules/PasswordInput";
 export { RangeSlider, type RangeSliderProps } from "./molecules/RangeSlider";
 export { SectionHeader, type SectionHeaderProps } from "./molecules/SectionHeader";
 export { SelectableRow, type SelectableRowProps } from "./molecules/SelectableRow";
@@ -62,6 +63,7 @@ export { SettingsRow, type SettingsRowProps } from "./molecules/SettingsRow";
 export { Skeleton, type SkeletonProps } from "./molecules/Skeleton";
 export { SupportStatusPill, type SupportStatusPillProps } from "./molecules/SupportStatusPill";
 export { SystemMessage, type SystemMessageProps } from "./molecules/SystemMessage";
+export { TextLink, type TextLinkProps } from "./molecules/TextLink";
 export { ThreadSkeleton, type ThreadSkeletonProps } from "./molecules/ThreadSkeleton";
 export { ToggleRow, type ToggleRowProps } from "./molecules/ToggleRow";
 export { WizardProgress, type WizardProgressProps } from "./molecules/WizardProgress";
@@ -115,6 +117,7 @@ export {
 export { useTheme } from "./hooks/useTheme";
 
 // --- utils ---
+export { authErrorMessage } from "./utils/authErrorMessage";
 export { calculateAge, isOldEnough, MINIMUM_AGE } from "./utils/calculateAge";
 export { formatDistance, type DistanceUnit } from "./utils/formatDistance";
 export {

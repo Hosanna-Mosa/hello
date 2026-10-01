@@ -7,28 +7,55 @@
 
 import { Router } from "express";
 
+import { env } from "@/config/env.js";
 import * as controller from "@/controllers/auth.controller.js";
 import { requireAuth } from "@/middlewares/auth.js";
 import { rateLimit } from "@/middlewares/rateLimit.js";
 import { validateBody } from "@/middlewares/validate.js";
-import { emailLoginSchema, refreshSchema, sendCodeSchema, verifyCodeSchema } from "@/validators/auth.validator.js";
+import {
+  emailLoginSchema,
+  loginSchema,
+  refreshSchema,
+  sendCodeSchema,
+  signupSchema,
+  verifyCodeSchema,
+} from "@/validators/auth.validator.js";
 
 export const authRouter: Router = Router();
 
+authRouter.post("/signup", validateBody(signupSchema), rateLimit("auth-signup-ip", "ip"), controller.postSignup);
+
+// Per IP AND per account: the IP bucket stops one client walking many accounts,
+// the account bucket stops many clients guessing one password.
 authRouter.post(
-  "/code",
-  validateBody(sendCodeSchema),
-  rateLimit("auth-code-phone", "phone"),
-  rateLimit("auth-code-ip", "ip"),
-  controller.postCode,
+  "/login",
+  validateBody(loginSchema),
+  rateLimit("auth-login-ip", "ip"),
+  rateLimit("auth-login-account", "identifier"),
+  controller.postLogin,
 );
 
-authRouter.post(
-  "/verify",
-  validateBody(verifyCodeSchema),
-  rateLimit("auth-verify-phone", "phone"),
-  controller.postVerify,
-);
+/*
+ * The older phone + OTP sign-in. Off unless `OTP_LOGIN_ENABLED`: a verified
+ * code creates an account with no password, which would be a second way in
+ * beside `/signup`. The backend test suite turns it on to sign its users in.
+ */
+if (env.OTP_LOGIN_ENABLED) {
+  authRouter.post(
+    "/code",
+    validateBody(sendCodeSchema),
+    rateLimit("auth-code-phone", "phone"),
+    rateLimit("auth-code-ip", "ip"),
+    controller.postCode,
+  );
+
+  authRouter.post(
+    "/verify",
+    validateBody(verifyCodeSchema),
+    rateLimit("auth-verify-phone", "phone"),
+    controller.postVerify,
+  );
+}
 
 // The store-review sign-in. Per-IP only: there is one account behind it, so a
 // per-subject bucket would add nothing a guesser could not walk around.

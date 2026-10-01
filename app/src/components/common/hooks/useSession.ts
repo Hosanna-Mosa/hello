@@ -7,7 +7,7 @@
  * services.
  *
  * Honest note: the shape did change slightly in the move. `signIn(user)` became
- * `verifyCode(code)` and `user` is now the full `User` entity rather than a
+ * `verifyCode(code)` (since replaced by `login` / `signup`) and `user` is now the full `User` entity rather than a
  * structural stand-in, because the store talks to real services. Nothing
  * consumed the old shape — no screens exist yet — so nothing broke.
  */

@@ -102,8 +102,31 @@ const entitlementsSchema = new Schema(
   { _id: false },
 );
 
+/**
+ * Same split as `phone`: the plaintext is for display, the HMAC is what is
+ * indexed and looked up, so a dump of the index is not a mailing list.
+ */
+const emailSchema = new Schema(
+  {
+    /** Lower-cased and trimmed. Never indexed. */
+    address: { type: String, required: true, maxlength: 254 },
+    /** HMAC of `address`. THIS is what sign-in looks up. */
+    hmac: { type: String, required: true },
+  },
+  { _id: false },
+);
+
 const userSchema = new Schema(
   {
+    /** Null on accounts created by the older phone + OTP sign-in. */
+    email: { type: emailSchema, default: null },
+    /**
+     * scrypt, via `utils/password.ts`. `select: false` so no query, serializer
+     * or admin listing can return it by accident — sign-in asks for it by name.
+     * Null on OTP-era accounts, which therefore cannot sign in with a password.
+     */
+    passwordHash: { type: String, default: null, select: false },
+
     phone: {
       /** Plaintext, because Settings → Account has to show it. Never indexed. */
       e164: { type: String, required: true },
@@ -175,6 +198,12 @@ const userSchema = new Schema(
 userSchema.index(
   { "phone.hmac": 1 },
   { unique: true, partialFilterExpression: { "phone.hmac": { $type: "string" } }, name: "phone_hmac_unique" },
+);
+
+/** Partial for the same reason as the phone index, and for OTP-era accounts with no email. */
+userSchema.index(
+  { "email.hmac": 1 },
+  { unique: true, partialFilterExpression: { "email.hmac": { $type: "string" } }, name: "email_hmac_unique" },
 );
 
 /**

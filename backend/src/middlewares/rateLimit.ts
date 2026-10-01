@@ -26,6 +26,12 @@ const BUCKETS = {
   "auth-code-ip": { points: 20, durationSec: 3_600 },
   "auth-verify-phone": { points: 10, durationSec: 900 },
   "auth-email-ip": { points: 10, durationSec: 900 },
+  /** Password sign-in. Successes count too, so this is set above a person's retries. */
+  "auth-login-ip": { points: 20, durationSec: 900 },
+  /** Per account, whoever is asking — a distributed guesser still meets this one. */
+  "auth-login-account": { points: 10, durationSec: 900 },
+  /** Account creation. Also caps how fast "email already exists" can be probed. */
+  "auth-signup-ip": { points: 10, durationSec: 3_600 },
   "auth-refresh-ip": { points: 60, durationSec: 3_600 },
   /** Admin sign-in, per IP. The per-account lockout lives on the admin row. */
   "admin-login-ip": { points: 10, durationSec: 900 },
@@ -64,8 +70,18 @@ function limiter(name: BucketName): RateLimiterRedis {
 }
 
 /** Hashed, because a raw IP in a Redis key is personal data with no lookup need. */
-function subjectFor(req: Request, by: "ip" | "phone"): string | null {
+function subjectFor(req: Request, by: Subject): string | null {
   if (by === "ip") return req.ip ?? "unknown";
+
+  if (by === "identifier") {
+    // The sign-in identifier, normalised the way `auth.service.login` reads it
+    // so `A@x.com` and `a@x.com ` share one bucket. Hashed under the pepper —
+    // a raw email in a Redis key is personal data.
+    const raw = String((req.body as { identifier?: unknown } | undefined)?.identifier ?? "").trim();
+    if (!raw) return null;
+    const norm = raw.includes("@") ? raw.toLowerCase() : `+${raw.replace(/\D/g, "")}`;
+    return phoneHmac(`login:${norm}`);
+  }
 
   const { countryCode, phoneNumber } = (req.body ?? {}) as { countryCode?: string; phoneNumber?: string };
   if (!countryCode || !phoneNumber) return null;
@@ -76,7 +92,9 @@ function subjectFor(req: Request, by: "ip" | "phone"): string | null {
   }
 }
 
-export function rateLimit(name: BucketName, by: "ip" | "phone" = "ip") {
+type Subject = "ip" | "phone" | "identifier";
+
+export function rateLimit(name: BucketName, by: Subject = "ip") {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const subject = subjectFor(req, by);
     // No subject means a malformed body; validation will reject it in a moment

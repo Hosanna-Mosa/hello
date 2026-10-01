@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 
-import { Body, Box, Button, Label, SafeArea, Tappable, useTheme } from "@/components/common";
+import { Body, Box, Button, SafeArea, TextLink, useTheme } from "@/components/common";
 import { Logo } from "@/components/welcome/molecules/Logo";
 import { ValueCarousel, type CarouselSlide } from "@/components/welcome/organisms/ValueCarousel";
 import { copy } from "@/copy";
@@ -10,8 +10,7 @@ const FRIENDS = require("@/assets/images/illustrations/friends.png");
 /**
  * Welcome.
  *
- * One primary action: phone. Below it, a quiet "Log in with email" link for
- * store reviewers, whose credentials the server maps to one existing account.
+ * One primary action: log in. Below it, the way to create an account.
  */
 export default function WelcomeScreen() {
   const theme = useTheme();
@@ -45,20 +44,14 @@ export default function WelcomeScreen() {
       <Box style={{ paddingHorizontal: theme.spacing.xl, gap: theme.spacing.md }}>
         <Button
           label={copy.auth.welcomeCta}
-          onPress={() => router.push("/phone")}
+          onPress={() => router.push("/login")}
         />
 
-        <Tappable
-          onPress={() => router.push("/email")}
-          accessibilityRole="link"
-          accessibilityLabel={copy.auth.emailLink}
-          hitSlop={12}
-          style={{ alignSelf: "center" }}
-        >
-          <Label color="accent" style={{ textDecorationLine: "underline" }}>
-            {copy.auth.emailLink}
-          </Label>
-        </Tappable>
+        <TextLink
+          prompt={copy.auth.noAccount}
+          link={copy.auth.welcomeSignup}
+          onPress={() => router.push("/signup")}
+        />
 
         <Body
           color="textSecondary"

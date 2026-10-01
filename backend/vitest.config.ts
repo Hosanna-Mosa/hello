@@ -25,6 +25,9 @@ export default defineConfig({
       // at sign-in (PLAN #231). NODE_ENV is "test", so the production guard
       // in env.ts does not apply.
       OTP_DEV_MODE: "true",
+      // ...and the OTP routes are only mounted when this is on (they are off in
+      // a real deployment, where the app signs in with a password).
+      OTP_LOGIN_ENABLED: "true",
     },
   },
   resolve: {
