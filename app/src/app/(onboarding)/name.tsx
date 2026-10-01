@@ -4,10 +4,14 @@ import { useState } from "react";
 import { BareInput, Box, Button, Caption, useTheme, WizardShell } from "@/components/common";
 import { copy } from "@/copy";
 import { meService } from "@/services/me.service";
+import { useSessionStore } from "@/stores/session.store";
 
 export default function NameScreen() {
   const theme = useTheme();
-  const [name, setName] = useState("");
+  // Pre-filled from sign-up, which already asked; still editable until here,
+  // since this is the step that says it cannot change later.
+  const signedUpAs = useSessionStore((state) => state.user?.name ?? "");
+  const [name, setName] = useState(signedUpAs);
   const [focused, setFocused] = useState(false);
   const [saving, setSaving] = useState(false);
 

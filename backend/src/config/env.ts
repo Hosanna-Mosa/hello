@@ -99,6 +99,15 @@ const schema = z.object({
     .string()
     .regex(/^\+\d{7,19}$/, "REVIEW_LOGIN_PHONE must be E.164, e.g. +919704726252")
     .optional(),
+  /**
+   * Mounts the older `POST /auth/code` + `/auth/verify` phone sign-in. Off by
+   * default: the app signs in with a password now, and a verified code creates
+   * an account without one. The backend test suite turns it on to sign in.
+   */
+  OTP_LOGIN_ENABLED: z
+    .string()
+    .optional()
+    .transform((v) => v === "true"),
   OTP_TTL_SEC: z.coerce.number().int().positive().default(300),
   OTP_RESEND_SEC: z.coerce.number().int().positive().default(30),
 

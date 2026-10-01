@@ -53,7 +53,8 @@ export const copy = {
   auth: {
     welcomeTitle: "Meet people who actually get you",
     welcomeSubtitle: "Real friendships, near you.",
-    welcomeCta: "Continue with phone",
+    welcomeCta: "Log in",
+    welcomeSignup: "Create an account",
     // Slides 2 and 3 of the value carousel. Platonic throughout — this is the
     // first copy anyone reads, so it sets the positioning.
     welcomeSlide2Title: "Built around what you're into",
@@ -62,35 +63,44 @@ export const copy = {
     welcomeSlide3Subtitle: "Pick an avatar and let the conversation do the work.",
     legal: "By continuing you agree to our Terms and Privacy Policy.",
 
-    phoneTitle: "What's your number?",
-    phoneSubtitle: "We'll text you a code. Standard rates apply.",
-    phonePrivacy: "We never show your number to anyone.",
-    phoneCta: "Send code",
-    phoneInvalid: "Enter a valid phone number",
-
-    otpTitle: "Enter the code",
-    otpSubtitle: (number: string) => `Sent to ${number}`,
-    otpChange: "Change",
-    otpResendIn: (seconds: number) => `Resend code in 0:${String(seconds).padStart(2, "0")}`,
-    otpResend: "Resend code",
-    otpInvalid: "Enter the 6-digit code",
-
-    emailLink: "Log in with email",
-    emailTitle: "Log in with email",
-    emailSubtitle: "Use the email and password you were given.",
-    emailLabel: "Email",
+    loginTitle: "Welcome back",
+    loginSubtitle: "Log in with your email or phone number.",
+    identifierLabel: "Email or phone number",
+    identifierHint: "Phone numbers without a country code are read as +91.",
     passwordLabel: "Password",
-    emailCta: "Log in",
-    emailInvalid: "That email or password isn't right.",
+    passwordShow: "Show password",
+    passwordHide: "Hide password",
+    loginCta: "Log in",
+    loginInvalid: "That email, phone number or password isn't right.",
+    noAccount: "New here?",
+    signupLink: "Create an account",
+
+    signupTitle: "Create your account",
+    signupSubtitle: "You'll set up your profile next.",
+    nameLabel: "Name",
+    emailLabel: "Email",
+    phoneLabel: "Mobile number",
+    confirmPasswordLabel: "Confirm password",
+    passwordRule: "At least 8 characters, with a letter and a number.",
+    signupCta: "Create account",
+    haveAccount: "Already have an account?",
+    loginLink: "Log in",
+
+    nameRequired: "Enter your name.",
+    emailInvalid: "Enter a valid email address.",
+    phoneInvalid: "Enter a valid phone number.",
+    passwordWeak: "Use at least 8 characters, with a letter and a number.",
+    passwordMismatch: "The passwords don't match.",
+
     /*
-     * Every other way the sign-in can fail. These used to all read as
-     * emailInvalid, so a reviewer on a flaky connection or past the rate limit
-     * was told their correct password was wrong.
+     * Every other way sign-in or sign-up can fail. These must not all read as
+     * "wrong password", or someone on a flaky connection or past the rate
+     * limit is told their correct password is wrong.
      */
-    emailNetwork: "Can't reach the server. Check your connection and try again.",
-    emailRateLimited: "Too many attempts. Wait 15 minutes and try again.",
-    emailUnavailable: "Email sign-in isn't available right now. Please try again later.",
-    emailFailed: "Something went wrong signing in. Please try again.",
+    authNetwork: "Can't reach the server. Check your connection and try again.",
+    authRateLimited: "Too many attempts. Wait 15 minutes and try again.",
+    authUnavailable: "Signing in isn't available right now. Please try again later.",
+    authFailed: "Something went wrong. Please try again.",
   },
 
   onboarding: {

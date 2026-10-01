@@ -27,9 +27,19 @@ import type { Session } from "./types";
 /** One key. The session is a unit, and a half-restored one is worse than none. */
 const KEY = "hello.session.v1";
 
+/**
+ * iOS: readable only while the phone is unlocked, and THIS_DEVICE_ONLY so the
+ * tokens never ride along in an iCloud or iTunes backup onto another phone.
+ * Android: values are always encrypted with a key held in the Android
+ * Keystore, and the config plugin keeps them out of Auto Backup.
+ */
+const OPTIONS: SecureStore.SecureStoreOptions = {
+  keychainAccessible: SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
+};
+
 export async function loadSession(): Promise<Session | null> {
   try {
-    const raw = await SecureStore.getItemAsync(KEY);
+    const raw = await SecureStore.getItemAsync(KEY, OPTIONS);
     if (!raw) return null;
 
     const parsed = JSON.parse(raw) as Partial<Session>;
@@ -45,7 +55,7 @@ export async function loadSession(): Promise<Session | null> {
 
 export async function saveSession(session: Session): Promise<void> {
   try {
-    await SecureStore.setItemAsync(KEY, JSON.stringify(session));
+    await SecureStore.setItemAsync(KEY, JSON.stringify(session), OPTIONS);
   } catch {
     // Not fatal: the app works, it just will not remember this next launch.
   }
@@ -72,7 +82,7 @@ export async function saveTokens(token: string, refreshToken: string): Promise<v
 
 export async function clearSession(): Promise<void> {
   try {
-    await SecureStore.deleteItemAsync(KEY);
+    await SecureStore.deleteItemAsync(KEY, OPTIONS);
   } catch {
     // As above.
   }

@@ -3,7 +3,7 @@
  *
  * Tokens lived in a module variable in `client.ts` and the session in another
  * in `auth.service.ts`, so both died with the process. Every app close signed
- * the user out and sent them to read a fresh OTP off the server log — while the
+ * the user out and sent them back to the sign-in screen — while the
  * server was perfectly happy to keep them signed in, since the refresh token is
  * good for thirty days (PLAN R7, #208).
  *
@@ -17,6 +17,7 @@
 const mockStore = new Map<string, string>();
 
 jest.mock("expo-secure-store", () => ({
+  WHEN_UNLOCKED_THIS_DEVICE_ONLY: "WHEN_UNLOCKED_THIS_DEVICE_ONLY",
   getItemAsync: jest.fn(async (key: string) => mockStore.get(key) ?? null),
   setItemAsync: jest.fn(async (key: string, value: string) => {
     mockStore.set(key, value);
@@ -68,11 +69,10 @@ beforeEach(() => {
 });
 
 describe("session persistence", () => {
-  it("writes the session to the keychain when the code is verified", async () => {
-    const { auth } = coldStart([{ resendAfterSec: 30 }, SESSION]);
+  it("writes the session to the keychain on sign-in", async () => {
+    const { auth } = coldStart([SESSION]);
 
-    await auth.sendCode("44", "7700900123");
-    await auth.verifyCode("123456");
+    await auth.login("asha@example.com", "friendly-42");
 
     // Not "setItemAsync was called" — what was STORED is what matters, and it
     // must carry the refresh token, which is the whole point of the keychain.
@@ -82,9 +82,8 @@ describe("session persistence", () => {
   });
 
   it("restores that session on a COLD START — a new process, nothing in memory", async () => {
-    const first = coldStart([{ resendAfterSec: 30 }, SESSION]);
-    await first.auth.sendCode("44", "7700900123");
-    await first.auth.verifyCode("123456");
+    const first = coldStart([SESSION]);
+    await first.auth.login("asha@example.com", "friendly-42");
 
     // The app closes. Everything in memory is gone; only the keychain survives,
     // which is exactly what `mockStore` is here.
@@ -101,9 +100,8 @@ describe("session persistence", () => {
   });
 
   it("keeps the stored copy current when the refresh token ROTATES", async () => {
-    const { auth, client } = coldStart([{ resendAfterSec: 30 }, SESSION]);
-    await auth.sendCode("44", "7700900123");
-    await auth.verifyCode("123456");
+    const { auth, client } = coldStart([SESSION]);
+    await auth.login("asha@example.com", "friendly-42");
 
     // What a refresh does: new pair, old one now invalid. The server destroys
     // the whole session family if an old refresh token is replayed, so a stored
@@ -118,9 +116,8 @@ describe("session persistence", () => {
   });
 
   it("persists the pair a REAL refresh returns, not only a direct setTokens", async () => {
-    const { auth, client } = coldStart([{ resendAfterSec: 30 }, SESSION]);
-    await auth.sendCode("44", "7700900123");
-    await auth.verifyCode("123456");
+    const { auth, client } = coldStart([SESSION]);
+    await auth.login("asha@example.com", "friendly-42");
 
     // An expired access token: 401, then the refresh, then the replay.
     const replies = [
@@ -145,10 +142,23 @@ describe("session persistence", () => {
     expect(stored.refreshToken).toBe("refresh-token-3");
   });
 
+  it("keeps the tokens, never the password, and only on this device", async () => {
+    const { auth } = coldStart([SESSION]);
+    await auth.login("asha@example.com", "friendly-42");
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
+    expect([...mockStore.values()].join("")).not.toContain("friendly-42");
+
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const store = require("expo-secure-store") as { setItemAsync: jest.Mock };
+    const options = store.setItemAsync.mock.calls.at(-1)?.[2];
+    // Never restored from a backup onto a different phone.
+    expect(options).toEqual({ keychainAccessible: "WHEN_UNLOCKED_THIS_DEVICE_ONLY" });
+  });
+
   it("clears the keychain on sign out", async () => {
-    const { auth } = coldStart([{ resendAfterSec: 30 }, SESSION, {}]);
-    await auth.sendCode("44", "7700900123");
-    await auth.verifyCode("123456");
+    const { auth } = coldStart([SESSION, {}]);
+    await auth.login("asha@example.com", "friendly-42");
     expect(mockStore.size).toBe(1);
 
     await auth.signOut();
@@ -165,8 +175,7 @@ describe("session persistence", () => {
     /* eslint-disable-next-line @typescript-eslint/no-require-imports */
     const { authService } = require("@/services/auth.service") as typeof import("@/services/auth.service");
 
-    await authService.sendCode("44", "7700900123");
-    await authService.verifyCode("123456");
+    await authService.login("asha@example.com", "friendly-42");
 
     // The offline demo and all 512 other tests depend on a fresh process
     // starting signed out.

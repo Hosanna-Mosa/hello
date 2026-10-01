@@ -131,8 +131,13 @@ describe.each(THEMES)("Phase 8 — settings — %s theme", (theme) => {
 
   it("settings/account", async () => {
     // A real session, so the phone row has the number it was opened with.
-    await authService.sendCode("+91", "9876543210");
-    await authService.verifyCode("123456");
+    await authService.signup({
+      name: "Asha",
+      email: "asha@example.com",
+      countryCode: "+91",
+      phoneNumber: "9876543210",
+      password: "friendly-42",
+    });
     expect(await renderAtomAsync(<AccountSettingsScreen />, theme)).toMatchSnapshot();
   });
 
@@ -270,9 +275,14 @@ describe("Phase 8 — behaviour", () => {
     expect(await safetyService.listBlocked()).toHaveLength(1);
   });
 
-  it("the session remembers the number it was opened with", async () => {
-    await authService.sendCode("+91", "9876543210");
-    await authService.verifyCode("123456");
+  it("the session remembers the number it was signed up with", async () => {
+    await authService.signup({
+      name: "Asha",
+      email: "asha@example.com",
+      countryCode: "+91",
+      phoneNumber: "9876543210",
+      password: "friendly-42",
+    });
     expect((await authService.getSession())?.phone).toBe("+91 9876543210");
   });
 });

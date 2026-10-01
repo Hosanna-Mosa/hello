@@ -27,9 +27,8 @@ jest.mock("expo-location", () => ({
 
 import NotFoundScreen from "@/app/+not-found";
 import WelcomeScreen from "@/app/(auth)/index";
-import OtpScreen from "@/app/(auth)/otp";
-import EmailScreen from "@/app/(auth)/email";
-import PhoneScreen from "@/app/(auth)/phone";
+import LoginScreen from "@/app/(auth)/login";
+import SignupScreen from "@/app/(auth)/signup";
 import AgeRestrictedScreen from "@/app/(onboarding)/age-restricted";
 import AvatarScreen from "@/app/(onboarding)/avatar";
 import BioScreen from "@/app/(onboarding)/bio";
@@ -46,10 +45,8 @@ describe.each(THEMES)("auth + onboarding screens — %s theme", (theme) => {
   it("(auth)/index — welcome", () =>
     expect(renderAtom(<WelcomeScreen />, theme)).toMatchSnapshot());
 
-  it("(auth)/phone", () => expect(renderAtom(<PhoneScreen />, theme)).toMatchSnapshot());
-  it("(auth)/email", () => expect(renderAtom(<EmailScreen />, theme)).toMatchSnapshot());
-
-  it("(auth)/otp", () => expect(renderAtom(<OtpScreen />, theme)).toMatchSnapshot());
+  it("(auth)/login", () => expect(renderAtom(<LoginScreen />, theme)).toMatchSnapshot());
+  it("(auth)/signup", () => expect(renderAtom(<SignupScreen />, theme)).toMatchSnapshot());
 
   // --- (onboarding), in wizard order ---
   it("(onboarding)/name — step 1", () =>

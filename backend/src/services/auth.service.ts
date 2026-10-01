@@ -1,10 +1,11 @@
 /**
  * The auth flow.
  *
- * Sign-up and sign-in are the SAME endpoint. There is no separate registration:
- * the first verified code for a number creates the account, every later one
- * opens a session on it. The client has no concept of "register" either, so
- * adding one here would be inventing a state the UI cannot reach.
+ * The app signs up with name + email + phone + password (`signup`) and signs
+ * in with email-or-phone + password (`login`). Phone + OTP (`sendCode` /
+ * `verifyCode`) is the older flow: its routes are only mounted when
+ * `OTP_LOGIN_ENABLED` is set, because a verified code still creates an
+ * account, and that would be a second, password-less way in.
  *
  * A pending-deletion account that signs in is RESTORED. That is the 30-day
  * grace period working as designed — the user changed their mind, which is the
@@ -20,6 +21,8 @@ import { UserModel, type UserDoc } from "@/models/user.model.js";
 import { issueOtp, verifyOtp } from "@/services/otp.service.js";
 import { smsSender } from "@/services/sms.service.js";
 import { issuePair, revokeSession, denylistAccess, type TokenPair } from "@/services/token.service.js";
+import { emailHmac, normalizeEmail } from "@/utils/email.js";
+import { decoyHash, hashPassword, verifyPassword } from "@/utils/password.js";
 import { normalizePhone, phoneHmac } from "@/utils/phone.js";
 
 export type SendCodeResult = { resendAfterSec: number; devCode?: string };
@@ -141,6 +144,130 @@ export async function emailLogin(
   });
 
   return { user, tokens };
+}
+
+type Meta = { timezone?: string | undefined; userAgent?: string | undefined; ip?: string | undefined };
+
+function issueFor(user: UserDoc, meta: Meta): Promise<TokenPair> {
+  return issuePair(String(user._id), {
+    userAgent: meta.userAgent,
+    ipHash: meta.ip ? createHash("sha256").update(meta.ip).digest("hex") : undefined,
+  });
+}
+
+/** Mongo's duplicate-key error — the unique index losing a race with a parallel sign-up. */
+function isDuplicateKey(e: unknown): boolean {
+  return (e as { code?: number })?.code === 11000;
+}
+
+/**
+ * Email + phone + password registration.
+ *
+ * Says plainly when the email or number is taken. That does confirm the
+ * account exists, which is the trade every sign-up form makes; the per-IP
+ * rate limit is what stops it being used to sweep a list.
+ *
+ * The account starts NOT onboarded: birthday (the 18+ gate), avatar and
+ * interests still come from the wizard. Only the name is taken here.
+ */
+export async function signup(
+  input: { name: string; email: string; countryCode: string; phoneNumber: string; password: string },
+  meta: Meta,
+): Promise<VerifyResult> {
+  const email = normalizeEmail(input.email);
+  const phone = normalizePhone(input.countryCode, input.phoneNumber);
+
+  // The store-review address opens a different account (see `emailLogin`), so
+  // a sign-up holding it would make that sign-in ambiguous.
+  if (env.REVIEW_LOGIN_EMAIL && email.address === env.REVIEW_LOGIN_EMAIL.trim().toLowerCase()) {
+    throw ApiError.validation("An account with this email already exists.");
+  }
+
+  const [emailTaken, phoneTaken] = await Promise.all([
+    UserModel.exists({ "email.hmac": email.hmac }),
+    UserModel.exists({ "phone.hmac": phone.hmac }),
+  ]);
+  if (emailTaken) throw ApiError.validation("An account with this email already exists.");
+  if (phoneTaken) throw ApiError.validation("An account with this phone number already exists.");
+
+  let user: UserDoc;
+  try {
+    user = await UserModel.create({
+      name: input.name.trim(),
+      email,
+      passwordHash: await hashPassword(input.password),
+      phone: {
+        e164: phone.e164,
+        hmac: phone.hmac,
+        countryCode: phone.countryCode,
+        national: phone.national,
+        display: phone.display,
+      },
+      ...(meta.timezone ? { timezone: meta.timezone } : {}),
+    });
+  } catch (e) {
+    if (isDuplicateKey(e)) throw ApiError.validation("An account with this email or phone number already exists.");
+    throw e;
+  }
+  logger.info({ userId: String(user._id) }, "account created (password)");
+
+  return { user, tokens: await issueFor(user, meta) };
+}
+
+const E164 = /^\+\d{7,19}$/;
+
+/**
+ * Email-or-phone + password sign-in.
+ *
+ * Every failure is the SAME answer in roughly the same time — unknown account,
+ * OTP-era account with no password, wrong password, erased account — so the
+ * endpoint cannot be used to learn which emails or numbers are registered. The
+ * unknown-account path verifies against a decoy hash for exactly that reason.
+ */
+export async function login(identifier: string, password: string, meta: Meta): Promise<VerifyResult> {
+  const wrong = () => ApiError.validation("That email, phone number or password isn't right.");
+  const raw = identifier.trim();
+  const isEmail = raw.includes("@");
+
+  let filter: Record<string, string>;
+  if (isEmail) {
+    filter = { "email.hmac": emailHmac(raw) };
+  } else {
+    const e164 = `+${raw.replace(/[^\d]/g, "")}`;
+    if (!raw.startsWith("+") || !E164.test(e164)) throw wrong();
+    filter = { "phone.hmac": phoneHmac(e164) };
+  }
+
+  const user = await UserModel.findOne(filter).select("+passwordHash");
+
+  // The store-review credential is not a stored account; hand it over to the
+  // sign-in that owns it, so the reviewer's existing details keep working.
+  if (
+    !user &&
+    isEmail &&
+    env.REVIEW_LOGIN_EMAIL &&
+    raw.toLowerCase() === env.REVIEW_LOGIN_EMAIL.trim().toLowerCase()
+  ) {
+    return emailLogin(raw, password, meta);
+  }
+
+  const ok = await verifyPassword(password, user?.passwordHash ?? (await decoyHash()));
+  if (!user || !user.passwordHash || !ok || user.status === "erased") throw wrong();
+
+  if (user.status === "pendingDeletion") {
+    // Same grace-period restore as an OTP sign-in.
+    user.status = "active";
+    user.deletionRequestedAt = null;
+    user.purgeAt = null;
+    user.deletionReason = null;
+    logger.info({ userId: String(user._id) }, "account restored within grace period");
+  }
+
+  if (meta.timezone) user.timezone = meta.timezone;
+  user.lastActiveAt = new Date();
+  await user.save();
+
+  return { user, tokens: await issueFor(user, meta) };
 }
 
 export async function completeOnboarding(user: UserDoc): Promise<UserDoc> {

@@ -93,7 +93,7 @@ else
 fi
 
 # ── the four envelope cases PLAN names verbatim ─────────────────────────────
-S=$(req POST /v1/auth/code '{"countryCode":"","phoneNumber":""}'); B=$(body)
+S=$(req POST /v1/auth/login '{"identifier":"","password":""}'); B=$(body)
 expect_error "validation" 400 validation "$S" "$B"
 
 S=$(req GET /v1/me); B=$(body)
@@ -106,13 +106,13 @@ expect_error "notFound" 404 notFound "$S" "$B"
 # with no limiter in front of OTP sending is an SMS bill and an enumeration tool.
 HIT=""
 for _ in 1 2 3 4 5 6 7 8 9 10 11 12; do
-  S=$(req POST /v1/auth/code '{"countryCode":"44","phoneNumber":"7700900000"}'); B=$(body)
+  S=$(req POST /v1/auth/login '{"identifier":"smoke@example.invalid","password":"not-the-password-1"}'); B=$(body)
   if [ "$S" = "429" ]; then HIT="$B"; break; fi
 done
 if [ -n "$HIT" ]; then
   expect_error "rate limited" 429 rateLimited "429" "$HIT"
 else
-  fail "rate limited" "12 rapid OTP requests never produced a 429"
+  fail "rate limited" "12 rapid sign-in attempts never produced a 429"
 fi
 
 # ── Socket.IO handshake ─────────────────────────────────────────────────────
