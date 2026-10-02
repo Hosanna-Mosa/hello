@@ -1,5 +1,6 @@
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
+import { AppState } from "react-native";
 
 import {
   Body,
@@ -15,6 +16,7 @@ import {
 import { BenefitList } from "@/components/common/molecules/BenefitList";
 import { PlanCard } from "@/components/paywall/molecules/PlanCard";
 import { copy } from "@/copy";
+import { isMockMode } from "@/services/client";
 import { useEntitlementsStore } from "@/stores/entitlements.store";
 
 /**
@@ -37,7 +39,9 @@ export default function PaywallScreen() {
 
   const plans = useEntitlementsStore((state) => state.plans);
   const loadPlans = useEntitlementsStore((state) => state.loadPlans);
-  const setPremium = useEntitlementsStore((state) => state.setPremium);
+  const purchase = useEntitlementsStore((state) => state.purchase);
+  const checkPurchase = useEntitlementsStore((state) => state.checkPurchase);
+  const pendingOrderId = useEntitlementsStore((state) => state.pendingOrderId);
   const restore = useEntitlementsStore((state) => state.restore);
 
   /**
@@ -50,6 +54,7 @@ export default function PaywallScreen() {
    */
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     void loadPlans();
@@ -60,25 +65,66 @@ export default function PaywallScreen() {
   const activeId = selectedId ?? defaultPlan?.id ?? null;
 
   async function subscribe() {
+    if (!activeId) return;
     setBusy(true);
+    setError(null);
     try {
-      await setPremium(true);
-      router.back();
+      // Live: opens Razorpay in the browser and returns "pending". Mock: the
+      // demo grants at once and returns "premium".
+      if ((await purchase(activeId)) === "premium") router.back();
+    } catch (caught) {
+      setError(caught instanceof Error && caught.message ? caught.message : copy.premium.purchaseUnavailable);
     } finally {
       setBusy(false);
     }
   }
 
+  /** Asks the server whether the pending payment went through. */
+  async function confirmPayment() {
+    setBusy(true);
+    setError(null);
+    try {
+      const outcome = await checkPurchase();
+      if (outcome === "paid") router.back();
+      else if (outcome === "closed") setError(copy.premium.paymentClosed);
+      else setError(copy.premium.paymentPending);
+    } catch (caught) {
+      setError(caught instanceof Error && caught.message ? caught.message : copy.premium.paymentPending);
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // Coming back from Razorpay's page is the moment to check — no polling loop.
+  useEffect(() => {
+    if (!pendingOrderId) return;
+    const subscription = AppState.addEventListener("change", (state) => {
+      if (state === "active") void confirmPayment();
+    });
+    return () => subscription.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingOrderId]);
+
   return (
     <SheetShell
       footer={
         <>
-          <Button
-            label={copy.premium.cta}
-            onPress={() => void subscribe()}
-            disabled={!activeId || isPremium}
-            loading={busy}
-          />
+          {error ? (
+            <Caption color="danger" style={{ textAlign: "center" }}>
+              {error}
+            </Caption>
+          ) : null}
+
+          {pendingOrderId ? (
+            <Button label={copy.premium.paymentCheck} onPress={() => void confirmPayment()} loading={busy} />
+          ) : (
+            <Button
+              label={copy.premium.cta}
+              onPress={() => void subscribe()}
+              disabled={!activeId || isPremium}
+              loading={busy}
+            />
+          )}
 
           <Box style={{ alignItems: "center", paddingTop: theme.spacing.xs }}>
             <Tappable
@@ -116,7 +162,9 @@ export default function PaywallScreen() {
         </Box>
 
         {/* R13 in the UI, not just in a comment. */}
-        <Caption style={{ textAlign: "center" }}>{copy.premium.terms}</Caption>
+        <Caption style={{ textAlign: "center" }}>
+          {isMockMode() ? copy.premium.terms : copy.premium.termsLive}
+        </Caption>
     </SheetShell>
   );
 }

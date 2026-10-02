@@ -4,7 +4,6 @@ import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Field } from "@/components/ui/Field";
 import { Input } from "@/components/ui/Input";
-import { site } from "@/config/site";
 
 type Props = { busy: boolean; onConfirm: (reason: string) => void; onCancel: () => void };
 
@@ -21,8 +20,8 @@ export function ConfirmStep({ busy, onConfirm, onCancel }: Props) {
   return (
     <form onSubmit={submit} className="flex flex-col gap-4" noValidate>
       <Alert tone="warning" title="This removes your profile, matches and conversations.">
-        You'll be signed out on every device. You have {site.deletionGraceDays} days to change your mind by signing in again — after
-        that, it can't be undone.
+        Deletion is immediate and can't be undone. You'll be signed out on every device, and signing up again later
+        creates a brand-new account.
       </Alert>
       <Field id="reason" label="Why are you leaving? (optional)">
         <Input id="reason" maxLength={200} value={reason} onChange={(e) => setReason(e.target.value)} />

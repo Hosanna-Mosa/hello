@@ -24,7 +24,12 @@ export const site = {
   androidPackage: "com.hosanna4189.Hello",
   playStoreUrl: "https://play.google.com/store/apps/details?id=com.hosanna4189.Hello",
   minimumAge: 18,
-  deletionGraceDays: 30,
+  /**
+   * Account deletion is INSTANT (2026-10-02): no grace period, no restore. A
+   * copy is archived server-side (`deletedaccounts`).
+   * TODO(legal): state how long that archive is kept, here and in the privacy
+   * policy, before launch.
+   */
   /** The date the current policies took effect. */
   effectiveDate: "30 September 2026",
 } as const;

@@ -11,6 +11,9 @@ const dateTime = new Intl.DateTimeFormat(undefined, {
 });
 
 export const formatNumber = (n: number) => number.format(n);
+const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" });
+/** Integer paise → "₹299.00". The product's only currency. */
+export const formatInr = (paise: number) => inr.format(paise / 100);
 export const formatDate = (iso: string | null) => (iso ? date.format(new Date(iso)) : "—");
 export const formatDateTime = (iso: string | null) => (iso ? dateTime.format(new Date(iso)) : "—");
 

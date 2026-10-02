@@ -13,7 +13,7 @@
 import type { Server } from "node:http";
 
 import { createApp } from "@/app.js";
-import { env } from "@/config/env.js";
+import { env, isProd } from "@/config/env.js";
 import { voiceLog } from "@/config/callLog.js";
 import { logger } from "@/config/logger.js";
 import { connectMongo, disconnectMongo, supportsTransactions } from "@/config/mongo.js";
@@ -48,8 +48,9 @@ async function main(): Promise<void> {
   }
 
   const app = createApp();
-  const server: Server = app.listen(env.PORT, () => {
-    logger.info({ port: env.PORT, env: env.NODE_ENV }, "listening");
+  const host = env.HOST ?? (isProd ? "127.0.0.1" : "0.0.0.0");
+  const server: Server = app.listen(env.PORT, host, () => {
+    logger.info({ host, port: env.PORT, env: env.NODE_ENV }, "listening");
   });
 
   // Same HTTP server, so sockets and REST share one port, one origin and one

@@ -19,6 +19,7 @@ import {
 } from "@/components/common";
 import { BenefitList } from "@/components/common/molecules/BenefitList";
 import { copy } from "@/copy";
+import { isMockMode } from "@/services/client";
 import { useEntitlementsStore } from "@/stores/entitlements.store";
 
 /**
@@ -39,7 +40,7 @@ const MANAGE_URL = Platform.select({
 
 export default function SubscriptionSettingsScreen() {
   const theme = useTheme();
-  const { isPremium } = useEntitlements();
+  const { isPremium, entitlements } = useEntitlements();
 
   const setPremium = useEntitlementsStore((state) => state.setPremium);
   const restore = useEntitlementsStore((state) => state.restore);
@@ -68,7 +69,10 @@ export default function SubscriptionSettingsScreen() {
           <Body strong>
             {isPremium ? copy.premium.premiumPlan : copy.premium.freePlan}
           </Body>
-          <Caption>{copy.premium.terms}</Caption>
+          {isPremium && entitlements?.expiresAt ? (
+            <Caption>{copy.premium.activeUntil(new Date(entitlements.expiresAt))}</Caption>
+          ) : null}
+          <Caption>{isMockMode() ? copy.premium.terms : copy.premium.termsLive}</Caption>
         </Box>
 
         {isPremium ? (
@@ -85,12 +89,18 @@ export default function SubscriptionSettingsScreen() {
             onPress={() => void onRestore()}
             showChevron={false}
           />
-          <Divider inset={theme.spacing.xxxl} />
-          <SettingsRow
-            label={copy.premium.manage}
-            icon={{ ios: "arrow.up.right.square", android: "open_in_new" }}
-            onPress={() => void Linking.openURL(MANAGE_URL)}
-          />
+          {/* A Razorpay pass is not a store subscription, so there is nothing
+              to manage in the Play/App Store account — mock-only row. */}
+          {isMockMode() ? (
+            <>
+              <Divider inset={theme.spacing.xxxl} />
+              <SettingsRow
+                label={copy.premium.manage}
+                icon={{ ios: "arrow.up.right.square", android: "open_in_new" }}
+                onPress={() => void Linking.openURL(MANAGE_URL)}
+              />
+            </>
+          ) : null}
         </Card>
 
         {/*
@@ -98,7 +108,7 @@ export default function SubscriptionSettingsScreen() {
           billing provider, and a client walkthrough has to be able to show both
           tiers without one. Absent from a release build.
         */}
-        {__DEV__ ? (
+        {__DEV__ && isMockMode() ? (
           <Box style={{ gap: theme.spacing.sm }}>
             <SectionHeader title="Demo" />
             <ToggleRow

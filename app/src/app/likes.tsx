@@ -22,7 +22,8 @@ import { likesService } from "@/services/likes.service";
 import { profilesService } from "@/services/profiles.service";
 import type { Like, PublicProfile } from "@/services/types";
 
-type InboundLike = { like: Like; profile: PublicProfile };
+/** `profile` is null on the free tier: the server withholds who the like is from. */
+type InboundLike = { like: Like; profile: PublicProfile | null };
 
 /** The way to the other half — people YOU liked. In the header, so every state has it. */
 const sentLikesLink = (
@@ -62,7 +63,9 @@ export default function LikesScreen() {
         const resolved = await Promise.all(
           likes.map(async (like) => ({
             like,
-            profile: await profilesService.getProfile(like.fromUserId),
+            // Free tier: `fromUserId` is empty — the server does not say who —
+            // so there is nothing to fetch, and nothing identifying on the phone.
+            profile: like.fromUserId ? await profilesService.getProfile(like.fromUserId) : null,
           })),
         );
         setItems(resolved);
@@ -132,15 +135,15 @@ export default function LikesScreen() {
         contentContainerStyle={{ padding: theme.spacing.xl, gap: theme.spacing.md }}
         renderItem={({ item }) => (
           <LikeTile
-            name={item.profile.name}
-            source={avatarSource(item.profile.avatarId)}
-            age={item.profile.age}
-            locked={!isPremium}
+            name={item.profile?.name ?? ""}
+            source={item.profile ? avatarSource(item.profile.avatarId) : undefined}
+            age={item.profile?.age ?? 0}
+            locked={!isPremium || !item.profile}
             hasNote={Boolean(item.like.note)}
             lockedLabel={copy.premium.seeWhoLikesYou}
             noteLabel={copy.premium.sentNote}
             onPress={() =>
-              isPremium
+              isPremium && item.profile
                 ? router.push({ pathname: "/user/[id]", params: { id: item.profile.id } })
                 : router.push("/paywall")
             }

@@ -24,6 +24,6 @@ export const FAQS: Faq[] = [
   },
   {
     q: "How do I delete my account?",
-    a: `In the app: Profile → Settings → Delete account. Or use our Delete Account page on this website. You have ${site.deletionGraceDays} days to change your mind by signing in again.`,
+    a: "In the app: Profile → Settings → Delete account. Or use our Delete Account page on this website. Deletion is immediate and cannot be undone.",
   },
 ];

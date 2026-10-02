@@ -18,26 +18,28 @@ import { createTicketSchema, resolutionResponseSchema, supportMessageSchema } fr
 
 export const supportRouter: Router = Router();
 
-supportRouter.get("/support/tickets", requireAuth, controller.getTickets);
+const guarded = [requireAuth, rateLimit("api-user", "user")];
+
+supportRouter.get("/support/tickets", guarded, controller.getTickets);
 supportRouter.post(
   "/support/tickets",
-  requireAuth,
-  rateLimit("support-create"),
+  guarded,
+  rateLimit("support-create", "user"),
   validateBody(createTicketSchema),
   controller.postTicket,
 );
-supportRouter.get("/support/tickets/:id", requireAuth, controller.getTicket);
+supportRouter.get("/support/tickets/:id", guarded, controller.getTicket);
 supportRouter.post(
   "/support/tickets/:id/messages",
-  requireAuth,
-  rateLimit("message-send"),
+  guarded,
+  rateLimit("message-send", "user"),
   validateBody(supportMessageSchema),
   controller.postMessage,
 );
-supportRouter.post("/support/tickets/:id/read", requireAuth, controller.postRead);
+supportRouter.post("/support/tickets/:id/read", guarded, controller.postRead);
 supportRouter.post(
   "/support/tickets/:id/resolution",
-  requireAuth,
+  guarded,
   validateBody(resolutionResponseSchema),
   controller.postResolution,
 );

@@ -2,7 +2,7 @@
 //
 // Copied verbatim from app/src/services/types.ts by scripts/sync-contract.mjs.
 // Edit that file; run `npm run sync-contract` (or any build) to refresh this one.
-// source-sha256: d6df42de4621ca30
+// source-sha256: de16b81e750fa50f
 
 /**
  * Entity types.
@@ -265,6 +265,8 @@ export type Entitlements = {
   /** A16: 15/day on free, resets at local midnight. Infinity when premium. */
   likesRemaining: number;
   likesResetAt: IsoDateTime;
+  /** When a purchased pass ends. Null when free, or for an open-ended grant. */
+  expiresAt?: IsoDateTime | null;
 };
 
 export type PlanPeriod = "month" | "sixMonths" | "year";

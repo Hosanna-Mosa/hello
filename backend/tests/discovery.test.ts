@@ -44,7 +44,10 @@ async function makeViewer() {
     .send({
       name: `Viewer${counter}`,
       birthday: "1995-05-05",
-      location: { coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude } },
+      location: {
+        coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude },
+        fix: { capturedAt: new Date().toISOString(), accuracyMetres: 100 },
+      },
     });
   await request(app).post("/v1/auth/onboarding/complete").set("authorization", `Bearer ${token}`);
 

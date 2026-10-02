@@ -22,7 +22,18 @@ const list = z
   });
 
 export const discoveryQuerySchema = z.object({
-  maxDistanceMetres: z.coerce.number().int().positive().max(100_000).optional(),
+  /**
+   * Snapped UP to whole kilometres. The app only ever sends whole km; a 1 m
+   * step would let a caller binary-search someone's exact distance by watching
+   * them enter and leave the results, undoing the rounding on `distanceMetres`.
+   */
+  maxDistanceMetres: z.coerce
+    .number()
+    .int()
+    .positive()
+    .max(100_000)
+    .optional()
+    .transform((v) => (v === undefined ? undefined : Math.min(Math.ceil(v / 1000) * 1000, 100_000))),
   minAge: z.coerce.number().int().min(18).max(120).optional(),
   maxAge: z.coerce.number().int().min(18).max(120).optional(),
   interestIds: list,

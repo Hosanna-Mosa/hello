@@ -2,13 +2,14 @@
 
 export type Admin = { id: string; email: string; name: string; lastLoginAt: string | null };
 
-export type UserStatus = "active" | "pendingDeletion" | "erased";
+export type UserStatus = "active" | "suspended" | "pendingDeletion" | "erased";
 export type ReportStatus = "open" | "reviewed";
 
 export type AdminUser = {
   id: string;
   name: string;
   phone: string | null;
+  email: string | null;
   age: number | null;
   gender: string | null;
   city: string | null;
@@ -16,12 +17,43 @@ export type AdminUser = {
   role: string;
   onboardingComplete: boolean;
   isPremium: boolean;
+  /** When the current premium ends; null when free or open-ended. */
+  premiumUntil: string | null;
   discoverable: boolean;
   createdAt: string | null;
   lastActiveAt: string | null;
 };
 
+export type AdminPayment = {
+  id: string;
+  planLabel: string;
+  amountMinor: number;
+  currency: string;
+  status: "created" | "paid" | "expired" | "cancelled" | "failed";
+  providerPaymentId: string | null;
+  confirmedVia: "webhook" | "poll" | null;
+  grantedUntil: string | null;
+  paidAt: string | null;
+  createdAt: string | null;
+};
+
 export type AdminUserDetail = AdminUser & {
+  phoneE164: string | null;
+  birthday: string | null;
+  genderLabel: string | null;
+  showGender: boolean;
+  location: {
+    latitude: number;
+    longitude: number;
+    city: string | null;
+    accuracyMetres: number | null;
+    updatedAt: string | null;
+  } | null;
+  notifications: Record<string, boolean>;
+  premium: { active: boolean; flag: boolean; since: string | null; expiresAt: string | null; source: string | null };
+  suspendedAt: string | null;
+  suspendedReason: string | null;
+  payments: AdminPayment[];
   bio: string;
   avatarId: string;
   interestIds: string[];
@@ -50,6 +82,7 @@ export type DashboardStats = {
   users: {
     total: number;
     active: number;
+    suspended: number;
     pendingDeletion: number;
     erased: number;
     onboarded: number;

@@ -52,7 +52,10 @@ async function makeUser(name: string) {
     .send({
       name,
       birthday: "1994-04-04",
-      location: { coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude } },
+      location: {
+        coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude },
+        fix: { capturedAt: new Date().toISOString(), accuracyMetres: 100 },
+      },
     });
   await request(app).post("/v1/auth/onboarding/complete").set("authorization", `Bearer ${token}`);
 
@@ -415,5 +418,58 @@ describe("likes you sent (the 'You liked' screen)", () => {
 
   it("needs a session", async () => {
     expect((await request(app).get("/v1/likes/outbound")).status).toBe(401);
+  });
+});
+
+describe("premium is enforced by the server, not the app's blur", () => {
+  it("free sees THAT someone liked them, never WHO; premium sees who", async () => {
+    const liker = await makeUser("Liker");
+    const free = await makeUser("Free");
+    await request(app).post("/v1/likes").set("authorization", liker.auth).send({ toUserId: free.id, note: "hi" });
+
+    const asFree = await request(app).get("/v1/likes/inbound").set("authorization", free.auth);
+    expect(asFree.body).toHaveLength(1);
+    expect(asFree.body[0].fromUserId).toBe("");
+    expect(asFree.body[0].note).toBeUndefined();
+
+    await UserModel.updateOne({ _id: free.id }, { $set: { "entitlements.isPremium": true } });
+    const asPremium = await request(app).get("/v1/likes/inbound").set("authorization", free.auth);
+    expect(asPremium.body[0].fromUserId).toBe(liker.id);
+  });
+
+  it("reports the tier and allowance the server will actually enforce", async () => {
+    const me = await makeUser("Tier");
+    const free = await request(app).get("/v1/me/entitlements").set("authorization", me.auth);
+    expect(free.body).toMatchObject({ isPremium: false, likesRemaining: env.FREE_DAILY_LIKES });
+
+    await UserModel.updateOne({ _id: me.id }, { $set: { "entitlements.isPremium": true } });
+    const premium = await request(app).get("/v1/me/entitlements").set("authorization", me.auth);
+    expect(premium.body).toMatchObject({ isPremium: true, likesRemaining: -1 });
+  });
+});
+
+describe("a location must look like a real fix", () => {
+  const fix = (over: Record<string, unknown> = {}) => ({ capturedAt: new Date().toISOString(), accuracyMetres: 100, ...over });
+  const move = (auth: string, latitude: number, longitude: number, f: Record<string, unknown> | undefined = fix()) =>
+    request(app).patch("/v1/me").set("authorization", auth).send({ location: { coordinate: { latitude, longitude }, ...(f ? { fix: f } : {}) } });
+
+  it("refuses a hand-typed coordinate with no fix", async () => {
+    const me = await makeUser("NoFix");
+    expect((await move(me.auth, ANCHOR.latitude, ANCHOR.longitude, undefined)).status).toBe(400);
+  });
+
+  it("refuses a mock-location fix, a stale fix and null island", async () => {
+    const me = await makeUser("Spoofer");
+    expect((await move(me.auth, ANCHOR.latitude, ANCHOR.longitude, fix({ mocked: true }))).status).toBe(400);
+    const stale = new Date(Date.now() - 60 * 60 * 1000).toISOString();
+    expect((await move(me.auth, ANCHOR.latitude, ANCHOR.longitude, fix({ capturedAt: stale }))).status).toBe(400);
+    expect((await move(me.auth, 0, 0)).status).toBe(400);
+  });
+
+  it("refuses teleporting across the world, allows a short move", async () => {
+    const me = await makeUser("Traveller");
+    // makeUser placed them at ANCHOR a moment ago; Sydney is ~17,000 km away.
+    expect((await move(me.auth, -33.8688, 151.2093)).status).toBe(400);
+    expect((await move(me.auth, ANCHOR.latitude + 0.01, ANCHOR.longitude)).status).toBe(200);
   });
 });

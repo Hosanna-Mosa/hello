@@ -10,20 +10,23 @@
       "android": {
         "buildType": "apk"
       },
-      "node": "24.11.1"
+      "node": "24.11.1",
+      "environment": "development"
     },
     "preview": {
       "distribution": "internal",
       "android": {
         "buildType": "apk"
       },
-      "node": "24.11.1"
+      "node": "24.11.1",
+      "environment": "preview"
     },
     "production": {
       "android": {
         "buildType": "app-bundle"
       },
-      "node": "24.11.1"
+      "node": "24.11.1",
+      "environment": "production"
     }
   },
   "submit": {

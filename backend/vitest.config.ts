@@ -28,6 +28,11 @@ export default defineConfig({
       // ...and the OTP routes are only mounted when this is on (they are off in
       // a real deployment, where the app signs in with a password).
       OTP_LOGIN_ENABLED: "true",
+      // Fake Razorpay credentials: the API is stubbed in billing.test, and the
+      // webhook secret is what that suite signs its events with.
+      RAZORPAY_KEY_ID: "rzp_test_dummykey",
+      RAZORPAY_KEY_SECRET: "test-razorpay-key-secret",
+      RAZORPAY_WEBHOOK_SECRET: "test-razorpay-webhook-secret",
     },
   },
   resolve: {

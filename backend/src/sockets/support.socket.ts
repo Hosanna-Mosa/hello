@@ -11,6 +11,8 @@
  */
 
 import { logger } from "@/config/logger.js";
+import { socketErrorBody } from "@/errors/ApiError.js";
+import { consumeBucket } from "@/middlewares/rateLimit.js";
 import { toSupportMessage, toSupportTicket } from "@/serializers/support.serializer.js";
 import * as support from "@/services/support.service.js";
 import { emitSupportTyping, emitSupportUpdate } from "@/sockets/emitters.js";
@@ -21,12 +23,7 @@ import { socketSendSchema, socketTicketSchema, socketTypingSchema } from "@/vali
 type Ack = (result: unknown) => void;
 
 /** Mirrors the HTTP envelope so the client has one error shape, not two. */
-const fail = (e: unknown) => ({
-  error: {
-    code: (e as { code?: string }).code ?? "server",
-    message: (e as { code?: string }).code ? (e as Error).message : "Something went wrong.",
-  },
-});
+const fail = (e: unknown) => socketErrorBody(e);
 
 export function registerSupportHandlers(socket: AppSocket): void {
   const user = socket.user;
@@ -53,6 +50,11 @@ export function registerSupportHandlers(socket: AppSocket): void {
     const parsed = socketSendSchema.safeParse(payload);
     if (!parsed.success) {
       ack?.({ error: { code: "validation", message: parsed.error.issues[0]?.message ?? "That message isn't valid." } });
+      return;
+    }
+
+    if (!(await consumeBucket("message-send", `u:${String(user._id)}`))) {
+      ack?.({ error: { code: "rateLimited", message: "You're sending messages too quickly. Wait a moment." } });
       return;
     }
 

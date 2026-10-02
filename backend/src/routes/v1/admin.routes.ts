@@ -14,7 +14,13 @@ import * as supportController from "@/controllers/adminSupport.controller.js";
 import { adminGuard, requireAdmin } from "@/middlewares/adminAuth.js";
 import { rateLimit } from "@/middlewares/rateLimit.js";
 import { validateBody } from "@/middlewares/validate.js";
-import { adminLoginSchema, reportUpdateSchema } from "@/validators/admin.validator.js";
+import {
+  adminLoginSchema,
+  reportUpdateSchema,
+  userDeleteSchema,
+  userPremiumSchema,
+  userStatusSchema,
+} from "@/validators/admin.validator.js";
 import { supportMessageSchema } from "@/validators/support.validator.js";
 
 export const adminRouter: Router = Router();
@@ -24,7 +30,7 @@ adminRouter.use(adminGuard);
 adminRouter.post("/auth/login", rateLimit("admin-login-ip", "ip"), validateBody(adminLoginSchema), controller.postLogin);
 
 // Everything below this line is authenticated.
-adminRouter.use(requireAdmin);
+adminRouter.use(requireAdmin, rateLimit("admin-api", "user"));
 
 adminRouter.get("/auth/session", controller.getSession);
 adminRouter.post("/auth/logout", controller.postLogout);
@@ -35,6 +41,9 @@ adminRouter.get("/stats", controller.getStats);
 adminRouter.get("/users", controller.getUsers);
 adminRouter.get("/users/:id", controller.getUserById);
 adminRouter.post("/users/:id/revoke-sessions", controller.postRevokeSessions);
+adminRouter.post("/users/:id/status", validateBody(userStatusSchema), controller.postUserStatus);
+adminRouter.post("/users/:id/premium", validateBody(userPremiumSchema), controller.postUserPremium);
+adminRouter.post("/users/:id/delete", validateBody(userDeleteSchema), controller.postUserDelete);
 
 adminRouter.get("/reports", controller.getReports);
 adminRouter.patch("/reports/:id", validateBody(reportUpdateSchema), controller.patchReport);

@@ -5,10 +5,11 @@
 import type { Request, Response } from "express";
 
 import { ApiError } from "@/errors/ApiError.js";
-import { toLike, toMatch, toMessageRequest } from "@/serializers/match.serializer.js";
+import { toLike, toMatch, toMessageRequest, toRedactedLike } from "@/serializers/match.serializer.js";
 import * as likes from "@/services/likes.service.js";
 import { emitMatch, emitRequest, emitThreadEnded } from "@/sockets/emitters.js";
 import type { RequestStatus } from "@/services/likes.service.js";
+import { isPremiumNow } from "@/utils/entitlements.js";
 
 function requireUser(req: Request) {
   const user = req.user;
@@ -53,7 +54,10 @@ export async function getOutboundLikes(req: Request, res: Response): Promise<voi
 }
 
 export async function getInboundLikes(req: Request, res: Response): Promise<void> {
-  res.json((await likes.listInboundLikes(requireUser(req))).map(toLike));
+  const viewer = requireUser(req);
+  const rows = await likes.listInboundLikes(viewer);
+  // Premium sees who; free sees how many. Enforced HERE, not by the app's blur.
+  res.json(rows.map(isPremiumNow(viewer) ? toLike : toRedactedLike));
 }
 
 export async function getRequests(req: Request, res: Response): Promise<void> {

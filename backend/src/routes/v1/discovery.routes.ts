@@ -11,6 +11,7 @@ import { Router } from "express";
 
 import * as controller from "@/controllers/discovery.controller.js";
 import { requireAuth, requireOnboarded } from "@/middlewares/auth.js";
+import { rateLimit } from "@/middlewares/rateLimit.js";
 import { validateBody } from "@/middlewares/validate.js";
 import { passSchema } from "@/validators/discovery.validator.js";
 
@@ -24,7 +25,7 @@ export const discoveryRouter: Router = Router();
  * through to `notFound`, which contradicts the contract's error table and
  * hides real 404s behind a misleading 401.
  */
-const guarded = [requireAuth, requireOnboarded];
+const guarded = [requireAuth, rateLimit("api-user", "user"), requireOnboarded];
 
 discoveryRouter.get("/profiles", guarded, controller.getProfiles);
 // Before `/profiles/:id`, or "count" and "search" are read as ids.

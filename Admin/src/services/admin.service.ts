@@ -28,12 +28,22 @@ export const statsService = {
   dashboard: () => api.get<DashboardStats>("/stats"),
 };
 
-export type UserQuery = { page: number; search?: string; status?: UserStatus | "" };
+export type UserQuery = { page: number; search?: string; status?: UserStatus | ""; premium?: "true" | "false" | "" };
 
 export const usersService = {
-  list: (q: UserQuery) => api.get<Paged<AdminUser>>("/users", { page: q.page, search: q.search, status: q.status }),
+  list: (q: UserQuery) =>
+    api.get<Paged<AdminUser>>("/users", { page: q.page, search: q.search, status: q.status, premium: q.premium }),
   get: (id: string) => api.get<AdminUserDetail>(`/users/${encodeURIComponent(id)}`),
   revokeSessions: (id: string) => api.post<void>(`/users/${encodeURIComponent(id)}/revoke-sessions`),
+  /** Suspend signs them out everywhere at once; active lets them sign in again. */
+  setStatus: (id: string, status: "active" | "suspended", reason?: string) =>
+    api.post<AdminUserDetail>(`/users/${encodeURIComponent(id)}/status`, reason ? { status, reason } : { status }),
+  /** `days` omitted on a grant = no end date. */
+  setPremium: (id: string, isPremium: boolean, days?: number) =>
+    api.post<AdminUserDetail>(`/users/${encodeURIComponent(id)}/premium`, days ? { isPremium, days } : { isPremium }),
+  /** The same instant delete + archive as the user's own button. */
+  deleteUser: (id: string, reason?: string) =>
+    api.post<AdminUserDetail>(`/users/${encodeURIComponent(id)}/delete`, reason ? { reason } : {}),
 };
 
 export type ReportQuery = { page: number; status?: ReportStatus | ""; reason?: string };

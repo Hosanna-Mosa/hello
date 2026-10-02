@@ -10,23 +10,24 @@ import { useSearchParamState } from "@/hooks/useSearchParamState";
 import { usersService } from "@/services/admin.service";
 import type { UserStatus } from "@/types/admin";
 
-const KEYS = ["search", "status"] as const;
+const KEYS = ["search", "status", "premium"] as const;
 
 export default function UsersPage() {
   usePageTitle("Users");
   const { values, page, set } = useSearchParamState(KEYS);
   const status = values.status as UserStatus | "";
+  const premium = values.premium as "true" | "false" | "";
 
   const { data, error, loading, reload } = useAsync(
-    () => usersService.list({ page, search: values.search, status }),
-    [page, values.search, status],
+    () => usersService.list({ page, search: values.search, status, premium }),
+    [page, values.search, status, premium],
   );
 
   return (
     <>
       <PageHeader title="Users" description="Every account in the database. Select one to see its details." />
       <Card padded={false} className="overflow-hidden">
-        <UserFilters search={values.search} status={values.status} onChange={set} />
+        <UserFilters search={values.search} status={values.status} premium={values.premium} onChange={set} />
         <AsyncContent data={data} loading={loading} error={error} onRetry={reload}>
           {(result) => (
             <>

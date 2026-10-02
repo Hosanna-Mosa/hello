@@ -17,7 +17,7 @@ const COLUMNS: Column<AdminUser>[] = [
         <Avatar name={u.name || "?"} size="sm" />
         <span className="min-w-0">
           <span className="block truncate font-semibold text-ink">{u.name || "Unnamed"}</span>
-          <span className="block truncate text-xs text-muted">{u.phone ?? "No phone"}</span>
+          <span className="block truncate text-xs text-muted">{[u.phone, u.email].filter(Boolean).join(" · ") || "No contact"}</span>
         </span>
       </span>
     ),
@@ -29,7 +29,19 @@ const COLUMNS: Column<AdminUser>[] = [
     cell: (u) =>
       u.onboardingComplete ? <Badge tone="info">Complete</Badge> : <Badge>Onboarding</Badge>,
   },
-  { key: "plan", header: "Plan", cell: (u) => (u.isPremium ? <Badge tone="primary">Premium</Badge> : <span className="text-muted">Free</span>) },
+  {
+    key: "plan",
+    header: "Plan",
+    cell: (u) =>
+      u.isPremium ? (
+        <span className="flex flex-col">
+          <Badge tone="primary">Premium</Badge>
+          {u.premiumUntil && <span className="mt-0.5 text-xs text-muted">until {formatDate(u.premiumUntil)}</span>}
+        </span>
+      ) : (
+        <span className="text-muted">Free</span>
+      ),
+  },
   { key: "joined", header: "Joined", cell: (u) => <span className="text-muted">{formatDate(u.createdAt)}</span> },
   { key: "seen", header: "Last active", cell: (u) => <span className="text-muted">{formatRelative(u.lastActiveAt)}</span> },
 ];

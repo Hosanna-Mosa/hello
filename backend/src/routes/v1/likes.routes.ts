@@ -15,9 +15,9 @@ import { likeSchema } from "@/validators/likes.validator.js";
 
 export const likesRouter: Router = Router();
 
-const guarded = [requireAuth, requireOnboarded];
+const guarded = [requireAuth, rateLimit("api-user", "user"), requireOnboarded];
 
-likesRouter.post("/likes", guarded, rateLimit("me-write"), validateBody(likeSchema), controller.postLike);
+likesRouter.post("/likes", guarded, rateLimit("me-write", "user"), validateBody(likeSchema), controller.postLike);
 likesRouter.get("/likes/inbound", guarded, controller.getInboundLikes);
 likesRouter.get("/likes/outbound", guarded, controller.getOutboundLikes);
 

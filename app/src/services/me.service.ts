@@ -12,12 +12,24 @@ import type { User } from "./types";
 
 let me: User = { ...CURRENT_USER };
 
+/**
+ * What the device's location API said about a fix. The server REQUIRES it with
+ * every location change and refuses mocked, stale or impossible ones — a
+ * coordinate typed in by hand has none of this.
+ */
+export type LocationFix = {
+  /** ISO time the OS took the fix — not when we sent it. */
+  capturedAt: string;
+  accuracyMetres: number;
+  /** Android only: true when a "mock location" app supplied the fix. */
+  mocked?: boolean;
+};
+
 export type MeUpdate = Partial<
-  Pick<
-    User,
-    "name" | "birthday" | "gender" | "showGender" | "avatarId" | "bio" | "interestIds" | "location"
-  >
->;
+  Pick<User, "name" | "birthday" | "gender" | "showGender" | "avatarId" | "bio" | "interestIds">
+> & {
+  location?: User["location"] & { fix: LocationFix };
+};
 
 export const meService = {
   async getMe(): Promise<User> {
@@ -41,9 +53,19 @@ export const meService = {
         throw new ApiError("validation", "You must be 18 or over to use this app");
       }
 
+      if (patch.location?.fix.mocked) {
+        throw new ApiError("validation", "Your phone reported a simulated location.");
+      }
+
       // Rebuilt, never mutated in place — React Compiler's one hard rule, and
-      // stores read straight from this.
-      me = { ...me, ...patch };
+      // stores read straight from this. The fix is request metadata, not
+      // profile data, so it is not kept.
+      const { location, ...rest } = patch;
+      me = {
+        ...me,
+        ...rest,
+        ...(location ? { location: { coordinate: location.coordinate, city: location.city } } : {}),
+      };
       return { ...me };
     });
   },

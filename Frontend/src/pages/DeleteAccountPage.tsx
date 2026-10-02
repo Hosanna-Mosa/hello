@@ -16,13 +16,14 @@ import { usePageTitle } from "@/hooks/usePageTitle";
 
 const DELETED = [
   "Your profile — name, birthday, gender, avatar, interests and bio",
-  "Your phone number and location",
+  "Your phone number, email and location from the app (your number and email are freed for a new account)",
   "Your matches, likes and message requests",
   "Your messages, voice messages and call history",
   "Your settings and sign-in sessions",
 ];
 
 const KEPT = [
+  "A copy of your account data, in a restricted archive for safety, fraud-prevention and legal purposes — never shown to anyone and never usable to sign in",
   "Reports you filed or that were filed about you — kept only as long as needed for safety and legal obligations",
   "Records we must keep by law, such as purchase records held by Google Play",
 ];
@@ -49,10 +50,10 @@ export default function DeleteAccountPage() {
           <SectionHeading
             eyebrow="What happens next"
             title="What's deleted, and when"
-            description={`Your profile disappears and you're signed out immediately. After ${site.deletionGraceDays} days, everything below is permanently erased. Sign in again within those ${site.deletionGraceDays} days to restore your account.`}
+            description="Deletion is immediate. Everything on the left is removed from the app straight away and can't be restored; you're signed out everywhere."
           />
           <div className="grid gap-6 md:grid-cols-2">
-            <DataFateCard icon="trash" tone="danger" title={`Erased after ${site.deletionGraceDays} days`} items={DELETED} />
+            <DataFateCard icon="trash" tone="danger" title="Removed immediately" items={DELETED} />
             <DataFateCard icon="shield" tone="secondary" title="Kept for safety or by law" items={KEPT} />
           </div>
           <p className="mt-8 text-sm text-muted">

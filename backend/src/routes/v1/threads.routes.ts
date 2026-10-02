@@ -18,7 +18,7 @@ import { patchThreadSchema, reactionSchema, sendMessageSchema } from "@/validato
 
 export const threadsRouter: Router = Router();
 
-const guarded = [requireAuth, requireOnboarded];
+const guarded = [requireAuth, rateLimit("api-user", "user"), requireOnboarded];
 
 /**
  * One line when a voice upload arrives and one when it is answered, whatever
@@ -56,7 +56,7 @@ threadsRouter.get("/threads/:id/messages", guarded, controller.getMessages);
 threadsRouter.post(
   "/threads/:id/messages",
   guarded,
-  rateLimit("message-send"),
+  rateLimit("message-send", "user"),
   validateBody(sendMessageSchema),
   controller.postMessage,
 );
@@ -70,7 +70,7 @@ threadsRouter.post(
   // the controller's own logging, and production has no request log.
   voiceUploadAudit,
   guarded,
-  rateLimit("message-send"),
+  rateLimit("message-send", "user"),
   // ANY content type. The phone's fetch (`expo/fetch`) has been seen to send
   // an EMPTY Content-Type for a clip read from disk; matching only `audio/*`
   // then skipped the body and refused every upload as "empty". What the bytes

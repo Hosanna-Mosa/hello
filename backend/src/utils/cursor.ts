@@ -16,7 +16,7 @@
  * the owner so a cursor lifted from one account cannot be replayed on another.
  */
 
-import { createHmac, timingSafeEqual } from "node:crypto";
+import { createCipheriv, createDecipheriv, createHash, createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 
 import { env } from "@/config/env.js";
 import { ApiError } from "@/errors/ApiError.js";
@@ -42,9 +42,20 @@ function sign(payload: string): string {
   return b64url(createHmac("sha256", env.CURSOR_SECRET).update(payload).digest().subarray(0, 16));
 }
 
+/**
+ * Discovery cursors are ENCRYPTED, not just signed (AES-256-GCM, which also
+ * authenticates). `d` is the exact distance to the last profile on the page;
+ * readable, it would hand any caller someone's precise distance and undo the
+ * 100 m rounding the serializer applies — three positions and you have an
+ * address. Message cursors carry nothing sensitive and stay signed-only.
+ */
+const DISCOVERY_KEY = createHash("sha256").update(`discovery-cursor:${env.CURSOR_SECRET}`).digest();
+
 export function encodeCursor(cursor: Omit<DiscoveryCursor, "v">): string {
-  const payload = b64url(Buffer.from(JSON.stringify({ v: VERSION, ...cursor })));
-  return `${payload}.${sign(payload)}`;
+  const iv = randomBytes(12);
+  const cipher = createCipheriv("aes-256-gcm", DISCOVERY_KEY, iv);
+  const body = Buffer.concat([cipher.update(JSON.stringify({ v: VERSION, ...cursor })), cipher.final()]);
+  return b64url(Buffer.concat([iv, cipher.getAuthTag(), body]));
 }
 
 /**
@@ -55,16 +66,15 @@ export function encodeCursor(cursor: Omit<DiscoveryCursor, "v">): string {
 export function decodeCursor(raw: string, expectedUid: string, expectedFilterHash: string): DiscoveryCursor {
   const bad = () => ApiError.validation("That page link is no longer valid.");
 
-  const [payload, signature] = raw.split(".");
-  if (!payload || !signature) throw bad();
-
-  const expected = Buffer.from(sign(payload));
-  const actual = Buffer.from(signature);
-  if (expected.length !== actual.length || !timingSafeEqual(expected, actual)) throw bad();
-
   let parsed: DiscoveryCursor;
   try {
-    parsed = JSON.parse(Buffer.from(payload, "base64url").toString()) as DiscoveryCursor;
+    const buf = Buffer.from(raw, "base64url");
+    if (buf.length <= 28) throw bad();
+    const decipher = createDecipheriv("aes-256-gcm", DISCOVERY_KEY, buf.subarray(0, 12));
+    decipher.setAuthTag(buf.subarray(12, 28));
+    // `final()` throws on a tampered or foreign cursor — the auth tag is the signature.
+    const json = Buffer.concat([decipher.update(buf.subarray(28)), decipher.final()]).toString();
+    parsed = JSON.parse(json) as DiscoveryCursor;
   } catch {
     throw bad();
   }

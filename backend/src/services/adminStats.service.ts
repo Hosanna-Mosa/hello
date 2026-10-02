@@ -4,6 +4,7 @@
  * gets second-guessed.
  */
 
+import { premiumNowFilter } from "@/utils/entitlements.js";
 import { BlockModel } from "@/models/block.model.js";
 import { CallModel } from "@/models/call.model.js";
 import { LikeModel } from "@/models/like.model.js";
@@ -20,16 +21,17 @@ export async function dashboardStats() {
   const since = (days: number) => new Date(now - days * DAY_MS);
 
   const [
-    usersTotal, usersActive, usersPending, usersErased, onboarded, premium,
+    usersTotal, usersActive, usersSuspended, usersPending, usersErased, onboarded, premium,
     new7d, active24h, active7d, matchesTotal, matchesLive, messages, likes,
     callsTotal, callsCompleted, reportsOpen, reportsTotal, blocks, signups,
   ] = await Promise.all([
     UserModel.countDocuments({}),
     UserModel.countDocuments({ status: "active" }),
+    UserModel.countDocuments({ status: "suspended" }),
     UserModel.countDocuments({ status: "pendingDeletion" }),
     UserModel.countDocuments({ status: "erased" }),
     UserModel.countDocuments({ status: "active", onboardingComplete: true }),
-    UserModel.countDocuments({ status: "active", "entitlements.isPremium": true }),
+    UserModel.countDocuments({ status: "active", ...premiumNowFilter() }),
     UserModel.countDocuments({ createdAt: { $gte: since(7) } }),
     UserModel.countDocuments({ status: "active", lastActiveAt: { $gte: since(1) } }),
     UserModel.countDocuments({ status: "active", lastActiveAt: { $gte: since(7) } }),
@@ -47,7 +49,7 @@ export async function dashboardStats() {
 
   return {
     users: {
-      total: usersTotal, active: usersActive, pendingDeletion: usersPending, erased: usersErased,
+      total: usersTotal, active: usersActive, suspended: usersSuspended, pendingDeletion: usersPending, erased: usersErased,
       onboarded, premium, new7d, active24h, active7d,
     },
     matches: { total: matchesTotal, live: matchesLive },

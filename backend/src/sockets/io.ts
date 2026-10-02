@@ -17,10 +17,12 @@ import { Server, type Socket } from "socket.io";
 import { adminOrigins, corsOrigins } from "@/config/env.js";
 import { logger } from "@/config/logger.js";
 import { redis } from "@/config/redis.js";
+import { consumeBucket } from "@/middlewares/rateLimit.js";
 import type { UserDoc } from "@/models/user.model.js";
 import { registerAdminNamespace } from "@/sockets/admin.socket.js";
 import { authenticateSocket } from "@/sockets/auth.socket.js";
 import { registerChatHandlers } from "@/sockets/chat.socket.js";
+import { emitThreadEnded } from "@/sockets/emitters.js";
 import { registerCallHandlers } from "@/sockets/calls.socket.js";
 import { ADMIN_NAMESPACE, adminSessionRoom, userRoom } from "@/sockets/rooms.js";
 import { registerSupportHandlers } from "@/sockets/support.socket.js";
@@ -37,7 +39,15 @@ export async function attachSockets(server: HttpServer): Promise<Server> {
     cors: { origin: corsOrigins === true ? true : [...corsOrigins, ...adminOrigins], credentials: false },
     // A phone on a train drops its connection constantly. Recovery replays
     // what it missed instead of making the client re-fetch the world.
-    connectionStateRecovery: { maxDisconnectionDuration: 2 * 60 * 1000 },
+    //
+    // `skipMiddlewares: false` is a security setting. Socket.IO's default skips
+    // the auth middleware on a recovered connection, so a signed-out or deleted
+    // account's socket would rejoin its rooms on a stale session — and with
+    // `socket.user` unset, no handlers would register either.
+    connectionStateRecovery: { maxDisconnectionDuration: 2 * 60 * 1000, skipMiddlewares: false },
+    // The default is 1 MB. The largest legitimate frame is a call's SDP offer
+    // (a few KB); voice goes over REST. Anything bigger is abuse.
+    maxHttpBufferSize: 100_000,
   });
 
   // A connection in subscriber mode can issue no other command, so the adapter
@@ -52,6 +62,19 @@ export async function attachSockets(server: HttpServer): Promise<Server> {
   io.on("connection", (socket: AppSocket) => {
     const userId = String(socket.user?._id);
     void socket.join(userRoom(userId));
+
+    // A flood stop over EVERY event, before any handler runs. A spent bucket
+    // drops the packet and answers its ack (if any) so the client is not left
+    // waiting on a timeout.
+    socket.use(([, ...args], next) => {
+      void consumeBucket("socket-event", `u:${userId}`).then((ok) => {
+        if (ok) return next();
+        const ack = args.at(-1);
+        if (typeof ack === "function") {
+          (ack as (r: unknown) => void)({ error: { code: "rateLimited", message: "Slow down a little." } });
+        }
+      });
+    });
 
     logger.info(
       { userId, socketId: socket.id, recovered: socket.recovered },
@@ -94,4 +117,19 @@ export function getIo(): Server | null {
 export async function closeSockets(): Promise<void> {
   await io?.close();
   io = null;
+}
+
+/** Close every socket an account holds — after a suspension or a deletion. */
+export function disconnectUser(userId: string): void {
+  io?.in(userRoom(userId)).disconnectSockets(true);
+}
+
+/**
+ * After a deletion: tell the other side of every ended conversation, then
+ * close the deleted account's own sockets. Shared by the user's own delete
+ * and the admin's, so both doors behave identically.
+ */
+export function announceDeletion(userId: string, ended: { threadId: string; matchId: string; userIds: string[] }[]): void {
+  for (const e of ended) emitThreadEnded(e.userIds, e.threadId, e.matchId);
+  disconnectUser(userId);
 }

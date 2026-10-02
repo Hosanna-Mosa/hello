@@ -5,6 +5,7 @@
 import { Router } from "express";
 
 import { authRouter } from "@/routes/v1/auth.routes.js";
+import { billingRouter } from "@/routes/v1/billing.routes.js";
 import { callsRouter } from "@/routes/v1/calls.routes.js";
 import { discoveryRouter } from "@/routes/v1/discovery.routes.js";
 import { likesRouter } from "@/routes/v1/likes.routes.js";
@@ -24,4 +25,5 @@ v1Router.use("/", threadsRouter);
 v1Router.use("/", callsRouter);
 v1Router.use("/", safetyRouter);
 v1Router.use("/", supportRouter);
+v1Router.use("/", billingRouter);
 v1Router.use("/", taxonomyRouter);

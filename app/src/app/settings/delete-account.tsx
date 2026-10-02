@@ -34,25 +34,29 @@ type Step = "reason" | "consequences" | "confirm";
  */
 export default function DeleteAccountScreen() {
   const theme = useTheme();
-  const signOut = useSessionStore((state) => state.signOut);
+  const deleteAccount = useSessionStore((state) => state.deleteAccount);
 
   const [step, setStep] = useState<Step>("reason");
   const [reason, setReason] = useState<string | null>(null);
   const [typed, setTyped] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const confirmed = typed.trim().toUpperCase() === copy.settings.deleteConfirmWord;
 
   async function destroy() {
     setDeleting(true);
+    setError(null);
     try {
       /*
-       * There is no `deleteAccount` in the service layer and there should not
-       * be: every byte of this app's data is in memory (R7), so signing out is
-       * already a complete erasure. A mock "delete" endpoint would be theatre
-       * that does strictly less than this.
+       * Deletes on the server (instant — the server keeps an archived copy),
+       * then signs this device out. On success the root layout's
+       * `Stack.Protected` guard swaps to the signed-out group by itself.
        */
-      await signOut();
+      await deleteAccount(reason ?? undefined);
+    } catch (e) {
+      // Still signed in, account untouched — say so, and let them retry.
+      setError(e instanceof Error && e.message ? e.message : copy.settings.deleteFailed);
     } finally {
       setDeleting(false);
     }
@@ -130,6 +134,8 @@ export default function DeleteAccountScreen() {
         />
 
         <Caption>{copy.settings.deleteBody}</Caption>
+
+        {error ? <Caption color="danger">{error}</Caption> : null}
       </>
     );
   }

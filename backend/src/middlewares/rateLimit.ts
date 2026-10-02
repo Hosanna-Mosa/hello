@@ -47,7 +47,37 @@ const BUCKETS = {
    * set to stop a script rather than to pace a person.
    */
   "message-send": { points: 60, durationSec: 60 },
-  global: { points: 600, durationSec: 300 },
+  /**
+   * Location changes, per account per day. A real phone moves a handful of
+   * times a day; walking a spoofed position around to triangulate someone
+   * needs many more.
+   */
+  "location-change": { points: 20, durationSec: 86_400 },
+  /** Creating payment orders. Each one makes a Razorpay link; a person needs a few. */
+  "billing-order": { points: 10, durationSec: 3_600 },
+  /** Starting a call rings someone's phone. Stops a script from ring-bombing a match. */
+  "call-start": { points: 30, durationSec: 600 },
+  /**
+   * Every signed-in request, per ACCOUNT. 2/s sustained over five minutes is far
+   * above what a person tapping through the app produces, and far below what a
+   * scraper walking `/profiles/:id` needs.
+   */
+  "api-user": { points: 600, durationSec: 300 },
+  /**
+   * Every socket event, per account. ICE trickling sends a burst of candidates
+   * per call, so this is a flood stop (6/s sustained), not a pacer — the
+   * per-action buckets above still apply to the events that have one.
+   */
+  "socket-event": { points: 1_800, durationSec: 300 },
+  /** Every authenticated admin request, per operator. */
+  "admin-api": { points: 600, durationSec: 300 },
+  /**
+   * Every request, per IP — the flood floor under everything else, applied in
+   * `app.ts`. Deliberately generous: Indian carriers put thousands of phones
+   * behind one CGNAT address, so a tight per-IP limit would throttle real
+   * people. The per-account buckets above are the ones that pace a person.
+   */
+  global: { points: 3_000, durationSec: 300 },
 } satisfies Record<string, Bucket>;
 
 export type BucketName = keyof typeof BUCKETS;
@@ -73,6 +103,15 @@ function limiter(name: BucketName): RateLimiterRedis {
 function subjectFor(req: Request, by: Subject): string | null {
   if (by === "ip") return req.ip ?? "unknown";
 
+  if (by === "user") {
+    // Per account, so people sharing a carrier's NAT address do not share a
+    // budget. Mounted after `requireAuth` / `requireAdmin`; the IP fallback only
+    // matters if a route ever forgets that ordering.
+    if (req.user) return `u:${String(req.user._id)}`;
+    if (req.admin) return `a:${String(req.admin._id)}`;
+    return `ip:${req.ip ?? "unknown"}`;
+  }
+
   if (by === "identifier") {
     // The sign-in identifier, normalised the way `auth.service.login` reads it
     // so `A@x.com` and `a@x.com ` share one bucket. Hashed under the pepper —
@@ -92,7 +131,23 @@ function subjectFor(req: Request, by: Subject): string | null {
   }
 }
 
-type Subject = "ip" | "phone" | "identifier";
+type Subject = "ip" | "phone" | "identifier" | "user";
+
+/**
+ * `rateLimit` for code that is not an HTTP middleware — socket handlers, and
+ * services that limit one field of a larger request (a location change). `subject` should match what the HTTP
+ * path uses (`u:<userId>`), so REST and socket share ONE budget and neither door
+ * is a way around the other. False when spent; true on a Redis outage, for the
+ * same reason the HTTP path fails open.
+ */
+export async function consumeBucket(name: BucketName, subject: string): Promise<boolean> {
+  try {
+    await limiter(name).consume(subject);
+    return true;
+  } catch (e) {
+    return typeof (e as { msBeforeNext?: number }).msBeforeNext !== "number";
+  }
+}
 
 export function rateLimit(name: BucketName, by: Subject = "ip") {
   return async (req: Request, res: Response, next: NextFunction): Promise<void> => {

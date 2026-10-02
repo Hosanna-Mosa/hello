@@ -16,6 +16,8 @@ import { AvatarModel } from "@/models/avatar.model.js";
 import { InterestModel } from "@/models/interest.model.js";
 import { LikeModel } from "@/models/like.model.js";
 import { CallModel } from "@/models/call.model.js";
+import { DeletedAccountModel } from "@/models/deletedAccount.model.js";
+import { PaymentOrderModel } from "@/models/paymentOrder.model.js";
 import { MatchModel } from "@/models/match.model.js";
 import { MessageModel } from "@/models/message.model.js";
 import { MessageRequestModel } from "@/models/messageRequest.model.js";
@@ -28,7 +30,7 @@ import { SupportTicketModel } from "@/models/supportTicket.model.js";
 import { UserModel } from "@/models/user.model.js";
 
 const MODELS = [
-  UserModel, SessionModel, AdminModel, InterestModel, AvatarModel, PlanModel, PassModel,
+  UserModel, DeletedAccountModel, PaymentOrderModel, SessionModel, AdminModel, InterestModel, AvatarModel, PlanModel, PassModel,
   LikeModel, MessageRequestModel, MatchModel, ThreadModel, MessageModel, CallModel,
   SupportTicketModel, SupportMessageModel,
 ];

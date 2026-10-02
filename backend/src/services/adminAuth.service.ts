@@ -70,6 +70,7 @@ export async function login(email: string, password: string): Promise<{ admin: A
 
   const jti = randomUUID();
   const token = jwt.sign({ sub: String(admin._id), jti }, secret(), {
+    algorithm: "HS256",
     audience: AUDIENCE,
     expiresIn: env.ADMIN_SESSION_TTL_SEC,
   });
@@ -83,7 +84,7 @@ export async function login(email: string, password: string): Promise<{ admin: A
 export async function authenticate(token: string): Promise<{ admin: AdminDoc; jti: string }> {
   let claims: AdminClaims;
   try {
-    claims = jwt.verify(token, secret(), { audience: AUDIENCE }) as AdminClaims;
+    claims = jwt.verify(token, secret(), { algorithms: ["HS256"], audience: AUDIENCE }) as AdminClaims;
   } catch (e) {
     if (e instanceof ApiError) throw e;
     throw ApiError.unauthorized();
@@ -123,6 +124,7 @@ type SocketClaims = { sub: string; sid: string };
 
 export function issueSocketTicket(admin: AdminDoc, jti: string): { token: string; expiresIn: number } {
   const token = jwt.sign({ sub: String(admin._id), sid: jti }, secret(), {
+    algorithm: "HS256",
     audience: SOCKET_AUDIENCE,
     expiresIn: SOCKET_TICKET_TTL_SEC,
   });
@@ -140,7 +142,7 @@ export async function authenticateSocketTicket(
 ): Promise<{ admin: AdminDoc; jti: string; sessionMsLeft: number }> {
   let claims: SocketClaims;
   try {
-    claims = jwt.verify(token, secret(), { audience: SOCKET_AUDIENCE }) as SocketClaims;
+    claims = jwt.verify(token, secret(), { algorithms: ["HS256"], audience: SOCKET_AUDIENCE }) as SocketClaims;
   } catch (e) {
     if (e instanceof ApiError) throw e;
     throw ApiError.unauthorized();

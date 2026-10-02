@@ -20,8 +20,20 @@ export const userListQuery = z.object({
   page,
   limit,
   search: z.string().trim().max(60).optional(),
-  status: z.enum(["active", "pendingDeletion", "erased"]).optional(),
+  status: z.enum(["active", "suspended", "pendingDeletion", "erased"]).optional(),
+  premium: z.enum(["true", "false"]).optional(),
 });
+
+export const userStatusSchema = z
+  .object({ status: z.enum(["active", "suspended"]), reason: z.string().trim().max(200).optional() })
+  .strict();
+
+/** `days` omitted on a grant = open-ended. Ignored on a revoke. */
+export const userPremiumSchema = z
+  .object({ isPremium: z.boolean(), days: z.number().int().min(1).max(3650).optional() })
+  .strict();
+
+export const userDeleteSchema = z.object({ reason: z.string().trim().max(200).optional() }).strict();
 
 export const reportListQuery = z.object({
   page,
@@ -36,4 +48,7 @@ export const objectId = z.string().refine((v) => Types.ObjectId.isValid(v), "Inv
 
 export type AdminLoginBody = z.infer<typeof adminLoginSchema>;
 export type UserListQuery = z.infer<typeof userListQuery>;
+export type UserStatusBody = z.infer<typeof userStatusSchema>;
+export type UserPremiumBody = z.infer<typeof userPremiumSchema>;
+export type UserDeleteBody = z.infer<typeof userDeleteSchema>;
 export type ReportListQuery = z.infer<typeof reportListQuery>;

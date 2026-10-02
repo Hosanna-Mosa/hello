@@ -28,7 +28,7 @@ export const privacyHandling: ContentSection[] = [
         type: "table",
         head: ["Data", "Kept for"],
         rows: [
-          ["Account and profile", `Until you delete your account, then ${site.deletionGraceDays} days, then permanently erased`],
+          ["Account and profile", "Until you delete your account. It is then removed from the app immediately, and a copy is kept in a restricted archive for safety, fraud-prevention and legal purposes"],
           ["Messages and voice messages", "Until the conversation ends (unmatch or block) or your account is erased"],
           ["Call records", "Until the conversation ends or your account is erased"],
           ["Sign-in codes", "5 minutes"],
@@ -44,7 +44,7 @@ export const privacyHandling: ContentSection[] = [
     blocks: [
       {
         type: "p",
-        text: `You can delete your account at any time — in the app under Profile → Settings → Delete account, or on our Delete Account page. Your profile is hidden and you are signed out everywhere immediately. After ${site.deletionGraceDays} days your account and personal data are permanently erased. If you sign in again within those ${site.deletionGraceDays} days, your account is restored.`,
+        text: "You can delete your account at any time — in the app under Profile → Settings → Delete account, or on our Delete Account page. Deletion is immediate: your profile, matches and conversations are removed from the app, you are signed out everywhere, and your account cannot be restored. Your phone number and email are freed, so signing up again creates a completely new account. When an account is deleted, a copy of your account data is kept in a restricted archive for safety, fraud-prevention and legal purposes; it is never shown to other members and cannot be used to sign in.",
       },
     ],
   },
