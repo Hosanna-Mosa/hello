@@ -17,6 +17,21 @@ export function toLike(doc: LikeDoc): Like {
   };
 }
 
+/**
+ * A like as the FREE tier sees it: that it exists and when — nothing that says
+ * who. "See who likes you" is a premium benefit, and a gate the client enforces
+ * by blurring is no gate: the names would already be on the phone. `id` stays
+ * so the grid has a stable key; it opens nothing.
+ */
+export function toRedactedLike(doc: LikeDoc): Like {
+  return {
+    id: String(doc._id),
+    fromUserId: "",
+    toUserId: String(doc.toUserId),
+    createdAt: (doc.createdAt ?? new Date()).toISOString(),
+  };
+}
+
 export function toMessageRequest(doc: MessageRequestDoc): MessageRequest {
   return {
     id: String(doc._id),

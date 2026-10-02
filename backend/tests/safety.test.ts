@@ -52,7 +52,10 @@ async function makeUser(name: string) {
     .send({
       name,
       birthday: "1993-03-03",
-      location: { coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude } },
+      location: {
+        coordinate: { latitude: ANCHOR.latitude, longitude: ANCHOR.longitude },
+        fix: { capturedAt: new Date().toISOString(), accuracyMetres: 100 },
+      },
     });
   await request(app).post("/v1/auth/onboarding/complete").set("authorization", auth);
 

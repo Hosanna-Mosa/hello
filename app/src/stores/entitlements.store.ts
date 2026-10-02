@@ -19,15 +19,22 @@ export type EntitlementsState = {
 
   refresh: () => Promise<void>;
   loadPlans: () => Promise<void>;
-  /** The dev-only toggle. Not a purchase (A15). */
+  /** The dev-only toggle. Not a purchase (A15). Mock mode only. */
   setPremium: (isPremium: boolean) => Promise<void>;
+  /** An order waiting for its payment to be confirmed. */
+  pendingOrderId: string | null;
+  /** Starts a purchase. "premium" = already granted (mock); "pending" = Razorpay opened. */
+  purchase: (planId: string) => Promise<"premium" | "pending">;
+  /** Checks the pending order. "paid" = premium is on; "closed" = expired or failed. */
+  checkPurchase: () => Promise<"paid" | "pending" | "closed">;
   restore: () => Promise<void>;
 };
 
-export const useEntitlementsStore = create<EntitlementsState>((set) => ({
+export const useEntitlementsStore = create<EntitlementsState>((set, get) => ({
   entitlements: null,
   plans: [],
   loading: false,
+  pendingOrderId: null,
 
   refresh: async () => {
     set({ loading: true });
@@ -48,5 +55,30 @@ export const useEntitlementsStore = create<EntitlementsState>((set) => ({
 
   restore: async () => {
     set({ entitlements: await billingService.restorePurchases() });
+  },
+
+  purchase: async (planId) => {
+    const started = await billingService.purchase(planId);
+    if (started.kind === "premium") {
+      set({ entitlements: started.entitlements, pendingOrderId: null });
+      return "premium";
+    }
+    set({ pendingOrderId: started.orderId });
+    return "pending";
+  },
+
+  checkPurchase: async () => {
+    const orderId = get().pendingOrderId;
+    if (!orderId) return "closed";
+
+    const status = await billingService.checkOrder(orderId);
+    if (status === "paid") {
+      // The server granted it; read the tier back from the server.
+      set({ entitlements: await billingService.getEntitlements(), pendingOrderId: null });
+      return "paid";
+    }
+    if (status === "created") return "pending";
+    set({ pendingOrderId: null });
+    return "closed";
   },
 }));

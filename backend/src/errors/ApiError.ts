@@ -91,4 +91,14 @@ export function isApiError(e: unknown): e is ApiError {
   return e instanceof ApiError;
 }
 
+/**
+ * The error envelope for a socket ack. Only an `ApiError`'s message is ours to
+ * show; anything else (a Mongoose cast, a driver error — which ALSO carries a
+ * `code`) becomes the generic `server` message, exactly as the HTTP path does.
+ */
+export function socketErrorBody(e: unknown): { error: { code: string; message: string } } {
+  if (isApiError(e)) return e.toBody();
+  return { error: { code: "server", message: "Something went wrong. Please try again." } };
+}
+
 export { STATUS as ERROR_STATUS };

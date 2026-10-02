@@ -68,10 +68,12 @@ export async function verifyCode(
       throw ApiError.validation("This number can't be used. Please contact support.");
     }
 
+    if (user.status === "suspended") throw ApiError.unauthorized("This account has been suspended. Please contact support.");
+
     if (user.status === "pendingDeletion") {
       // A full restore: status is the only thing deletion changed, which is
       // exactly why deletion must not touch anything else (see
-      // me.service.requestDeletion).
+      // me.service.deleteAccount — accounts left pending by the older soft delete).
       user.status = "active";
       user.deletionRequestedAt = null;
       user.purgeAt = null;
@@ -253,6 +255,8 @@ export async function login(identifier: string, password: string, meta: Meta): P
 
   const ok = await verifyPassword(password, user?.passwordHash ?? (await decoyHash()));
   if (!user || !user.passwordHash || !ok || user.status === "erased") throw wrong();
+  // After the password check, so a guesser learns nothing from it.
+  if (user.status === "suspended") throw ApiError.unauthorized("This account has been suspended. Please contact support.");
 
   if (user.status === "pendingDeletion") {
     // Same grace-period restore as an OTP sign-in.

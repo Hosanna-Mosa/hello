@@ -1,10 +1,12 @@
 /**
- * The three API calls the website makes — all for deleting an account from
- * the web, using the same endpoints the app uses:
+ * The API calls the website makes — all for deleting an account from the web,
+ * using the same endpoints the app uses:
  *
- *   POST /v1/auth/code    send a one-time code to the phone
- *   POST /v1/auth/verify  prove ownership, receive a short-lived token
- *   DELETE /v1/me         request deletion with that token
+ *   POST /v1/auth/login    email or phone + password, the app's own sign-in.
+ *                          It never creates an account, and it is rate limited
+ *                          per IP and per account on the server.
+ *   DELETE /v1/me          delete instantly with that token
+ *   POST /v1/auth/signout  drop the token if the person backs out
  *
  * The token is held in memory for the length of the flow and never stored.
  */
@@ -38,16 +40,14 @@ async function call<T>(method: "POST" | "DELETE", path: string, body: unknown, t
   return data as T;
 }
 
-export type Phone = { countryCode: string; phoneNumber: string };
-
 export const accountApi = {
-  sendCode: (phone: Phone) => call<{ resendAfterSec: number }>("POST", "/auth/code", phone),
-  verify: (phone: Phone, code: string) =>
-    call<{ token: string }>("POST", "/auth/verify", {
-      ...phone,
-      code,
+  signIn: (identifier: string, password: string) =>
+    call<{ token: string }>("POST", "/auth/login", {
+      identifier: identifier.trim(),
+      password,
       timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     }),
-  requestDeletion: (token: string, reason?: string) =>
+  deleteAccount: (token: string, reason?: string) =>
     call<void>("DELETE", "/me", reason ? { reason } : {}, token),
+  signOut: (token: string) => call<void>("POST", "/auth/signout", {}, token),
 };

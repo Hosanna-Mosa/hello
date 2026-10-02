@@ -8,8 +8,9 @@ export function UserBreakdown({ users }: { users: DashboardStats["users"] }) {
     { label: "Active accounts", value: users.active },
     { label: "Finished onboarding", value: users.onboarded },
     { label: "Premium", value: users.premium },
+    { label: "Suspended", value: users.suspended },
     { label: "Pending deletion", value: users.pendingDeletion },
-    { label: "Erased", value: users.erased },
+    { label: "Deleted", value: users.erased },
   ];
 
   return (

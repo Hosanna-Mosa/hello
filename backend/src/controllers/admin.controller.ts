@@ -11,13 +11,23 @@ import { toAdmin, toAdminReport, toAdminUser, toAdminUserDetail } from "@/serial
 import * as adminAuth from "@/services/adminAuth.service.js";
 import { listReports, setReportStatus, type Party } from "@/services/adminReports.service.js";
 import { dashboardStats } from "@/services/adminStats.service.js";
-import { getUser, listUsers, revokeUserSessions } from "@/services/adminUsers.service.js";
-import { disconnectAdminSession } from "@/sockets/io.js";
+import {
+  deleteUserAsAdmin,
+  getUser,
+  listUsers,
+  revokeUserSessions,
+  setUserPremium,
+  setUserStatus,
+} from "@/services/adminUsers.service.js";
+import { announceDeletion, disconnectAdminSession, disconnectUser } from "@/sockets/io.js";
 import {
   objectId,
   reportListQuery,
   userListQuery,
   type AdminLoginBody,
+  type UserDeleteBody,
+  type UserPremiumBody,
+  type UserStatusBody,
 } from "@/validators/admin.validator.js";
 
 function requireAdminDoc(req: Request) {
@@ -70,13 +80,44 @@ export async function getUsers(req: Request, res: Response): Promise<void> {
 }
 
 export async function getUserById(req: Request, res: Response): Promise<void> {
-  const { user, counts } = await getUser(idParam(req));
-  res.json(toAdminUserDetail(user, counts));
+  const { user, counts, payments } = await getUser(idParam(req));
+  res.json(toAdminUserDetail(user, counts, payments));
 }
 
 export async function postRevokeSessions(req: Request, res: Response): Promise<void> {
-  await revokeUserSessions(idParam(req));
+  const id = idParam(req);
+  await revokeUserSessions(id);
+  disconnectUser(id);
   res.status(204).end();
+}
+
+/** Answers with the full detail, so the panel re-renders from the server's truth. */
+async function detail(res: Response, id: string): Promise<void> {
+  const { user, counts, payments } = await getUser(id);
+  res.json(toAdminUserDetail(user, counts, payments));
+}
+
+export async function postUserStatus(req: Request, res: Response): Promise<void> {
+  const { admin } = requireAdminDoc(req);
+  const id = idParam(req);
+  const user = await setUserStatus(admin, id, req.body as UserStatusBody);
+  if (user.status === "suspended") disconnectUser(id);
+  await detail(res, id);
+}
+
+export async function postUserPremium(req: Request, res: Response): Promise<void> {
+  const { admin } = requireAdminDoc(req);
+  const id = idParam(req);
+  await setUserPremium(admin, id, req.body as UserPremiumBody);
+  await detail(res, id);
+}
+
+export async function postUserDelete(req: Request, res: Response): Promise<void> {
+  const { admin } = requireAdminDoc(req);
+  const id = idParam(req);
+  const { ended } = await deleteUserAsAdmin(admin, id, (req.body as UserDeleteBody).reason);
+  announceDeletion(id, ended);
+  await detail(res, id);
 }
 
 const party = (parties: Map<string, Party>, id: unknown) => parties.get(String(id)) ?? null;

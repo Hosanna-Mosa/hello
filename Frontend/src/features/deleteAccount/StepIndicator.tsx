@@ -1,8 +1,8 @@
 import { cn } from "@/lib/cn";
 
-const LABELS = ["Phone", "Verify", "Confirm"];
+const LABELS = ["Sign in", "Confirm"];
 
-/** 1 · 2 · 3 progress for the deletion form. `current` is 0-based; 3 = finished. */
+/** 1 · 2 progress for the deletion form. `current` is 0-based; 2 = finished. */
 export function StepIndicator({ current }: { current: number }) {
   return (
     <ol className="mb-6 flex items-center gap-2" aria-label="Progress">

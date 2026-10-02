@@ -21,11 +21,12 @@ import { deleteMeSchema, meUpdateSchema, preferencesUpdateSchema } from "@/valid
 
 export const meRouter: Router = Router();
 
-meRouter.use(requireAuth);
+meRouter.use(requireAuth, rateLimit("api-user", "user"));
 
 meRouter.get("/", controller.getMe);
-meRouter.patch("/", rateLimit("me-write"), validateBody(meUpdateSchema), controller.patchMe);
+meRouter.patch("/", rateLimit("me-write", "user"), validateBody(meUpdateSchema), controller.patchMe);
 meRouter.delete("/", validateBody(deleteMeSchema), controller.deleteMe);
 
 meRouter.get("/preferences", controller.getPreferences);
-meRouter.patch("/preferences", rateLimit("me-write"), validateBody(preferencesUpdateSchema), controller.patchPreferences);
+meRouter.get("/entitlements", controller.getEntitlements);
+meRouter.patch("/preferences", rateLimit("me-write", "user"), validateBody(preferencesUpdateSchema), controller.patchPreferences);

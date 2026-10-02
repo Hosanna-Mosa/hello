@@ -31,6 +31,8 @@ export type SessionState = {
   signup: (input: SignupInput) => Promise<void>;
   completeOnboarding: () => Promise<void>;
   signOut: () => Promise<void>;
+  /** Deletes the account for good. Throws (and stays signed in) if the server refuses. */
+  deleteAccount: (reason?: string) => Promise<void>;
   refreshUser: () => Promise<void>;
 };
 
@@ -93,6 +95,14 @@ export const useSessionStore = create<SessionState>((set) => ({
     disconnectSocket();
     await authService.signOut();
     // Data is in-memory only (R7), so signing out is a full reset.
+    set({ status: "signedOut", user: null });
+  },
+
+  deleteAccount: async (reason) => {
+    // Server first: if it fails, nothing local has been torn down yet.
+    await authService.deleteAccount(reason);
+    useActiveCallStore.getState().hangUp();
+    disconnectSocket();
     set({ status: "signedOut", user: null });
   },
 

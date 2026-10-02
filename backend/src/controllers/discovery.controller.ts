@@ -9,6 +9,7 @@ import { ApiError } from "@/errors/ApiError.js";
 import { PassModel } from "@/models/pass.model.js";
 import { toPublicProfile } from "@/serializers/profile.serializer.js";
 import * as discovery from "@/services/discovery.service.js";
+import { isPremiumNow } from "@/utils/entitlements.js";
 import { discoveryQuerySchema, searchQuerySchema } from "@/validators/discovery.validator.js";
 
 function requireUser(req: Request) {
@@ -22,7 +23,10 @@ function filtersFrom(req: Request) {
   const parsed = discoveryQuerySchema.safeParse(req.query);
   if (!parsed.success) throw parsed.error;
 
-  const { cursor, ...filters } = parsed.data;
+  const { cursor, interestIds, activeRecently, ...basic } = parsed.data;
+  // "Advanced filters" is a premium benefit: interests and active-recently.
+  // Distance, age and gender stay free.
+  const filters = req.user && isPremiumNow(req.user) ? { ...basic, interestIds, activeRecently } : basic;
   return { filters, cursor };
 }
 

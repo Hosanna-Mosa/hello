@@ -11,6 +11,8 @@
  */
 
 import { key, redis } from "@/config/redis.js";
+import { socketErrorBody } from "@/errors/ApiError.js";
+import { consumeBucket } from "@/middlewares/rateLimit.js";
 import { logger } from "@/config/logger.js";
 import { toMessage, toThread } from "@/serializers/thread.serializer.js";
 import * as threads from "@/services/threads.service.js";
@@ -61,12 +63,21 @@ export function registerChatHandlers(socket: AppSocket): void {
    * optimistic `sending` into `sent` in one trip rather than two.
    */
   socket.on("message:send", async (payload: { threadId?: string; body?: string; clientMessageId?: string }, ack?: Ack) => {
+    // The same bucket and key as `POST /threads/:id/messages`, so the socket is
+    // not a way around the REST limit.
+    if (!(await consumeBucket("message-send", `u:${userId}`))) {
+      ack?.(fail("rateLimited", "You're sending messages too quickly. Wait a moment."));
+      return;
+    }
+    // A string or nothing — an object here would reach a Mongo filter.
+    const clientMessageId =
+      typeof payload?.clientMessageId === "string" ? payload.clientMessageId.slice(0, 64) : undefined;
     try {
       const sent = await threads.sendMessage(
         user,
         String(payload?.threadId ?? ""),
         String(payload?.body ?? ""),
-        payload?.clientMessageId,
+        clientMessageId,
       );
 
       const wire = toMessage(sent.message, sent.thread, userId);
@@ -78,8 +89,7 @@ export function registerChatHandlers(socket: AppSocket): void {
         wire,
       );
     } catch (e) {
-      const code = (e as { code?: string }).code ?? "server";
-      ack?.(fail(code, (e as Error).message));
+      ack?.(socketErrorBody(e));
     }
   });
 
@@ -97,8 +107,18 @@ export function registerChatHandlers(socket: AppSocket): void {
     }
   });
 
-  socket.on("typing:start", (payload: { threadId?: string }) => {
+  /**
+   * Only into a room this socket has JOINED — `thread:subscribe` is where
+   * membership was checked. Without this, anyone could fake typing into any
+   * thread whose id they knew, including a blocked person into the blocker's.
+   */
+  const joinedThread = (payload: { threadId?: string } | undefined): string | null => {
     const threadId = String(payload?.threadId ?? "");
+    return threadId.length > 0 && threadId.length <= 64 && socket.rooms.has(threadRoom(threadId)) ? threadId : null;
+  };
+
+  socket.on("typing:start", (payload: { threadId?: string }) => {
+    const threadId = joinedThread(payload);
     if (!threadId) return;
     // Best effort, and self-expiring — nothing downstream depends on it.
     void redis.set(key(`typing:${threadId}:${userId}`), "1", "EX", TYPING_TTL_SEC);
@@ -106,7 +126,7 @@ export function registerChatHandlers(socket: AppSocket): void {
   });
 
   socket.on("typing:stop", (payload: { threadId?: string }) => {
-    const threadId = String(payload?.threadId ?? "");
+    const threadId = joinedThread(payload);
     if (!threadId) return;
     void redis.del(key(`typing:${threadId}:${userId}`));
     emitTyping(threadId, userId, false);

@@ -15,10 +15,10 @@ import { blockSchema, reportSchema } from "@/validators/safety.validator.js";
 
 export const safetyRouter: Router = Router();
 
-const guarded = [requireAuth, requireOnboarded];
+const guarded = [requireAuth, rateLimit("api-user", "user"), requireOnboarded];
 
-safetyRouter.post("/blocks", guarded, rateLimit("me-write"), validateBody(blockSchema), controller.postBlock);
+safetyRouter.post("/blocks", guarded, rateLimit("me-write", "user"), validateBody(blockSchema), controller.postBlock);
 safetyRouter.get("/blocks", guarded, controller.getBlocks);
 safetyRouter.delete("/blocks/:userId", guarded, controller.deleteBlock);
 
-safetyRouter.post("/reports", guarded, rateLimit("me-write"), validateBody(reportSchema), controller.postReport);
+safetyRouter.post("/reports", guarded, rateLimit("me-write", "user"), validateBody(reportSchema), controller.postReport);

@@ -36,7 +36,21 @@ export const meUpdateSchema = z
         longitude: z.number().min(-180).max(180),
       }),
       city: z.string().max(80).optional(),
-    }),
+      /**
+       * What the device's location API said about the fix. Required: a
+       * coordinate typed in by hand has none of this, and the server checks it
+       * (me.service `assertGenuineFix`). Not proof — a rooted phone can lie —
+       * but it stops every casual spoof.
+       */
+      fix: z
+        .object({
+          capturedAt: z.iso.datetime({ offset: true }),
+          accuracyMetres: z.number().positive().max(50_000),
+          /** Android reports fixes from a "mock location" app. iOS omits it. */
+          mocked: z.boolean().optional(),
+        })
+        .strict(),
+    }).strict(),
   })
   .partial()
   .strict();

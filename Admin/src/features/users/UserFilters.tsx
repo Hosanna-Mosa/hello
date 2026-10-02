@@ -7,13 +7,25 @@ import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 const STATUS_OPTIONS = [
   { value: "", label: "All statuses" },
   { value: "active", label: "Active" },
+  { value: "suspended", label: "Suspended" },
   { value: "pendingDeletion", label: "Pending deletion" },
-  { value: "erased", label: "Erased" },
+  { value: "erased", label: "Deleted" },
 ];
 
-type Props = { search: string; status: string; onChange: (patch: { search?: string; status?: string }) => void };
+const PLAN_OPTIONS = [
+  { value: "", label: "All plans" },
+  { value: "true", label: "Premium" },
+  { value: "false", label: "Free" },
+];
 
-export function UserFilters({ search, status, onChange }: Props) {
+type Props = {
+  search: string;
+  status: string;
+  premium: string;
+  onChange: (patch: { search?: string; status?: string; premium?: string }) => void;
+};
+
+export function UserFilters({ search, status, premium, onChange }: Props) {
   const [draft, setDraft] = useState(search);
   const settled = useDebouncedValue(draft);
 
@@ -25,10 +37,13 @@ export function UserFilters({ search, status, onChange }: Props) {
   return (
     <div className="flex flex-col gap-3 border-b border-line p-4 sm:flex-row">
       <div className="flex-1">
-        <SearchInput label="Search users" value={draft} onChange={setDraft} placeholder="Search by name or phone" />
+        <SearchInput label="Search users" value={draft} onChange={setDraft} placeholder="Search by name, phone or email" />
       </div>
       <div className="sm:w-52">
         <Select aria-label="Filter by status" value={status} options={STATUS_OPTIONS} onChange={(e) => onChange({ status: e.target.value })} />
+      </div>
+      <div className="sm:w-40">
+        <Select aria-label="Filter by plan" value={premium} options={PLAN_OPTIONS} onChange={(e) => onChange({ premium: e.target.value })} />
       </div>
     </div>
   );

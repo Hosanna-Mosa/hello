@@ -15,6 +15,8 @@ import { z } from "zod";
 
 loadDotenv({ quiet: true });
 
+const blankToUndefined = (v: unknown) => (typeof v === "string" && v.trim() === "" ? undefined : v);
+
 const secret = (name: string) =>
   z
     .string({ error: `${name} is required` })
@@ -36,6 +38,16 @@ function defaultVoiceDir(): string {
 const schema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
   PORT: z.coerce.number().int().positive().default(4000),
+  /**
+   * The interface to listen on. Unset → loopback in production, every interface
+   * otherwise (a phone on the LAN has to reach a dev machine).
+   *
+   * Loopback in production is a security property, not a tidy default: Nginx
+   * is the only thing that should reach Node. If :4000 were reachable directly,
+   * a client could send its own `X-Forwarded-For`, `trust proxy` would believe
+   * it, and every per-IP rate limit would see a fresh address per request.
+   */
+  HOST: z.string().min(1).optional(),
 
   MONGO_URI: z.string().min(1, "MONGO_URI is required"),
   MONGO_DB: z.string().min(1).default("hello"),
@@ -183,6 +195,16 @@ const schema = z.object({
    * Unset → same-origin only (the panel behind the same host, or Vite's proxy).
    */
   ADMIN_ORIGINS: z.string().optional(),
+
+  /**
+   * Razorpay. All three or none: unset, `POST /billing/orders` answers
+   * "Purchases aren't available yet" and nothing else changes. The key secret
+   * and webhook secret are SECRETS — `backend/.env` only, never the app.
+   */
+  // `KEY=` (blank, as in .env.example) reads as unset rather than failing boot.
+  RAZORPAY_KEY_ID: z.preprocess(blankToUndefined, z.string().min(8).optional()),
+  RAZORPAY_KEY_SECRET: z.preprocess(blankToUndefined, z.string().min(8).optional()),
+  RAZORPAY_WEBHOOK_SECRET: z.preprocess(blankToUndefined, z.string().min(8).optional()),
 
   LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
   /**

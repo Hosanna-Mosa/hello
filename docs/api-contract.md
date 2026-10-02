@@ -150,6 +150,14 @@ Account displays it.
 Patchable: `name`, `birthday`, `gender`, `showGender`, `avatarId`, `bio`,
 `interestIds`, `location`, `timezone`.
 
+**`location` must carry the device's fix:**
+`{ coordinate, city?, fix: { capturedAt, accuracyMetres, mocked? } }`. The
+server refuses (`validation`) a fix reported as mocked, one older than 15
+minutes (or more than 2 minutes in the future), `0,0`, and any move over 50 km
+faster than 1,000 km/h since the last accepted change. Accepted changes are
+capped at 20 per account per day (`rateLimited`). None of this is proof — a
+rooted phone can lie — but it defeats every casual spoof.
+
 `gender` is a tagged union — `{ kind: "selfDescribed", label }` carries free
 text; every other kind carries no payload.
 
@@ -161,31 +169,35 @@ indistinguishable from a genuine preference, which is the actual privacy goal.
 
 ### Deletion and retention
 
-`DELETE /me` is a **soft delete with a 30-day grace period**.
+`DELETE /me` (`{ reason? }` → `204`) is **instant and final** (operator
+decision, 2026-10-02). There is no grace period and no restore.
 
-- Immediately: the account is hidden everywhere — discovery, search, likes,
-  matches, chat. To everyone else the user is gone.
-- Within 30 days: **signing in again restores the account intact** — same
-  number, same profile. That is the only restore path, and it needs no token,
-  which is just as well because deletion revokes every session. There is
-  deliberately no `POST /me/restore`: nobody could hold a valid token to call
-  it, and an endpoint nobody can reach reads as a working feature.
-- The account stops working **immediately**, including any access token already
-  issued. Deletion revokes the refresh tokens, and the account's own state is
-  checked on every request — a still-valid signature is not enough.
-- After 30 days: a background job erases the record, anonymises authored
-  messages, and deletes threads, likes and notifications.
-- Deletion changes `status` and **nothing else**. It does not touch
-  `preferences.discoverable`: hiding the account is `status != "active"`, which
-  every discovery query already filters on. Flipping the preference as well
-  would overwrite a choice the user may have made themselves, and restoring
-  could not tell the two apart — the account would come back permanently
-  invisible.
-- **Reports are retained**, with their evidence snapshot, past the erasure of
+In one transaction:
+
+1. **Archive.** A copy of the user document (minus `passwordHash`) goes to
+   `deletedaccounts`, with the phone/email HMACs, the reason, and what the
+   account was connected to (match and thread ids, like and report counts,
+   blocks made). Never read by the app; never usable to sign in.
+2. **Tear down.** Every live match ends (`endedAt`, `endedBy`), its thread,
+   messages and call records are deleted, and likes, message requests, passes
+   and blocks are deleted in both directions.
+3. **Tombstone.** The `users` row keeps its `_id` (other people's history and
+   reports point at it) but is scrubbed: name, bio, birthday, avatar,
+   interests, location, phone and email are cleared, `status: "erased"`.
+   `phone.hmac` is unset and `email` nulled, which takes the row out of both
+   partial unique indexes — **so signing up again with the same number or email
+   creates a brand-new account with a new id.** Nothing of the old one returns.
+
+After the commit: voice files are deleted, every session is revoked, the
+other party of each ended conversation gets `thread:ended`, and the account's
+sockets are disconnected. The account stops working immediately, including any
+access token already issued — the account's state is checked on every request.
+
+- **Reports are retained**, with their evidence snapshot, past the deletion of
   either party. A moderation record that vanishes when the reported account is
   deleted is worse than no record.
-- Erasure is a job, never a TTL index: a TTL would drop the user document
-  without running the cascade, orphaning threads, likes and report evidence.
+- Accounts left in `pendingDeletion` by the older soft delete still restore on
+  sign-in; no new account enters that state.
 
 ---
 
@@ -236,10 +248,15 @@ anywhere" has quietly become false.
 
 ## Likes & requests
 
+**Premium is enforced here, never only in the app.** Free: 15 likes a day
+(`quotaExceeded`), inbound likes redacted to a count, and discovery ignores
+`interestIds` / `activeRecently`. Premium: unlimited likes, who liked you, and
+those filters. `GET /me/entitlements` is the app's one source for the tier.
+
 | Method | Path | Body | Returns |
 |---|---|---|---|
 | `POST` | `/likes` | `{ toUserId, note? }` | `{ like, match \| null }` |
-| `GET` | `/likes/inbound` | — | `Like[]` |
+| `GET` | `/likes/inbound` | — | `Like[]` — **free tier: `fromUserId: ""` and no `note`** |
 | `GET` | `/requests` | `?status=pending` | `MessageRequest[]` |
 | `POST` | `/requests/:id/accept` | — | `Match` |
 | `POST` | `/requests/:id/decline` | — | `204` |
@@ -439,6 +456,7 @@ The user never sees which operator replied — `author` is `"admin"`, full stop.
 
 | Method | Path | Body | Returns |
 |---|---|---|---|
+| `GET` | `/me/entitlements` | — | `{ isPremium, likesRemaining, likesResetAt }` — `-1` = unlimited |
 | `GET` | `/me/preferences` | — | `Preferences` |
 | `PATCH` | `/me/preferences` | `Partial<Preferences>` | `Preferences` |
 

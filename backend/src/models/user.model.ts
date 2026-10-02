@@ -98,6 +98,12 @@ const entitlementsSchema = new Schema(
     since: { type: Date, default: null },
     /** The durable reset boundary. The counter itself lives in Redis. */
     quotaResetAt: { type: Date, default: null },
+    /**
+     * When premium ends. Null with `isPremium` = open-ended (admin grants only).
+     * Never read `isPremium` alone — use `utils/entitlements.isPremiumNow`.
+     */
+    expiresAt: { type: Date, default: null },
+    source: { type: String, enum: ["purchase", "admin", null], default: null },
   },
   { _id: false },
 );
@@ -154,6 +160,9 @@ const userSchema = new Schema(
     location: {
       point: { type: pointSchema, default: null },
       city: { type: String, trim: true, maxlength: 80 },
+      /** SERVER time of the last accepted change — the impossible-travel check measures from it. */
+      updatedAt: { type: Date, default: null },
+      accuracyMetres: { type: Number, default: null },
     },
 
     /** IANA name. Needed to compute the user's local midnight for the quota. */
@@ -168,9 +177,12 @@ const userSchema = new Schema(
 
     status: {
       type: String,
-      enum: ["active", "pendingDeletion", "erased"],
+      enum: ["active", "suspended", "pendingDeletion", "erased"],
       default: "active",
     },
+    /** Set by an admin. A suspended account cannot sign in and is hidden everywhere. */
+    suspendedAt: { type: Date, default: null },
+    suspendedReason: { type: String, maxlength: 200, default: null },
     deletionRequestedAt: { type: Date, default: null },
     /** When the erasure job may run. Swept by a job, never by a TTL index. */
     purgeAt: { type: Date, default: null },

@@ -259,6 +259,8 @@ export type Entitlements = {
   /** A16: 15/day on free, resets at local midnight. Infinity when premium. */
   likesRemaining: number;
   likesResetAt: IsoDateTime;
+  /** When a purchased pass ends. Null when free, or for an open-ended grant. */
+  expiresAt?: IsoDateTime | null;
 };
 
 export type PlanPeriod = "month" | "sixMonths" | "year";

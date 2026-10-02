@@ -1,10 +1,12 @@
 import { router } from "expo-router";
 import * as Location from "expo-location";
+import { useState } from "react";
 
 import {
   Body,
   Box,
   Button,
+  Caption,
   Heading,
   Label,
   Picture,
@@ -14,6 +16,7 @@ import {
   WizardShell,
 } from "@/components/common";
 import { copy } from "@/copy";
+import { ApiError } from "@/services/client";
 import { meService } from "@/services/me.service";
 import { useSessionStore } from "@/stores/session.store";
 
@@ -33,6 +36,7 @@ const MAP = require("@/assets/images/illustrations/location.png");
 export default function LocationScreen() {
   const theme = useTheme();
   const completeOnboarding = useSessionStore((state) => state.completeOnboarding);
+  const [error, setError] = useState<string | null>(null);
 
   const permission = usePermission({
     get: async () => {
@@ -52,6 +56,7 @@ export default function LocationScreen() {
   }
 
   async function allow() {
+    setError(null);
     await permission.request();
 
     // A coarse coordinate only.
@@ -66,9 +71,19 @@ export default function LocationScreen() {
         // So fall back to actually acquiring one. `Low` accuracy is deliberate:
         // it is fast, cheap on battery, and this product only ever shows
         // distance rounded to the nearest kilometre.
+        //
+        // `maxAge` keeps the cached fix only while it is recent: the server
+        // refuses fixes older than 15 minutes, so an older one would only fail.
         const position =
-          (await Location.getLastKnownPositionAsync()) ??
+          (await Location.getLastKnownPositionAsync({ maxAge: 10 * 60 * 1000 })) ??
           (await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Low }));
+
+        // A "mock location" app (Android reports it) is not where the person
+        // is. Refused here so it never leaves the phone; the server refuses it too.
+        if (position?.mocked) {
+          setError(copy.onboarding.locationMocked);
+          return;
+        }
 
         if (position) {
           await meService.updateMe({
@@ -77,10 +92,22 @@ export default function LocationScreen() {
                 latitude: position.coords.latitude,
                 longitude: position.coords.longitude,
               },
+              fix: {
+                capturedAt: new Date(position.timestamp).toISOString(),
+                // Null on some devices; "about a city" is the honest default.
+                accuracyMetres: position.coords.accuracy ?? 5000,
+                mocked: position.mocked ?? false,
+              },
             },
           });
         }
-      } catch {
+      } catch (caught) {
+        // The server refused the fix as not genuine — say why and stay here,
+        // rather than finishing with a location that was never saved.
+        if (caught instanceof ApiError && caught.code !== "network") {
+          setError(caught.message);
+          return;
+        }
         // A refused or unavailable fix must not block finishing onboarding.
       }
     }
@@ -136,6 +163,12 @@ export default function LocationScreen() {
             ? copy.onboarding.locationBlocked
             : copy.onboarding.locationBody}
         </Body>
+
+        {error ? (
+          <Caption color="danger" style={{ textAlign: "center" }}>
+            {error}
+          </Caption>
+        ) : null}
       </Box>
     </WizardShell>
   );

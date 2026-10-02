@@ -10,6 +10,8 @@ import request from "supertest";
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 
 import { createApp } from "@/app.js";
+import { DeletedAccountModel } from "@/models/deletedAccount.model.js";
+import { UserModel } from "@/models/user.model.js";
 import { clearResendGate, startTestEnv, stopTestEnv, wipe } from "./setup.js";
 
 const app = createApp();
@@ -161,17 +163,28 @@ describe("account deletion", () => {
     expect((await request(app).get("/v1/me").set("authorization", `Bearer ${token}`)).status).toBe(401);
   });
 
-  it("is soft, and signing in again restores the profile intact", async () => {
+  it("is instant: the same number comes back as a NEW account, and the old one is archived", async () => {
     const { token, phoneNumber } = await signIn();
-    await request(app)
+    const first = await request(app)
       .patch("/v1/me")
       .set("authorization", `Bearer ${token}`)
       .send({ name: "Rai", birthday: "1991-03-03" });
-    await request(app).delete("/v1/me").set("authorization", `Bearer ${token}`).send({});
+    const oldId = first.body.id as string;
 
-    // A different number would be a new account; this must be the same one.
-    // The resend gate is real and correct — it just has to be stepped over here
-    // rather than slept through.
+    expect((await request(app).delete("/v1/me").set("authorization", `Bearer ${token}`).send({ reason: "bye" })).status).toBe(204);
+
+    // The live row is an anonymous tombstone: no name, no phone hmac, erased.
+    const tomb = await UserModel.findById(oldId).lean();
+    expect(tomb?.status).toBe("erased");
+    expect(tomb?.name).toBe("");
+    expect(tomb?.phone?.hmac).toBeUndefined();
+
+    // ...and the copy the operator keeps.
+    const archived = await DeletedAccountModel.findOne({ originalUserId: oldId }).lean();
+    expect(archived?.reason).toBe("bye");
+    expect((archived?.snapshot as { name?: string }).name).toBe("Rai");
+    expect((archived?.snapshot as { passwordHash?: string }).passwordHash).toBeUndefined();
+
     await clearResendGate("44", phoneNumber);
     const code = await request(app).post("/v1/auth/code").send({ countryCode: "44", phoneNumber });
     const back = await request(app)
@@ -179,10 +192,11 @@ describe("account deletion", () => {
       .send({ countryCode: "44", phoneNumber, code: code.body.devCode });
 
     expect(back.status).toBe(200);
+    expect(back.body.userId).not.toBe(oldId);
 
     const me = await request(app).get("/v1/me").set("authorization", `Bearer ${back.body.token}`);
     expect(me.status).toBe(200);
-    expect(me.body.name).toBe("Rai");
+    expect(me.body.name).toBe("");
   });
 });
 

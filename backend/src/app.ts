@@ -18,7 +18,9 @@ import helmet from "helmet";
 import { adminOrigins, corsOrigins, isTest } from "@/config/env.js";
 import { errorHandler, notFoundHandler } from "@/middlewares/errorHandler.js";
 import { requestId } from "@/middlewares/requestId.js";
+import { rateLimit } from "@/middlewares/rateLimit.js";
 import { requestLog, useHumanRequestLog } from "@/middlewares/requestLog.js";
+import { postRazorpayWebhook } from "@/controllers/billing.controller.js";
 import { adminRouter } from "@/routes/v1/admin.routes.js";
 import { healthRouter } from "@/routes/v1/health.routes.js";
 import { v1Router } from "@/routes/v1/index.js";
@@ -40,6 +42,11 @@ export function createApp(): Express {
   app.use(helmet());
   app.use(compression());
 
+  // The per-IP flood floor, under every API route — admin included, and BEFORE
+  // body parsing so a flood is refused without reading its bodies. Health stays
+  // outside it so a probe never reads as an outage.
+  app.use("/v1", rateLimit("global", "ip"));
+
   // The admin panel, BEFORE the app's CORS: that one reflects any origin in
   // development, and the panel must never be reachable from one it does not
   // name. Credentials (the session cookie) are allowed only for ADMIN_ORIGINS;
@@ -55,6 +62,13 @@ export function createApp(): Express {
     express.json({ limit: "8kb" }),
     adminRouter,
   );
+
+  // Razorpay's webhook: the RAW body, because the signature is over the exact
+  // bytes sent. Before the JSON parser below, which would consume them. No
+  // CORS — a server-to-server call has no origin.
+  app.post("/v1/billing/razorpay/webhook", express.raw({ type: () => true, limit: "256kb" }), (req, res, next) => {
+    postRazorpayWebhook(req, res).catch(next);
+  });
 
   app.use(cors({ origin: corsOrigins, credentials: false }));
   // 64kb: the largest legitimate body is a bio or a message, both far under it.

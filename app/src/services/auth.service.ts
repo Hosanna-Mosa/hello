@@ -201,6 +201,29 @@ export const authService = {
     });
   },
 
+  /**
+   * Deletes the account on the server — instantly, with an archived copy kept
+   * server-side — then clears this device. Unlike `signOut`, a failure here
+   * THROWS and leaves the person signed in: telling someone their account is
+   * gone when the request never landed is the one lie this screen must not tell.
+   */
+  async deleteAccount(reason?: string): Promise<void> {
+    if (!isMockMode()) {
+      await http<void>("DELETE", "/me", reason ? { reason: reason.slice(0, 200) } : {});
+      // The server has already revoked every session, so there is nothing to
+      // sign out of — only local state to drop.
+      setTokens(null);
+      setCurrentUserId(null);
+      session = null;
+      return;
+    }
+
+    // Mock mode: every byte is in memory (R7), so dropping the session IS the erasure.
+    return request(() => {
+      session = null;
+    });
+  },
+
   /** Test seam — resets module state between cases. */
   __reset(): void {
     session = null;

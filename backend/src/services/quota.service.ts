@@ -17,6 +17,7 @@
  * timezone mid-day cannot mint a second allowance.
  */
 
+import { isPremiumNow } from "@/utils/entitlements.js";
 import { DateTime } from "luxon";
 
 import { env } from "@/config/env.js";
@@ -59,7 +60,7 @@ export type QuotaView = { remaining: number; limit: number; resetAt: Date };
 
 export async function peekQuota(user: UserDoc, now: Date = new Date()): Promise<QuotaView> {
   const resetAt = nextLocalMidnight(user, now);
-  if (user.entitlements?.isPremium) return { remaining: UNLIMITED, limit: UNLIMITED, resetAt };
+  if (isPremiumNow(user)) return { remaining: UNLIMITED, limit: UNLIMITED, resetAt };
 
   const spent = Number((await redis.get(counterKey(user, now))) ?? 0);
   return { remaining: Math.max(env.FREE_DAILY_LIKES - spent, 0), limit: env.FREE_DAILY_LIKES, resetAt };
@@ -68,7 +69,7 @@ export async function peekQuota(user: UserDoc, now: Date = new Date()): Promise<
 /** Spends one like, or throws `quotaExceeded` having written nothing. */
 export async function spendLike(user: UserDoc, now: Date = new Date()): Promise<QuotaView> {
   const resetAt = nextLocalMidnight(user, now);
-  if (user.entitlements?.isPremium) return { remaining: UNLIMITED, limit: UNLIMITED, resetAt };
+  if (isPremiumNow(user)) return { remaining: UNLIMITED, limit: UNLIMITED, resetAt };
 
   const ttl = Math.max(Math.ceil((resetAt.getTime() - now.getTime()) / 1000) + 60, 60);
   const remaining = Number(
@@ -87,7 +88,7 @@ export async function spendLike(user: UserDoc, now: Date = new Date()): Promise<
  * error — so a like that did not happen never costs the user anything.
  */
 export async function refundLike(user: UserDoc, now: Date = new Date()): Promise<void> {
-  if (user.entitlements?.isPremium) return;
+  if (isPremiumNow(user)) return;
   const k = counterKey(user, now);
   // Floor at zero: a refund must never mint allowance that was not spent.
   if (Number((await redis.get(k)) ?? 0) > 0) await redis.decr(k);

@@ -16,6 +16,8 @@
  */
 
 import { callLog, candidateType, voiceLog } from "@/config/callLog.js";
+import { socketErrorBody } from "@/errors/ApiError.js";
+import { consumeBucket } from "@/middlewares/rateLimit.js";
 import { toCall } from "@/serializers/call.serializer.js";
 import { toMessage } from "@/serializers/thread.serializer.js";
 import { MessageModel } from "@/models/message.model.js";
@@ -43,6 +45,12 @@ export function registerCallHandlers(socket: AppSocket): void {
   let diagCount = 0;
 
   socket.on("call:invite", async (payload: { threadId?: string }, ack?: Ack) => {
+    // Same bucket and key as `POST /calls`: an invite rings a phone, and an
+    // unlimited socket path would let a script ring a match endlessly.
+    if (!(await consumeBucket("call-start", `u:${userId}`))) {
+      ack?.({ error: { code: "rateLimited", message: "Too many calls. Try again in a few minutes." } });
+      return;
+    }
     try {
       const started = await calls.startCall(user, String(payload?.threadId ?? ""));
       const wire = toCall(started.call, userId);
@@ -67,7 +75,7 @@ export function registerCallHandlers(socket: AppSocket): void {
       );
     } catch (e) {
       callLog.warn({ userId, threadId: payload?.threadId, err: (e as Error).message }, "[call] invite FAILED");
-      ack?.(fail((e as { code?: string }).code ?? "server", (e as Error).message));
+      ack?.(socketErrorBody(e));
     }
   });
 
@@ -95,7 +103,7 @@ export function registerCallHandlers(socket: AppSocket): void {
       );
     } catch (e) {
       callLog.warn({ callId, userId, err: (e as Error).message }, "[call] accept FAILED");
-      ack?.(fail((e as { code?: string }).code ?? "server", (e as Error).message));
+      ack?.(socketErrorBody(e));
     }
   });
 
@@ -147,7 +155,7 @@ export function registerCallHandlers(socket: AppSocket): void {
       } catch (e) {
         // Most often: the call already ended, so its signals are refused.
         callLog.warn({ callId, userId, kind, err: (e as Error).message }, "[call] signal REFUSED");
-        ack?.(fail((e as { code?: string }).code ?? "server", (e as Error).message));
+        ack?.(socketErrorBody(e));
       }
     },
   );
@@ -241,7 +249,7 @@ export function registerCallHandlers(socket: AppSocket): void {
         );
       } catch (e) {
         callLog.warn({ callId, userId, err: (e as Error).message }, "[call] end FAILED");
-        ack?.(fail((e as { code?: string }).code ?? "server", (e as Error).message));
+        ack?.(socketErrorBody(e));
       }
     },
   );

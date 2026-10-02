@@ -146,6 +146,8 @@ export const copy = {
       "We use your location to show people close to you. We never show your exact position — only rough distance.",
     locationAllow: "Allow location",
     locationManual: "Enter my city instead",
+    locationMocked:
+      "Your phone is reporting a simulated location. Turn off any mock location app, then try again.",
     locationBlocked:
       "Location is turned off for this app. You can turn it back on in Settings, or enter your city instead.",
   },
@@ -399,6 +401,7 @@ export const copy = {
     ],
     deleteConfirmWord: "DELETE",
     deleteFinal: "Delete my account",
+    deleteFailed: "We couldn't delete your account. Check your connection and try again.",
   },
 
   support: {
@@ -553,6 +556,14 @@ export const copy = {
     unlimitedLikes: "Unlimited likes",
     seeWhoLikesYou: "See who likes you",
     sentNote: "Sent a note",
+    purchaseUnavailable: "Purchases aren't available yet.",
+    termsLive:
+      "Paid securely through Razorpay. Premium is a one-time pass for the period you choose and does not renew automatically.",
+    paymentCheck: "I've completed payment",
+    paymentPending: "We haven't received your payment yet. If you've paid, give it a moment and check again.",
+    paymentClosed: "That payment link has expired. Choose a plan to try again.",
+    activeUntil: (date: Date) =>
+      `Active until ${date.toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}`,
     blurredHint: (count: number) =>
       count === 1 ? "1 person likes you" : `${count} people like you`,
     unlockCta: "Unlock",

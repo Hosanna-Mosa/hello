@@ -42,12 +42,14 @@ const accessDenyKey = (jti: string) => key(`atblock:${jti}`);
 
 function signAccess(userId: string, sessionId: string): string {
   return jwt.sign({ sub: userId, sid: sessionId, jti: randomUUID() } satisfies AccessClaims, env.JWT_ACCESS_SECRET, {
+    algorithm: "HS256",
     expiresIn: env.ACCESS_TTL_SEC,
   });
 }
 
 function signRefresh(userId: string, sessionId: string): string {
   return jwt.sign({ sub: userId, sid: sessionId, jti: randomUUID() } satisfies RefreshClaims, env.JWT_REFRESH_SECRET, {
+    algorithm: "HS256",
     expiresIn: env.REFRESH_TTL_SEC,
   });
 }
@@ -85,7 +87,7 @@ export async function issuePair(
 export async function rotatePair(presented: string): Promise<TokenPair> {
   let claims: RefreshClaims;
   try {
-    claims = jwt.verify(presented, env.JWT_REFRESH_SECRET) as RefreshClaims;
+    claims = jwt.verify(presented, env.JWT_REFRESH_SECRET, { algorithms: ["HS256"] }) as RefreshClaims;
   } catch {
     throw ApiError.unauthorized("Your session has expired. Please sign in again.");
   }
@@ -150,7 +152,7 @@ export async function isAccessDenylisted(jti: string): Promise<boolean> {
 
 export function verifyAccess(token: string): AccessClaims & { exp: number } {
   try {
-    return jwt.verify(token, env.JWT_ACCESS_SECRET) as AccessClaims & { exp: number };
+    return jwt.verify(token, env.JWT_ACCESS_SECRET, { algorithms: ["HS256"] }) as AccessClaims & { exp: number };
   } catch {
     throw ApiError.unauthorized();
   }
